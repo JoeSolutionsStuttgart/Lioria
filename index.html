@@ -2590,6 +2590,17 @@
           <div style="font-size: 12.5px; line-height: 1.45; padding: 9px 11px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: var(--space-3);">{{ L.du_darfst_inhalte_pflegen_name_datum }}</div>
         </sc-if>
 
+        <div role="tablist" aria-label="{{ L.ed_tabs }}" style="{{ ed.leiste }}">
+          <sc-for list="{{ ed.tabs }}" as="et" hint-placeholder-count="5">
+            <button role="tab" aria-selected="{{ et.aria }}" onClick="{{ et.klick }}" style="{{ et.stil }}"><span aria-hidden="true" style="font-size: 17px; line-height: 1;">{{ et.g }}</span><span>{{ et.label }}</span><sc-if value="{{ et.hatBadge }}" hint-placeholder-val="{{ false }}"><span style="{{ et.badgeStil }}">{{ et.badge }}</span></sc-if></button>
+          </sc-for>
+        </div>
+        <div style="margin: var(--space-3) 0 var(--space-2); display: grid; gap: 4px;">
+          <div style="font-family: var(--font-heading); font-size: 21px; font-weight: 600;">{{ ed.titel }}</div>
+          <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ ed.intro }}</div>
+        </div>
+        <sc-if value="{{ ed.grund }}" hint-placeholder-val="{{ false }}">
+          <div data-edtab="grund" style="display: grid; gap: 0;">
         <div style="{{ lay.rowDate }}">
           <div class="field"><label>{{ L.name }}</label><input class="input" type="text" disabled="{{ form.partial }}" value="{{ form.name }}" onChange="{{ form.onName }}" placeholder="{{ L.was_ist_passiert }}"></div>
           <div class="field"><label>{{ L.datum }}</label><input class="input" type="date" disabled="{{ form.partial }}" value="{{ form.date }}" onChange="{{ form.onDate }}"></div>
@@ -2601,7 +2612,10 @@
         </div>
         <div class="field" style="margin-top: var(--space-2);"><label>{{ L.beschreibung }}</label><textarea class="input" value="{{ form.note }}" onChange="{{ form.onNote }}" placeholder="{{ L.ein_paar_saetze_dazu }}"></textarea></div>
 
-        <div style="margin: var(--space-6) 0 2px; font-family: var(--font-heading); font-size: 18px; font-weight: 600;">{{ L.ed_g_inhalt }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ ed.inhalt }}" hint-placeholder-val="{{ false }}">
+          <div data-edtab="inhalt" style="display: grid; gap: 0;">
         <button data-sec="infos" onClick="{{ form.sec.infos.toggle }}" style="{{ form.sec.head }}">
           <span style="{{ form.sec.infos.sign }}">▸</span>
           <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.infos }}</span>
@@ -2821,7 +2835,10 @@
           </div>
         </sc-if>
 
-        <div style="margin: var(--space-6) 0 2px; font-family: var(--font-heading); font-size: 18px; font-weight: 600;">{{ L.ed_g_programm }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ ed.programm }}" hint-placeholder-val="{{ false }}">
+          <div data-edtab="programm" style="display: grid; gap: 0;">
         <button data-sec="timetable" onClick="{{ ttFormOeffnen }}" style="{{ form.sec.head }}">
           <span style="display: inline-block; font-size: 10px; width: 12px; color: var(--color-accent-700);">▸</span>
           <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ ttFormKnopf }}</span>
@@ -3014,7 +3031,10 @@
           </div>
         </sc-if>
 
-        <div style="margin: var(--space-6) 0 2px; font-family: var(--font-heading); font-size: 18px; font-weight: 600;">{{ L.ed_g_vorort }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ ed.gast }}" hint-placeholder-val="{{ false }}">
+          <div data-edtab="gast" style="display: grid; gap: 0;">
           <div style="display: grid; gap: 0; padding-bottom: var(--space-4);">
 
             <sc-if value="{{ vo.cdZukunft }}" hint-placeholder-val="{{ false }}">
@@ -3146,7 +3166,11 @@
               <button data-vo="ga" onClick="{{ vo.klapp.ga.um }}" aria-expanded="{{ vo.klapp.ga.text }}" style="{{ form.sec.head }}"><span style="{{ vo.klapp.ga.zeichen }}">▸</span><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.ga_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.ga.badge }}</span></button><sc-if value="{{ vo.klapp.ga.auf }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
               <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.ga_hinweis }}</div>
                 <div style="display: grid; gap: var(--space-5);">
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <nav aria-label="{{ L.ed_ga_nav }}" style="display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 12px; border-radius: var(--radius-md); background: var(--color-accent-100);">
+                    <span style="width: 100%; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.ed_ga_nav }}</span>
+                    <sc-for list="{{ ed.gaNav }}" as="gn" hint-placeholder-count="0"><button onClick="{{ gn.klick }}" style="{{ gn.stil }}">{{ gn.label }}</button></sc-for>
+                  </nav>
+                  <div data-gasub="link" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.ga_g_link }}</div>
                     <label style="{{ vo.gaAktivStil }}"><input type="checkbox" checked="{{ vo.gaAn }}" onChange="{{ vo.gaUm }}" aria-label="{{ L.ga_checkbox }}" style="width: 28px; height: 28px; flex: 0 0 28px; margin: 2px 0 0; accent-color: var(--color-accent); cursor: pointer;"><span style="display: grid; gap: 3px; min-width: 0;"><strong style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">{{ vo.gaAktivTitel }}</strong><span style="font-size: 13.5px; line-height: 1.45;">{{ vo.gaAktivText }}</span></span></label>
                     <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
@@ -3179,7 +3203,7 @@
                   </sc-if>
                     </div>
                   </div>
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <div data-gasub="sicht" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.ga_g_sicht }}</div>
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                   <div style="display: flex; gap: 6px; flex-wrap: wrap;">
@@ -3208,7 +3232,7 @@
                     </div>
                   </sc-if>
                   </div>
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <div data-gasub="look" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.ga_g_look }}</div>
                   <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                     <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.ga_design }}</div>
@@ -3250,7 +3274,7 @@
                   </div>
                   </div>
                   <sc-if value="{{ vo.gaRsvp }}" hint-placeholder-val="{{ false }}">
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <div data-gasub="rsvp" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.gast_rsvp }}</div>
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                     <div style="display: flex; gap: 6px; flex-wrap: wrap;"><button onClick="{{ vo.gaEssenUm }}" style="{{ vo.gaEssenStil }}">{{ vo.gaEssenLabel }}</button><sc-if value="{{ vo.gaEssenAn }}" hint-placeholder-val="{{ false }}"><button onClick="{{ vo.gaEssenPflichtUm }}" style="{{ vo.gaEssenPflichtStil }}">{{ vo.gaEssenPflichtLabel }}</button></sc-if></div>
@@ -3261,7 +3285,7 @@
                     </div>
                   </div>
                   </sc-if>
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <div data-gasub="fragen" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.gf_titel }}</div>
                   <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                     <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.gf_hinweis }}</div>
@@ -3310,7 +3334,7 @@
                   </div>
                   </div>
                   <sc-if value="{{ vo.gaZp }}" hint-placeholder-val="{{ false }}">
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <div data-gasub="zp" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.zp_titel }}</div>
                     <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.zp_hinweis }}</div>
                     <sc-for list="{{ vo.zpTage }}" as="zt" hint-placeholder-count="0">
@@ -3342,7 +3366,7 @@
                   </div>
                   </sc-if>
                   <sc-if value="{{ vo.gaSitz }}" hint-placeholder-val="{{ false }}">
-                  <div style="display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
+                  <div data-gasub="sitz" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
                     <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.gast_sitz }}</div>
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                       <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.sp_hinweis }}</div>
@@ -3543,7 +3567,10 @@
             </div></sc-if></div>
           </div>
 
-        <div style="margin: var(--space-6) 0 2px; font-family: var(--font-heading); font-size: 18px; font-weight: 600;">{{ L.ed_g_aussehen }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ ed.aussehen }}" hint-placeholder-val="{{ false }}">
+          <div data-edtab="aussehen" style="display: grid; gap: 0;">
         <button data-sec="deko" onClick="{{ form.sec.deko.toggle }}" style="{{ form.sec.head }}">
           <span style="{{ form.sec.deko.sign }}">▸</span>
           <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.design_und_deko }}</span>
@@ -3660,8 +3687,11 @@
         </div>
         </sc-if>
 
+          </div>
+        </sc-if>
+        <sc-if value="{{ ed.freigabe }}" hint-placeholder-val="{{ false }}">
+          <div data-edtab="freigabe" style="display: grid; gap: 0;">
         <sc-if value="{{ form.vis.mine }}" hint-placeholder-val="{{ true }}">
-          <div style="margin: var(--space-6) 0 2px; font-family: var(--font-heading); font-size: 18px; font-weight: 600;">{{ L.ed_g_freigabe }}</div>
           <button data-sec="sicht" onClick="{{ form.sec.sicht.toggle }}" style="{{ form.sec.head }}">
             <span style="{{ form.sec.sicht.sign }}">▸</span>
             <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.wer_darf_dieses_ereignis_sehen }}</span>
@@ -3732,6 +3762,15 @@
           </sc-if>
         </sc-if>
 
+          </div>
+        </sc-if>
+        <sc-if value="{{ ed.hatWeiter }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; justify-content: space-between; gap: 8px; margin-top: var(--space-5); padding-top: var(--space-3); border-top: 1px solid var(--color-divider);">
+            <sc-if value="{{ ed.hatZurueck }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" onClick="{{ ed.zurueck }}">‹ {{ ed.zurueckLabel }}</button></sc-if>
+            <span style="flex: 1;"></span>
+            <sc-if value="{{ ed.hatNaechster }}" hint-placeholder-val="{{ true }}"><button class="btn btn-secondary" onClick="{{ ed.weiter }}">{{ ed.weiterLabel }} ›</button></sc-if>
+          </div>
+        </sc-if>
         <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: var(--space-6);">
           <button class="btn btn-secondary" style="white-space: nowrap;" onClick="{{ closeEditor }}">{{ L.abbrechen }}</button>
           <button class="btn btn-primary" style="white-space: nowrap;" onClick="{{ saveEvent }}">{{ L.ereignis_speichern }}</button>
@@ -8650,6 +8689,52 @@ class Component extends DCLogic {
     this.setState({ kontaktSicht: uid || "", admin: false, kontaktHover: "", kontaktAuf: "", personHover: "", openId: null, konto: false, drawer: false, menuOffen: false });
     try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (x) { window.scrollTo(0, 0); }
   }
+  /* Bearbeiten-Menü in Reitern: Grunddaten, Inhalt, Programm, Gästeseite, Aussehen, Freigabe. */
+  edVals() {
+    const st = this.state;
+    const d = st.draft;
+    if (!d) return {};
+    const me = this.me();
+    const mine = !d.by || !me || d.by === me.id;
+    const o = (this.exOf(d).offen) || {};
+    const zahl = (n) => (n > 0 ? String(n) : "");
+    const liste = [
+      ["grund", "✎", "ed_t_grund", ""],
+      ["inhalt", "☰", "ed_t_inhalt", zahl((d.infos || []).filter((x) => x && (String(x.label || "").trim() || String(x.value || "").trim())).length + (d.people || []).length + (d.images || []).length)],
+      ["programm", "◷", "ed_t_programm", zahl(((d.timetable || {}).acts || []).length + (d.etappen || []).length + (d.polls || []).length)],
+      ["gast", "✉", "ed_t_gast", o.an ? tx("fin_an") : ""],
+      ["aussehen", "✦", "ed_t_aussehen", ""]
+    ].concat(mine ? [["freigabe", "⚿", "ed_t_freigabe", ""]] : []);
+    const akt = liste.some((x) => x[0] === st.edTab) ? st.edTab : "grund";
+    const nr = liste.findIndex((x) => x[0] === akt);
+    const nachOben = () => window.setTimeout(() => { const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div'); if (dlg) dlg.scrollTop = 0; }, 30);
+    const geh = (k) => () => { this.setState({ edTab: k }); nachOben(); };
+    const out = {
+      /* Klebt am oberen Rand des Dialogs – der Innenabstand wird überdeckt, damit nichts darüber durchscheint. */
+      leiste: (function () { const pad = (st.vw || window.innerWidth || 1280) < 760 ? "var(--space-4)" : "var(--space-6)";
+        return { position: "sticky", top: "calc(-1 * " + pad + ")", zIndex: 6, display: "flex", flexWrap: "wrap", gap: "6px", margin: "0 calc(-1 * " + pad + ")", padding: "calc(" + pad + " + 4px) " + pad + " 10px", background: "var(--color-bg)", borderBottom: "1px solid var(--color-divider)" }; })(),
+      tabs: liste.map((x) => {
+        const an = x[0] === akt;
+        return { key: x[0], g: x[1], label: tx(x[2]), aria: an ? "true" : "false", klick: geh(x[0]), hatBadge: !!x[3], badge: x[3],
+          stil: { display: "inline-flex", alignItems: "center", gap: "7px", minHeight: "42px", padding: "0 14px", borderRadius: "999px", cursor: "pointer", font: "inherit", fontSize: "14px", fontWeight: an ? 700 : 500,
+            border: an ? "2px solid var(--color-accent)" : "1px solid var(--color-divider)", background: an ? "var(--color-accent)" : "var(--color-surface)", color: an ? "var(--color-on-accent)" : "var(--color-text)" },
+          badgeStil: { fontSize: "11px", fontWeight: 700, padding: "1px 7px", borderRadius: "99px", background: an ? "rgba(255,255,255,0.3)" : "var(--color-accent-100)", color: an ? "inherit" : "var(--color-accent-700)" } };
+      }),
+      titel: tx(liste[nr][2]), intro: tx("ed_i_" + akt),
+      hatWeiter: true, hatZurueck: nr > 0, hatNaechster: nr < liste.length - 1,
+      zurueck: geh((liste[nr - 1] || liste[0])[0]), zurueckLabel: nr > 0 ? tx(liste[nr - 1][2]) : "",
+      weiter: nr < liste.length - 1 ? geh(liste[nr + 1][0]) : this.saveEvent,
+      weiterLabel: nr < liste.length - 1 ? tx(liste[nr + 1][2]) : tx("speichern"),
+      gaNav: [["link", "ga_g_link", true], ["sicht", "ga_g_sicht", true], ["look", "ga_g_look", true], ["rsvp", "gast_rsvp", !!o.rsvp], ["fragen", "gf_titel", true], ["zp", "zp_titel", !!o.zp], ["sitz", "gast_sitz", !!o.sitz]]
+        .filter((x) => x[2]).map((x) => ({ key: x[0], label: tx(x[1]), stil: this.voPill(false),
+          klick: () => {
+            this.setState({ voKlapp: Object.assign({}, st.voKlapp, { ga: true }) });
+            window.setTimeout(() => { const el = document.querySelector('[data-gasub="' + x[0] + '"]'); if (el) { try { el.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { el.scrollIntoView(); } } }, 60);
+          } }))
+    };
+    liste.forEach((x) => { out[x[0]] = x[0] === akt; });
+    return out;
+  }
   /* Das Finanzfenster gehört zu einem Ereignis (state.fin.evId). */
   finEreignis() { const f = this.state.fin; return f ? (this.state.events || []).filter((x) => x.id === f.evId)[0] || null : null; }
   finIchName() { return String((this.me() || {}).username || "").trim(); }
@@ -12064,7 +12149,8 @@ class Component extends DCLogic {
     /* Den erklärten Abschnitt im Editor aufklappen und hinscrollen. */
     const sec = Object.assign({}, this.state.secOpen || {});
     if (t.sec) sec[t.sec] = true;
-    this.setState({ lehr: n, secOpen: sec, voKlapp: t.klapp ? Object.assign({}, this.state.voKlapp, { [t.klapp]: true }) : this.state.voKlapp });
+    const tabFuer = { infos: "inhalt", personen: "inhalt", bilder: "inhalt", alben: "inhalt", etappen: "programm", polls: "programm", timetable: "programm", vorort: "gast", deko: "aussehen", sicht: "freigabe" };
+    this.setState({ lehr: n, secOpen: sec, edTab: tabFuer[t.sec] || "grund", voKlapp: t.klapp ? Object.assign({}, this.state.voKlapp, { [t.klapp]: true }) : this.state.voKlapp });
     window.setTimeout(() => {
       const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div');
       if (!dlg) return;
@@ -13356,7 +13442,7 @@ class Component extends DCLogic {
 
   newEvent = () => {
     const today = new Date().toISOString().slice(0, 10);
-    this.setState({ bildSel: [], draft: { id: null, name: "", date: today, end: "", place: "", kicker: "", note: "", infos: [{ label: "", value: "" }], people: [], images: [], deco: { fx: [], pal: "thema", stickers: [] }, vis: "private", who: [], gwho: [], perms: {}, polls: [], etappen: [], etLayout: "gesamt", alben: [], themeId: "", themeSnap: null, themeFein: {}, share: "view", by: (this.me() || {}).id || "", url: "", partial: false }, decoSel: null, pickQ: "", drawer: false, admin: false, secOpen: {} });
+    this.setState({ bildSel: [], edTab: "grund", secOpen: {}, draft: { id: null, name: "", date: today, end: "", place: "", kicker: "", note: "", infos: [{ label: "", value: "" }], people: [], images: [], deco: { fx: [], pal: "thema", stickers: [] }, vis: "private", who: [], gwho: [], perms: {}, polls: [], etappen: [], etLayout: "gesamt", alben: [], themeId: "", themeSnap: null, themeFein: {}, share: "view", by: (this.me() || {}).id || "", url: "", partial: false }, decoSel: null, pickQ: "", drawer: false, admin: false, secOpen: {} });
   };
 
   editEvent(id) {
@@ -13366,7 +13452,7 @@ class Component extends DCLogic {
     if (lvl < 3) return;
     this.setState({
       decoSel: null, bildSel: [],
-    decoStil: "flach", secOpen: {},
+    decoStil: "flach", secOpen: {}, edTab: "grund",
       draft: {
         id: e.id, name: e.name || "", date: e.date || "", end: e.end || "", place: e.place || "",
         kicker: e.kicker || "", note: e.note || "",
@@ -18985,6 +19071,7 @@ class Component extends DCLogic {
       })(this),
       ...this.ttFormVals(),
       ...this.voFormVals(),
+      ed: this.edVals(),
       gv: this.gastVals(),
       _bedarf: (function (self) {
         /* Welche Bilddateien jetzt gebraucht werden: die der gezeichneten

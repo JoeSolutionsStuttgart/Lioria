@@ -1880,6 +1880,20 @@ window.CHRONIK_SPRACHEN.en = {
     ks_titel: "{n}'s timeline",
     ks_unter: "only events shared with you",
     ks_zurueck: "Back to my timeline",
-    ks_leer: "{n} hasn't shared any events with you yet."
+    ks_leer: "{n} hasn't shared any events with you yet.",
+    ed_tabs: "Event sections",
+    ed_t_grund: "Basics",
+    ed_t_inhalt: "Content",
+    ed_t_programm: "Programme",
+    ed_t_gast: "Guest page",
+    ed_t_aussehen: "Look",
+    ed_t_freigabe: "Permissions",
+    ed_i_grund: "Name, date, place and a short description – that's all an event needs.",
+    ed_i_inhalt: "What belongs to it: info (e.g. address, dress code), people, pictures and albums.",
+    ed_i_programm: "Schedule and planning: timetable, stages and route, polls and the finances button.",
+    ed_i_gast: "Everything for guests without an account: countdown, emergency info, site map and the guest link with RSVPs, questions, schedule and seating.",
+    ed_i_aussehen: "Design and decoration of this event.",
+    ed_i_freigabe: "Who may see, comment on or edit this event.",
+    ed_ga_nav: "Jump to"
   }
 };

@@ -1880,6 +1880,20 @@ window.CHRONIK_SPRACHEN.de = {
     ks_titel: "Timeline von {n}",
     ks_unter: "nur Ereignisse, die für dich freigegeben sind",
     ks_zurueck: "Zurück zu meiner Timeline",
-    ks_leer: "{n} hat dir noch keine Ereignisse freigegeben."
+    ks_leer: "{n} hat dir noch keine Ereignisse freigegeben.",
+    ed_tabs: "Bereiche des Ereignisses",
+    ed_t_grund: "Grunddaten",
+    ed_t_inhalt: "Inhalt",
+    ed_t_programm: "Programm",
+    ed_t_gast: "Gästeseite",
+    ed_t_aussehen: "Aussehen",
+    ed_t_freigabe: "Rechte",
+    ed_i_grund: "Name, Datum, Ort und eine kurze Beschreibung – mehr braucht ein Ereignis nicht.",
+    ed_i_inhalt: "Was dazugehört: Infos (z. B. Adresse, Dresscode), Personen, Bilder und Alben.",
+    ed_i_programm: "Ablauf und Planung: Timetable, Etappen und Route, Abstimmungen und der Finanzen-Knopf.",
+    ed_i_gast: "Alles für deine Gäste ohne Konto: Countdown, Notfall-Infos, Lageplan und der Gästelink mit Zu-/Absagen, Abfragen, Zeitplan und Sitzplan.",
+    ed_i_aussehen: "Design und Deko dieses Ereignisses.",
+    ed_i_freigabe: "Wer dieses Ereignis sehen, kommentieren oder bearbeiten darf.",
+    ed_ga_nav: "Springen zu"
   }
 };
