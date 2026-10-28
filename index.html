@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b134"></script>
-<script src="lang/de.js?v=b134"></script>
-<script src="lang/en.js?v=b134"></script>
-<script src="lang/sprache.js?v=b134"></script>
-<script src="./support.js?v=b134"></script>
+<script src="chronik-config.js?v=b135"></script>
+<script src="lang/de.js?v=b135"></script>
+<script src="lang/en.js?v=b135"></script>
+<script src="lang/sprache.js?v=b135"></script>
+<script src="./support.js?v=b135"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b134"></script>
-<script src="xlsx-export.js?v=b134"></script>
-<script src="farbe.js?v=b134"></script>
-<script src="cw-plaetze.js?v=b134"></script>
-<script src="fb-knopf.js?v=b134"></script>
+<script src="supabase-bridge.js?v=b135"></script>
+<script src="xlsx-export.js?v=b135"></script>
+<script src="farbe.js?v=b135"></script>
+<script src="cw-plaetze.js?v=b135"></script>
+<script src="fb-knopf.js?v=b135"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -1600,7 +1600,7 @@
                                 <div role="tooltip" style="position: absolute; left: 0; bottom: calc(100% + 8px); z-index: 80; width: min(300px, 80vw); display: grid; gap: 6px; padding: 12px 14px; border-radius: var(--t-radius, 8px); background: var(--t-card, #ffffff); color: var(--t-ink, #201e1d); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25); border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); pointer-events: none;">
                                   <div style="font-size: 15px; font-weight: 700;">{{ p.infoName }}</div>
                                   <div style="{{ p.infoStil }}">{{ p.infoText }}</div>
-                                  <div style="font-size: 12px; color: var(--t-accent, #0088b0);">{{ p.infoZahl }} · {{ L.kontakt_klick_hinweis }}</div>
+                                  <div style="font-size: 12px; color: var(--t-accent, #0088b0);">{{ p.infoZahl }} · {{ p.infoHinweis }}</div>
                                 </div>
                               </sc-if>
                               <div style="{{ p.chip }}" title="{{ p.name }}" tabindex="0" onClick="{{ p.personKlick }}">
@@ -2451,7 +2451,7 @@
               <div role="tooltip" style="position: absolute; left: 0; top: 44px; z-index: 30; width: min(320px, 90vw); display: grid; gap: 6px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-bg); box-shadow: var(--shadow-lg); pointer-events: none;">
                 <div style="font-family: var(--font-heading); font-size: 16px; font-weight: 600;">{{ c.name }}</div>
                 <div style="{{ c.infoStil }}">{{ c.info }}</div>
-                <div style="font-size: 12px; color: var(--color-accent-700);">{{ c.evZahl }} · {{ L.kontakt_klick_hinweis }}</div>
+                <div style="font-size: 12px; color: var(--color-accent-700);">{{ c.evZahl }} · {{ c.klickHinweis }}</div>
               </div>
             </sc-if>
             <sc-if value="{{ c.auf }}" hint-placeholder-val="{{ false }}">
@@ -2590,6 +2590,18 @@
           <div style="font-size: 12.5px; line-height: 1.45; padding: 9px 11px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: var(--space-3);">{{ L.du_darfst_inhalte_pflegen_name_datum }}</div>
         </sc-if>
 
+        <div style="position: relative; margin-bottom: var(--space-2);">
+          <input class="input" type="search" value="{{ ed.suche }}" onChange="{{ ed.onSuche }}" onKeyDown="{{ ed.sucheTaste }}" placeholder="{{ L.ed_suche_ph }}" aria-label="{{ L.ed_suche_ph }}" style="font-size: 16px; padding-left: 38px;">
+          <span aria-hidden="true" style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 16px; color: var(--color-neutral-700); pointer-events: none;">⌕</span>
+          <sc-if value="{{ ed.hatSuche }}" hint-placeholder-val="{{ false }}">
+            <div role="listbox" style="position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 20; display: grid; gap: 2px; padding: 6px; border-radius: var(--radius-md); background: var(--color-bg); box-shadow: var(--shadow-lg); border: 1px solid var(--color-divider);">
+              <sc-for list="{{ ed.treffer }}" as="st2" hint-placeholder-count="0">
+                <button role="option" onClick="{{ st2.klick }}" style="display: flex; justify-content: space-between; gap: 12px; align-items: baseline; width: 100%; text-align: left; padding: 10px 12px; min-height: 42px; border: 0; border-radius: var(--radius-sm, 4px); background: transparent; font: inherit; color: inherit; cursor: pointer;" style-hover="background: var(--color-accent-100);"><span style="font-size: 15px; font-weight: 600;">{{ st2.label }}</span><span style="font-size: 12px; color: var(--color-neutral-700); white-space: nowrap;">{{ st2.wo }}</span></button>
+              </sc-for>
+              <sc-if value="{{ ed.keinTreffer }}" hint-placeholder-val="{{ false }}"><div style="padding: 10px 12px; font-size: 14px; font-style: italic; color: var(--color-neutral-700);">{{ L.ed_suche_leer }}</div></sc-if>
+            </div>
+          </sc-if>
+        </div>
         <div role="tablist" aria-label="{{ L.ed_tabs }}" style="{{ ed.leiste }}">
           <sc-for list="{{ ed.tabs }}" as="et" hint-placeholder-count="5">
             <button role="tab" aria-selected="{{ et.aria }}" onClick="{{ et.klick }}" style="{{ et.stil }}"><span aria-hidden="true" style="font-size: 17px; line-height: 1;">{{ et.g }}</span><span>{{ et.label }}</span><sc-if value="{{ et.hatBadge }}" hint-placeholder-val="{{ false }}"><span style="{{ et.badgeStil }}">{{ et.badge }}</span></sc-if></button>
@@ -3034,144 +3046,17 @@
           </div>
         </sc-if>
         <sc-if value="{{ ed.gast }}" hint-placeholder-val="{{ false }}">
-          <div data-edtab="gast" style="display: grid; gap: 0;">
-          <div style="display: grid; gap: 0; padding-bottom: var(--space-4);">
-
-            <sc-if value="{{ vo.cdZukunft }}" hint-placeholder-val="{{ false }}">
-            <div style="display: grid; gap: 0;">
-              <button data-vo="cd" onClick="{{ vo.klapp.cd.um }}" aria-expanded="{{ vo.klapp.cd.text }}" style="{{ form.sec.head }}"><span style="{{ vo.klapp.cd.zeichen }}">▸</span><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.cd_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.cd.badge }}</span></button><sc-if value="{{ vo.klapp.cd.auf }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
-              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.cd_sub }}</div>
-              <div style="font-size: 13px; line-height: 1.45; color: var(--color-accent-700);">{{ L.cd_nur_zukunft }}</div>
-              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center;">
-                <button onClick="{{ vo.cdUm }}" style="{{ vo.cdStil }}">{{ vo.cdLabel }}</button>
-                <sc-if value="{{ vo.cdAn }}" hint-placeholder-val="{{ false }}">
-                  <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;">{{ L.cd_uhrzeit }}<input class="input" type="time" value="{{ vo.cdZeit }}" onChange="{{ vo.onCdZeit }}" style="width: auto; font-size: 16px;"></label>
-                  <span style="font-size: 13px; color: var(--color-accent-700);">{{ vo.cdVorschau }}</span>
-                </sc-if>
+          <div data-edtab="gast" style="display: grid; gap: var(--space-3);">
+          <nav data-sec="vorort" role="tablist" aria-label="{{ L.ed_t_gast }}" style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <sc-for list="{{ ed.gaTabs }}" as="gt2" hint-placeholder-count="7"><button role="tab" aria-selected="{{ gt2.aria }}" onClick="{{ gt2.klick }}" style="{{ gt2.stil }}">{{ gt2.label }}<sc-if value="{{ gt2.hatBadge }}" hint-placeholder-val="{{ false }}"><span style="{{ gt2.badgeStil }}">{{ gt2.badge }}</span></sc-if></button></sc-for>
+          </nav>
+          <sc-if value="{{ ed.ga.link }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="link" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_link }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_link }}</div>
               </div>
-            </div></sc-if></div>
-
-            </sc-if>
-            <div style="display: grid; gap: 0;">
-              <button data-vo="nf" onClick="{{ vo.klapp.nf.um }}" aria-expanded="{{ vo.klapp.nf.text }}" style="{{ form.sec.head }}"><span style="{{ vo.klapp.nf.zeichen }}">▸</span><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.nf_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.nf.badge }}</span></button><sc-if value="{{ vo.klapp.nf.auf }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
-              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.nf_sub }}</div>
-              <div><button onClick="{{ vo.nfUm }}" style="{{ vo.nfStil }}">{{ vo.nfLabel }}</button></div>
-              <sc-if value="{{ vo.nfAn }}" hint-placeholder-val="{{ false }}">
-                <div style="display: flex; gap: 6px; flex-wrap: wrap;"><sc-for list="{{ vo.nfArten }}" as="na" hint-placeholder-count="0"><button onClick="{{ na.klick }}" style="{{ na.stil }}">{{ na.label }}</button></sc-for></div>
-                <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ vo.nfArtHinweis }}</div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: var(--space-2);">
-                  <sc-if value="{{ vo.nfIstNotfall }}" hint-placeholder-val="{{ true }}">
-                  <div class="field" style="margin: 0;"><label>{{ L.nf_nummer }}</label><input class="input" value="{{ vo.nfNummer }}" onChange="{{ vo.onNfNummer }}" placeholder="112" inputmode="tel" style="font-size: 16px;"></div>
-                  <div class="field" style="margin: 0;"><label>{{ L.nf_ort }}</label><input class="input" value="{{ vo.nfOrt }}" onChange="{{ vo.onNfOrt }}" placeholder="{{ L.nf_ort_ph }}" style="font-size: 16px;"></div>
-                  <div class="field" style="margin: 0;"><label>{{ L.nf_treff }}</label><input class="input" value="{{ vo.nfTreff }}" onChange="{{ vo.onNfTreff }}" placeholder="{{ L.nf_treff_ph }}" style="font-size: 16px;"></div>
-                  </sc-if>
-                  <div class="field" style="margin: 0;"><label>{{ L.nf_kontakt }}</label><input class="input" value="{{ vo.nfKontakt }}" onChange="{{ vo.onNfKontakt }}" placeholder="{{ L.nf_kontakt_ph }}" style="font-size: 16px;"></div>
-                  <div class="field" style="margin: 0;"><label>{{ L.nf_tel }}</label><input class="input" value="{{ vo.nfTel }}" onChange="{{ vo.onNfTel }}" inputmode="tel" style="font-size: 16px;"></div>
-                </div>
-                <div class="field" style="margin: 0;"><label>{{ L.nf_text }}</label><textarea class="input" value="{{ vo.nfText }}" onChange="{{ vo.onNfText }}" rows="2" placeholder="{{ L.nf_text_ph }}" style="font-size: 16px;"></textarea></div>
-              </sc-if>
-            </div></sc-if></div>
-
-            <div style="display: grid; gap: 0;">
-              <button data-vo="lp" onClick="{{ vo.klapp.lp.um }}" aria-expanded="{{ vo.klapp.lp.text }}" style="{{ form.sec.head }}"><span style="{{ vo.klapp.lp.zeichen }}">▸</span><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.lp_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.lp.badge }}</span></button><sc-if value="{{ vo.klapp.lp.auf }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
-              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.lp_hinweis }}</div>
-              <div class="field"><label>{{ L.lp_adresse }}</label><input class="input" type="text" autoComplete="street-address" value="{{ vo.lpAdresse }}" onChange="{{ vo.onLpAdresse }}" placeholder="{{ L.lp_adresse_ph }}" style="font-size: 16px;"></div>
-              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-                <button class="btn btn-secondary" style="min-height: 44px;" onClick="{{ vo.karteAn }}">{{ L.lp_karte_nutzen }}</button>
-                <label class="btn btn-secondary" style="min-height: 44px; cursor: pointer;">{{ L.lp_foto }}<input type="file" accept="image/*" capture="environment" onChange="{{ vo.onBild }}" style="display: none;"></label>
-                <label class="btn btn-secondary" style="min-height: 44px; cursor: pointer;">{{ L.lp_bild_waehlen }}<input type="file" accept="image/*" onChange="{{ vo.onBild }}" style="display: none;"></label>
-                <button class="btn btn-secondary" style="min-height: 44px;" onClick="{{ vo.chronikUm }}">{{ L.tt_aus_chronik }}</button>
-              </div>
-              <sc-if value="{{ vo.chronikOffen }}" hint-placeholder-val="{{ false }}">
-                <div style="display: grid; gap: 14px; max-height: 360px; overflow-y: auto; padding: 4px;">
-                  <sc-for list="{{ vo.chronikGruppen }}" as="cg" hint-placeholder-count="0">
-                    <div style="display: grid; gap: 8px;">
-                      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 14px;">{{ cg.titel }}</div>
-                      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px;">
-                        <sc-for list="{{ cg.bilder }}" as="cb" hint-placeholder-count="0">
-                          <button onClick="{{ cb.klick }}" style="aspect-ratio: 1; width: 100%; padding: 0; border: 0; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; background: var(--color-neutral-200);" style-hover="outline: 3px solid var(--color-accent); outline-offset: 2px;"><img ref="{{ cb.bildRef }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></button>
-                        </sc-for>
-                      </div>
-                    </div>
-                  </sc-for>
-                </div>
-              </sc-if>
-              <sc-if value="{{ vo.hatLpBusy }}" hint-placeholder-val="{{ false }}">
-                <div style="font-size: 13px; color: var(--color-accent-700);">{{ vo.lpBusy }}</div>
-              </sc-if>
-              <sc-if value="{{ vo.hatLpInfo }}" hint-placeholder-val="{{ false }}">
-                <div style="font-size: 13px; color: var(--color-neutral-700);">{{ vo.lpInfo }}</div>
-              </sc-if>
-              <sc-if value="{{ vo.lp.hatBeide }}" hint-placeholder-val="{{ false }}">
-                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                  <sc-for list="{{ vo.lp.artChips }}" as="ac" hint-placeholder-count="0">
-                    <button onClick="{{ ac.klick }}" style="{{ ac.stil }}">{{ ac.label }}</button>
-                  </sc-for>
-                </div>
-              </sc-if>
-              <sc-if value="{{ vo.lp.zeigKarte }}" hint-placeholder-val="{{ false }}">
-                <div style="display: grid; gap: 6px;">
-                  <iframe ref="{{ vo.lp.karteRef }}" src="karte.html" title="{{ L.lp_karte }}" style="width: 100%; height: 340px; border: 0; border-radius: var(--radius-md); background: var(--color-neutral-100);"></iframe>
-                  <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center;">
-                    <button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ vo.bereichUebernehmen }}">{{ vo.bereichLabel }}</button>
-                    <sc-if value="{{ vo.hatBereich }}" hint-placeholder-val="{{ false }}">
-                      <button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ vo.bereichWeg }}">{{ L.lp_bereich_weg }}</button>
-                    </sc-if>
-                    <span style="font-size: 11.5px; color: var(--color-neutral-700);">{{ L.kartendaten_openstreetmap_mitwirkende_ohne }}</span>
-                  </div>
-                </div>
-              </sc-if>
-              <sc-if value="{{ vo.lp.zeigBild }}" hint-placeholder-val="{{ false }}">
-                <div style="display: grid; gap: 6px;">
-                  <div onClick="{{ vo.lp.bildKlick }}" style="{{ vo.lp.bildBox }}">
-                    <img ref="{{ vo.lp.bildRef }}" alt="" draggable="false" style="width: 100%; height: auto; display: block; user-select: none;">
-                    <sc-for list="{{ vo.lp.marker }}" as="mk" hint-placeholder-count="0">
-                      <span title="{{ mk.titel }}" style="{{ mk.stil }}">{{ mk.g }}</span>
-                    </sc-for>
-                  </div>
-                  <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-                    <button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ vo.erkennen }}">{{ L.lp_erkennen }}</button>
-                    <button class="btn btn-ghost" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ vo.bildWeg }}">{{ L.lp_bild_weg }}</button>
-                  </div>
-                </div>
-              </sc-if>
-              <div style="display: grid; gap: 6px;">
-                <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.lp_punkt_neu }}</div>
-                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                  <sc-for list="{{ vo.typChips }}" as="tc" hint-placeholder-count="0">
-                    <button onClick="{{ tc.klick }}" style="display: flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; padding: 5px 11px; min-height: 36px; border: 1px solid var(--color-divider); border-radius: 99px; background: transparent; color: var(--color-text); cursor: pointer;" style-hover="background: var(--color-accent-100);"><span style="{{ tc.gStil }}">{{ tc.g }}</span>{{ tc.label }}</button>
-                  </sc-for>
-                </div>
-              </div>
-              <sc-if value="{{ vo.hatSetz }}" hint-placeholder-val="{{ false }}">
-                <div style="display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; padding: 8px 12px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-800); font-size: 14px;">
-                  <span style="flex: 1 1 200px;">{{ vo.setzHinweis }}</span>
-                  <button class="btn btn-ghost" style="min-height: 36px;" onClick="{{ vo.setzAbbrechen }}">{{ L.tt_abbrechen }}</button>
-                </div>
-              </sc-if>
-              <sc-for list="{{ vo.punkte }}" as="pk" hint-placeholder-count="0">
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-                  <span style="{{ pk.gStil }}">{{ pk.g }}</span>
-                  <select class="input" value="{{ pk.typ }}" onChange="{{ pk.onTyp }}" style="flex: 0 1 170px; width: auto; min-width: 0; font-size: 16px;">
-                    <sc-for list="{{ pk.typWahl }}" as="o" hint-placeholder-count="0"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
-                  </select>
-                  <input class="input" value="{{ pk.name }}" onChange="{{ pk.onName }}" placeholder="{{ L.lp_name_ph }}" style="flex: 1 1 140px; min-width: 0; font-size: 16px;">
-                  <button class="{{ pk.setzKlasse }}" style="min-height: 40px; white-space: nowrap;" onClick="{{ pk.setzen }}">{{ pk.setzLabel }}</button>
-                  <button class="btn btn-ghost btn-icon" title="{{ L.entfernen }}" aria-label="{{ L.entfernen }}" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ pk.weg }}">✕</button>
-                </div>
-              </sc-for>
-            </div></sc-if></div>
-
-            <div style="display: grid; gap: 0;">
-              <button data-vo="ga" onClick="{{ vo.klapp.ga.um }}" aria-expanded="{{ vo.klapp.ga.text }}" style="{{ form.sec.head }}"><span style="{{ vo.klapp.ga.zeichen }}">▸</span><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.ga_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.ga.badge }}</span></button><sc-if value="{{ vo.klapp.ga.auf }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
-              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.ga_hinweis }}</div>
-                <div style="display: grid; gap: var(--space-5);">
-                  <nav aria-label="{{ L.ed_ga_nav }}" style="display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 12px; border-radius: var(--radius-md); background: var(--color-accent-100);">
-                    <span style="width: 100%; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.ed_ga_nav }}</span>
-                    <sc-for list="{{ ed.gaNav }}" as="gn" hint-placeholder-count="0"><button onClick="{{ gn.klick }}" style="{{ gn.stil }}">{{ gn.label }}</button></sc-for>
-                  </nav>
-                  <div data-gasub="link" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.ga_g_link }}</div>
+                  <div style="display: grid; gap: var(--space-2);">
                     <label style="{{ vo.gaAktivStil }}"><input type="checkbox" checked="{{ vo.gaAn }}" onChange="{{ vo.gaUm }}" aria-label="{{ L.ga_checkbox }}" style="width: 28px; height: 28px; flex: 0 0 28px; margin: 2px 0 0; accent-color: var(--color-accent); cursor: pointer;"><span style="display: grid; gap: 3px; min-width: 0;"><strong style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">{{ vo.gaAktivTitel }}</strong><span style="font-size: 13.5px; line-height: 1.45;">{{ vo.gaAktivText }}</span></span></label>
                     <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
                       <span style="flex: 0 0 110px; font-size: 14px; font-weight: 600;">{{ L.ga_aktiv_ab }}</span>
@@ -3203,8 +3088,15 @@
                   </sc-if>
                     </div>
                   </div>
-                  <div data-gasub="sicht" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.ga_g_sicht }}</div>
+            </section>
+          </sc-if>
+          <sc-if value="{{ ed.ga.bereiche }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="bereiche" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_bereiche }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_bereiche }}</div>
+              </div>
+                  <div style="display: grid; gap: var(--space-2);">
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                   <div style="display: flex; gap: 6px; flex-wrap: wrap;">
                     <sc-for list="{{ vo.gaTeile }}" as="gt" hint-placeholder-count="0">
@@ -3232,8 +3124,15 @@
                     </div>
                   </sc-if>
                   </div>
-                  <div data-gasub="look" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.ga_g_look }}</div>
+            </section>
+          </sc-if>
+          <sc-if value="{{ ed.ga.look }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="look" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_look }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_look }}</div>
+              </div>
+                  <div style="display: grid; gap: var(--space-2);">
                   <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                     <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.ga_design }}</div>
                     <button onClick="{{ vo.gaDesignUm }}" aria-expanded="{{ vo.gaDesignAufText }}" style="{{ vo.gaDesignKachel.stil }}">
@@ -3273,9 +3172,19 @@
                     <div class="field" style="margin: 6px 0 0;"><label>{{ L.ga_gruss }}</label><textarea class="input" value="{{ vo.gaGruss }}" onChange="{{ vo.onGaGruss }}" rows="3" placeholder="{{ L.ga_gruss_ph }}" style="font-size: 16px;"></textarea></div>
                   </div>
                   </div>
+            </section>
+          </sc-if>
+          <sc-if value="{{ ed.ga.rsvp }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="rsvp" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_rsvp }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_rsvp }}</div>
+              </div>
+              <sc-if value="{{ ed.rsvpAus }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-700); font-size: 14px;"><span style="flex: 1 1 220px;">{{ L.ga_aus_hinweis }}</span><button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ ed.rsvpEin }}">{{ L.ga_einschalten }}</button></div>
+              </sc-if>
                   <sc-if value="{{ vo.gaRsvp }}" hint-placeholder-val="{{ false }}">
-                  <div data-gasub="rsvp" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.gast_rsvp }}</div>
+                  <div style="display: grid; gap: var(--space-2);">
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                     <div style="display: flex; gap: 6px; flex-wrap: wrap;"><button onClick="{{ vo.gaEssenUm }}" style="{{ vo.gaEssenStil }}">{{ vo.gaEssenLabel }}</button><sc-if value="{{ vo.gaEssenAn }}" hint-placeholder-val="{{ false }}"><button onClick="{{ vo.gaEssenPflichtUm }}" style="{{ vo.gaEssenPflichtStil }}">{{ vo.gaEssenPflichtLabel }}</button></sc-if></div>
                     <sc-if value="{{ vo.gaEssenAn }}" hint-placeholder-val="{{ false }}">
@@ -3285,8 +3194,7 @@
                     </div>
                   </div>
                   </sc-if>
-                  <div data-gasub="fragen" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.gf_titel }}</div>
+                  <div style="display: grid; gap: var(--space-2);">
                   <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                     <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.gf_hinweis }}</div>
                     <sc-if value="{{ vo.gaRsvp }}" hint-placeholder-val="{{ false }}">
@@ -3333,9 +3241,19 @@
                     <button class="btn btn-secondary" style="justify-self: start; min-height: 40px;" onClick="{{ vo.gFrageNeu }}">＋ {{ L.gf_neu }}</button>
                   </div>
                   </div>
+            </section>
+          </sc-if>
+          <sc-if value="{{ ed.ga.zp }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="zp" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_zp }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_zp }}</div>
+              </div>
+              <sc-if value="{{ ed.zpAus }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-700); font-size: 14px;"><span style="flex: 1 1 220px;">{{ L.ga_aus_hinweis }}</span><button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ ed.zpEin }}">{{ L.ga_einschalten }}</button></div>
+              </sc-if>
                   <sc-if value="{{ vo.gaZp }}" hint-placeholder-val="{{ false }}">
-                  <div data-gasub="zp" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.zp_titel }}</div>
+                  <div style="display: grid; gap: var(--space-2);">
                     <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.zp_hinweis }}</div>
                     <sc-for list="{{ vo.zpTage }}" as="zt" hint-placeholder-count="0">
                       <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
@@ -3365,9 +3283,19 @@
                     </div>
                   </div>
                   </sc-if>
+            </section>
+          </sc-if>
+          <sc-if value="{{ ed.ga.sitz }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="sitz" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_sitz }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_sitz }}</div>
+              </div>
+              <sc-if value="{{ ed.sitzAus }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-700); font-size: 14px;"><span style="flex: 1 1 220px;">{{ L.ga_aus_hinweis }}</span><button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ ed.sitzEin }}">{{ L.ga_einschalten }}</button></div>
+              </sc-if>
                   <sc-if value="{{ vo.gaSitz }}" hint-placeholder-val="{{ false }}">
-                  <div data-gasub="sitz" style="scroll-margin-top: 120px; display: grid; gap: var(--space-2); border-top: 2px solid var(--color-text); padding-top: var(--space-3);">
-                    <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.2;">{{ L.gast_sitz }}</div>
+                  <div style="display: grid; gap: var(--space-2);">
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                       <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.sp_hinweis }}</div>
                       <div style="display: flex; gap: 6px; flex-wrap: wrap;">
@@ -3563,12 +3491,142 @@
                     </div>
                   </div>
                   </sc-if>
-                </div>
+            </section>
+          </sc-if>
+          <sc-if value="{{ ed.ga.infos }}" hint-placeholder-val="{{ false }}">
+            <section data-gatab="infos" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+              <div style="display: grid; gap: 4px;">
+                <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_infos }}</div>
+                <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_infos }}</div>
+              </div>
+            <sc-if value="{{ vo.cdZukunft }}" hint-placeholder-val="{{ false }}">
+            <div style="display: grid; gap: 0;">
+              <div data-vo="cd" style="{{ form.sec.head }}"><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.cd_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.cd.badge }}</span></div><sc-if value="{{ ed.immer }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
+              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.cd_sub }}</div>
+              <div style="font-size: 13px; line-height: 1.45; color: var(--color-accent-700);">{{ L.cd_nur_zukunft }}</div>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center;">
+                <button onClick="{{ vo.cdUm }}" style="{{ vo.cdStil }}">{{ vo.cdLabel }}</button>
+                <sc-if value="{{ vo.cdAn }}" hint-placeholder-val="{{ false }}">
+                  <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;">{{ L.cd_uhrzeit }}<input class="input" type="time" value="{{ vo.cdZeit }}" onChange="{{ vo.onCdZeit }}" style="width: auto; font-size: 16px;"></label>
+                  <span style="font-size: 13px; color: var(--color-accent-700);">{{ vo.cdVorschau }}</span>
+                </sc-if>
+              </div>
             </div></sc-if></div>
-          </div>
 
+            </sc-if>
+            <div style="display: grid; gap: 0;">
+              <div data-vo="nf" style="{{ form.sec.head }}"><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.nf_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.nf.badge }}</span></div><sc-if value="{{ ed.immer }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
+              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.nf_sub }}</div>
+              <div><button onClick="{{ vo.nfUm }}" style="{{ vo.nfStil }}">{{ vo.nfLabel }}</button></div>
+              <sc-if value="{{ vo.nfAn }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;"><sc-for list="{{ vo.nfArten }}" as="na" hint-placeholder-count="0"><button onClick="{{ na.klick }}" style="{{ na.stil }}">{{ na.label }}</button></sc-for></div>
+                <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ vo.nfArtHinweis }}</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: var(--space-2);">
+                  <sc-if value="{{ vo.nfIstNotfall }}" hint-placeholder-val="{{ true }}">
+                  <div class="field" style="margin: 0;"><label>{{ L.nf_nummer }}</label><input class="input" value="{{ vo.nfNummer }}" onChange="{{ vo.onNfNummer }}" placeholder="112" inputmode="tel" style="font-size: 16px;"></div>
+                  <div class="field" style="margin: 0;"><label>{{ L.nf_ort }}</label><input class="input" value="{{ vo.nfOrt }}" onChange="{{ vo.onNfOrt }}" placeholder="{{ L.nf_ort_ph }}" style="font-size: 16px;"></div>
+                  <div class="field" style="margin: 0;"><label>{{ L.nf_treff }}</label><input class="input" value="{{ vo.nfTreff }}" onChange="{{ vo.onNfTreff }}" placeholder="{{ L.nf_treff_ph }}" style="font-size: 16px;"></div>
+                  </sc-if>
+                  <div class="field" style="margin: 0;"><label>{{ L.nf_kontakt }}</label><input class="input" value="{{ vo.nfKontakt }}" onChange="{{ vo.onNfKontakt }}" placeholder="{{ L.nf_kontakt_ph }}" style="font-size: 16px;"></div>
+                  <div class="field" style="margin: 0;"><label>{{ L.nf_tel }}</label><input class="input" value="{{ vo.nfTel }}" onChange="{{ vo.onNfTel }}" inputmode="tel" style="font-size: 16px;"></div>
+                </div>
+                <div class="field" style="margin: 0;"><label>{{ L.nf_text }}</label><textarea class="input" value="{{ vo.nfText }}" onChange="{{ vo.onNfText }}" rows="2" placeholder="{{ L.nf_text_ph }}" style="font-size: 16px;"></textarea></div>
+              </sc-if>
+            </div></sc-if></div>
+
+            <div style="display: grid; gap: 0;">
+              <div data-vo="lp" style="{{ form.sec.head }}"><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.lp_titel }}</span><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ vo.klapp.lp.badge }}</span></div><sc-if value="{{ ed.immer }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: var(--space-3); padding: var(--space-1) 0 var(--space-4);">
+              <div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.lp_hinweis }}</div>
+              <div class="field"><label>{{ L.lp_adresse }}</label><input class="input" type="text" autoComplete="street-address" value="{{ vo.lpAdresse }}" onChange="{{ vo.onLpAdresse }}" placeholder="{{ L.lp_adresse_ph }}" style="font-size: 16px;"></div>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <button class="btn btn-secondary" style="min-height: 44px;" onClick="{{ vo.karteAn }}">{{ L.lp_karte_nutzen }}</button>
+                <label class="btn btn-secondary" style="min-height: 44px; cursor: pointer;">{{ L.lp_foto }}<input type="file" accept="image/*" capture="environment" onChange="{{ vo.onBild }}" style="display: none;"></label>
+                <label class="btn btn-secondary" style="min-height: 44px; cursor: pointer;">{{ L.lp_bild_waehlen }}<input type="file" accept="image/*" onChange="{{ vo.onBild }}" style="display: none;"></label>
+                <button class="btn btn-secondary" style="min-height: 44px;" onClick="{{ vo.chronikUm }}">{{ L.tt_aus_chronik }}</button>
+              </div>
+              <sc-if value="{{ vo.chronikOffen }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 14px; max-height: 360px; overflow-y: auto; padding: 4px;">
+                  <sc-for list="{{ vo.chronikGruppen }}" as="cg" hint-placeholder-count="0">
+                    <div style="display: grid; gap: 8px;">
+                      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 14px;">{{ cg.titel }}</div>
+                      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px;">
+                        <sc-for list="{{ cg.bilder }}" as="cb" hint-placeholder-count="0">
+                          <button onClick="{{ cb.klick }}" style="aspect-ratio: 1; width: 100%; padding: 0; border: 0; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; background: var(--color-neutral-200);" style-hover="outline: 3px solid var(--color-accent); outline-offset: 2px;"><img ref="{{ cb.bildRef }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;"></button>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+              <sc-if value="{{ vo.hatLpBusy }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size: 13px; color: var(--color-accent-700);">{{ vo.lpBusy }}</div>
+              </sc-if>
+              <sc-if value="{{ vo.hatLpInfo }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size: 13px; color: var(--color-neutral-700);">{{ vo.lpInfo }}</div>
+              </sc-if>
+              <sc-if value="{{ vo.lp.hatBeide }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <sc-for list="{{ vo.lp.artChips }}" as="ac" hint-placeholder-count="0">
+                    <button onClick="{{ ac.klick }}" style="{{ ac.stil }}">{{ ac.label }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+              <sc-if value="{{ vo.lp.zeigKarte }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 6px;">
+                  <iframe ref="{{ vo.lp.karteRef }}" src="karte.html" title="{{ L.lp_karte }}" style="width: 100%; height: 340px; border: 0; border-radius: var(--radius-md); background: var(--color-neutral-100);"></iframe>
+                  <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center;">
+                    <button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ vo.bereichUebernehmen }}">{{ vo.bereichLabel }}</button>
+                    <sc-if value="{{ vo.hatBereich }}" hint-placeholder-val="{{ false }}">
+                      <button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ vo.bereichWeg }}">{{ L.lp_bereich_weg }}</button>
+                    </sc-if>
+                    <span style="font-size: 11.5px; color: var(--color-neutral-700);">{{ L.kartendaten_openstreetmap_mitwirkende_ohne }}</span>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ vo.lp.zeigBild }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 6px;">
+                  <div onClick="{{ vo.lp.bildKlick }}" style="{{ vo.lp.bildBox }}">
+                    <img ref="{{ vo.lp.bildRef }}" alt="" draggable="false" style="width: 100%; height: auto; display: block; user-select: none;">
+                    <sc-for list="{{ vo.lp.marker }}" as="mk" hint-placeholder-count="0">
+                      <span title="{{ mk.titel }}" style="{{ mk.stil }}">{{ mk.g }}</span>
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                    <button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ vo.erkennen }}">{{ L.lp_erkennen }}</button>
+                    <button class="btn btn-ghost" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ vo.bildWeg }}">{{ L.lp_bild_weg }}</button>
+                  </div>
+                </div>
+              </sc-if>
+              <div style="display: grid; gap: 6px;">
+                <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.lp_punkt_neu }}</div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <sc-for list="{{ vo.typChips }}" as="tc" hint-placeholder-count="0">
+                    <button onClick="{{ tc.klick }}" style="display: flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; padding: 5px 11px; min-height: 36px; border: 1px solid var(--color-divider); border-radius: 99px; background: transparent; color: var(--color-text); cursor: pointer;" style-hover="background: var(--color-accent-100);"><span style="{{ tc.gStil }}">{{ tc.g }}</span>{{ tc.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <sc-if value="{{ vo.hatSetz }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; padding: 8px 12px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-800); font-size: 14px;">
+                  <span style="flex: 1 1 200px;">{{ vo.setzHinweis }}</span>
+                  <button class="btn btn-ghost" style="min-height: 36px;" onClick="{{ vo.setzAbbrechen }}">{{ L.tt_abbrechen }}</button>
+                </div>
+              </sc-if>
+              <sc-for list="{{ vo.punkte }}" as="pk" hint-placeholder-count="0">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+                  <span style="{{ pk.gStil }}">{{ pk.g }}</span>
+                  <select class="input" value="{{ pk.typ }}" onChange="{{ pk.onTyp }}" style="flex: 0 1 170px; width: auto; min-width: 0; font-size: 16px;">
+                    <sc-for list="{{ pk.typWahl }}" as="o" hint-placeholder-count="0"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
+                  </select>
+                  <input class="input" value="{{ pk.name }}" onChange="{{ pk.onName }}" placeholder="{{ L.lp_name_ph }}" style="flex: 1 1 140px; min-width: 0; font-size: 16px;">
+                  <button class="{{ pk.setzKlasse }}" style="min-height: 40px; white-space: nowrap;" onClick="{{ pk.setzen }}">{{ pk.setzLabel }}</button>
+                  <button class="btn btn-ghost btn-icon" title="{{ L.entfernen }}" aria-label="{{ L.entfernen }}" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ pk.weg }}">✕</button>
+                </div>
+              </sc-for>
+            </div></sc-if></div>
+
+            </section>
+          </sc-if>
           </div>
-        </sc-if>
         <sc-if value="{{ ed.aussehen }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="aussehen" style="display: grid; gap: 0;">
         <button data-sec="deko" onClick="{{ form.sec.deko.toggle }}" style="{{ form.sec.head }}">
@@ -8676,16 +8734,40 @@ class Component extends DCLogic {
     const me = this.me() || {};
     const darf = !!u && uid !== me.id && (st.blockiertVon || []).indexOf(uid) < 0 && (this.feedPrefs().ohneVon || []).indexOf(uid) < 0;
     const text = String(((u || {}).look || {}).ueberMich || "").trim();
-    const evs = darf ? (st.events || []).filter((e) => e.by === uid && !e.lose && e.vis !== "private").length : 0;
+    const evs = darf ? (st.events || []).filter((e) => e.by === uid && !e.lose && e.vis !== "private" && this.levelFor(e) >= 1).length : 0;
     return { darf: darf, name: (u || {}).username || "", text: text || tx("kontakt_keine_info"), hatText: !!text,
       textStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: text ? "normal" : "italic", opacity: text ? 1 : 0.7 },
-      evZahl: plural(evs, tx("ereignis"), tx("ereignisse")) };
+      evZahl: plural(evs, tx("ereignis"), tx("ereignisse")), anzahl: evs,
+      klickHinweis: evs ? tx("kontakt_klick_hinweis") : tx("kontakt_keine_ereignisse_kurz") };
   }
   /* Timeline eines Kontakts öffnen bzw. zur eigenen zurückkehren. */
   kontaktTimeline(uid) {
-    if (uid && !this.personInfo(uid).darf) return;
-    this.setState({ kontaktSicht: uid || "", admin: false, kontaktHover: "", kontaktAuf: "", personHover: "", openId: null, konto: false, drawer: false, menuOffen: false });
-    try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (x) { window.scrollTo(0, 0); }
+    const st = this.state;
+    if (uid) {
+      /* Nur wenn es auch etwas zu sehen gibt – sonst bleibt man, wo man ist. */
+      const pi = this.personInfo(uid);
+      if (!pi.darf || !pi.anzahl) return;
+      /* Die eigene Stelle merken (Scroll-Position, offenes Ereignis, offene Kontaktliste),
+         damit „Zurück“ genau dorthin führt. Beim Wechsel zwischen Kontakten bleibt die erste Stelle. */
+      if (!st.kontaktSicht) {
+        const box = this.stage;
+        this._ksZurueck = { x: box ? box.scrollLeft : 0, y: box ? box.scrollTop : 0, winY: window.scrollY || 0,
+          openId: st.openId, openVoll: !!st.openVoll, admin: !!st.admin };
+      }
+      this.setState({ kontaktSicht: uid, admin: false, kontaktHover: "", kontaktAuf: "", personHover: "", openId: null, openVoll: false, konto: false, drawer: false, menuOffen: false }, () => {
+        window.setTimeout(() => { const box = this.stage; if (box) { box.scrollLeft = Math.max(0, box.scrollWidth - box.clientWidth); box.scrollTop = 0; } }, 80);
+      });
+      try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (x) { window.scrollTo(0, 0); }
+      return;
+    }
+    const z = this._ksZurueck || {};
+    this._ksZurueck = null;
+    this.setState({ kontaktSicht: "", kontaktHover: "", personHover: "", openId: z.openId || null, openVoll: !!z.openVoll, admin: !!z.admin }, () => {
+      const hin = () => { const box = this.stage; if (box) { box.scrollLeft = z.x || 0; box.scrollTop = z.y || 0; } window.scrollTo(0, z.winY || 0); };
+      window.requestAnimationFrame(hin);
+      window.setTimeout(hin, 120);
+      window.setTimeout(hin, 400);
+    });
   }
   /* Bearbeiten-Menü in Reitern: Grunddaten, Inhalt, Programm, Gästeseite, Aussehen, Freigabe. */
   edVals() {
@@ -8723,15 +8805,95 @@ class Component extends DCLogic {
       zurueck: geh((liste[nr - 1] || liste[0])[0]), zurueckLabel: nr > 0 ? tx(liste[nr - 1][2]) : "",
       weiter: nr < liste.length - 1 ? geh(liste[nr + 1][0]) : this.saveEvent,
       weiterLabel: nr < liste.length - 1 ? tx(liste[nr + 1][2]) : tx("speichern"),
-      gaNav: [["link", "ga_g_link", true], ["sicht", "ga_g_sicht", true], ["look", "ga_g_look", true], ["rsvp", "gast_rsvp", !!o.rsvp], ["fragen", "gf_titel", true], ["zp", "zp_titel", !!o.zp], ["sitz", "gast_sitz", !!o.sitz]]
-        .filter((x) => x[2]).map((x) => ({ key: x[0], label: tx(x[1]), stil: this.voPill(false),
-          klick: () => {
-            this.setState({ voKlapp: Object.assign({}, st.voKlapp, { ga: true }) });
-            window.setTimeout(() => { const el = document.querySelector('[data-gasub="' + x[0] + '"]'); if (el) { try { el.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { el.scrollIntoView(); } } }, 60);
-          } }))
     };
     liste.forEach((x) => { out[x[0]] = x[0] === akt; });
+    /* Gästeseite: Unterreiter, immer nur ein Bereich sichtbar. */
+    const ex = this.exOf(d), lage = ex.lage || {}, nf = ex.notfall || {};
+    const teileAn = ["foto", "buch", "vor", "sitz", "zp", "rsvp"].filter((k) => !!o[k]).length;
+    const gaListe = [
+      ["link", "ga_k_link", o.an ? tx("fin_an") : tx("fin_aus")],
+      ["bereiche", "ga_k_bereiche", zahl(teileAn)],
+      ["look", "ga_k_look", ""],
+      ["rsvp", "ga_k_rsvp", zahl((o.fragen || []).length)],
+      ["zp", "ga_k_zp", zahl((o.zeitplan || []).length)],
+      ["sitz", "ga_k_sitz", zahl((o.tische || []).length)],
+      ["infos", "ga_k_infos", zahl([ex.countdown, nf.an, (lage.punkte || []).length || lage.bild || lage.karte || String(lage.adresse || "").trim()].filter(Boolean).length)]
+    ];
+    const gaAkt = gaListe.some((x) => x[0] === st.gaTab) ? st.gaTab : "link";
+    out.ga = {};
+    gaListe.forEach((x) => { out.ga[x[0]] = x[0] === gaAkt; });
+    out.gaTabs = gaListe.map((x) => {
+      const an = x[0] === gaAkt;
+      return { key: x[0], label: tx(x[1]), aria: an ? "true" : "false", hatBadge: !!x[2], badge: x[2],
+        klick: () => this.setState({ gaTab: x[0] }),
+        stil: { display: "inline-flex", alignItems: "center", gap: "6px", minHeight: "38px", padding: "0 12px", borderRadius: "10px", cursor: "pointer", font: "inherit", fontSize: "13.5px", fontWeight: an ? 700 : 500,
+          border: an ? "2px solid var(--color-accent)" : "1px solid var(--color-divider)", background: an ? "var(--color-accent-100)" : "transparent", color: an ? "var(--color-accent-700)" : "var(--color-text)" },
+        badgeStil: { fontSize: "11px", fontWeight: 700, padding: "0 6px", borderRadius: "99px", background: "var(--color-accent-100)", color: "var(--color-accent-700)" } };
+    });
+    out.immer = true;
+    out.rsvpAus = !o.rsvp; out.rsvpEin = () => this.voSet("offen.rsvp", true);
+    out.zpAus = !o.zp; out.zpEin = () => this.voSet("offen.zp", true);
+    out.sitzAus = !o.sitz; out.sitzEin = () => this.voSet("offen.sitz", true);
+    /* Suche im Bearbeiten-Menü: tippen, antippen, man landet an der richtigen Stelle. */
+    const q = String(st.edSuche || "").trim().toLowerCase();
+    out.suche = st.edSuche || "";
+    out.onSuche = (ev) => this.setState({ edSuche: ev.target.value });
+    out.sucheLeeren = () => this.setState({ edSuche: "" });
+    out.sucheTaste = (ev) => { if (ev && ev.key === "Escape") this.setState({ edSuche: "" }); if (ev && ev.key === "Enter") { const t0 = this.edSucheTreffer(q, mine)[0]; if (t0) { ev.preventDefault(); this.edSucheGehe(t0); } } };
+    const treffer = q ? this.edSucheTreffer(q, mine) : [];
+    out.hatSuche = !!q; out.keinTreffer = !!q && !treffer.length;
+    out.treffer = treffer.slice(0, 8).map((t, k) => ({ key: "s" + k, label: t.label, wo: t.wo, klick: () => this.edSucheGehe(t) }));
     return out;
+  }
+  /* Alles, was man im Bearbeiten-Menü finden kann – mit Suchwörtern. */
+  edSucheIndex(mine) {
+    const R = (k) => tx("ed_t_" + k), G = (k) => tx("ga_k_" + k);
+    const e = (label, woraus, ziel, worte) => ({ label: label, wo: woraus, ziel: ziel, worte: (label + " " + worte).toLowerCase() });
+    const liste = [
+      e(tx("name"), R("grund"), { tab: "grund" }, "titel name überschrift"),
+      e(tx("datum"), R("grund"), { tab: "grund" }, "datum tag wann ende zeitraum"),
+      e(tx("ort"), R("grund"), { tab: "grund" }, "ort adresse wo"),
+      e(tx("kategorie"), R("grund"), { tab: "grund" }, "kategorie thema art"),
+      e(tx("beschreibung"), R("grund"), { tab: "grund" }, "beschreibung text notiz"),
+      e(tx("infos"), R("inhalt"), { tab: "inhalt", sec: "infos" }, "infos details dresscode hinweise"),
+      e(tx("personen"), R("inhalt"), { tab: "inhalt", sec: "personen" }, "personen leute gäste teilnehmer erfunden"),
+      e(tx("bilder"), R("inhalt"), { tab: "inhalt", sec: "bilder" }, "bilder fotos hochladen kamera"),
+      e(tx("alben"), R("inhalt"), { tab: "inhalt", sec: "alben" }, "alben album gruppen bilder"),
+      e(tx("tt_titel"), R("programm"), { tab: "programm", sec: "timetable" }, "timetable acts bühne lineup programm"),
+      e(tx("fin_knopf_zeigen"), R("programm"), { tab: "programm", sec: "finanzen" }, "finanzen geld kosten abrechnung ausgaben"),
+      e(tx("etappen_route"), R("programm"), { tab: "programm", sec: "etappen" }, "etappen route reise stationen karte"),
+      e(tx("ed_s_polls"), R("programm"), { tab: "programm", sec: "polls" }, "abstimmung umfrage rangliste voting"),
+      e(G("link"), R("gast"), { tab: "gast", ga: "link" }, "gästelink link passwort teilen qr freischalten"),
+      e(G("bereiche"), R("gast"), { tab: "gast", ga: "bereiche" }, "fotowand gästebuch vorschläge bereiche freigeben sichtbar ab wann"),
+      e(G("look"), R("gast"), { tab: "gast", ga: "look" }, "aussehen gästeseite design titelbild begrüßung gruß"),
+      e(G("rsvp"), R("gast"), { tab: "gast", ga: "rsvp" }, "zusage absage rsvp essen essenswunsch abfragen fragen pflicht"),
+      e(G("zp"), R("gast"), { tab: "gast", ga: "zp" }, "zeitplan ablauf uhrzeit programmpunkte"),
+      e(G("sitz"), R("gast"), { tab: "gast", ga: "sitz" }, "sitzplan tische plätze sitzordnung"),
+      e(G("infos"), R("gast"), { tab: "gast", ga: "infos" }, "countdown notfall kontakt telefon lageplan karte anfahrt parken"),
+      e(tx("ed_s_deko"), R("aussehen"), { tab: "aussehen", sec: "deko" }, "design deko sticker farben aussehen thema")
+    ];
+    if (mine) liste.push(e(tx("ed_s_sicht"), R("freigabe"), { tab: "freigabe", sec: "sicht" }, "rechte sichtbarkeit freigabe wer sieht mitbearbeiten gruppen kontakte privat"));
+    return liste;
+  }
+  edSucheTreffer(q, mine) {
+    const w = q.split(/\s+/).filter(Boolean);
+    return this.edSucheIndex(mine).filter((x) => w.every((t) => x.worte.indexOf(t) >= 0));
+  }
+  edSucheGehe(t) {
+    const z = t.ziel || {};
+    const sec = Object.assign({}, this.state.secOpen || {});
+    if (z.sec && z.sec !== "timetable" && z.sec !== "finanzen") sec[z.sec] = true;
+    this.setState({ edSuche: "", edTab: z.tab || "grund", gaTab: z.ga || this.state.gaTab, secOpen: sec }, () => {
+      window.setTimeout(() => {
+        const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div');
+        if (!dlg) return;
+        const el = z.ga ? dlg.querySelector('[data-gatab="' + z.ga + '"]') : z.sec ? dlg.querySelector('[data-sec="' + z.sec + '"]') : null;
+        if (!el) { dlg.scrollTop = 0; return; }
+        const y = dlg.scrollTop + (el.getBoundingClientRect().top - dlg.getBoundingClientRect().top) - 140;
+        dlg.scrollTop = Math.max(0, y);
+        try { el.animate([{ boxShadow: "0 0 0 0 transparent" }, { boxShadow: "0 0 0 4px var(--color-accent)" }, { boxShadow: "0 0 0 0 transparent" }], { duration: 900, iterations: 2 }); } catch (x) { /* alte Browser */ }
+      }, 90);
+    });
   }
   /* Das Finanzfenster gehört zu einem Ereignis (state.fin.evId). */
   finEreignis() { const f = this.state.fin; return f ? (this.state.events || []).filter((x) => x.id === f.evId)[0] || null : null; }
@@ -12148,7 +12310,8 @@ class Component extends DCLogic {
     const sec = Object.assign({}, this.state.secOpen || {});
     if (t.sec) sec[t.sec] = true;
     const tabFuer = { infos: "inhalt", personen: "inhalt", bilder: "inhalt", alben: "inhalt", etappen: "programm", polls: "programm", timetable: "programm", vorort: "gast", deko: "aussehen", sicht: "freigabe" };
-    this.setState({ lehr: n, secOpen: sec, edTab: tabFuer[t.sec] || "grund", voKlapp: t.klapp ? Object.assign({}, this.state.voKlapp, { [t.klapp]: true }) : this.state.voKlapp });
+    const gaFuer = { countdown: "infos", notfall: "infos", lage: "infos", offen: "link", fotowand: "bereiche", rsvp: "rsvp", fragen: "rsvp", sitz: "sitz", frei: "bereiche", rueck: "rsvp" };
+    this.setState({ lehr: n, secOpen: sec, edTab: tabFuer[t.sec] || "grund", gaTab: gaFuer[t.k] || this.state.gaTab, voKlapp: t.klapp ? Object.assign({}, this.state.voKlapp, { [t.klapp]: true }) : this.state.voKlapp });
     window.setTimeout(() => {
       const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div');
       if (!dlg) return;
@@ -13443,7 +13606,7 @@ class Component extends DCLogic {
 
   newEvent = () => {
     const today = new Date().toISOString().slice(0, 10);
-    this.setState({ bildSel: [], edTab: "grund", secOpen: {}, draft: { id: null, name: "", date: today, end: "", place: "", kicker: "", note: "", infos: [{ label: "", value: "" }], people: [], images: [], deco: { fx: [], pal: "thema", stickers: [] }, vis: "private", who: [], gwho: [], perms: {}, polls: [], etappen: [], etLayout: "gesamt", alben: [], themeId: "", themeSnap: null, themeFein: {}, share: "view", by: (this.me() || {}).id || "", url: "", partial: false }, decoSel: null, pickQ: "", drawer: false, admin: false, secOpen: {} });
+    this.setState({ bildSel: [], edTab: "grund", gaTab: "link", edSuche: "", secOpen: {}, draft: { id: null, name: "", date: today, end: "", place: "", kicker: "", note: "", infos: [{ label: "", value: "" }], people: [], images: [], deco: { fx: [], pal: "thema", stickers: [] }, vis: "private", who: [], gwho: [], perms: {}, polls: [], etappen: [], etLayout: "gesamt", alben: [], themeId: "", themeSnap: null, themeFein: {}, share: "view", by: (this.me() || {}).id || "", url: "", partial: false }, decoSel: null, pickQ: "", drawer: false, admin: false, secOpen: {} });
   };
 
   editEvent(id) {
@@ -13453,7 +13616,7 @@ class Component extends DCLogic {
     if (lvl < 3) return;
     this.setState({
       decoSel: null, bildSel: [],
-    decoStil: "flach", secOpen: {}, edTab: "grund",
+    decoStil: "flach", secOpen: {}, edTab: "grund", gaTab: "link", edSuche: "",
       draft: {
         id: e.id, name: e.name || "", date: e.date || "", end: e.end || "", place: e.place || "",
         kicker: e.kicker || "", note: e.note || "",
@@ -16166,9 +16329,9 @@ class Component extends DCLogic {
             /* Info-Karte beim Darüberfahren – nur bei Personen mit Konto und ohne Blockade. */
             const pi = r.uid ? self.personInfo(r.uid) : { darf: false };
             const hk = e.id + ":" + j;
-            return { infoDarf: pi.darf, infoAn: pi.darf && st.personHover === hk, infoName: pi.name || r.name, infoText: pi.text || "", infoStil: pi.textStil || {}, infoZahl: pi.evZahl || "",
+            return { infoDarf: pi.darf, infoHinweis: pi.klickHinweis || "", infoAn: pi.darf && st.personHover === hk, infoName: pi.name || r.name, infoText: pi.text || "", infoStil: pi.textStil || {}, infoZahl: pi.evZahl || "",
               rein: () => { if (pi.darf) self.setState({ personHover: hk }); }, raus: () => { if (self.state.personHover === hk) self.setState({ personHover: "" }); },
-              personKlick: (ev) => { if (!pi.darf) return; if (ev && ev.stopPropagation) ev.stopPropagation(); self.kontaktTimeline(r.uid); },
+              personKlick: (ev) => { if (!pi.darf || !pi.anzahl) return; if (ev && ev.stopPropagation) ev.stopPropagation(); self.kontaktTimeline(r.uid); },
               chipZeiger: pi.darf ? "pointer" : "default" };
           })(this),
           /* Als Hintergrund statt <img>: so fragt der Browser während des
@@ -16184,7 +16347,7 @@ class Component extends DCLogic {
              Kontos wird gleich mitgezeigt. */
           chip: (function (self) {
             const bekannt = !!r.demoBekannt || !!(r.uid && self.areFriends(r.uid, (me || {}).id));
-            const grund = { cursor: r.uid && self.personInfo(r.uid).darf ? "pointer" : "default", display: "flex", alignItems: "center", gap: "8px", padding: "4px 10px 4px 4px", borderRadius: "99px", background: "color-mix(in srgb, var(--t-ink, #201e1d) 7%, transparent)" };
+            const grund = { cursor: r.uid && self.personInfo(r.uid).darf && self.personInfo(r.uid).anzahl ? "pointer" : "default", display: "flex", alignItems: "center", gap: "8px", padding: "4px 10px 4px 4px", borderRadius: "99px", background: "color-mix(in srgb, var(--t-ink, #201e1d) 7%, transparent)" };
             return bekannt
               ? Object.assign(grund, { border: "2px solid var(--t-accent, #0088b0)", padding: "3px 9px 3px 3px" })
               : grund;
@@ -17560,7 +17723,7 @@ class Component extends DCLogic {
           hover: pi.darf && st.kontaktHover === id && !auf,
           rein: () => this.setState({ kontaktHover: id }), raus: () => { if (this.state.kontaktHover === id) this.setState({ kontaktHover: "" }); },
           info: info || tx("kontakt_keine_info"), hatInfo: !!info, infoStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: info ? "normal" : "italic", color: info ? "inherit" : "var(--color-neutral-700)" },
-          evZahl: plural(evsK.length, tx("ereignis"), tx("ereignisse")),
+          evZahl: pi.evZahl, klickHinweis: pi.klickHinweis || "",
           klick: () => this.kontaktTimeline(id), auf: false, aufText: "false",
           evs: evsK.map((e) => ({ key: e.id, name: e.name || "—", wann: e.date ? fmtDate(e.date) : "",
             sicht: e.vis === "friends" ? tx("alle_kontakte") : tx("fuer_dich_freigegeben"),
