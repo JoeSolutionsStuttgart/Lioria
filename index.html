@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b131"></script>
-<script src="lang/de.js?v=b131"></script>
-<script src="lang/en.js?v=b131"></script>
-<script src="lang/sprache.js?v=b131"></script>
-<script src="./support.js?v=b131"></script>
+<script src="chronik-config.js?v=b132"></script>
+<script src="lang/de.js?v=b132"></script>
+<script src="lang/en.js?v=b132"></script>
+<script src="lang/sprache.js?v=b132"></script>
+<script src="./support.js?v=b132"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b131"></script>
-<script src="xlsx-export.js?v=b131"></script>
-<script src="farbe.js?v=b131"></script>
-<script src="cw-plaetze.js?v=b131"></script>
-<script src="fb-knopf.js?v=b131"></script>
+<script src="supabase-bridge.js?v=b132"></script>
+<script src="xlsx-export.js?v=b132"></script>
+<script src="farbe.js?v=b132"></script>
+<script src="cw-plaetze.js?v=b132"></script>
+<script src="fb-knopf.js?v=b132"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -1507,7 +1507,7 @@
                       <span onClick="{{ stop }}" style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
                         <button onClick="{{ c.vollUm }}" title="{{ c.vollTitel }}" style="cursor: pointer; font: inherit; font-size: 17px; line-height: 1; padding: 8px 14px; border: 0; border-radius: 999px; background: var(--t-accent, #0088b0); color: var(--t-on-accent, #fff); box-shadow: var(--shadow-sm);" style-hover="background: var(--t-accent2, #d6006c);">{{ c.vollZeichen }}</button>
                         <sc-if value="{{ c.canEdit }}" hint-placeholder-val="{{ true }}">
-                          <button onClick="{{ c.edit }}" title="{{ L.ereignis_bearbeiten }}" style="cursor: pointer; font: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); border-radius: var(--t-radius, 2px); background: transparent; color: var(--t-ink, #201e1d);" style-hover="background: color-mix(in srgb, var(--t-accent, #0088b0) 12%, transparent);">{{ c.editLabel }}</button>
+                          <button onClick="{{ c.edit }}" title="{{ L.ereignis_bearbeiten }}" style="cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; line-height: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; min-height: 36px; border: 2px solid var(--t-accent, #0088b0); border-radius: 999px; background: color-mix(in srgb, var(--t-accent, #0088b0) 14%, var(--t-card, #eae9e9)); color: var(--t-ink, #201e1d);" style-hover="background: var(--t-accent, #0088b0); color: var(--t-on-accent, #fff);"><span aria-hidden="true">✎</span>{{ c.editLabel }}</button>
                         </sc-if>
                         <sc-if value="{{ c.canFull }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.remove }}" title="{{ L.ereignis_loeschen }}" style="cursor: pointer; font: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid transparent; border-radius: var(--t-radius, 2px); background: transparent; color: color-mix(in srgb, var(--t-accent2, #d6006c) 90%, var(--t-ink, #201e1d));" style-hover="background: color-mix(in srgb, var(--t-accent2, #d6006c) 12%, transparent);">{{ L.loeschen }}</button>
@@ -2206,7 +2206,7 @@
                       <div style="display: flex; gap: 8px; align-items: center; padding-top: 2px; flex-wrap: wrap;">
                         <span style="margin-right: auto; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in srgb, var(--t-ink, #201e1d) 48%, var(--t-card, #eae9e9));">{{ c.rights }}</span>
                         <sc-if value="{{ c.canEdit }}" hint-placeholder-val="{{ true }}">
-                          <button onClick="{{ c.edit }}" style="cursor: pointer; font: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); border-radius: var(--t-radius, 2px); background: transparent; color: var(--t-ink, #201e1d);" style-hover="background: color-mix(in srgb, var(--t-accent, #0088b0) 12%, transparent);">{{ c.editLabel }}</button>
+                          <button onClick="{{ c.edit }}" title="{{ L.ereignis_bearbeiten }}" style="cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; line-height: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; min-height: 36px; border: 2px solid var(--t-accent, #0088b0); border-radius: 999px; background: color-mix(in srgb, var(--t-accent, #0088b0) 14%, var(--t-card, #eae9e9)); color: var(--t-ink, #201e1d);" style-hover="background: var(--t-accent, #0088b0); color: var(--t-on-accent, #fff);"><span aria-hidden="true">✎</span>{{ c.editLabel }}</button>
                         </sc-if>
                         <sc-if value="{{ c.canFull }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.remove }}" style="cursor: pointer; font: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border: 1px solid transparent; border-radius: var(--t-radius, 2px); background: transparent; color: color-mix(in srgb, var(--t-accent2, #d6006c) 90%, var(--t-ink, #201e1d));" style-hover="background: color-mix(in srgb, var(--t-accent2, #d6006c) 12%, transparent);">{{ L.loeschen }}</button>
@@ -2418,12 +2418,36 @@
         <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: var(--space-2);">{{ L.deine_kontakte }} · {{ contacts.count }}</div>
         <div style="display: grid; gap: 6px;">
           <sc-for list="{{ contacts.list }}" as="c" hint-placeholder-count="0">
+            <div style="position: relative; display: grid; gap: 6px;">
             <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-              <span style="{{ c.avatar }}">{{ c.initials }}</span>
-              <span>{{ c.name }}</span>
+              <button onClick="{{ c.klick }}" onMouseEnter="{{ c.rein }}" onMouseLeave="{{ c.raus }}" onFocus="{{ c.rein }}" onBlur="{{ c.raus }}" aria-expanded="{{ c.aufText }}" title="{{ L.kontakt_ansehen }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 2px 10px 2px 2px; border: 0; border-radius: 999px; background: transparent; font: inherit; color: inherit; cursor: pointer; text-align: left;" style-hover="background: var(--color-accent-100);">
+                <span style="{{ c.avatar }}">{{ c.initials }}</span>
+                <span style="font-weight: 600;">{{ c.name }}</span>
+              </button>
               <span style="font-size: 11.5px; color: var(--color-neutral-700);">{{ c.email }}</span>
               <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
               <button onClick="{{ c.drop }}" style="font: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: 0; padding: 0; cursor: pointer; color: var(--color-accent-2-700); text-decoration: underline; white-space: nowrap;">{{ L.entfernen }}</button>
+            </div>
+            <sc-if value="{{ c.hover }}" hint-placeholder-val="{{ false }}">
+              <div role="tooltip" style="position: absolute; left: 0; top: 44px; z-index: 30; width: min(320px, 90vw); display: grid; gap: 6px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-bg); box-shadow: var(--shadow-lg); pointer-events: none;">
+                <div style="font-family: var(--font-heading); font-size: 16px; font-weight: 600;">{{ c.name }}</div>
+                <div style="{{ c.infoStil }}">{{ c.info }}</div>
+                <div style="font-size: 12px; color: var(--color-accent-700);">{{ c.evZahl }} · {{ L.kontakt_klick_hinweis }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ c.auf }}" hint-placeholder-val="{{ false }}">
+              <div style="display: grid; gap: 8px; margin: 0 0 var(--space-3) 40px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-surface);">
+                <div style="{{ c.infoStil }}">{{ c.info }}</div>
+                <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.kontakt_ereignisse }} · {{ c.evZahl }}</div>
+                <sc-for list="{{ c.evs }}" as="ke" hint-placeholder-count="0">
+                  <button onClick="{{ ke.oeffnen }}" style="display: grid; gap: 2px; text-align: left; padding: 8px 10px; border: 0; border-radius: var(--radius-sm, 4px); background: var(--color-bg); font: inherit; color: inherit; cursor: pointer;" style-hover="background: var(--color-accent-100);">
+                    <span style="font-size: 14.5px; font-weight: 600;">{{ ke.name }}</span>
+                    <span style="font-size: 12px; color: var(--color-neutral-700);">{{ ke.wann }} · {{ ke.sicht }}</span>
+                  </button>
+                </sc-for>
+                <sc-if value="{{ c.keineEvs }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13px; font-style: italic; color: var(--color-neutral-700);">{{ L.kontakt_keine_ereignisse }}</div></sc-if>
+              </div>
+            </sc-if>
             </div>
           </sc-for>
           <sc-if value="{{ contacts.empty }}" hint-placeholder-val="{{ true }}">
@@ -2784,6 +2808,12 @@
           <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ ttFormKnopf }}</span>
           <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
           <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ ttFormBadge }}</span>
+        </button>
+        <button data-sec="finanzen" onClick="{{ vo.finUm }}" aria-pressed="{{ vo.finAria }}" style="{{ form.sec.head }}">
+          <span style="display: inline-block; font-size: 12px; width: 12px; color: var(--color-accent-700);">€</span>
+          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.fin_knopf_zeigen }}</span>
+          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
+          <span style="{{ vo.finBadgeStil }}">{{ vo.finBadge }}</span>
         </button>
 
         <button data-sec="etappen" onClick="{{ form.sec.etappen.toggle }}" style="{{ form.sec.head }}">
@@ -4508,6 +4538,13 @@
         </div>
       </div>
 
+      <div style="display: grid; gap: 6px; margin-bottom: var(--space-4);">
+        <label style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-700);" for="ueber-mich">{{ L.ueber_mich }}</label>
+        <textarea id="ueber-mich" class="input" rows="3" maxlength="600" value="{{ konto.ueberMich }}" onChange="{{ konto.onUeberMich }}" placeholder="{{ L.ueber_mich_ph }}" style="font-size: 16px; resize: vertical;"></textarea>
+        <div style="font-size: 12px; color: var(--color-neutral-700);">{{ L.ueber_mich_hinweis }}</div>
+        <sc-if value="{{ konto.ueberMichGeaendert }}" hint-placeholder-val="{{ false }}"><button class="btn btn-primary" style="justify-self: start;" onClick="{{ konto.ueberMichSpeichern }}">{{ L.speichern }}</button></sc-if>
+      </div>
+
       <div style="display: grid; gap: 4px; font-size: 13.5px; line-height: 1.5; margin-bottom: var(--space-6);">
         <div><span style="color: var(--color-neutral-700);">{{ L.e_mail }}:</span> {{ konto.mail }}</div>
         <div><span style="color: var(--color-neutral-700);">{{ L.dabei_seit }}:</span> {{ konto.seit }}</div>
@@ -5035,10 +5072,22 @@ const PRESETS = [
   T({ id: "taufe", name: tx("f_taufe"), kicker: tx("f_taufe_k"), bg: "#f5f9fc", ink: "#24364a", card: "#ffffff", accent: "#5d9bcf", accent2: "#a9b8c6", line: "#5d9bcf", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 18, shadow: "sm", lineWidth: 2, marker: "circle", pattern: "none", anim: "glide", animDur: 820, density: 1.25, imgShape: "circle", skin: "taufe" }),
   T({ id: "abschluss", name: tx("f_abschluss"), kicker: tx("f_abschluss_k"), bg: "#0f1b33", ink: "#f2f4fa", card: "#17264a", accent: "#f2c14e", accent2: "#8fb3ff", line: "#f2c14e", fontHead: "Bebas Neue", fontBody: "DM Sans", headWeight: 400, headTransform: "uppercase", headTracking: 0.04, radius: 6, shadow: "lg", lineWidth: 3, marker: "square", pattern: "none", anim: "pop", animDur: 420, density: 1.05, imgShape: "rect", skin: "abschluss" }),
   T({ id: "goldhochzeit", name: tx("f_goldhochzeit"), kicker: tx("f_goldhochzeit_k"), bg: "#fbf6ea", ink: "#3a2e1a", card: "#fffdf6", accent: "#c9a227", accent2: "#8c6d2f", line: "#c9a227", fontHead: "Cormorant Garamond", fontBody: "Source Serif 4", headWeight: 600, headTracking: 0.03, radius: 6, shadow: "md", lineWidth: 1, lineStyle: "double", marker: "ring", pattern: "none", anim: "rise", animDur: 900, density: 1.3, imgShape: "round", skin: "gold" }),
-  T({ id: "regenbogen", name: tx("regenbogen"), kicker: tx("farbrad"), bg: "#fdfcff", ink: "#231c33", card: "#ffffff", accent: "#e5006e", accent2: "#009fe3", line: "#e5006e", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 700, radius: 14, shadow: "md", lineWidth: 5, marker: "square", pattern: "none", anim: "pop", animDur: 380, density: 1.1, imgShape: "rect", skin: "rainbow" })
+  T({ id: "regenbogen", name: tx("regenbogen"), kicker: tx("farbrad"), bg: "#fdfcff", ink: "#231c33", card: "#ffffff", accent: "#e5006e", accent2: "#009fe3", line: "#e5006e", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 700, radius: 14, shadow: "md", lineWidth: 5, marker: "square", pattern: "none", anim: "pop", animDur: 380, density: 1.1, imgShape: "rect", skin: "rainbow" }),
+  /* Ganz andere Richtungen */
+  T({ id: "japandi", name: tx("d_japandi"), kicker: tx("d_japandi_k"), bg: "#f3eee5", ink: "#2a2723", card: "#fbf8f2", accent: "#a8432a", accent2: "#5b6650", line: "#2a2723", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 500, headTracking: 0.02, radius: 0, shadow: "none", lineWidth: 1, marker: "ring", pattern: "none", anim: "rise", animDur: 900, density: 0.85, imgShape: "rect", skin: "grain" }),
+  T({ id: "synthwave", name: tx("d_synthwave"), kicker: tx("d_synthwave_k"), bg: "#1b0b33", ink: "#ffe8ff", card: "#2a1149", accent: "#ff4fd8", accent2: "#2ee6ff", line: "#ff4fd8", fontHead: "Bebas Neue", fontBody: "Space Grotesk", headWeight: 400, headTransform: "uppercase", headTracking: 0.06, radius: 4, shadow: "lg", lineWidth: 3, marker: "diamond", pattern: "grid", anim: "pop", animDur: 520, density: 1.1, imgShape: "round", skin: "glow" }),
+  T({ id: "rohbau", name: tx("d_rohbau"), kicker: tx("d_rohbau_k"), bg: "#ffffff", ink: "#000000", card: "#ffffff", accent: "#1f2bff", accent2: "#ff2a1f", line: "#000000", fontHead: "Space Grotesk", fontBody: "JetBrains Mono", headWeight: 700, headTransform: "uppercase", headTracking: -0.01, radius: 0, shadow: "hard", lineWidth: 4, marker: "square", pattern: "none", anim: "flip", animDur: 480, density: 1, imgShape: "rect" }),
+  T({ id: "aquarell", name: tx("d_aquarell"), kicker: tx("d_aquarell_k"), bg: "#f8f5f1", ink: "#36404a", card: "#ffffff", accent: "#4f80ab", accent2: "#c9708f", line: "#4f80ab", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 500, radius: 20, shadow: "md", lineWidth: 2, lineStyle: "dotted", marker: "circle", pattern: "glow", anim: "glide", animDur: 800, density: 0.95, imgShape: "round", skin: "vignette" }),
+  T({ id: "artdeco", name: tx("d_artdeco"), kicker: tx("d_artdeco_k"), bg: "#0f1316", ink: "#eadcbd", card: "#182026", accent: "#c9a45c", accent2: "#3d8a82", line: "#c9a45c", fontHead: "Playfair Display", fontBody: "DM Sans", headWeight: 700, headTransform: "uppercase", headTracking: 0.08, radius: 0, shadow: "lg", lineWidth: 2, lineStyle: "double", marker: "diamond", pattern: "lines", anim: "rise", animDur: 700, density: 1, imgShape: "rect", skin: "gala" }),
+  T({ id: "terrakotta", name: tx("d_terrakotta"), kicker: tx("d_terrakotta_k"), bg: "#f2e4d4", ink: "#4a2b1c", card: "#fbf3ea", accent: "#c25e2d", accent2: "#3d7a72", line: "#c25e2d", fontHead: "Libre Baskerville", fontBody: "DM Sans", headWeight: 700, radius: 10, shadow: "sm", lineWidth: 3, marker: "circle", pattern: "halftone", anim: "bounce", animDur: 640, density: 1, imgShape: "polaroid", skin: "matte" }),
+  /* Die vier Jahreszeiten – mit eigener Deko und kleinen Animationen */
+  T({ id: "fruehling", name: tx("j_fruehling"), kicker: tx("j_fruehling_k"), bg: "#f6f8ef", ink: "#2f3a2a", card: "#ffffff", accent: "#d9578a", accent2: "#5e9a4b", line: "#5e9a4b", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 16, shadow: "sm", lineWidth: 2, marker: "circle", pattern: "none", anim: "rise", animDur: 760, density: 1.05, imgShape: "round", skin: "fruehling" }),
+  T({ id: "sommer", name: tx("j_sommer"), kicker: tx("j_sommer_k"), bg: "#fff7e3", ink: "#233140", card: "#ffffff", accent: "#f07a12", accent2: "#1597a8", line: "#1597a8", fontHead: "Fredoka", fontBody: "DM Sans", headWeight: 600, radius: 22, shadow: "md", lineWidth: 3, marker: "circle", pattern: "none", anim: "bounce", animDur: 620, density: 1.1, imgShape: "polaroid", skin: "sommer" }),
+  T({ id: "herbst", name: tx("j_herbst"), kicker: tx("j_herbst_k"), bg: "#f4eadb", ink: "#3b2717", card: "#fffaf2", accent: "#c4561d", accent2: "#8a6a1f", line: "#c4561d", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 600, radius: 8, shadow: "md", lineWidth: 2, lineStyle: "dashed", marker: "diamond", pattern: "none", anim: "glide", animDur: 820, density: 1, imgShape: "polaroid", skin: "herbst" }),
+  T({ id: "winter", name: tx("j_winter"), kicker: tx("j_winter_k"), bg: "#eef3f8", ink: "#1e2b3a", card: "#ffffff", accent: "#2f72ad", accent2: "#8fb0cf", line: "#2f72ad", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 700, radius: 12, shadow: "sm", lineWidth: 2, marker: "ring", pattern: "none", anim: "rise", animDur: 760, density: 1, imgShape: "round", skin: "winter" }),
 ];
 
-const FEIER_SKINS = ["xmas", "easter", "picado", "chanukka", "ramadan", "diwali", "lunar", "halloween", "rauten", "babyparty", "konfetti", "goldkonfetti", "blumen", "kommunion", "taufe", "abschluss", "gold"];
+const FEIER_SKINS = ["xmas", "easter", "picado", "chanukka", "ramadan", "diwali", "lunar", "halloween", "rauten", "babyparty", "konfetti", "goldkonfetti", "blumen", "kommunion", "taufe", "abschluss", "gold", "fruehling", "sommer", "herbst", "winter"];
 
 const PATTERNS = {
   none: function () { return ["none", "auto"]; },
@@ -5878,6 +5927,7 @@ class Component extends DCLogic {
     avatar: "",
     avatarBusy: false,
     avatarFehler: "",
+    ueberMich: "", ueberMichEntwurf: null, kontaktHover: "", kontaktAuf: "",
     lookVorschau: false,
     tourWahl: false,
     lehr: null,
@@ -7773,6 +7823,11 @@ class Component extends DCLogic {
         key: x[0], label: (o[x[0]] ? "✓ " : "") + x[1], stil: this.voPill(!!o[x[0]]), klick: um("offen." + x[0], !!o[x[0]])
       })),
       gaSitz: !!o.sitz, gaRsvp: !!o.rsvp, gaZp: !!o.zp,
+      /* Finanzen-Knopf im Ereignis: Standard an, je Ereignis ausblendbar. */
+      finUm: () => this.voSet("finAus", !ex.finAus), finAria: ex.finAus ? "false" : "true",
+      finBadge: ex.finAus ? tx("fin_aus") : tx("fin_an"),
+      finBadgeStil: { fontSize: "12px", fontWeight: 600, whiteSpace: "nowrap", padding: "3px 10px", borderRadius: "99px",
+        background: ex.finAus ? "var(--color-neutral-200, #e4e2df)" : "var(--color-accent-100)", color: ex.finAus ? "var(--color-neutral-700)" : "var(--color-accent-700)" },
       ...this.zpEditVals(o, d),
       gaEssen: o.essen || "", onGaEssen: set("offen.essen"),
       /* Aus: Liste wird beiseitegelegt (essenAus), damit sie beim Einschalten wieder da ist. */
@@ -9944,6 +9999,17 @@ class Component extends DCLogic {
           "61px 53px, 47px 71px, 83px 59px, 37px 43px", ["linear-gradient(160deg, " + t.accent + "1e 0%, transparent 40%)"], { opacity: 0.8 });
         if (id === "goldkonfetti") return rasterUndVoll("radial-gradient(" + t.accent + "aa 1.4px, transparent 1.9px), radial-gradient(" + t.accent + "55 1px, transparent 1.4px)", "57px 63px, 29px 41px",
           ["linear-gradient(125deg, " + t.accent + "26 0%, transparent 30%, transparent 70%, " + t.accent + "1a 100%)"]);
+        if (id === "fruehling") return rasterUndVoll(
+          "radial-gradient(#f6b8cf 1.8px, transparent 2.4px), radial-gradient(#ffffff 1.5px, transparent 2px)", "71px 63px, 47px 53px",
+          ["linear-gradient(to bottom, " + t.accent2 + "1a 0%, transparent 30%)", "radial-gradient(ellipse at 100% 0%, " + t.accent + "22 0%, transparent 45%)"]);
+        if (id === "sommer") return voll(["radial-gradient(circle at 88% 6%, #ffd25a66 0 7%, #ffd25a22 14%, transparent 30%)",
+          "repeating-radial-gradient(circle at 88% 6%, transparent 0 40px, #ffd25a12 40px 44px)", "linear-gradient(to bottom, transparent 70%, " + t.accent2 + "1c 100%)"]);
+        if (id === "herbst") return rasterUndVoll(
+          "radial-gradient(" + t.accent + "40 1.6px, transparent 2.2px), radial-gradient(" + t.accent2 + "38 1.3px, transparent 1.8px)", "61px 67px, 41px 47px",
+          ["linear-gradient(170deg, " + t.accent + "1c 0%, transparent 35%)", "linear-gradient(to top, #8a4a1f14 0%, transparent 30%)"]);
+        if (id === "winter") return rasterUndVoll(
+          "radial-gradient(#ffffff 1.7px, transparent 2.2px), radial-gradient(" + t.accent2 + "88 1px, transparent 1.4px)", "53px 61px, 31px 37px",
+          ["linear-gradient(to bottom, " + t.accent + "16 0%, transparent 30%)", "radial-gradient(ellipse at 50% 120%, #ffffff 0%, transparent 55%)"]);
         if (id === "blumen") return voll(["radial-gradient(circle at 0% 0%, " + t.accent + "26 0 8%, transparent 22%)", "radial-gradient(circle at 6% 14%, " + t.accent2 + "22 0 5%, transparent 14%)",
           "radial-gradient(circle at 100% 100%, " + t.accent + "22 0 8%, transparent 22%)", "radial-gradient(circle at 93% 86%, " + t.accent2 + "22 0 5%, transparent 14%)"]);
         if (id === "kommunion") return voll(["repeating-conic-gradient(from 180deg at 50% -10%, " + t.accent + "12 0deg 3deg, transparent 3deg 12deg)", "radial-gradient(ellipse at 50% 0%, " + t.card + " 0%, transparent 55%)",
@@ -10005,6 +10071,10 @@ class Component extends DCLogic {
         if (id === "babyparty") return { padding: "12px", borderRadius: "28px", background: "linear-gradient(135deg, " + t.accent + "66, " + t.accent2 + "66)" };
         if (id === "konfetti") return { padding: "10px", borderRadius: "20px", background: "linear-gradient(110deg, #ff5d8f, #ffc93c 35%, #7bd389 65%, #29b6f6)", boxShadow: "6px 6px 0 0 " + t.ink };
         if (id === "goldkonfetti") return { padding: "10px", borderRadius: "4px", background: "linear-gradient(135deg, #f6dc8c, " + t.accent + " 40%, #8a6a1f 70%, #f0d27a)" };
+        if (id === "fruehling") return { padding: "11px", borderRadius: "22px", background: "linear-gradient(135deg, #f8c9da, #ffffff 45%, #cfe6c0)" };
+        if (id === "sommer") return { padding: "11px", borderRadius: "24px", background: "linear-gradient(135deg, #ffd25a, " + t.accent + " 45%, " + t.accent2 + ")" };
+        if (id === "herbst") return { padding: "11px", borderRadius: "10px", background: "linear-gradient(135deg, #e0a03a, " + t.accent + " 45%, #7a3b16 80%, #c98a2e)" };
+        if (id === "winter") return { padding: "12px", borderRadius: "16px", background: "linear-gradient(160deg, #ffffff, " + t.accent2 + " 50%, #ffffff)", boxShadow: "inset 0 0 0 1px " + t.accent + "55" };
         if (id === "blumen") return { padding: "11px", borderRadius: "14px", background: "linear-gradient(135deg, " + t.accent + "40, " + t.accent2 + "38)" };
         if (id === "kommunion") return { padding: "12px", borderRadius: "10px", background: "linear-gradient(" + t.card + ", " + t.bg + ")", boxShadow: "inset 0 0 0 1px " + t.accent + "99, inset 0 0 0 4px " + t.bg + ", inset 0 0 0 5px " + t.accent + "55" };
         if (id === "taufe") return { padding: "12px", borderRadius: "22px", background: "linear-gradient(160deg, " + t.accent + "40, " + t.accent2 + "44)" };
@@ -10123,6 +10193,27 @@ class Component extends DCLogic {
       const zweig = '<path d="M0 10 Q70 30 110 110 T150 250" stroke="' + b + '" stroke-width="2" fill="none" opacity=".6"/>' + bt(40, 26, 20) + bt(80, 60, 50) + bt(105, 98, 70) + bt(125, 150, 80) + bt(60, 40, -30) + bl(30, 18, 8) + bl(96, 74, 10) + bl(134, 196, 7);
       lage(u(260, 260, zweig), "260px 260px", "no-repeat", "0 0");
       lage(u(260, 260, '<g transform="rotate(180 130 130)">' + zweig + '</g>'), "260px 260px", "no-repeat", "100% 100%");
+    } else if (id === "fruehling") {
+      const bl5 = (x, y, r, f) => { let q = ""; for (let i = 0; i < 5; i++) { const w = i * Math.PI * 2 / 5 - Math.PI / 2; q += '<ellipse cx="' + (x + r * Math.cos(w)).toFixed(1) + '" cy="' + (y + r * Math.sin(w)).toFixed(1) + '" rx="' + (r * 0.95).toFixed(1) + '" ry="' + (r * 0.75).toFixed(1) + '" fill="' + f + '" transform="rotate(' + (i * 72) + ' ' + (x + r * Math.cos(w)).toFixed(1) + ' ' + (y + r * Math.sin(w)).toFixed(1) + ')"/>'; } return q + '<circle cx="' + x + '" cy="' + y + '" r="' + (r * 0.45).toFixed(1) + '" fill="#f6d36b"/>'; };
+      const kn = (x, y) => '<circle cx="' + x + '" cy="' + y + '" r="3.2" fill="#f6b8cf"/>';
+      const ast = '<path d="M0 6 Q60 18 110 60 T170 150" stroke="#7a5a46" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M70 30 Q95 20 120 26" stroke="#7a5a46" stroke-width="2" fill="none"/><path d="M118 80 Q140 92 150 118" stroke="#7a5a46" stroke-width="2" fill="none"/>'
+        + bl5(40, 14, 7, "#f6b8cf") + bl5(96, 44, 8, "#ffffff") + bl5(122, 26, 6, "#f9d3e1") + bl5(150, 118, 7, "#f6b8cf") + bl5(132, 92, 5.5, "#ffffff") + kn(70, 28) + kn(160, 138) + kn(112, 70)
+        + '<ellipse cx="60" cy="24" rx="9" ry="4" fill="' + b + '" opacity=".75" transform="rotate(25 60 24)"/><ellipse cx="138" cy="104" rx="9" ry="4" fill="' + b + '" opacity=".75" transform="rotate(60 138 104)"/>';
+      lage(u(220, 200, '<g opacity=".85">' + ast + '</g>'), "220px 200px", "no-repeat", "0 0");
+      lage(u(220, 200, '<g opacity=".85" transform="rotate(180 110 100)">' + ast + '</g>'), "220px 200px", "no-repeat", "100% 100%");
+    } else if (id === "sommer") {
+      let strahlen = ""; for (let i = 0; i < 12; i++) { const w = i * Math.PI / 6; strahlen += '<line x1="' + (90 + 46 * Math.cos(w)).toFixed(1) + '" y1="' + (70 + 46 * Math.sin(w)).toFixed(1) + '" x2="' + (90 + 62 * Math.cos(w)).toFixed(1) + '" y2="' + (70 + 62 * Math.sin(w)).toFixed(1) + '"/>'; }
+      lage(u(180, 140, '<g opacity=".8"><circle cx="90" cy="70" r="36" fill="#ffd25a"/><circle cx="90" cy="70" r="28" fill="#ffe08a"/><g stroke="#ffc23a" stroke-width="5" stroke-linecap="round">' + strahlen + '</g></g>'), "180px 140px", "no-repeat", "100% 0");
+      lage(u(200, 50, '<path d="M0 26 Q25 10 50 26 T100 26 T150 26 T200 26" stroke="' + b + '" stroke-width="3" fill="none" opacity=".45"/><path d="M0 42 Q25 26 50 42 T100 42 T150 42 T200 42" stroke="' + b + '" stroke-width="3" fill="none" opacity=".3"/>'), "200px 50px", "repeat-x", "0 100%");
+    } else if (id === "herbst") {
+      const blatt = (x, y, w, f, sk) => '<g transform="translate(' + x + ' ' + y + ') rotate(' + w + ') scale(' + sk + ')"><path d="M0 -16 C9 -10 12 -2 9 6 C6 12 2 15 0 18 C-2 15 -6 12 -9 6 C-12 -2 -9 -10 0 -16Z" fill="' + f + '"/><path d="M0 -14 V20 M0 -4 L6 -9 M0 2 L-6 -3 M0 8 L5 4" stroke="#5a2e10" stroke-width="1" fill="none" opacity=".55"/></g>';
+      lage(u(220, 220, '<g opacity=".32">' + blatt(40, 40, -25, a, 1) + blatt(150, 70, 40, "#e0a03a", 0.8) + blatt(90, 150, 120, "#b8321b", 0.9) + blatt(190, 180, -70, b, 0.7) + blatt(30, 190, 15, "#e0a03a", 0.6) + '</g>'), "220px 220px", "repeat", "0 40px");
+      lage(u(230, 120, '<path d="M0 10 Q80 20 150 60 T230 110" stroke="#6b3a17" stroke-width="3" fill="none" stroke-linecap="round"/>' + blatt(60, 26, 60, a, 1.1) + blatt(110, 40, 100, "#e0a03a", 1) + blatt(160, 70, 130, "#b8321b", 1) + blatt(200, 96, 160, a, 0.9)), "230px 120px", "no-repeat", "0 0");
+    } else if (id === "winter") {
+      const fl = (x, y, r, o) => { let q = ""; for (let i = 0; i < 3; i++) { const w = i * Math.PI / 3, dx = r * Math.cos(w), dy = r * Math.sin(w); q += '<line x1="' + (x - dx).toFixed(1) + '" y1="' + (y - dy).toFixed(1) + '" x2="' + (x + dx).toFixed(1) + '" y2="' + (y + dy).toFixed(1) + '"/>'; } return '<g stroke="' + a + '" stroke-width="1.6" stroke-linecap="round" opacity="' + o + '">' + q + '</g>'; };
+      lage(u(180, 180, fl(40, 40, 10, 0.35) + fl(130, 110, 7, 0.28) + fl(150, 30, 5, 0.25) + fl(70, 150, 6, 0.22)), "180px 180px", "repeat", "0 60px");
+      const tanne = (x, h) => '<polygon points="' + x + ',' + (90 - h) + ' ' + (x - h * 0.42) + ',90 ' + (x + h * 0.42) + ',90" fill="' + a + '" opacity=".5"/><polygon points="' + x + ',' + (90 - h) + ' ' + (x - h * 0.16) + ',' + (90 - h * 0.62) + ' ' + (x + h * 0.16) + ',' + (90 - h * 0.62) + '" fill="#ffffff"/>';
+      lage(u(240, 90, '<path d="M0 78 Q60 62 120 76 T240 74 V90 H0Z" fill="#ffffff" opacity=".9"/>' + tanne(30, 46) + tanne(70, 30) + tanne(150, 54) + tanne(205, 36)), "240px 90px", "repeat-x", "0 100%");
     } else if (id === "kommunion") {
       let z = '<path d="M30 70 Q160 30 290 70" stroke="' + b + '" stroke-width="2" fill="none"/>';
       for (let i = 0; i < 10; i++) { const x = 40 + i * 25, y = 70 - Math.sin(Math.PI * i / 9) * 26; z += '<ellipse cx="' + x + '" cy="' + (y - 9) + '" rx="10" ry="4" fill="' + b + '" transform="rotate(' + (-30 + i * 6) + ' ' + x + ' ' + (y - 9) + ')"/><ellipse cx="' + (x + 8) + '" cy="' + (y + 7) + '" rx="10" ry="4" fill="' + b + '" opacity=".8" transform="rotate(' + (30 - i * 6) + ' ' + (x + 8) + ' ' + (y + 7) + ')"/>'; if (i % 3 === 1) z += '<ellipse cx="' + (x + 4) + '" cy="' + (y + 12) + '" rx="3.5" ry="4.5" fill="#5f6e3f"/>'; }
@@ -10165,6 +10256,10 @@ class Component extends DCLogic {
         konfetti: { sets: [{ art: "fall", n: 22, z: [".rechteck", ".kreis"], f: W, gr: [5, 10], d: [6, 12], o: 0.9 }, { art: "rise", n: 3, z: [".ballon"], f: W, gr: [20, 28], d: [14, 22], o: 0.9 }], burst: { z: ["★", ".rechteck", ".kreis"], f: W, hoch: true } },
         goldkonfetti: { sets: [{ art: "fall", n: 18, z: [".rechteck", "✦"], f: GOLD, gr: [4, 9], d: [8, 14], o: 0.9 }], burst: { z: ["✦", ".rechteck"], f: GOLD, hoch: true } },
         blumen: { sets: [{ art: "fall", n: 10, z: [".blatt"], f: ["#e7b3a5", "#c7d4b6", "#f3d9a4"], gr: [7, 12], d: [13, 20], o: 0.85 }], burst: { z: ["❀", "✿"], f: ["#9c4f3c", "#6f8a5a", "#e7b3a5"] } },
+        fruehling: { sets: [{ art: "fall", n: 14, z: [".blatt"], f: ["#f6b8cf", "#ffffff", "#f9d3e1"], gr: [7, 12], d: [12, 20], o: 0.85 }, { art: "fly", n: 2, z: ["🦋"], f: ["#d9578a"], gr: [16, 22], d: [14, 22], o: 0.9 }], burst: { z: ["❀", "✿", ".blatt"], f: ["#d9578a", "#5e9a4b", "#f6b8cf"] } },
+        sommer: { sets: [{ art: "twinkle", n: 14, z: ["✦", "·"], f: ["#ffc23a", "#ffffff"], gr: [6, 13], d: [2.5, 5], o: 0.9 }, { art: "rise", n: 8, z: [".blase"], f: ["#1597a8", "#7fd6e0"], gr: [8, 18], d: [12, 20], o: 0.5 }], burst: { z: ["☀", "✦", ".kreis"], f: ["#f07a12", "#ffc23a", "#1597a8"], hoch: true } },
+        herbst: { sets: [{ art: "fall", n: 16, z: [".blatt"], f: ["#c4561d", "#e0a03a", "#8a4a1f", "#b8321b"], gr: [9, 16], d: [9, 16], o: 0.9 }], burst: { z: ["🍂", "🍁", ".blatt"], f: ["#c4561d", "#e0a03a", "#8a4a1f"] } },
+        winter: { sets: [{ art: "fall", n: 24, z: ["❄", "❅", "•"], f: ["#ffffff", "#a9c6e3"], gr: [7, 16], d: [9, 18], o: 0.9 }], burst: { z: ["❄", "✦", "❅"], f: ["#2f72ad", "#ffffff", "#8fb0cf"] } },
         kommunion: { sets: [{ art: "rise", n: 10, z: [".licht"], f: ["#e6d29a", "#ffffff"], gr: [4, 10], d: [14, 22], o: 0.6 }], burst: { z: ["✦", "❀"], f: ["#b89a4d", "#8aa37b", "#ffffff"] } },
         taufe: { sets: [{ art: "rise", n: 12, z: [".blase"], f: ["#5d9bcf", "#a9b8c6"], gr: [6, 16], d: [12, 20], o: 0.5 }], burst: { z: ["✧", ".kreis"], f: ["#5d9bcf", "#ffffff", "#a9b8c6"] } },
         abschluss: { sets: [{ art: "fall", n: 16, z: [".rechteck", "★"], f: ["#f2c14e", "#8fb3ff", "#ffffff"], gr: [5, 10], d: [7, 12], o: 0.85 }], burst: { z: [".hut", "★"], f: ["#f2c14e", "#ffffff"], hoch: true } },
@@ -10248,13 +10343,15 @@ class Component extends DCLogic {
   }
   /* Zeichen im Kopf der Gästeseite und Titelverlauf je Feier-Design. */
   feierZeichen(id) {
-    return ({ xmas: "❄", easter: "✿", picado: "✹", chanukka: "✡", ramadan: "☾", diwali: "✺", lunar: "福", halloween: "☾", rauten: "◆", babyparty: "☁", konfetti: "★", goldkonfetti: "✦", blumen: "❀", kommunion: "✝", taufe: "✧", abschluss: "★", gold: "∞" })[id] || "✦";
+    return ({ xmas: "❄", easter: "✿", picado: "✹", chanukka: "✡", ramadan: "☾", diwali: "✺", lunar: "福", halloween: "☾", rauten: "◆", babyparty: "☁", konfetti: "★", goldkonfetti: "✦", blumen: "❀", kommunion: "✝", taufe: "✧", abschluss: "★", gold: "∞", fruehling: "❀", sommer: "☀", herbst: "❦", winter: "❄" })[id] || "✦";
   }
   feierTitel(id) {
     const gold = "linear-gradient(180deg, #f8e7a0 0%, #d9b54a 50%, #a07a22 100%)";
     return ({ xmas: gold, goldkonfetti: gold, gold: "linear-gradient(180deg, #e9c95a 0%, #b88c1f 60%, #7a5a14 100%)", abschluss: gold, lunar: gold, ramadan: gold, chanukka: "linear-gradient(180deg, #ffffff 0%, #a9cdff 60%, #e8c35a 100%)",
       konfetti: "linear-gradient(90deg, #ff5d8f, #ffb000, #2bb673, #29b6f6, #9b6bff)", picado: "linear-gradient(90deg, #e8336f, #ff9f1c, #12a37f, #2e86de)", halloween: "linear-gradient(180deg, #ffb35c, #ff7a1a 55%, #8b5cf6)",
-      diwali: "linear-gradient(180deg, #ffe08a, #ffb238 55%, #ff4f8b)" })[id] || "";
+      diwali: "linear-gradient(180deg, #ffe08a, #ffb238 55%, #ff4f8b)",
+      fruehling: "linear-gradient(90deg, #d9578a, #5e9a4b)", sommer: "linear-gradient(90deg, #f07a12, #ffc23a 50%, #1597a8)",
+      herbst: "linear-gradient(180deg, #e0a03a, #c4561d 55%, #7a3b16)", winter: "linear-gradient(180deg, #2f72ad, #8fb0cf)" })[id] || "";
   }
   /* Was ein Design auf der Gästeseite zusätzlich mitbringt: Muster, Hautschicht, Rahmen, Schatten, Regenbogen. */
   gastDeko(t0) {
@@ -11367,7 +11464,8 @@ class Component extends DCLogic {
       meta: this.state.meta, mode: this.state.mode, zoom: this.state.zoom,
       avatar: this.state.avatar || "",
       ttMarks: this.state.ttMarks || {},
-      ttKiAn: this.state.ttKiAn !== false
+      ttKiAn: this.state.ttKiAn !== false,
+      ueberMich: this.state.ueberMich || ""
     };
   }
 
@@ -11384,7 +11482,8 @@ class Component extends DCLogic {
       zoom: l.zoom || 1,
       avatar: l.avatar || "",
       ttMarks: l.ttMarks && typeof l.ttMarks === "object" ? l.ttMarks : {},
-      ttKiAn: l.ttKiAn !== false
+      ttKiAn: l.ttKiAn !== false,
+      ueberMich: String(l.ueberMich || "").slice(0, 600), ueberMichEntwurf: null
     }, () => this.applyTheme());
   }
 
@@ -16161,7 +16260,7 @@ class Component extends DCLogic {
         hatPolls: ((e.polls || []).length > 0),
         ...this.ttKarte(e, lvl >= 3),
         /* Finanzen: alle mit Konto, die das Ereignis sehen. */
-        finDarf: !!this.state.cloud && !e.lose && /^[0-9a-f-]{36}$/i.test(String(e.id || "")),
+        finDarf: !!this.state.cloud && !e.lose && /^[0-9a-f-]{36}$/i.test(String(e.id || "")) && !this.exOf(e).finAus,
         finOeffnen: (ev) => { if (ev && ev.stopPropagation) ev.stopPropagation(); this.finOeffnen(e.id); },
         ...this.voKarte(e, lvl, isOpen),
         handyX: isOpen && handyAnsicht,
@@ -17283,9 +17382,23 @@ class Component extends DCLogic {
       list: myFriends.map((id) => {
         const u = uById[id] || {};
         const r = relWith(id);
+        const info = String(((u.look || {}).ueberMich) || "").trim();
+        /* Ereignisse dieser Person, die ich sehen darf (für alle oder für mich freigegeben). */
+        const evsK = (st.events || []).filter((e) => e.by === id && !e.lose && e.vis !== "private")
+          .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+        const auf = st.kontaktAuf === id;
         return {
           key: id, name: u.username || "?", email: u.email || "", initials: initials(u.username), avatar: avatarFor(id),
-          drop: () => this.dropFriend((r || {}).id)
+          drop: () => this.dropFriend((r || {}).id),
+          hover: st.kontaktHover === id && !auf,
+          rein: () => this.setState({ kontaktHover: id }), raus: () => { if (this.state.kontaktHover === id) this.setState({ kontaktHover: "" }); },
+          info: info || tx("kontakt_keine_info"), hatInfo: !!info, infoStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: info ? "normal" : "italic", color: info ? "inherit" : "var(--color-neutral-700)" },
+          evZahl: plural(evsK.length, tx("ereignis"), tx("ereignisse")),
+          klick: () => this.setState({ kontaktAuf: auf ? "" : id, kontaktHover: "" }), auf: auf, aufText: auf ? "true" : "false",
+          evs: evsK.map((e) => ({ key: e.id, name: e.name || "—", wann: e.date ? fmtDate(e.date) : "",
+            sicht: e.vis === "friends" ? tx("alle_kontakte") : tx("fuer_dich_freigegeben"),
+            oeffnen: () => { this.setState({ admin: false, kontaktAuf: "" }); window.setTimeout(() => this.open(e.id), 60); } })),
+          keineEvs: !evsK.length
         };
       })
     };
@@ -18151,6 +18264,11 @@ class Component extends DCLogic {
            diesem Fenster. */
         bildFehler: st.avatarFehler || "",
         bildCta: st.avatarBusy ? tx("wird_geladen") : (st.avatar ? tx("anderes_bild") : tx("bild_waehlen")),
+        /* „Über mich“: sehen die Kontakte, wenn sie über einen fahren oder ihn antippen. */
+        ueberMich: st.ueberMichEntwurf != null ? st.ueberMichEntwurf : (st.ueberMich || ""),
+        onUeberMich: (ev) => this.setState({ ueberMichEntwurf: ev.target.value.slice(0, 600) }),
+        ueberMichGeaendert: st.ueberMichEntwurf != null && String(st.ueberMichEntwurf).trim() !== String(st.ueberMich || "").trim(),
+        ueberMichSpeichern: () => this.setState({ ueberMich: String(st.ueberMichEntwurf || "").trim().slice(0, 600), ueberMichEntwurf: null }, () => this.saveLook()),
         /* Erlaubnis für das Musikfenster: steht sie aus, versucht die
            Fotoshow gar nicht erst, eines zu öffnen. */
         autoFenster: st.autoFenster !== false,
