@@ -776,6 +776,16 @@
 
 <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ false }}">
 <div data-noprint="" style="min-height: 100vh; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body);">
+  <sc-if value="{{ ks.an }}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="position: sticky; top: 0; z-index: 120; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px max(16px, calc((100vw - 1100px) / 2)); background: var(--color-accent); color: var(--color-on-accent, #ffffff); box-shadow: var(--shadow-md);">
+      <span style="{{ ks.bildStil }}">{{ ks.initialen }}</span>
+      <span style="display: grid; gap: 2px; flex: 1 1 220px; min-width: 0;">
+        <strong style="font-size: 16px; overflow-wrap: anywhere;">{{ ks.titel }}</strong>
+        <span style="font-size: 13px; opacity: 0.9;">{{ ks.unter }}</span>
+      </span>
+      <button onClick="{{ ks.zurueck }}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 2px solid currentColor; background: transparent; color: inherit; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;">‹ {{ L.ks_zurueck }}</button>
+    </div>
+  </sc-if>
   <header style="{{ lay.headerPad }}">
     <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap;">
       <div style="min-width: 0;">
@@ -1590,10 +1600,10 @@
                                 <div role="tooltip" style="position: absolute; left: 0; bottom: calc(100% + 8px); z-index: 80; width: min(300px, 80vw); display: grid; gap: 6px; padding: 12px 14px; border-radius: var(--t-radius, 8px); background: var(--t-card, #ffffff); color: var(--t-ink, #201e1d); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25); border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); pointer-events: none;">
                                   <div style="font-size: 15px; font-weight: 700;">{{ p.infoName }}</div>
                                   <div style="{{ p.infoStil }}">{{ p.infoText }}</div>
-                                  <div style="font-size: 12px; color: var(--t-accent, #0088b0);">{{ p.infoZahl }}</div>
+                                  <div style="font-size: 12px; color: var(--t-accent, #0088b0);">{{ p.infoZahl }} · {{ L.kontakt_klick_hinweis }}</div>
                                 </div>
                               </sc-if>
-                              <div style="{{ p.chip }}" title="{{ p.name }}" tabindex="0">
+                              <div style="{{ p.chip }}" title="{{ p.name }}" tabindex="0" onClick="{{ p.personKlick }}">
                                 <sc-if value="{{ p.hatFoto }}" hint-placeholder-val="{{ false }}">
                                   <span role="img" aria-label="{{ p.name }}" style="{{ p.fotoStil2 }}"></span>
                                 </sc-if>
@@ -5936,7 +5946,7 @@ class Component extends DCLogic {
     avatar: "",
     avatarBusy: false,
     avatarFehler: "",
-    ueberMich: "", ueberMichEntwurf: null, kontaktHover: "", kontaktAuf: "", personHover: "", blockiertVon: [],
+    ueberMich: "", ueberMichEntwurf: null, kontaktHover: "", kontaktAuf: "", personHover: "", blockiertVon: [], kontaktSicht: "",
     lookVorschau: false,
     tourWahl: false,
     lehr: null,
@@ -8633,6 +8643,12 @@ class Component extends DCLogic {
     return { darf: darf, name: (u || {}).username || "", text: text || tx("kontakt_keine_info"), hatText: !!text,
       textStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: text ? "normal" : "italic", opacity: text ? 1 : 0.7 },
       evZahl: plural(evs, tx("ereignis"), tx("ereignisse")) };
+  }
+  /* Timeline eines Kontakts öffnen bzw. zur eigenen zurückkehren. */
+  kontaktTimeline(uid) {
+    if (uid && !this.personInfo(uid).darf) return;
+    this.setState({ kontaktSicht: uid || "", admin: false, kontaktHover: "", kontaktAuf: "", personHover: "", openId: null, konto: false, drawer: false, menuOffen: false });
+    try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (x) { window.scrollTo(0, 0); }
   }
   /* Das Finanzfenster gehört zu einem Ereignis (state.fin.evId). */
   finEreignis() { const f = this.state.fin; return f ? (this.state.events || []).filter((x) => x.id === f.evId)[0] || null : null; }
@@ -12457,6 +12473,14 @@ class Component extends DCLogic {
   }
 
   rohGefiltert() {
+    /* Timeline eines Kontakts: nur dessen Ereignisse, die er für alle Kontakte
+       oder für mich freigegeben hat – ohne meine eigenen Filter. */
+    const ks = this.state.kontaktSicht;
+    if (ks) {
+      if (!this.personInfo(ks).darf) return [];
+      return this.state.events.filter((e) => e && (e.by || "") === ks && !e.lose && e.vis !== "private" && this.levelFor(e) >= 1)
+        .map((e) => this.themeSnapNachtragen(e));
+    }
     const f = this.state.filters;
     const q = String(f.q || "").trim().toLowerCase();
     return this.state.events.filter((e) => {
@@ -16056,7 +16080,9 @@ class Component extends DCLogic {
             const pi = r.uid ? self.personInfo(r.uid) : { darf: false };
             const hk = e.id + ":" + j;
             return { infoDarf: pi.darf, infoAn: pi.darf && st.personHover === hk, infoName: pi.name || r.name, infoText: pi.text || "", infoStil: pi.textStil || {}, infoZahl: pi.evZahl || "",
-              rein: () => { if (pi.darf) self.setState({ personHover: hk }); }, raus: () => { if (self.state.personHover === hk) self.setState({ personHover: "" }); } };
+              rein: () => { if (pi.darf) self.setState({ personHover: hk }); }, raus: () => { if (self.state.personHover === hk) self.setState({ personHover: "" }); },
+              personKlick: (ev) => { if (!pi.darf) return; if (ev && ev.stopPropagation) ev.stopPropagation(); self.kontaktTimeline(r.uid); },
+              chipZeiger: pi.darf ? "pointer" : "default" };
           })(this),
           /* Als Hintergrund statt <img>: so fragt der Browser während des
              Aufbaus nie eine noch unaufgelöste Adresse ab. */
@@ -16071,7 +16097,7 @@ class Component extends DCLogic {
              Kontos wird gleich mitgezeigt. */
           chip: (function (self) {
             const bekannt = !!r.demoBekannt || !!(r.uid && self.areFriends(r.uid, (me || {}).id));
-            const grund = { display: "flex", alignItems: "center", gap: "8px", padding: "4px 10px 4px 4px", borderRadius: "99px", background: "color-mix(in srgb, var(--t-ink, #201e1d) 7%, transparent)" };
+            const grund = { cursor: r.uid && self.personInfo(r.uid).darf ? "pointer" : "default", display: "flex", alignItems: "center", gap: "8px", padding: "4px 10px 4px 4px", borderRadius: "99px", background: "color-mix(in srgb, var(--t-ink, #201e1d) 7%, transparent)" };
             return bekannt
               ? Object.assign(grund, { border: "2px solid var(--t-accent, #0088b0)", padding: "3px 9px 3px 3px" })
               : grund;
@@ -17448,7 +17474,7 @@ class Component extends DCLogic {
           rein: () => this.setState({ kontaktHover: id }), raus: () => { if (this.state.kontaktHover === id) this.setState({ kontaktHover: "" }); },
           info: info || tx("kontakt_keine_info"), hatInfo: !!info, infoStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: info ? "normal" : "italic", color: info ? "inherit" : "var(--color-neutral-700)" },
           evZahl: plural(evsK.length, tx("ereignis"), tx("ereignisse")),
-          klick: () => { if (pi.darf) this.setState({ kontaktAuf: auf ? "" : id, kontaktHover: "" }); }, auf: pi.darf && auf, aufText: pi.darf && auf ? "true" : "false",
+          klick: () => this.kontaktTimeline(id), auf: false, aufText: "false",
           evs: evsK.map((e) => ({ key: e.id, name: e.name || "—", wann: e.date ? fmtDate(e.date) : "",
             sicht: e.vis === "friends" ? tx("alle_kontakte") : tx("fuer_dich_freigegeben"),
             oeffnen: () => { this.setState({ admin: false, kontaktAuf: "" }); window.setTimeout(() => this.open(e.id), 60); } })),
@@ -18944,6 +18970,19 @@ class Component extends DCLogic {
       loseBand: loseGeladen,
       tt: this.ttVals(),
       fin: this.finVals(),
+      ks: (function (self) {
+        const id = self.state.kontaktSicht;
+        if (!id) return { an: false };
+        const u = (self.state.users || []).filter((x) => x.id === id)[0] || {};
+        const n = self.filtered().length;
+        const bild = self.avatarVon ? self.avatarVon(id) : "";
+        return { an: true, titel: tx("ks_titel").replace("{n}", u.username || "?"),
+          unter: n ? plural(n, tx("ereignis"), tx("ereignisse")) + " · " + tx("ks_unter") : tx("ks_leer").replace("{n}", u.username || "?"),
+          initialen: bild ? "" : initials(u.username || "?"),
+          bildStil: bild ? { width: "36px", height: "36px", borderRadius: "50%", backgroundImage: "url(" + bild + ")", backgroundSize: "cover", backgroundPosition: "center", flex: "0 0 auto" }
+            : { width: "36px", height: "36px", borderRadius: "50%", display: "grid", placeItems: "center", flex: "0 0 auto", background: "rgba(255,255,255,0.25)", fontSize: "13px", fontWeight: 700 },
+          zurueck: () => self.kontaktTimeline("") };
+      })(this),
       ...this.ttFormVals(),
       ...this.voFormVals(),
       gv: this.gastVals(),

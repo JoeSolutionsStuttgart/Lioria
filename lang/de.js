@@ -1849,7 +1849,7 @@ window.CHRONIK_SPRACHEN.de = {
     ueber_mich_hinweis: "Für andere Angemeldete sichtbar – deine Kontakte sehen es, wenn sie mit der Maus über deinen Namen fahren oder ihn antippen.",
     kontakt_ansehen: "Info und Ereignisse ansehen",
     kontakt_keine_info: "Noch keine Info hinterlegt.",
-    kontakt_klick_hinweis: "antippen für Ereignisse",
+    kontakt_klick_hinweis: "antippen für die Timeline",
     kontakt_ereignisse: "Freigegebene Ereignisse",
     kontakt_keine_ereignisse: "Diese Person hat dir noch keine Ereignisse freigegeben.",
     fuer_dich_freigegeben: "für dich freigegeben",
@@ -1876,6 +1876,10 @@ window.CHRONIK_SPRACHEN.de = {
     fg_fruehling: "Alles blüht auf!",
     fg_sommer: "Sonne satt!",
     fg_herbst: "Goldener Herbst!",
-    fg_winter: "Willkommen im Winterwunderland!"
+    fg_winter: "Willkommen im Winterwunderland!",
+    ks_titel: "Timeline von {n}",
+    ks_unter: "nur Ereignisse, die für dich freigegeben sind",
+    ks_zurueck: "Zurück zu meiner Timeline",
+    ks_leer: "{n} hat dir noch keine Ereignisse freigegeben."
   }
 };

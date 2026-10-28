@@ -1849,7 +1849,7 @@ window.CHRONIK_SPRACHEN.en = {
     ueber_mich_hinweis: "Visible to other signed-in users – your contacts see it when they hover over or tap your name.",
     kontakt_ansehen: "View info and events",
     kontakt_keine_info: "No info yet.",
-    kontakt_klick_hinweis: "tap for events",
+    kontakt_klick_hinweis: "tap for the timeline",
     kontakt_ereignisse: "Shared events",
     kontakt_keine_ereignisse: "This person hasn't shared any events with you yet.",
     fuer_dich_freigegeben: "shared with you",
@@ -1876,6 +1876,10 @@ window.CHRONIK_SPRACHEN.en = {
     fg_fruehling: "Everything's in bloom!",
     fg_sommer: "Sunshine all the way!",
     fg_herbst: "Golden autumn!",
-    fg_winter: "Welcome to the winter wonderland!"
+    fg_winter: "Welcome to the winter wonderland!",
+    ks_titel: "{n}'s timeline",
+    ks_unter: "only events shared with you",
+    ks_zurueck: "Back to my timeline",
+    ks_leer: "{n} hasn't shared any events with you yet."
   }
 };
