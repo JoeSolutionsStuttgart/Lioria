@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b132"></script>
-<script src="lang/de.js?v=b132"></script>
-<script src="lang/en.js?v=b132"></script>
-<script src="lang/sprache.js?v=b132"></script>
-<script src="./support.js?v=b132"></script>
+<script src="chronik-config.js?v=b133"></script>
+<script src="lang/de.js?v=b133"></script>
+<script src="lang/en.js?v=b133"></script>
+<script src="lang/sprache.js?v=b133"></script>
+<script src="./support.js?v=b133"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b132"></script>
-<script src="xlsx-export.js?v=b132"></script>
-<script src="farbe.js?v=b132"></script>
-<script src="cw-plaetze.js?v=b132"></script>
-<script src="fb-knopf.js?v=b132"></script>
+<script src="supabase-bridge.js?v=b133"></script>
+<script src="xlsx-export.js?v=b133"></script>
+<script src="farbe.js?v=b133"></script>
+<script src="cw-plaetze.js?v=b133"></script>
+<script src="fb-knopf.js?v=b133"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -1585,7 +1585,15 @@
                           <div style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--t-accent, #0088b0); margin-bottom: 6px;">{{ L.personen }}</div>
                           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                             <sc-for list="{{ c.people }}" as="p" hint-placeholder-count="0">
-                              <div style="{{ p.chip }}" title="{{ p.name }}">
+                              <div style="position: relative;" onMouseEnter="{{ p.rein }}" onMouseLeave="{{ p.raus }}" onFocus="{{ p.rein }}" onBlur="{{ p.raus }}">
+                              <sc-if value="{{ p.infoAn }}" hint-placeholder-val="{{ false }}">
+                                <div role="tooltip" style="position: absolute; left: 0; bottom: calc(100% + 8px); z-index: 80; width: min(300px, 80vw); display: grid; gap: 6px; padding: 12px 14px; border-radius: var(--t-radius, 8px); background: var(--t-card, #ffffff); color: var(--t-ink, #201e1d); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25); border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); pointer-events: none;">
+                                  <div style="font-size: 15px; font-weight: 700;">{{ p.infoName }}</div>
+                                  <div style="{{ p.infoStil }}">{{ p.infoText }}</div>
+                                  <div style="font-size: 12px; color: var(--t-accent, #0088b0);">{{ p.infoZahl }}</div>
+                                </div>
+                              </sc-if>
+                              <div style="{{ p.chip }}" title="{{ p.name }}" tabindex="0">
                                 <sc-if value="{{ p.hatFoto }}" hint-placeholder-val="{{ false }}">
                                   <span role="img" aria-label="{{ p.name }}" style="{{ p.fotoStil2 }}"></span>
                                 </sc-if>
@@ -1599,6 +1607,7 @@
                                 <sc-if value="{{ p.linked }}" hint-placeholder-val="{{ false }}">
                                   <span title="{{ L.mit_einem_konto_verknuepft }}" style="width: 15px; height: 15px; border-radius: 99px; display: grid; place-items: center; font-size: 9px; background: var(--t-accent, #0088b0); color: var(--t-on-accent, #fff);">✓</span>
                                 </sc-if>
+                              </div>
                               </div>
                             </sc-for>
                           </div>
@@ -5927,7 +5936,7 @@ class Component extends DCLogic {
     avatar: "",
     avatarBusy: false,
     avatarFehler: "",
-    ueberMich: "", ueberMichEntwurf: null, kontaktHover: "", kontaktAuf: "",
+    ueberMich: "", ueberMichEntwurf: null, kontaktHover: "", kontaktAuf: "", personHover: "", blockiertVon: [],
     lookVorschau: false,
     tourWahl: false,
     lehr: null,
@@ -8589,6 +8598,42 @@ class Component extends DCLogic {
     });
     return out;
   }
+  /* Blockaden („Alles von …“) zum Server spiegeln und abfragen, wer mich blockiert –
+     wer mich blockiert hat, bekommt von mir keine Info-Karte zu sehen und ich nicht von ihm. */
+  blockAbgleich() {
+    const CC = window.ChronikCloud;
+    const me = this.me();
+    if (!this.state.cloud || !me || !CC || !CC.blockSetzen) return;
+    const ids = (this.feedPrefs().ohneVon || []).filter((x) => /^[0-9a-f-]{36}$/i.test(String(x || ""))).sort();
+    const sig = me.id + "|" + ids.join(",");
+    if (this._blockSig === undefined) this._blockSig = null;
+    if (this._blockSig !== sig && this._blockGeladen) {
+      this._blockSig = sig;
+      CC.blockSetzen(ids).catch(() => { this._blockSig = null; });
+    }
+    if (!this._blockHolen || Date.now() - this._blockHolen > 300000) {
+      this._blockHolen = Date.now();
+      CC.blockiertMich().then((liste) => {
+        if (!this._blockGeladen) { this._blockGeladen = true; this._blockSig = null; }
+        const neu = (liste || []).map(String).sort();
+        if (JSON.stringify(neu) !== JSON.stringify((this.state.blockiertVon || []).slice().sort())) this.setState({ blockiertVon: neu });
+        else this.forceUpdate();
+      }).catch(() => { this._blockGeladen = true; });
+    }
+  }
+  /* Darf ich die Info-Karte dieser Person sehen? Nicht bei mir selbst, nicht wenn sie mich
+     blockiert hat und nicht wenn ich sie blockiert habe. */
+  personInfo(uid) {
+    const st = this.state;
+    const u = (st.users || []).filter((x) => x.id === uid)[0];
+    const me = this.me() || {};
+    const darf = !!u && uid !== me.id && (st.blockiertVon || []).indexOf(uid) < 0 && (this.feedPrefs().ohneVon || []).indexOf(uid) < 0;
+    const text = String(((u || {}).look || {}).ueberMich || "").trim();
+    const evs = darf ? (st.events || []).filter((e) => e.by === uid && !e.lose && e.vis !== "private").length : 0;
+    return { darf: darf, name: (u || {}).username || "", text: text || tx("kontakt_keine_info"), hatText: !!text,
+      textStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: text ? "normal" : "italic", opacity: text ? 1 : 0.7 },
+      evZahl: plural(evs, tx("ereignis"), tx("ereignisse")) };
+  }
   /* Das Finanzfenster gehört zu einem Ereignis (state.fin.evId). */
   finEreignis() { const f = this.state.fin; return f ? (this.state.events || []).filter((x) => x.id === f.evId)[0] || null : null; }
   finIchName() { return String((this.me() || {}).username || "").trim(); }
@@ -10866,6 +10911,7 @@ class Component extends DCLogic {
 
   componentDidUpdate(vp, vs) {
     this.applyTheme();
+    this.blockAbgleich();
     this.bilderNachladen();
     if (!this._messUhr) this._messUhr = window.setTimeout(() => { this._messUhr = null; this.kachelMessen(); }, 120);
     /* Erstes Anmelden: einmal fragen, ob der Leitfaden laufen soll. */
@@ -16005,6 +16051,13 @@ class Component extends DCLogic {
         rights: lvl >= 4 ? "" : lvl >= 3 ? tx("teilrechte") : lvl >= 2 ? tx("kommentieren_erlaubt") : tx("nur_ansehen"),
         infos: (e.infos || []).map((r, j) => ({ key: "i" + j, label: r.label, value: r.value })),
         people: (e.people || []).map((r, j) => ({ key: "p" + j, name: r.name, role: r.role || "", photo: r.photo || "", noPhoto: !r.photo,
+          ...(function (self) {
+            /* Info-Karte beim Darüberfahren – nur bei Personen mit Konto und ohne Blockade. */
+            const pi = r.uid ? self.personInfo(r.uid) : { darf: false };
+            const hk = e.id + ":" + j;
+            return { infoDarf: pi.darf, infoAn: pi.darf && st.personHover === hk, infoName: pi.name || r.name, infoText: pi.text || "", infoStil: pi.textStil || {}, infoZahl: pi.evZahl || "",
+              rein: () => { if (pi.darf) self.setState({ personHover: hk }); }, raus: () => { if (self.state.personHover === hk) self.setState({ personHover: "" }); } };
+          })(this),
           /* Als Hintergrund statt <img>: so fragt der Browser während des
              Aufbaus nie eine noch unaufgelöste Adresse ab. */
           fotoStil: r.photo
@@ -17382,7 +17435,8 @@ class Component extends DCLogic {
       list: myFriends.map((id) => {
         const u = uById[id] || {};
         const r = relWith(id);
-        const info = String(((u.look || {}).ueberMich) || "").trim();
+        const pi = this.personInfo(id);
+        const info = pi.darf ? String(((u.look || {}).ueberMich) || "").trim() : "";
         /* Ereignisse dieser Person, die ich sehen darf (für alle oder für mich freigegeben). */
         const evsK = (st.events || []).filter((e) => e.by === id && !e.lose && e.vis !== "private")
           .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
@@ -17390,11 +17444,11 @@ class Component extends DCLogic {
         return {
           key: id, name: u.username || "?", email: u.email || "", initials: initials(u.username), avatar: avatarFor(id),
           drop: () => this.dropFriend((r || {}).id),
-          hover: st.kontaktHover === id && !auf,
+          hover: pi.darf && st.kontaktHover === id && !auf,
           rein: () => this.setState({ kontaktHover: id }), raus: () => { if (this.state.kontaktHover === id) this.setState({ kontaktHover: "" }); },
           info: info || tx("kontakt_keine_info"), hatInfo: !!info, infoStil: { fontSize: "13.5px", lineHeight: 1.5, whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontStyle: info ? "normal" : "italic", color: info ? "inherit" : "var(--color-neutral-700)" },
           evZahl: plural(evsK.length, tx("ereignis"), tx("ereignisse")),
-          klick: () => this.setState({ kontaktAuf: auf ? "" : id, kontaktHover: "" }), auf: auf, aufText: auf ? "true" : "false",
+          klick: () => { if (pi.darf) this.setState({ kontaktAuf: auf ? "" : id, kontaktHover: "" }); }, auf: pi.darf && auf, aufText: pi.darf && auf ? "true" : "false",
           evs: evsK.map((e) => ({ key: e.id, name: e.name || "—", wann: e.date ? fmtDate(e.date) : "",
             sicht: e.vis === "friends" ? tx("alle_kontakte") : tx("fuer_dich_freigegeben"),
             oeffnen: () => { this.setState({ admin: false, kontaktAuf: "" }); window.setTimeout(() => this.open(e.id), 60); } })),

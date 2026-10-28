@@ -996,6 +996,18 @@
     if (r.error) throw finFehler(r);
     if (!r.data || !r.data.length) throw fail("D-30");
   }
+  /* Blockaden: eigene Liste auf dem Server ablegen; abfragen, wer mich blockiert. */
+  async function blockSetzen(ids) {
+    var c = await client();
+    var r = await c.rpc("blockaden_setzen", { p_ids: ids || [] });
+    if (r.error) throw fail(code(r.error));
+  }
+  async function blockiertMich() {
+    var c = await client();
+    var r = await c.rpc("blockiert_mich");
+    if (r.error) throw fail(code(r.error));
+    return r.data || [];
+  }
   /* Feedback: senden, eigene Meldungen samt Antworten, Nachtrag. */
   function fbFehler(r) { var m = String((r.error && r.error.message) || ""); var k = /F-\d\d/.exec(m); if (/PGRST202|42883|feedback_/.test(m + " " + (r.error.code || "")) && !k) return fail("F-06"); return fail(k ? k[0] : code(r.error)); }
   async function feedbackSenden(art, text, seite, geraet, email) {
@@ -1050,6 +1062,7 @@
     saveNotify: saveNotify, notify: notify, recoveryDone: recoveryDone,
     friends: friends, askFriend: askFriend, answerFriend: answerFriend, unfriend: unfriend,
     loadEvents: loadEvents, imageUrls: imageUrls, ttKi: ttKi, gastSicht: gastSicht, gastAdd: gastAdd, gastUpload: gastUpload, gastBildUrl: gastBildUrl, gastListe: gastListe, gastWeg: gastWeg,
+    blockSetzen: blockSetzen, blockiertMich: blockiertMich,
     finSicht: finSicht, finSetzen: finSetzen, finWeg: finWeg, finAbschluss: finAbschluss, saveEvent: saveEvent, removeEvent: removeEvent,
     addComment: addComment, removeComment: removeComment, reactComment: reactComment,
     deleteMe: deleteMe, sweepUnconfirmed: sweepUnconfirmed, deleteImages: deleteImages, setPolls: setPolls, moveComments: moveComments, uploadImage: uploadImage, imageUrl: imageUrl, storeCheck: storeCheck, onChange: onChange,
