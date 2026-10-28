@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b130"></script>
-<script src="lang/de.js?v=b130"></script>
-<script src="lang/en.js?v=b130"></script>
-<script src="lang/sprache.js?v=b130"></script>
-<script src="./support.js?v=b130"></script>
+<script src="chronik-config.js?v=b131"></script>
+<script src="lang/de.js?v=b131"></script>
+<script src="lang/en.js?v=b131"></script>
+<script src="lang/sprache.js?v=b131"></script>
+<script src="./support.js?v=b131"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b130"></script>
-<script src="xlsx-export.js?v=b130"></script>
-<script src="farbe.js?v=b130"></script>
-<script src="cw-plaetze.js?v=b130"></script>
-<script src="fb-knopf.js?v=b130"></script>
+<script src="supabase-bridge.js?v=b131"></script>
+<script src="xlsx-export.js?v=b131"></script>
+<script src="farbe.js?v=b131"></script>
+<script src="cw-plaetze.js?v=b131"></script>
+<script src="fb-knopf.js?v=b131"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -910,8 +910,8 @@
                     <div style="display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 15px; padding: 4px 0;">
                       <span style="flex: 1 1 140px; min-width: 0; overflow-wrap: anywhere;">{{ tz.name }}</span>
                       <span style="display: flex; gap: 6px; align-items: center; margin-left: auto;">
-                        <input class="input" value="{{ tz.wert }}" onChange="{{ tz.onWert }}" inputmode="decimal" placeholder="±0" aria-label="{{ L.fin_anpassung }}" style="width: 76px; font-size: 16px; text-align: right;">
-                        <select class="input" value="{{ tz.art }}" onChange="{{ tz.onArt }}" aria-label="{{ L.fin_anpassung }}" style="width: 64px; font-size: 16px;"><option value="%">%</option><option value="€">€</option></select>
+                        <input class="input" value="{{ tz.wert }}" onChange="{{ tz.onWert }}" inputmode="decimal" placeholder="{{ tz.ph }}" aria-label="{{ L.fin_anpassung }}" style="width: 76px; font-size: 16px; text-align: right;">
+                        <select class="input" value="{{ tz.art }}" onChange="{{ tz.onArt }}" aria-label="{{ L.fin_anpassung }}" style="width: auto; font-size: 16px;"><option value="%">{{ L.fin_art_proz }}</option><option value="€">{{ L.fin_art_euro }}</option><option value="fest">{{ L.fin_art_fest }}</option></select>
                         <strong style="min-width: 84px; text-align: right; white-space: nowrap;">{{ tz.anteil }}</strong>
                       </span>
                     </div>
@@ -1506,14 +1506,14 @@
                     <sc-if value="{{ c.isOpen }}" hint-placeholder-val="{{ false }}">
                       <span onClick="{{ stop }}" style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
                         <button onClick="{{ c.vollUm }}" title="{{ c.vollTitel }}" style="cursor: pointer; font: inherit; font-size: 17px; line-height: 1; padding: 8px 14px; border: 0; border-radius: 999px; background: var(--t-accent, #0088b0); color: var(--t-on-accent, #fff); box-shadow: var(--shadow-sm);" style-hover="background: var(--t-accent2, #d6006c);">{{ c.vollZeichen }}</button>
-                        <sc-if value="{{ c.finDarf }}" hint-placeholder-val="{{ false }}">
-                          <button onClick="{{ c.finOeffnen }}" title="{{ L.fin_titel }}" style="cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; line-height: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; min-height: 36px; border: 0; border-radius: 999px; background: var(--t-accent2, #d6006c); color: var(--t-on-accent2, #fff);"><i class="ph-duotone ph-wallet" style="font-size: 17px;"></i>{{ L.fin_titel }}</button>
-                        </sc-if>
                         <sc-if value="{{ c.canEdit }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.edit }}" title="{{ L.ereignis_bearbeiten }}" style="cursor: pointer; font: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); border-radius: var(--t-radius, 2px); background: transparent; color: var(--t-ink, #201e1d);" style-hover="background: color-mix(in srgb, var(--t-accent, #0088b0) 12%, transparent);">{{ c.editLabel }}</button>
                         </sc-if>
                         <sc-if value="{{ c.canFull }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.remove }}" title="{{ L.ereignis_loeschen }}" style="cursor: pointer; font: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid transparent; border-radius: var(--t-radius, 2px); background: transparent; color: color-mix(in srgb, var(--t-accent2, #d6006c) 90%, var(--t-ink, #201e1d));" style-hover="background: color-mix(in srgb, var(--t-accent2, #d6006c) 12%, transparent);">{{ L.loeschen }}</button>
+                        </sc-if>
+                        <sc-if value="{{ c.finDarf }}" hint-placeholder-val="{{ false }}">
+                          <button onClick="{{ c.finOeffnen }}" title="{{ L.fin_titel }}" style="margin-left: auto; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; line-height: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; min-height: 36px; border: 0; border-radius: 999px; background: var(--t-accent2, #d6006c); color: var(--t-on-accent2, #fff);"><i class="ph-duotone ph-wallet" style="font-size: 17px;"></i>{{ L.fin_titel }}</button>
                         </sc-if>
                       </span>
                     </sc-if>
@@ -8457,15 +8457,18 @@ class Component extends DCLogic {
     const teil = ((e && e.teil) || []).filter((t) => t && t.n);
     if (!(T > 0)) return { ok: false, err: tx("fin_f_betrag"), ziel: "fin-betrag" };
     if (!teil.length) return { ok: false, err: tx("fin_f_teil"), ziel: "fin-teil" };
-    let fix = 0, gew = 0;
+    /* „fest“ = genau dieser Betrag; die anderen teilen sich den Rest. */
+    let fix = 0, fest = 0, gew = 0;
     for (const t of teil) {
       const w = Number(t.w) || 0;
       if (!isFinite(w)) return { ok: false, err: tx("fin_f_zahl"), ziel: "fin-teil" };
-      if (t.art === "€") { fix += w * 100; gew += 1; } else gew += 1 + (t.art === "%" ? w / 100 : 0);
+      if (t.art === "fest") { if (w < 0) return { ok: false, err: tx("fin_f_zahl"), ziel: "fin-teil" }; fest += Math.round(w * 100); }
+      else if (t.art === "€") { fix += w * 100; gew += 1; } else gew += 1 + (t.art === "%" ? w / 100 : 0);
     }
-    if (!(gew > 0)) return { ok: false, err: tx("fin_f_anteil"), ziel: "fin-teil" };
-    const x = (T - fix) / gew;
-    const roh = teil.map((t) => { const w = Number(t.w) || 0; return t.art === "€" ? x + w * 100 : x * (1 + (t.art === "%" ? w / 100 : 0)); });
+    if (fest > T) return { ok: false, err: tx("fin_f_fest_zuviel"), ziel: "fin-teil" };
+    if (!(gew > 0) && fest !== T) return { ok: false, err: fest ? tx("fin_f_fest_summe") : tx("fin_f_anteil"), ziel: "fin-teil" };
+    const x = gew > 0 ? (T - fest - fix) / gew : 0;
+    const roh = teil.map((t) => { const w = Number(t.w) || 0; return t.art === "fest" ? Math.round(w * 100) : t.art === "€" ? x + w * 100 : x * (1 + (t.art === "%" ? w / 100 : 0)); });
     if (roh.some((v) => v < -0.0001)) return { ok: false, err: tx("fin_f_anteil"), ziel: "fin-teil" };
     const c = this.finRunden(roh.map((v) => Math.max(0, v)), T);
     const anteile = {};
@@ -8579,7 +8582,7 @@ class Component extends DCLogic {
     const zb = {};
     if ((x.zahler || []).length > 1) (x.zahler || []).forEach((z) => { zb[z.n] = String(((Number(z.c) || 0) / 100).toFixed(2)).replace(".", ","); });
     const anp = {};
-    (x.teil || []).forEach((t) => { if (t.art && Number(t.w)) anp[t.n] = { art: t.art, w: String(t.w).replace(".", ",") }; });
+    (x.teil || []).forEach((t) => { if (t.art === "fest" || (t.art && Number(t.w))) anp[t.n] = { art: t.art, w: String(t.w).replace(".", ",") }; });
     this.finFormSet(() => ({ id: r.id, titel: x.titel || "", betrag: String(((Number(x.betrag) || 0) / 100).toFixed(2)).replace(".", ","),
       zahler: (x.zahler || []).map((z) => z.n), zb: zb, teil: (x.teil || []).map((t) => t.n), anp: anp, neuName: "" }));
   }
@@ -8603,7 +8606,9 @@ class Component extends DCLogic {
     const teil = (fm.teil || []).map((n) => {
       const a = (fm.anp || {})[n] || {};
       const w = this.finZahl(a.w);
-      return { n: n, art: a.art === "€" || a.art === "%" ? (w ? a.art : "") : "", w: isFinite(w) ? w : NaN };
+      const leer = !String(a.w == null ? "" : a.w).trim();
+      const art = a.art === "fest" ? (leer ? "" : "fest") : a.art === "€" || a.art === "%" ? (w ? a.art : "") : "";
+      return { n: n, art: art, w: isFinite(w) ? w : NaN };
     });
     return { titel: String(fm.titel || "").trim().slice(0, 120), betrag: T || 0, zahler: zahler, teil: teil };
   }
@@ -8733,7 +8738,7 @@ class Component extends DCLogic {
         teilZeilen: (fm.teil || []).map((n) => {
           const ap = (fm.anp || {})[n] || {};
           const setA = (p) => this.finFormSet((x) => ({ anp: Object.assign({}, x.anp, { [n]: Object.assign({ art: "%", w: "" }, (x.anp || {})[n], p) }) }));
-          return { key: "a" + n, name: n, anteil: a.ok ? this.finGeld(a.anteile[n] || 0) : "–", art: ap.art || "%", wert: ap.w || "",
+          return { key: "a" + n, name: n, ph: ap.art === "fest" ? "0,00" : "±0", anteil: a.ok ? this.finGeld(a.anteile[n] || 0) : "–", art: ap.art || "%", wert: ap.w || "",
             onArt: (ev) => setA({ art: ev.target.value }), onWert: (ev) => setA({ w: ev.target.value }) };
         }),
         hatTeil: (fm.teil || []).length > 0,
