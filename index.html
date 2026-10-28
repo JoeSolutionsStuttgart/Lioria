@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b133"></script>
-<script src="lang/de.js?v=b133"></script>
-<script src="lang/en.js?v=b133"></script>
-<script src="lang/sprache.js?v=b133"></script>
-<script src="./support.js?v=b133"></script>
+<script src="chronik-config.js?v=b134"></script>
+<script src="lang/de.js?v=b134"></script>
+<script src="lang/en.js?v=b134"></script>
+<script src="lang/sprache.js?v=b134"></script>
+<script src="./support.js?v=b134"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b133"></script>
-<script src="xlsx-export.js?v=b133"></script>
-<script src="farbe.js?v=b133"></script>
-<script src="cw-plaetze.js?v=b133"></script>
-<script src="fb-knopf.js?v=b133"></script>
+<script src="supabase-bridge.js?v=b134"></script>
+<script src="xlsx-export.js?v=b134"></script>
+<script src="farbe.js?v=b134"></script>
+<script src="cw-plaetze.js?v=b134"></script>
+<script src="fb-knopf.js?v=b134"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -5080,26 +5080,20 @@ const PRESETS = [
   T({ id: "notizbuch", name: tx("notizbuch"), kicker: tx("kladde"), bg: "#f7f1e4", ink: "#33291f", card: "#fffdf6", accent: "#b4531f", accent2: "#5b7a52", line: "#b4531f", fontHead: "Libre Baskerville", fontBody: "Libre Baskerville", radius: 3, lineStyle: "dashed", marker: "circle", pattern: "lines", anim: "tilt", imgShape: "polaroid", density: 1.05, skin: "ruled" }),
   T({ id: "mitternacht", name: tx("mitternacht"), kicker: tx("dunkel"), bg: "#14161b", ink: "#e9e6df", card: "#1c1f26", accent: "#7ec8e3", accent2: "#e3b87e", line: "#7ec8e3", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 700, radius: 6, shadow: "lg", lineWidth: 3, lineStyle: "double", marker: "diamond", anim: "rise", imgShape: "round", density: 1.1, skin: "vignette" }),
   T({ id: "pride", name: tx("pride"), kicker: tx("regenbogen"), bg: "#fdfbff", ink: "#1b1230", card: "#ffffff", accent: "#750787", accent2: "#e40303", line: "#750787", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 700, headTransform: "uppercase", headTracking: 0.01, radius: 12, shadow: "md", lineWidth: 6, marker: "circle", pattern: "regenbogen", anim: "pop", imgShape: "round", density: 1.05, skin: "none", regenbogen: true }),
-  T({ id: "riso", name: tx("riso"), kicker: tx("zwei_farben"), bg: "#efeade", ink: "#191919", card: "#ffffff", accent: "#ff4d3d", accent2: "#2b50ff", line: "#191919", fontHead: "Space Grotesk", fontBody: "Space Grotesk", headWeight: 700, headTransform: "uppercase", headTracking: -0.01, radius: 0, shadow: "hard", lineWidth: 4, marker: "square", pattern: "halftone", anim: "pop", density: 0.95, skin: "grain" }),
   T({ id: "botanik", name: tx("botanik"), kicker: tx("weich"), bg: "#f1f5f0", ink: "#1f3327", card: "#ffffff", accent: "#4a7c59", accent2: "#a8763e", line: "#4a7c59", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 14, shadow: "md", lineWidth: 1, marker: "ring", pattern: "grid", anim: "glide", imgShape: "round", density: 1.15, skin: "none" }),
   T({ id: "bauhaus", name: tx("bauhaus"), kicker: tx("plakat"), bg: "#f0ece2", ink: "#141414", card: "#ffffff", accent: "#e63b19", accent2: "#1b4bbf", line: "#141414", fontHead: "Bebas Neue", fontBody: "Space Grotesk", headWeight: 400, headTransform: "uppercase", headTracking: 0.02, radius: 0, shadow: "hard", lineWidth: 6, marker: "diamond", pattern: "none", anim: "flip", density: 0.95, skin: "blocks" }),
   T({ id: "terminal", flap: true, name: tx("terminal"), kicker: tx("monospace"), bg: "#0b0f0c", ink: "#d8ffe4", card: "#111713", accent: "#35ff8b", accent2: "#ffd166", line: "#35ff8b", fontHead: "JetBrains Mono", fontBody: "JetBrains Mono", headWeight: 700, headTransform: "uppercase", radius: 0, shadow: "none", lineWidth: 1, lineStyle: "dotted", marker: "bar", pattern: "scan", anim: "type", animDur: 720, density: 0.9, skin: "crt" }),
   T({ id: "pastell", name: tx("pastell"), kicker: tx("rund"), bg: "#fdf6fb", ink: "#4a3a4f", card: "#ffffff", accent: "#d47bab", accent2: "#7ea3e0", line: "#d47bab", fontHead: "DM Sans", fontBody: "DM Sans", headWeight: 700, radius: 22, shadow: "md", lineWidth: 3, marker: "circle", pattern: "glow", anim: "bounce", animDur: 760, imgShape: "circle", density: 1.2, skin: "none" }),
-  T({ id: "museum", name: tx("museum"), kicker: tx("kabinett"), bg: "#efece7", ink: "#2a2724", card: "#f7f5f1", accent: "#8a7355", accent2: "#3f4f5f", line: "#2a2724", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 500, radius: 2, lineWidth: 1, lineStyle: "double", marker: "circle", pattern: "none", anim: "rise", density: 1.25, skin: "matte" }),
-  T({ id: "neon", name: tx("neon"), kicker: tx("raster"), bg: "#0d0b16", ink: "#f1eaff", card: "#171327", accent: "#b06bff", accent2: "#35e6ff", line: "#b06bff", fontHead: "Space Grotesk", fontBody: "Space Grotesk", headWeight: 700, radius: 8, shadow: "lg", marker: "diamond", pattern: "grid", anim: "pop", imgShape: "round", density: 1.05, skin: "glow" }),
+  T({ id: "museum", name: tx("museum"), kicker: tx("kabinett"), bg: "#f1ede6", ink: "#2a2724", card: "#f9f7f2", accent: "#8c7434", accent2: "#3f4f5f", line: "#2a2724", fontHead: "Cormorant Garamond", fontBody: "Source Serif 4", headWeight: 600, headTransform: "uppercase", headTracking: 0.04, radius: 2, shadow: "md", lineWidth: 1, marker: "diamond", pattern: "none", anim: "glide", animDur: 760, density: 0.95, imgShape: "rect", skin: "marble" }),
+  T({ id: "neon", name: tx("neon"), kicker: tx("d_synthwave_k"), bg: "#160a2b", ink: "#ffe8ff", card: "#241142", accent: "#ff4fd8", accent2: "#2ee6ff", line: "#ff4fd8", fontHead: "Bebas Neue", fontBody: "Space Grotesk", headWeight: 400, headTransform: "uppercase", headTracking: 0.06, radius: 6, shadow: "lg", lineWidth: 3, marker: "diamond", pattern: "grid", anim: "pop", animDur: 520, density: 1.1, imgShape: "round", skin: "glow" }),
   T({ id: "sepia", name: tx("sepia"), kicker: tx("album"), bg: "#f0e6d6", ink: "#3b3027", card: "#fbf5ea", accent: "#9c6b3f", accent2: "#6d7f6b", line: "#3b3027", fontHead: "Libre Baskerville", fontBody: "Libre Baskerville", radius: 2, shadow: "md", marker: "circle", pattern: "halftone", anim: "tilt", imgShape: "polaroid", density: 1.1, skin: "vintage" }),
-  T({ id: "schiefer", name: tx("schiefer"), kicker: tx("sachlich"), bg: "#e7ecef", ink: "#1d2b33", card: "#f8fbfc", accent: "#29647d", accent2: "#a35b3c", line: "#1d2b33", fontHead: "Source Serif 4", fontBody: "DM Sans", radius: 4, marker: "square", pattern: "grid", anim: "glide", skin: "blueprint" }),
   T({ id: "lochkarte", flap: true, name: tx("lochkarte"), kicker: tx("rechenzentrum"), bg: "#dcd6c4", ink: "#2b2519", card: "#efe9d8", accent: "#7a4b12", accent2: "#3d5a45", line: "#2b2519", fontHead: "JetBrains Mono", fontBody: "JetBrains Mono", headWeight: 500, headTransform: "uppercase", headTracking: 0.04, radius: 0, shadow: "hard", lineWidth: 3, lineStyle: "dashed", marker: "bar", pattern: "grid", anim: "pop", density: 0.95, skin: "punch" }),
-  T({ id: "bernstein", flap: true, name: tx("bernstein"), kicker: tx("roehre"), bg: "#120d05", ink: "#ffb44c", card: "#1d1408", accent: "#ffa423", accent2: "#8fd8ff", line: "#ffa423", fontHead: "JetBrains Mono", fontBody: "JetBrains Mono", headWeight: 500, radius: 2, shadow: "none", lineWidth: 2, marker: "ring", pattern: "lines", anim: "rise", animDur: 520, density: 1, skin: "crt" }),
-  T({ id: "leinen", name: tx("leinen"), kicker: tx("buchbinder"), bg: "#e8e2d5", ink: "#33302a", card: "#f6f2e9", accent: "#7c5a3a", accent2: "#4f6b58", line: "#33302a", fontHead: "Cormorant Garamond", fontBody: "Libre Baskerville", headWeight: 600, radius: 3, shadow: "md", lineWidth: 1, marker: "diamond", pattern: "halftone", anim: "glide", animDur: 720, density: 1.2, imgShape: "polaroid", skin: "cloth" }),
   T({ id: "emaille", name: tx("emaille"), kicker: tx("schild"), bg: "#eef1f3", ink: "#16232b", card: "#ffffff", accent: "#0f5fa6", accent2: "#c8102e", line: "#0f5fa6", fontHead: "Bebas Neue", fontBody: "DM Sans", headWeight: 400, headTransform: "uppercase", headTracking: 0.03, radius: 20, shadow: "lg", lineWidth: 5, marker: "circle", pattern: "none", anim: "pop", density: 1.05, imgShape: "round", skin: "enamel" }),
   T({ id: "seekarte", name: tx("seekarte"), kicker: tx("navigation"), bg: "#e3ecec", ink: "#173038", card: "#f4f9f9", accent: "#1c6f7d", accent2: "#b3541e", line: "#1c6f7d", fontHead: "Libre Baskerville", fontBody: "Source Serif 4", radius: 2, shadow: "sm", lineWidth: 1, lineStyle: "dashed", marker: "ring", pattern: "grid", anim: "tilt", density: 1.1, skin: "chart" }),
   T({ id: "abflug", name: tx("abflug"), kicker: tx("anzeigetafel"), flap: true, bg: "#14171a", ink: "#f4f2ea", card: "#1f2429", accent: "#f0b429", accent2: "#57c2a8", line: "#f0b429", fontHead: "JetBrains Mono", fontBody: "JetBrains Mono", headWeight: 500, headTransform: "uppercase", headTracking: 0.06, radius: 2, shadow: "hard", lineWidth: 2, marker: "bar", pattern: "lines", anim: "rise", animDur: 460, density: 0.95, imgShape: "rect", skin: "board" }),
-  T({ id: "fotokopie", name: tx("fotokopie"), kicker: tx("kopierer"), bg: "#f6f6f4", ink: "#171717", card: "#ffffff", accent: "#3d3d3d", accent2: "#8a8a8a", line: "#171717", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 700, headTransform: "uppercase", headTracking: 0.01, radius: 0, shadow: "hard", lineWidth: 4, marker: "square", pattern: "none", anim: "pop", animDur: 260, density: 0.9, imgShape: "rect", skin: "xerox" }),
   T({ id: "nordlicht", name: tx("nordlicht"), kicker: tx("polarnacht"), bg: "#080f18", ink: "#dff0ee", card: "#0f1b28", accent: "#4be3b0", accent2: "#7d6cff", line: "#4be3b0", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 14, shadow: "lg", lineWidth: 1, marker: "ring", pattern: "dots", anim: "rise", animDur: 820, density: 1.2, imgShape: "round", skin: "aurora" }),
   T({ id: "kachel", name: tx("kachel"), kicker: tx("azulejo"), bg: "#eef3f7", ink: "#12324f", card: "#ffffff", accent: "#1d4e89", accent2: "#c9761f", line: "#1d4e89", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 600, radius: 3, shadow: "sm", lineWidth: 3, marker: "diamond", pattern: "grid", anim: "tilt", animDur: 620, density: 1.1, imgShape: "rect", skin: "tile" }),
   T({ id: "comic", name: tx("comic"), kicker: tx("heft"), bg: "#fff8e6", ink: "#141414", card: "#ffffff", accent: "#e8291f", accent2: "#1b57c4", line: "#141414", fontHead: "Bebas Neue", fontBody: "DM Sans", headWeight: 400, headTransform: "uppercase", headTracking: 0.02, radius: 6, shadow: "hard", lineWidth: 5, marker: "circle", pattern: "halftone", anim: "pop", animDur: 300, density: 1, imgShape: "polaroid", skin: "comic" }),
-  T({ id: "marmor", name: tx("marmor"), kicker: tx("steinsatz"), bg: "#f3efe7", ink: "#2c2822", card: "#fbf9f4", accent: "#8c7434", accent2: "#6b5140", line: "#2c2822", fontHead: "Cormorant Garamond", fontBody: "Libre Baskerville", headWeight: 600, headTransform: "uppercase", headTracking: 0.09, radius: 1, shadow: "md", lineWidth: 1, marker: "diamond", pattern: "none", anim: "glide", animDur: 900, density: 1.3, imgShape: "rect", skin: "marble" }),
   T({ id: "kreide", name: tx("kreide"), kicker: tx("tafel"), bg: "#1e2622", ink: "#e8eee6", card: "#28322d", accent: "#f2e2a8", accent2: "#9fc7b0", line: "#e8eee6", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 4, shadow: "none", lineWidth: 2, lineStyle: "dotted", marker: "circle", pattern: "dots", anim: "tilt", animDur: 700, density: 1.1, skin: "chalk" }),
   T({ id: "sonnenuntergang", name: tx("sonnenuntergang"), kicker: tx("abendlicht"), bg: "#fff1e6", ink: "#3b1f2b", card: "#fffaf5", accent: "#ff6b35", accent2: "#c2185b", line: "#ff6b35", fontHead: "Playfair Display", fontBody: "DM Sans", headWeight: 600, radius: 16, shadow: "lg", lineWidth: 3, marker: "circle", pattern: "none", anim: "rise", animDur: 720, density: 1.15, imgShape: "round", skin: "sunset" }),
   T({ id: "lagune", name: tx("lagune"), kicker: tx("untiefe"), bg: "#e8fbf7", ink: "#0b3a3a", card: "#ffffff", accent: "#00a99d", accent2: "#3d7dd8", line: "#00a99d", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 600, radius: 22, shadow: "md", lineWidth: 2, marker: "ring", pattern: "none", anim: "glide", animDur: 700, density: 1.15, imgShape: "round", skin: "lagoon" }),
@@ -5108,9 +5102,9 @@ const PRESETS = [
   T({ id: "galaxie", name: tx("galaxie"), kicker: tx("nebel"), bg: "#0c0a1e", ink: "#e9e4ff", card: "#181433", accent: "#8b5cf6", accent2: "#22d3ee", line: "#8b5cf6", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 600, radius: 20, shadow: "lg", lineWidth: 2, marker: "circle", pattern: "dots", anim: "rise", animDur: 860, density: 1.25, imgShape: "round", skin: "galaxy" }),
   T({ id: "koralle", name: tx("koralle"), kicker: tx("riff"), bg: "#fff4f1", ink: "#42201c", card: "#ffffff", accent: "#ff5a5f", accent2: "#00b4a6", line: "#ff5a5f", fontHead: "DM Sans", fontBody: "DM Sans", headWeight: 700, radius: 24, shadow: "lg", lineWidth: 3, marker: "circle", pattern: "none", anim: "tilt", animDur: 560, density: 1.1, imgShape: "round", skin: "coral" }),
   T({ id: "hochzeit", name: tx("p_hochzeit"), kicker: tx("p_hochzeit_k"), bg: "#fbf7f3", ink: "#3a2f2a", card: "#ffffff", accent: "#b08a3e", accent2: "#c98b8b", line: "#b08a3e", fontHead: "Cormorant Garamond", fontBody: "Source Serif 4", headWeight: 500, headTracking: 0.02, radius: 10, shadow: "md", lineWidth: 1, lineStyle: "double", marker: "ring", pattern: "none", anim: "rise", animDur: 900, density: 1.3, imgShape: "round", skin: "wedding" }),
-  T({ id: "boho", name: tx("p_boho"), kicker: tx("p_boho_k"), bg: "#f4ede3", ink: "#3d3127", card: "#fbf7f1", accent: "#a5643f", accent2: "#7d8a64", line: "#a5643f", fontHead: "Playfair Display", fontBody: "DM Sans", headWeight: 500, radius: 18, shadow: "sm", lineWidth: 2, lineStyle: "dashed", marker: "circle", pattern: "none", anim: "glide", animDur: 820, density: 1.25, imgShape: "polaroid", skin: "boho" }),
+  T({ id: "boho", name: tx("p_boho"), kicker: tx("p_boho_k"), bg: "#f3e6d6", ink: "#43291b", card: "#fbf4ea", accent: "#bd5e30", accent2: "#5f7d63", line: "#bd5e30", fontHead: "Playfair Display", fontBody: "DM Sans", headWeight: 600, radius: 18, shadow: "sm", lineWidth: 3, marker: "circle", pattern: "halftone", anim: "bounce", animDur: 640, density: 1, imgShape: "polaroid", skin: "boho" }),
   T({ id: "achtzehn", name: tx("p_achtzehn"), kicker: tx("p_achtzehn_k"), bg: "#0f0a1f", ink: "#f7f2ff", card: "#1b1433", accent: "#ff3ea5", accent2: "#3ef0ff", line: "#ff3ea5", fontHead: "Bebas Neue", fontBody: "Space Grotesk", headWeight: 400, headTransform: "uppercase", headTracking: 0.04, radius: 14, shadow: "lg", lineWidth: 5, marker: "diamond", pattern: "none", anim: "pop", animDur: 360, density: 1.05, imgShape: "round", skin: "party" }),
-  T({ id: "gala", name: tx("p_gala"), kicker: tx("p_gala_k"), bg: "#0e0d0b", ink: "#f2ead8", card: "#1a1814", accent: "#d4af37", accent2: "#8fa3b8", line: "#d4af37", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 600, headTransform: "uppercase", headTracking: 0.08, radius: 2, shadow: "lg", lineWidth: 1, lineStyle: "double", marker: "diamond", pattern: "none", anim: "rise", animDur: 860, density: 1.25, imgShape: "rect", skin: "gala" }),
+  T({ id: "gala", name: tx("p_gala"), kicker: tx("d_artdeco"), bg: "#0e0f10", ink: "#efe4c8", card: "#191b1d", accent: "#d4af37", accent2: "#3d8a82", line: "#d4af37", fontHead: "Playfair Display", fontBody: "DM Sans", headWeight: 700, headTransform: "uppercase", headTracking: 0.08, radius: 0, shadow: "lg", lineWidth: 2, lineStyle: "double", marker: "diamond", pattern: "lines", anim: "rise", animDur: 700, density: 1, imgShape: "rect", skin: "gala" }),
   T({ id: "festival", name: tx("p_festival"), kicker: tx("p_festival_k"), bg: "#fff6e0", ink: "#1e1a16", card: "#ffffff", accent: "#ff5a1f", accent2: "#00a3a3", line: "#1e1a16", fontHead: "Bebas Neue", fontBody: "DM Sans", headWeight: 400, headTransform: "uppercase", headTracking: 0.03, radius: 8, shadow: "hard", lineWidth: 4, marker: "bar", pattern: "none", anim: "pop", animDur: 320, density: 1, imgShape: "polaroid", skin: "wristband" }),
   T({ id: "silvester", name: tx("p_silvester"), kicker: tx("p_silvester_k"), bg: "#0a0e1c", ink: "#eef1ff", card: "#141a30", accent: "#ffd166", accent2: "#c0c7ff", line: "#ffd166", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 700, radius: 10, shadow: "lg", lineWidth: 2, marker: "circle", pattern: "none", anim: "rise", animDur: 700, density: 1.15, imgShape: "round", skin: "fireworks" }),
   T({ id: "weihnachten", name: tx("f_weihnachten"), kicker: tx("f_weihnachten_k"), bg: "#123a29", ink: "#fbf5e6", card: "#1a4733", accent: "#e0b04c", accent2: "#d2343c", line: "#e0b04c", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 700, radius: 12, shadow: "lg", lineWidth: 3, marker: "circle", pattern: "none", anim: "rise", animDur: 760, density: 1.15, imgShape: "polaroid", skin: "xmas" }),
@@ -5130,20 +5124,24 @@ const PRESETS = [
   T({ id: "taufe", name: tx("f_taufe"), kicker: tx("f_taufe_k"), bg: "#f5f9fc", ink: "#24364a", card: "#ffffff", accent: "#5d9bcf", accent2: "#a9b8c6", line: "#5d9bcf", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 18, shadow: "sm", lineWidth: 2, marker: "circle", pattern: "none", anim: "glide", animDur: 820, density: 1.25, imgShape: "circle", skin: "taufe" }),
   T({ id: "abschluss", name: tx("f_abschluss"), kicker: tx("f_abschluss_k"), bg: "#0f1b33", ink: "#f2f4fa", card: "#17264a", accent: "#f2c14e", accent2: "#8fb3ff", line: "#f2c14e", fontHead: "Bebas Neue", fontBody: "DM Sans", headWeight: 400, headTransform: "uppercase", headTracking: 0.04, radius: 6, shadow: "lg", lineWidth: 3, marker: "square", pattern: "none", anim: "pop", animDur: 420, density: 1.05, imgShape: "rect", skin: "abschluss" }),
   T({ id: "goldhochzeit", name: tx("f_goldhochzeit"), kicker: tx("f_goldhochzeit_k"), bg: "#fbf6ea", ink: "#3a2e1a", card: "#fffdf6", accent: "#c9a227", accent2: "#8c6d2f", line: "#c9a227", fontHead: "Cormorant Garamond", fontBody: "Source Serif 4", headWeight: 600, headTracking: 0.03, radius: 6, shadow: "md", lineWidth: 1, lineStyle: "double", marker: "ring", pattern: "none", anim: "rise", animDur: 900, density: 1.3, imgShape: "round", skin: "gold" }),
-  T({ id: "regenbogen", name: tx("regenbogen"), kicker: tx("farbrad"), bg: "#fdfcff", ink: "#231c33", card: "#ffffff", accent: "#e5006e", accent2: "#009fe3", line: "#e5006e", fontHead: "Space Grotesk", fontBody: "DM Sans", headWeight: 700, radius: 14, shadow: "md", lineWidth: 5, marker: "square", pattern: "none", anim: "pop", animDur: 380, density: 1.1, imgShape: "rect", skin: "rainbow" }),
   /* Ganz andere Richtungen */
   T({ id: "japandi", name: tx("d_japandi"), kicker: tx("d_japandi_k"), bg: "#f3eee5", ink: "#2a2723", card: "#fbf8f2", accent: "#a8432a", accent2: "#5b6650", line: "#2a2723", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 500, headTracking: 0.02, radius: 0, shadow: "none", lineWidth: 1, marker: "ring", pattern: "none", anim: "rise", animDur: 900, density: 0.85, imgShape: "rect", skin: "grain" }),
-  T({ id: "synthwave", name: tx("d_synthwave"), kicker: tx("d_synthwave_k"), bg: "#1b0b33", ink: "#ffe8ff", card: "#2a1149", accent: "#ff4fd8", accent2: "#2ee6ff", line: "#ff4fd8", fontHead: "Bebas Neue", fontBody: "Space Grotesk", headWeight: 400, headTransform: "uppercase", headTracking: 0.06, radius: 4, shadow: "lg", lineWidth: 3, marker: "diamond", pattern: "grid", anim: "pop", animDur: 520, density: 1.1, imgShape: "round", skin: "glow" }),
-  T({ id: "rohbau", name: tx("d_rohbau"), kicker: tx("d_rohbau_k"), bg: "#ffffff", ink: "#000000", card: "#ffffff", accent: "#1f2bff", accent2: "#ff2a1f", line: "#000000", fontHead: "Space Grotesk", fontBody: "JetBrains Mono", headWeight: 700, headTransform: "uppercase", headTracking: -0.01, radius: 0, shadow: "hard", lineWidth: 4, marker: "square", pattern: "none", anim: "flip", animDur: 480, density: 1, imgShape: "rect" }),
+  T({ id: "rohbau", name: tx("d_rohbau"), kicker: tx("d_rohbau_k"), bg: "#e9e9e6", ink: "#0a0a0a", card: "#ffffff", accent: "#ff3c00", accent2: "#c6f000", line: "#0a0a0a", fontHead: "Space Grotesk", fontBody: "JetBrains Mono", headWeight: 700, headTransform: "uppercase", headTracking: -0.01, radius: 0, shadow: "hard", lineWidth: 4, marker: "square", pattern: "none", anim: "flip", animDur: 480, density: 1, imgShape: "rect" }),
   T({ id: "aquarell", name: tx("d_aquarell"), kicker: tx("d_aquarell_k"), bg: "#f8f5f1", ink: "#36404a", card: "#ffffff", accent: "#4f80ab", accent2: "#c9708f", line: "#4f80ab", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 500, radius: 20, shadow: "md", lineWidth: 2, lineStyle: "dotted", marker: "circle", pattern: "glow", anim: "glide", animDur: 800, density: 0.95, imgShape: "round", skin: "vignette" }),
-  T({ id: "artdeco", name: tx("d_artdeco"), kicker: tx("d_artdeco_k"), bg: "#0f1316", ink: "#eadcbd", card: "#182026", accent: "#c9a45c", accent2: "#3d8a82", line: "#c9a45c", fontHead: "Playfair Display", fontBody: "DM Sans", headWeight: 700, headTransform: "uppercase", headTracking: 0.08, radius: 0, shadow: "lg", lineWidth: 2, lineStyle: "double", marker: "diamond", pattern: "lines", anim: "rise", animDur: 700, density: 1, imgShape: "rect", skin: "gala" }),
-  T({ id: "terrakotta", name: tx("d_terrakotta"), kicker: tx("d_terrakotta_k"), bg: "#f2e4d4", ink: "#4a2b1c", card: "#fbf3ea", accent: "#c25e2d", accent2: "#3d7a72", line: "#c25e2d", fontHead: "Libre Baskerville", fontBody: "DM Sans", headWeight: 700, radius: 10, shadow: "sm", lineWidth: 3, marker: "circle", pattern: "halftone", anim: "bounce", animDur: 640, density: 1, imgShape: "polaroid", skin: "matte" }),
   /* Die vier Jahreszeiten – mit eigener Deko und kleinen Animationen */
   T({ id: "fruehling", name: tx("j_fruehling"), kicker: tx("j_fruehling_k"), bg: "#f6f8ef", ink: "#2f3a2a", card: "#ffffff", accent: "#d9578a", accent2: "#5e9a4b", line: "#5e9a4b", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 600, radius: 16, shadow: "sm", lineWidth: 2, marker: "circle", pattern: "none", anim: "rise", animDur: 760, density: 1.05, imgShape: "round", skin: "fruehling" }),
   T({ id: "sommer", name: tx("j_sommer"), kicker: tx("j_sommer_k"), bg: "#fff7e3", ink: "#233140", card: "#ffffff", accent: "#f07a12", accent2: "#1597a8", line: "#1597a8", fontHead: "Fredoka", fontBody: "DM Sans", headWeight: 600, radius: 22, shadow: "md", lineWidth: 3, marker: "circle", pattern: "none", anim: "bounce", animDur: 620, density: 1.1, imgShape: "polaroid", skin: "sommer" }),
   T({ id: "herbst", name: tx("j_herbst"), kicker: tx("j_herbst_k"), bg: "#f4eadb", ink: "#3b2717", card: "#fffaf2", accent: "#c4561d", accent2: "#8a6a1f", line: "#c4561d", fontHead: "Playfair Display", fontBody: "Source Serif 4", headWeight: 600, radius: 8, shadow: "md", lineWidth: 2, lineStyle: "dashed", marker: "diamond", pattern: "none", anim: "glide", animDur: 820, density: 1, imgShape: "polaroid", skin: "herbst" }),
-  T({ id: "winter", name: tx("j_winter"), kicker: tx("j_winter_k"), bg: "#eef3f8", ink: "#1e2b3a", card: "#ffffff", accent: "#2f72ad", accent2: "#8fb0cf", line: "#2f72ad", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 700, radius: 12, shadow: "sm", lineWidth: 2, marker: "ring", pattern: "none", anim: "rise", animDur: 760, density: 1, imgShape: "round", skin: "winter" }),
+  T({ id: "winter", name: tx("j_winter"), kicker: tx("j_winter_k"), bg: "#eef3f8", ink: "#1e2b3a", card: "#ffffff", accent: "#2f72ad", accent2: "#8fb0cf", line: "#2f72ad", fontHead: "Cormorant Garamond", fontBody: "DM Sans", headWeight: 700, radius: 12, shadow: "sm", lineWidth: 2, marker: "ring", pattern: "none", anim: "rise", animDur: 760, density: 1, imgShape: "round", skin: "winter" })
 ];
+
+/* Zusammengelegte Designs: alte Kennungen zeigen auf das verbliebene Design
+   (unsichtbar in der Auswahl, aber gespeicherte Ereignisse bleiben heil). */
+const DESIGN_ALIAS = {"regenbogen": "pride", "bernstein": "terminal", "synthwave": "neon", "leinen": "sepia", "marmor": "museum", "artdeco": "gala", "schiefer": "seekarte", "terrakotta": "boho", "riso": "bauhaus", "fotokopie": "zeitung"};
+Object.keys(DESIGN_ALIAS).forEach(function (alt) {
+  const ziel = PRESETS.filter(function (p) { return p.id === DESIGN_ALIAS[alt]; })[0];
+  if (ziel) PRESETS.push(Object.assign({}, ziel, { id: alt, versteckt: true }));
+});
 
 const FEIER_SKINS = ["xmas", "easter", "picado", "chanukka", "ramadan", "diwali", "lunar", "halloween", "rauten", "babyparty", "konfetti", "goldkonfetti", "blumen", "kommunion", "taufe", "abschluss", "gold", "fruehling", "sommer", "herbst", "winter"];
 
@@ -8033,8 +8031,8 @@ class Component extends DCLogic {
       gaDesignAktivStil: { fontSize: "13px", fontWeight: 600, color: "var(--color-accent-700)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "50%" },
       gaDesignSuche: st.gaDesignSuche || "",
       onGaDesignSuche: (ev) => this.setState({ gaDesignSuche: ev.target.value }),
-      gaDesignLeer: !!st.gaDesignAuf && !!String(st.gaDesignSuche || "").trim() && ![{ name: tx("ga_design_event") }].concat(this.allThemes()).some((p) => String(p.name || "").toLowerCase().indexOf(String(st.gaDesignSuche).trim().toLowerCase()) >= 0),
-      gaDesigns: !st.gaDesignAuf ? [] : [{ id: "", name: tx("ga_design_event") }].concat(this.allThemes().map((p) => ({ id: p.id, name: p.name })))
+      gaDesignLeer: !!st.gaDesignAuf && !!String(st.gaDesignSuche || "").trim() && ![{ name: tx("ga_design_event") }].concat(this.sichtbareThemes()).some((p) => String(p.name || "").toLowerCase().indexOf(String(st.gaDesignSuche).trim().toLowerCase()) >= 0),
+      gaDesigns: !st.gaDesignAuf ? [] : [{ id: "", name: tx("ga_design_event") }].concat(this.sichtbareThemes().map((p) => ({ id: p.id, name: p.name })))
         .filter((x) => { const q = String(st.gaDesignSuche || "").trim().toLowerCase(); return !q || String(x.name || "").toLowerCase().indexOf(q) >= 0; }).map((x) => {
         const lk = this.gastLookAus(x.id, d);
         const an = (o.design || "") === x.id;
@@ -11621,7 +11619,7 @@ class Component extends DCLogic {
   applyLook(look, fallbackMeta) {
     const l = look || {};
     this.setState({
-      themeId: l.themeId || null,
+      themeId: l.themeId ? (DESIGN_ALIAS[l.themeId] || l.themeId) : null,
       override: l.override || {},
       custom: Array.isArray(l.custom) ? l.custom : (this.state.custom || []),
       meta: Object.assign({}, this.state.meta, fallbackMeta || {}, l.meta || {}),
@@ -12883,6 +12881,9 @@ class Component extends DCLogic {
   /* ---------- theme ---------- */
 
   allThemes() { return PRESETS.concat(this.state.custom || []); }
+  /* Für Auswahllisten: ohne die unsichtbaren Kopien zusammengelegter Designs. */
+  sichtbareThemes() { return this.allThemes().filter((p) => !p.versteckt); }
+  designId(id) { return DESIGN_ALIAS[id] || id; }
 
   theme() {
     const id = this.state.themeId || this.props.startTheme || "zeitung";
@@ -16713,8 +16714,8 @@ class Component extends DCLogic {
     this.geoW = trackW;
     this.geoH = totalH;
 
-    const presets = this.allThemes().map((p) => {
-      const active = p.id === t.id;
+    const presets = this.sichtbareThemes().map((p) => {
+      const active = p.id === this.designId(t.id);
       const mk = MARKERS[p.marker] || MARKERS.square;
       return {
         key: p.id, name: p.name, kicker: p.kicker || tx("eigenes"),
@@ -17011,9 +17012,9 @@ class Component extends DCLogic {
       })(this),
       /* Ein Ereignis kann sein eigenes Design tragen. */
       look: {
-        themeId: d0.themeId || "",
+        themeId: this.designId(d0.themeId || ""),
         wahl: [{ key: "t0", value: "", label: ("— " + tx("mein_eigenes_design") + " —") }].concat(
-          this.allThemes().map((p) => ({ key: p.id, value: p.id, label: p.name }))
+          this.sichtbareThemes().map((p) => ({ key: p.id, value: p.id, label: p.name }))
         ),
         onTheme: (ev) => {
           const id = ev.target.value;
@@ -17029,9 +17030,9 @@ class Component extends DCLogic {
         umschalten: () => this.setState({ lookAuf: !st.lookAuf, lookSuche: st.lookAuf ? null : "" }),
         treffer: (function (self) {
           const q = String(st.lookSuche || "").trim().toLowerCase();
-          return [{ id: "", name: "— " + tx("mein_eigenes_design") + " —" }].concat(self.allThemes().map((p) => ({ id: p.id, name: p.name })))
+          return [{ id: "", name: "— " + tx("mein_eigenes_design") + " —" }].concat(self.sichtbareThemes().map((p) => ({ id: p.id, name: p.name })))
             .filter((p) => !q || String(p.name || "").toLowerCase().indexOf(q) >= 0)
-            .map((p) => { const an = (d0.themeId || "") === p.id; return { key: p.id || "t0", name: p.name,
+            .map((p) => { const an = self.designId(d0.themeId || "") === p.id; return { key: p.id || "t0", name: p.name,
               stil: { display: "block", width: "100%", textAlign: "left", padding: "10px 12px", minHeight: "40px", border: 0, borderRadius: "var(--radius-sm)", font: "inherit", fontSize: "15px", cursor: "pointer", background: an ? "var(--color-accent-100)" : "transparent", color: an ? "var(--color-accent-800)" : "var(--color-text)", fontWeight: an ? 600 : 400 },
               klick: (ev) => { if (ev && ev.preventDefault) ev.preventDefault(); self.setState({ lookAuf: false, lookSuche: null, draft: Object.assign({}, self.state.draft, { themeId: p.id, themeSnap: self.themeSnapFor(p.id) }) }); } }; });
         })(this),
