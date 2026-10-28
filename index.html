@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b128"></script>
-<script src="lang/de.js?v=b128"></script>
-<script src="lang/en.js?v=b128"></script>
-<script src="lang/sprache.js?v=b128"></script>
-<script src="./support.js?v=b128"></script>
+<script src="chronik-config.js?v=b129"></script>
+<script src="lang/de.js?v=b129"></script>
+<script src="lang/en.js?v=b129"></script>
+<script src="lang/sprache.js?v=b129"></script>
+<script src="./support.js?v=b129"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b128"></script>
-<script src="xlsx-export.js?v=b128"></script>
-<script src="farbe.js?v=b128"></script>
-<script src="cw-plaetze.js?v=b128"></script>
-<script src="fb-knopf.js?v=b128"></script>
+<script src="supabase-bridge.js?v=b129"></script>
+<script src="xlsx-export.js?v=b129"></script>
+<script src="farbe.js?v=b129"></script>
+<script src="cw-plaetze.js?v=b129"></script>
+<script src="fb-knopf.js?v=b129"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -276,6 +276,139 @@
               </div>
               <sc-if value="{{ gv.keinBuch }}" hint-placeholder-val="{{ false }}">
                 <p style="margin: 0; font-size: 16px; font-style: italic; opacity: 0.7;">{{ L.gast_buch_leer }}</p>
+              </sc-if>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{ gv.istVor }}" hint-placeholder-val="{{ false }}">
+            <section style="display: grid; gap: 16px; padding: clamp(18px, 4vw, 28px); border-radius: calc(var(--g-radius) + 6px); background: var(--g-card-bg, var(--g-card)); box-shadow: var(--g-shadow); border: var(--g-rand, 0);">
+              <h2 style="margin: 0; font-family: var(--g-head); font-weight: var(--g-hw); font-size: clamp(24px, 5vw, 32px); line-height: 1.1; text-transform: var(--g-ht);">{{ L.vor_titel }}</h2>
+              <p style="margin: 0; font-size: 15px; line-height: 1.5; opacity: 0.8;">{{ L.vor_hinweis }}</p>
+              <label data-gziel="vor" style="display: grid; border-radius: 14px;"><textarea value="{{ gv.vorText }}" onChange="{{ gv.onVorText }}" rows="3" placeholder="{{ L.vor_ph }}" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-bg); color: var(--g-ink); font: inherit; font-size: 16px; resize: vertical;"></textarea></label>
+              <button style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; justify-self: start;" onClick="{{ gv.vorSenden }}">{{ L.vor_teilen }}</button>
+              <div style="display: grid; gap: 14px; margin-top: 6px;">
+                <sc-for list="{{ gv.vor }}" as="vs" hint-placeholder-count="0">
+                  <article style="display: grid; gap: 8px; padding: 16px 18px; border-radius: calc(var(--g-radius) + 4px); background: var(--g-bg);">
+                    <p style="margin: 0; font-family: var(--g-head); font-size: 18px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere;">{{ vs.text }}</p>
+                    <div style="font-size: 13.5px; opacity: 0.75;">— {{ vs.name }} · {{ vs.wann }}</div>
+                    <sc-if value="{{ vs.hatKom }}" hint-placeholder-val="{{ false }}">
+                      <div style="display: grid; gap: 6px; padding-left: 14px; border-left: 3px solid color-mix(in srgb, var(--g-accent) 45%, transparent);">
+                        <sc-for list="{{ vs.kommentare }}" as="k" hint-placeholder-count="0"><div style="font-size: 14.5px; line-height: 1.45; overflow-wrap: anywhere;"><strong style="font-weight: 700;">{{ k.name }}</strong> {{ k.text }} <span style="font-size: 12px; opacity: 0.6; white-space: nowrap;">{{ k.wann }}</span></div></sc-for>
+                      </div>
+                    </sc-if>
+                    <button onClick="{{ vs.komUm }}" style="justify-self: start; min-height: 40px; padding: 0; border: 0; background: transparent; color: var(--g-accent); font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer; text-align: left;">{{ vs.komLabel }}</button>
+                    <sc-if value="{{ vs.komAuf }}" hint-placeholder-val="{{ false }}">
+                      <div style="display: grid; gap: 8px;">
+                        <textarea value="{{ vs.komText }}" onChange="{{ vs.onKomText }}" rows="2" placeholder="{{ L.kom_ph }}" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-card); color: var(--g-ink); font: inherit; font-size: 16px; resize: vertical;"></textarea>
+                        <button onClick="{{ vs.komSenden }}" style="justify-self: start; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;">{{ L.kom_senden }}</button>
+                      </div>
+                    </sc-if>
+                  </article>
+                </sc-for>
+              </div>
+              <sc-if value="{{ gv.keinVor }}" hint-placeholder-val="{{ false }}">
+                <p style="margin: 0; font-size: 16px; font-style: italic; opacity: 0.7;">{{ L.vor_leer }}</p>
+              </sc-if>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{ gv.istFin }}" hint-placeholder-val="{{ false }}">
+            <section style="display: grid; gap: 16px; padding: clamp(18px, 4vw, 28px); border-radius: calc(var(--g-radius) + 6px); background: var(--g-card-bg, var(--g-card)); box-shadow: var(--g-shadow); border: var(--g-rand, 0);">
+              <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+                <h2 style="margin: 0; font-family: var(--g-head); font-weight: var(--g-hw); font-size: clamp(24px, 5vw, 32px); line-height: 1.1; text-transform: var(--g-ht);">{{ L.fin_titel }}</h2>
+                <button onClick="{{ gv.finNeuLaden }}" style="margin-left: auto; min-height: 40px; padding: 0 12px; border: 0; background: transparent; color: var(--g-accent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">↻ {{ L.fin_aktualisieren }}</button>
+              </div>
+              <p style="margin: 0; font-size: 15px; line-height: 1.5; opacity: 0.8;">{{ L.fin_hinweis }}</p>
+              <sc-if value="{{ gv.fin.laden }}" hint-placeholder-val="{{ false }}"><div style="font-size: 15px; opacity: 0.7;">{{ L.fin_laedt }}</div></sc-if>
+              <sc-if value="{{ gv.fin.hatErr }}" hint-placeholder-val="{{ false }}"><div style="font-size: 15px; color: var(--g-accent2); font-weight: 600;">{{ gv.fin.err }}</div></sc-if>
+              <sc-if value="{{ gv.fin.zu }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 12px; padding: 16px 18px; border-radius: calc(var(--g-radius) + 4px); background: color-mix(in srgb, var(--g-accent) 10%, var(--g-card));">
+                  <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--g-accent);">✓ {{ gv.fin.zuText }}</div>
+                  <sc-if value="{{ gv.fin.hatMein }}" hint-placeholder-val="{{ false }}"><div style="font-family: var(--g-head); font-size: 20px; line-height: 1.35;">{{ gv.fin.meinText }}</div></sc-if>
+                  <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--g-ink) 62%, transparent);">{{ L.fin_ueberweisungen }}</div>
+                  <sc-for list="{{ gv.fin.ueberweisungen }}" as="fu" hint-placeholder-count="0"><div style="{{ fu.stil }}"><span style="overflow-wrap: anywhere;">{{ fu.text }}</span><span style="white-space: nowrap;">{{ fu.betrag }}</span></div></sc-for>
+                  <sc-if value="{{ gv.fin.keineUeberweisungen }}" hint-placeholder-val="{{ false }}"><div style="font-size: 15px; font-style: italic;">{{ L.fin_nichts_offen }}</div></sc-if>
+                  <sc-if value="{{ gv.fin.hatRechnung }}" hint-placeholder-val="{{ false }}">
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+                      <select value="{{ gv.fin.rechnungFuer }}" onChange="{{ gv.fin.onRechnungFuer }}" aria-label="{{ L.fin_rechnung_fuer }}" style="min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--g-ink) 25%, transparent); background: var(--g-card); color: var(--g-ink); font: inherit; font-size: 16px; max-width: 100%;">
+                        <sc-for list="{{ gv.fin.rechnungListe }}" as="fr" hint-placeholder-count="0"><option value="{{ fr.value }}">{{ fr.label }}</option></sc-for>
+                      </select>
+                      <button onClick="{{ gv.fin.rechnung }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;">{{ L.fin_rechnung_erstellen }}</button>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ gv.fin.kannOeffnen }}" hint-placeholder-val="{{ false }}"><button onClick="{{ gv.fin.oeffnen }}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--g-ink); background: transparent; color: var(--g-ink); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; justify-self: start;">{{ L.fin_wieder_oeffnen }}</button></sc-if>
+                </div>
+              </sc-if>
+              <sc-if value="{{ gv.fin.kannNeu }}" hint-placeholder-val="{{ false }}"><button onClick="{{ gv.fin.neu }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; justify-self: start;">＋ {{ L.fin_neuer_eintrag }}</button></sc-if>
+              <sc-if value="{{ gv.fin.formAn }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 14px; padding: 16px 18px; border-radius: calc(var(--g-radius) + 4px); background: var(--g-bg);">
+                  <div style="font-family: var(--g-head); font-size: 21px;">{{ gv.fin.formTitel }}</div>
+                  <label data-gziel="fin-titel" style="display: grid; gap: 6px; border-radius: 14px;"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--g-ink) 62%, transparent);">{{ L.fin_wofuer }}</span><input value="{{ gv.fin.titel }}" onChange="{{ gv.fin.onTitel }}" placeholder="{{ L.fin_wofuer_ph }}" maxlength="120" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-bg); color: var(--g-ink); font: inherit; font-size: 16px;"></label>
+                  <label data-gziel="fin-betrag" style="display: grid; gap: 6px; border-radius: 14px;"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--g-ink) 62%, transparent);">{{ L.fin_betrag }}</span><input value="{{ gv.fin.betrag }}" onChange="{{ gv.fin.onBetrag }}" inputmode="decimal" placeholder="0,00" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-bg); color: var(--g-ink); font: inherit; font-size: 16px; max-width: 220px;"></label>
+                  <div data-gziel="fin-zahler" style="display: grid; gap: 8px; border-radius: 14px;">
+                    <span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--g-ink) 62%, transparent);">{{ L.fin_wer_bezahlt }}</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;"><sc-for list="{{ gv.fin.zahlerChips }}" as="fz" hint-placeholder-count="0"><button onClick="{{ fz.klick }}" style="{{ fz.stil }}">{{ fz.label }}</button></sc-for></div>
+                    <sc-if value="{{ gv.fin.mehrZahler }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size: 13.5px; opacity: 0.75;">{{ L.fin_zahler_hinweis }}</div>
+                      <sc-for list="{{ gv.fin.zahlerFelder }}" as="zf" hint-placeholder-count="0">
+                        <label style="display: grid; grid-template-columns: minmax(0, 1fr) 130px; gap: 10px; align-items: center; font-size: 15px;"><span style="overflow-wrap: anywhere;">{{ zf.name }}</span><input value="{{ zf.wert }}" onChange="{{ zf.onWert }}" inputmode="decimal" placeholder="{{ zf.ph }}" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-bg); color: var(--g-ink); font: inherit; font-size: 16px; padding: 10px 12px; text-align: right;"></label>
+                      </sc-for>
+                    </sc-if>
+                  </div>
+                  <div data-gziel="fin-teil" style="display: grid; gap: 8px; border-radius: 14px;">
+                    <div style="display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--g-ink) 62%, transparent);">{{ L.fin_wer_teilt }}</span>
+                      <button onClick="{{ gv.fin.alleTeil }}" style="min-height: 36px; padding: 0 6px; border: 0; background: transparent; color: var(--g-accent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">{{ L.fin_alle }}</button>
+                      <button onClick="{{ gv.fin.keineTeil }}" style="min-height: 36px; padding: 0 6px; border: 0; background: transparent; color: var(--g-accent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">{{ L.fin_keine }}</button>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;"><sc-for list="{{ gv.fin.teilChips }}" as="ft" hint-placeholder-count="0"><button onClick="{{ ft.klick }}" style="{{ ft.stil }}">{{ ft.label }}</button></sc-for></div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;"><input value="{{ gv.fin.neuName }}" onChange="{{ gv.fin.onNeuName }}" onKeyDown="{{ gv.fin.neuNameTaste }}" placeholder="{{ L.fin_person_ph }}" maxlength="60" style="width: 100%; box-sizing: border-box; padding: 13px 16px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-bg); color: var(--g-ink); font: inherit; font-size: 16px; flex: 1 1 200px; width: auto; min-width: 0; padding: 10px 14px;"><button onClick="{{ gv.fin.personDazu }}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--g-ink); background: transparent; color: var(--g-ink); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;">＋ {{ L.fin_person_dazu }}</button></div>
+                    <sc-if value="{{ gv.fin.hatTeil }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size: 13.5px; line-height: 1.45; opacity: 0.75;">{{ L.fin_anpassen_hinweis }}</div>
+                      <div style="display: grid; gap: 6px;">
+                        <sc-for list="{{ gv.fin.teilZeilen }}" as="tz" hint-placeholder-count="0">
+                          <div style="display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 15px; padding: 4px 0;">
+                            <span style="flex: 1 1 140px; min-width: 0; overflow-wrap: anywhere;">{{ tz.name }}</span>
+                            <span style="display: flex; gap: 6px; align-items: center; margin-left: auto;">
+                            <input value="{{ tz.wert }}" onChange="{{ tz.onWert }}" inputmode="decimal" placeholder="±0" aria-label="{{ L.fin_anpassung }}" style="width: 76px; box-sizing: border-box; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-card); color: var(--g-ink); font: inherit; font-size: 16px; padding: 8px 10px; text-align: right;">
+                            <select value="{{ tz.art }}" onChange="{{ tz.onArt }}" aria-label="{{ L.fin_anpassung }}" style="min-height: 42px; padding: 0 6px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--g-ink) 18%, transparent); background: var(--g-card); color: var(--g-ink); font: inherit; font-size: 16px;"><option value="%">%</option><option value="€">€</option></select>
+                            <strong style="min-width: 84px; text-align: right; white-space: nowrap;">{{ tz.anteil }}</strong>
+                            </span>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ gv.fin.hatVorschau }}" hint-placeholder-val="{{ false }}"><div style="font-size: 14.5px; font-weight: 600; color: var(--g-accent2);">{{ gv.fin.vorschau }}</div></sc-if>
+                  </div>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onClick="{{ gv.fin.speichern }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;">{{ L.fin_speichern }}</button>
+                    <button onClick="{{ gv.fin.abbrechen }}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--g-ink); background: transparent; color: var(--g-ink); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;">{{ L.abbrechen }}</button>
+                  </div>
+                </div>
+              </sc-if>
+              <div style="display: grid; gap: 10px;">
+                <sc-for list="{{ gv.fin.eintraege }}" as="fe" hint-placeholder-count="0">
+                  <article style="display: grid; gap: 4px; padding: 14px 16px; border-radius: calc(var(--g-radius) + 4px); background: var(--g-bg);">
+                    <div style="display: flex; gap: 12px; align-items: baseline;"><strong style="flex: 1; min-width: 0; font-family: var(--g-head); font-size: 18px; overflow-wrap: anywhere;">{{ fe.titel }}</strong><strong style="white-space: nowrap; font-size: 17px;">{{ fe.betrag }}</strong></div>
+                    <div style="font-size: 14px; line-height: 1.45;">{{ fe.zeile }}</div>
+                    <div style="font-size: 13.5px; line-height: 1.45; opacity: 0.8; overflow-wrap: anywhere;">{{ fe.anteile }}</div>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;"><span style="font-size: 12.5px; opacity: 0.6;">{{ fe.von }}</span>
+                      <sc-if value="{{ fe.darf }}" hint-placeholder-val="{{ false }}"><span style="margin-left: auto; display: flex; gap: 4px;"><button onClick="{{ fe.aendern }}" style="min-height: 36px; padding: 0 8px; border: 0; background: transparent; color: var(--g-accent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">{{ L.bearbeiten }}</button><button onClick="{{ fe.weg }}" style="min-height: 36px; padding: 0 8px; border: 0; background: transparent; color: var(--g-accent2); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">{{ L.loeschen }}</button></span></sc-if>
+                    </div>
+                  </article>
+                </sc-for>
+              </div>
+              <sc-if value="{{ gv.fin.keineEintraege }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 16px; font-style: italic; opacity: 0.7;">{{ L.fin_leer }}</p></sc-if>
+              <sc-if value="{{ gv.fin.hatSalden }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 2px;">
+                  <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--g-ink) 62%, transparent);"><span>{{ gv.fin.saldenTitel }}</span><span>{{ L.fin_summe }} {{ gv.fin.summe }}</span></div>
+                  <sc-for list="{{ gv.fin.salden }}" as="fs2" hint-placeholder-count="0"><div style="{{ fs2.stil }}"><span style="overflow-wrap: anywhere;">{{ fs2.name }}</span><span style="white-space: nowrap;">{{ fs2.text }}</span></div></sc-for>
+                </div>
+              </sc-if>
+              <sc-if value="{{ gv.fin.kannAbschluss }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 6px;">
+                  <button onClick="{{ gv.fin.abschliessen }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; justify-self: start; background: var(--g-ink); color: var(--g-on-ink);">✓ {{ L.fin_abschliessen }}</button>
+                  <div style="font-size: 13.5px; opacity: 0.75;">{{ L.fin_abschliessen_hinweis }}</div>
+                </div>
               </sc-if>
             </section>
           </sc-if>
@@ -1824,6 +1957,23 @@
                                   </sc-for></sc-if>
                                 </div>
                               </sc-if>
+                              <sc-if value="{{ c.hatGVor }}" hint-placeholder-val="{{ false }}">
+                                <div style="display: grid; gap: 6px;">
+                                  <button onClick="{{ c.gvorUm }}" aria-expanded="{{ c.gvorAufText }}" style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; min-height: 36px; border: 0; background: transparent; cursor: pointer; font: inherit; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--t-accent, #0088b0);"><span style="{{ c.gvorSign }}">▸</span>{{ L.vor_titel }}</button>
+                                  <sc-if value="{{ c.gvorAuf }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ c.gVor }}" as="gv2" hint-placeholder-count="0">
+                                    <div style="display: grid; gap: 4px; font-size: 14px; line-height: 1.45; padding-bottom: 6px;">
+                                      <div style="display: flex; gap: 8px; align-items: baseline;"><strong style="font-weight: 600;">{{ gv2.name }}</strong><span style="font-size: 12px; opacity: 0.6;">{{ gv2.wann }}</span>
+                                        <sc-if value="{{ gv2.darfWeg }}" hint-placeholder-val="{{ false }}"><button onClick="{{ gv2.weg }}" title="{{ L.entfernen }}" style="margin-left: auto; cursor: pointer; font: inherit; border: 0; background: transparent; color: inherit; opacity: 0.55; min-height: 32px;">✕</button></sc-if>
+                                      </div>
+                                      <div style="white-space: pre-wrap; overflow-wrap: anywhere;">{{ gv2.text }}</div>
+                                      <div style="display: grid; gap: 2px; padding-left: 12px;">
+                                        <sc-for list="{{ gv2.kommentare }}" as="gk2" hint-placeholder-count="0"><div style="display: flex; gap: 8px; align-items: baseline; font-size: 13.5px;"><div style="flex: 1; min-width: 0; overflow-wrap: anywhere;"><strong style="font-weight: 700;">{{ gk2.name }}</strong> {{ gk2.text }}</div><sc-if value="{{ gk2.darfWeg }}" hint-placeholder-val="{{ false }}"><button onClick="{{ gk2.weg }}" title="{{ L.entfernen }}" style="cursor: pointer; font: inherit; border: 0; background: transparent; color: inherit; opacity: 0.55; min-height: 32px;">✕</button></sc-if></div></sc-for>
+                                      </div>
+                                      <sc-if value="{{ gv2.kannSchreiben }}" hint-placeholder-val="{{ false }}"><div onClick="{{ stop }}" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; padding-left: 12px;"><textarea value="{{ gv2.komText }}" onChange="{{ gv2.onKomText }}" rows="1" placeholder="{{ L.kom_ph }}" style="flex: 1 1 200px; min-width: 0; font: inherit; font-size: 16px; padding: 6px 10px; border-radius: 10px; border: 1px solid var(--t-border, rgba(32,30,29,0.2)); background: transparent; color: inherit; resize: vertical;"></textarea><button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ gv2.komSenden }}">{{ L.kom_senden }}</button></div></sc-if>
+                                    </div>
+                                  </sc-for></sc-if>
+                                </div>
+                              </sc-if>
                               </sc-if>
                             </div>
                           </sc-if>
@@ -2048,6 +2198,9 @@
                         <span style="margin-right: auto; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in srgb, var(--t-ink, #201e1d) 48%, var(--t-card, #eae9e9));">{{ c.rights }}</span>
                         <sc-if value="{{ c.canEdit }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.edit }}" style="cursor: pointer; font: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); border-radius: var(--t-radius, 2px); background: transparent; color: var(--t-ink, #201e1d);" style-hover="background: color-mix(in srgb, var(--t-accent, #0088b0) 12%, transparent);">{{ c.editLabel }}</button>
+                        </sc-if>
+                        <sc-if value="{{ c.ttDarf }}" hint-placeholder-val="{{ false }}">
+                          <button onClick="{{ c.ttOeffnen }}" style="cursor: pointer; font: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--t-border, rgba(32, 30, 29, 0.16)); border-radius: var(--t-radius, 2px); background: transparent; color: var(--t-ink, #201e1d);" style-hover="background: color-mix(in srgb, var(--t-accent, #0088b0) 12%, transparent);">{{ c.ttKnopf }}</button>
                         </sc-if>
                         <sc-if value="{{ c.canFull }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.remove }}" style="cursor: pointer; font: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border: 1px solid transparent; border-radius: var(--t-radius, 2px); background: transparent; color: color-mix(in srgb, var(--t-accent2, #d6006c) 90%, var(--t-ink, #201e1d));" style-hover="background: color-mix(in srgb, var(--t-accent2, #d6006c) 12%, transparent);">{{ L.loeschen }}</button>
@@ -3109,6 +3262,7 @@
                       <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                         <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 700;">{{ zt.titel }}</div>
                         <sc-for list="{{ zt.punkte }}" as="zp" hint-placeholder-count="0">
+                          <button class="btn btn-ghost" onClick="{{ zp.einfuegen }}" style="justify-self: start; min-height: 32px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ zp.einfuegenText }}</button>
                           <div style="display: grid; gap: 6px; padding: var(--space-2) 0; border-top: 1px solid var(--color-divider);">
                             <div style="display: grid; grid-template-columns: minmax(130px, 1.4fr) minmax(88px, 1fr) minmax(88px, 1fr) 44px; gap: 6px; align-items: end;">
                               <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_tag }}<input class="input" type="date" value="{{ zp.tag }}" onChange="{{ zp.onTag }}" style="font-size: 16px; min-width: 0;"></label>
@@ -3121,12 +3275,14 @@
                             <textarea class="input" rows="2" value="{{ zp.info }}" onChange="{{ zp.onInfo }}" placeholder="{{ L.zp_info_ph }}" style="font-size: 16px;"></textarea>
                           </div>
                         </sc-for>
+                        <button class="btn btn-ghost" onClick="{{ zt.amTag }}" style="justify-self: start; min-height: 32px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ L.zp_am_tag }}</button>
                       </div>
                     </sc-for>
                     <sc-if value="{{ vo.zpLeer }}" hint-placeholder-val="{{ false }}"><div style="font-size: 14px; font-style: italic; color: var(--color-neutral-700);">{{ L.zp_leer }}</div></sc-if>
                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                       <button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ vo.zpNeu }}">＋ {{ L.zp_neu }}</button>
                       <button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ vo.zpNeuTag }}">＋ {{ L.zp_neu_tag }}</button>
+                      <sc-if value="{{ vo.zpHatPunkte }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ vo.zpNeuTagDavor }}">＋ {{ L.zp_tag_davor }}</button></sc-if>
                     </div>
                   </div>
                   </sc-if>
@@ -7329,7 +7485,7 @@ class Component extends DCLogic {
     const out = { hatCd: !!cd, cdText: cd, cdUhr: cd ? this.cdUhr(cdZiel, "karte", "cdk" + e.id) : null, cdUhrText: cd ? this.cdUhr(cdZiel, "text", "cdt" + e.id) : null, voZeigen: false, cdKlein: !!cd && !isOpen, cdGross: !!cd && isOpen, cdTeile: cd ? this.cdTeileFuer(e.date, ex.cdZeit) : [] };
     if (!isOpen && this._gastOffen === e.id) this._gastOffen = null;
     const kl = st.zuKlapp || {};
-    ["bilder", "gfoto", "gbuch"].forEach((k) => {
+    ["bilder", "gfoto", "gbuch", "gvor"].forEach((k) => {
       const id = e.id + ":" + k, auf = !kl[id];
       out[k + "Auf"] = auf; out[k + "AufText"] = auf ? "true" : "false";
       out[k + "Sign"] = { display: "inline-block", fontSize: "9px", width: "10px", transform: auf ? "rotate(90deg)" : "none", transition: "transform 160ms ease" };
@@ -7485,6 +7641,15 @@ class Component extends DCLogic {
       hatGFotos: alle.some((r) => r.kind === "foto"),
       gBuch: alle.filter((r) => r.kind === "buch").map((r) => ({ key: r.id, name: r.name, text: r.text, wann: fmtDate(String(r.created || "").slice(0, 10)), darfWeg: darfWeg, weg: weg(r) })),
       hatGBuch: alle.some((r) => r.kind === "buch"),
+      gVor: alle.filter((r) => r.kind === "vor").map((r) => {
+        const ks = komZu(r.id);
+        return { key: r.id, name: r.name, text: r.text, wann: fmtDate(String(r.created || "").slice(0, 10)), darfWeg: darfWeg, weg: weg(r),
+          kommentare: ks.map((k) => ({ key: k.id, name: k.name, text: k.text, darfWeg: darfWeg, weg: weg(k) })),
+          kannSchreiben: !!o.token && !!me.id,
+          komText: (st.gfKomText || {})[r.id] || "", onKomText: (ev) => { const v = ev.target.value; this.setState((s) => ({ gfKomText: Object.assign({}, s.gfKomText, { [r.id]: v }) })); },
+          komSenden: (ev) => { if (ev && ev.stopPropagation) ev.stopPropagation(); this.gastKomKonto(e, r.id); } };
+      }),
+      hatGVor: alle.some((r) => r.kind === "vor"),
       gRsvp: rsvp.map((r) => {
         const d = r.data || {};
         return { key: r.id, name: r.name, kommt: d.kommt === "nein" ? tx("gast_absage") : tx("gast_zusage"),
@@ -7598,7 +7763,7 @@ class Component extends DCLogic {
         };
       })(this),
       gaAn: !!o.an,
-      gaTeile: [["foto", tx("gast_fotowand")], ["buch", tx("gast_buch")], ["sitz", tx("gast_sitz")], ["zp", tx("zp_titel")], ["rsvp", tx("gast_rsvp")]].map((x) => ({
+      gaTeile: [["foto", tx("gast_fotowand")], ["buch", tx("gast_buch")], ["vor", tx("vor_titel")], ["fin", tx("fin_titel")], ["sitz", tx("gast_sitz")], ["zp", tx("zp_titel")], ["rsvp", tx("gast_rsvp")]].map((x) => ({
         key: x[0], label: (o[x[0]] ? "✓ " : "") + x[1], stil: this.voPill(!!o[x[0]]), klick: um("offen." + x[0], !!o[x[0]])
       })),
       gaSitz: !!o.sitz, gaRsvp: !!o.rsvp, gaZp: !!o.zp,
@@ -7712,7 +7877,7 @@ class Component extends DCLogic {
       })(this),
       keinSichtTreffer: !!String(st.sichtSuche || "").trim() && !(st.users || []).some((u) => fids.indexOf(u.id) >= 0 && sicht.indexOf(u.id) < 0 && String(u.username || "").toLowerCase().indexOf(String(st.sichtSuche).trim().toLowerCase()) >= 0),
       hatFrei: ["foto", "buch", "sitz", "zp"].some((k) => o[k]),
-      freiZeilen: [["foto", tx("gast_fotowand")], ["buch", tx("gast_buch")], ["sitz", tx("gast_sitz")], ["zp", tx("zp_titel")], ["lage", tx("lp_titel")]]
+      freiZeilen: [["foto", tx("gast_fotowand")], ["buch", tx("gast_buch")], ["vor", tx("vor_titel")], ["fin", tx("fin_titel")], ["sitz", tx("gast_sitz")], ["zp", tx("zp_titel")], ["lage", tx("lp_titel")]]
         .filter((x) => x[0] === "lage" ? !!(lage.bild || lage.karte || (lage.punkte || []).length || String(lage.adresse || "").trim()) : !!o[x[0]])
         .map((x) => { const f = (o.frei || {})[x[0]] || {}; return { key: x[0], label: x[1], art: f.art || "", istZeit: f.art === "zeit", zeit: f.zeit || "",
           onArt: (ev) => this.voSet("offen.frei." + x[0], { art: ev.target.value, zeit: f.zeit || "" }),
@@ -7873,12 +8038,74 @@ class Component extends DCLogic {
     this.setState({ gast: { ev: m[1], tk0: m[2], tk: m[2] + (pw0 ? "~" + pw0 : ""), pwNoetig: false, pwEingabe: "", pwFalsch: false, laden: true, err: "", d: null, tab: "", name: name, text: "", busy: "", info: "",
       rsvp: { kommt: "ja", plus: "0", plusNamen: "", essen: "", notiz: "", antw: {} }, rsvpFertig: fertig, fragenFertig: fFertig, suche: null } });
     this._gastSucheGesetzt = false;
+    this.gastLiveAn();
     this.gastLaden();
   };
   /* Kann nicht abgeschickt werden: Grund groß zeigen, zur Stelle scrollen und sie aufblinken lassen. */
   gastFehler(text, ziel, extra) {
-    this.gastSet(Object.assign({ info: text, fehlZiel: ziel || "", busy: "" }, extra || {}));
+    this.gastSet(Object.assign({ info: text, fehlZiel: ziel || "", busy: "", infoLive: false }, extra || {}));
     if (ziel) window.setTimeout(() => this.gastZeigeZiel(ziel), 80);
+  }
+  /* Was auf der Gästeseite gerade noch fehlt – in Reihenfolge, nur Stellen, die zu sehen sind. */
+  gastFehlend() {
+    const g = this.state.gast;
+    if (!g || !g.d) return [];
+    const c = g.d.cfg || {};
+    const r = g.rsvp || {};
+    const out = [];
+    if (!this.gastName()) out.push({ ziel: "name", text: this.gastNameFehlt() });
+    const ja = !!c.rsvp && r.kommt !== "nein";
+    if (g.tab === "rsvp" && ja) {
+      const eo = String(c.essen || "").split(/[,;\n]/).map((x) => x.trim()).filter(Boolean);
+      if (eo.length && c.essenPflicht !== false) {
+        if (!String(r.essen || "").trim()) out.push({ ziel: "essen", text: tx("gast_essen_fehlt") });
+        const pn = Math.max(0, Math.min(20, Number(r.plus) || 0));
+        for (let k = 0; k < pn; k++) if (!String(((r.plusListe || [])[k] || {}).essen || "").trim()) out.push({ ziel: "pe-" + k, text: tx("gast_essen_fehlt_begl").replace("{n}", String(k + 1)) });
+      }
+      if (this.gfPflicht(c)) {
+        const pers = this.gfPersonen(r);
+        this.gfSichtbar(this.gfNorm(c.fragen), r.antw).forEach((f) => {
+          if (!this.gfKomplett(f, r, pers)) out.push({ ziel: "f-" + f.i, text: (f.form === "spiel" ? tx("gf_fehlt_spiel") : f.form === "rang" ? tx("gf_fehlt_rang") : tx("gf_fehlt_frage")).replace("{f}", f.frage) });
+        });
+      }
+    }
+    const fm = g.tab === "fin" && g.fin && g.fin.form;
+    if (fm) {
+      if (!String(fm.titel || "").trim()) out.push({ ziel: "fin-titel", text: tx("fin_f_titel") });
+      if (!(this.finCent(fm.betrag) > 0)) out.push({ ziel: "fin-betrag", text: tx("fin_f_betrag") });
+      if (!(fm.zahler || []).length) out.push({ ziel: "fin-zahler", text: tx("fin_f_zahler") });
+      if (!(fm.teil || []).length) out.push({ ziel: "fin-teil", text: tx("fin_f_teil") });
+    }
+    return out.map((x) => Object.assign(x, { el: document.querySelector('[data-gziel="' + x.ziel + '"]') })).filter((x) => x.el);
+  }
+  /* Nach jeder Eingabe auf der Gästeseite: Fehlt weiter oben noch etwas, sofort
+     darauf hinweisen und hinführen. Sonst bleibt es still – ein erledigter
+     Hinweis verschwindet von selbst. */
+  gastLivePruefen(ziel) {
+    const g = this.state.gast;
+    if (!g || g.busy || !ziel || !ziel.isConnected) return;
+    const fehlt = this.gastFehlend();
+    const vorher = fehlt.filter((x) => x.el !== ziel && !x.el.contains(ziel) && (x.el.compareDocumentPosition(ziel) & 4))[0];
+    if (vorher) {
+      if (g.info && !g.infoLive && g.fehlZiel === vorher.ziel) return;
+      const neu = !(g.infoLive && g.fehlZiel === vorher.ziel);
+      this.gastSet({ info: vorher.text, fehlZiel: vorher.ziel, infoLive: true });
+      if (neu) window.setTimeout(() => this.gastZeigeZiel(vorher.ziel), 80);
+      return;
+    }
+    if (g.info && (g.infoLive || g.fehlZiel) && !fehlt.some((x) => x.ziel === g.fehlZiel && x.text === g.info)) this.gastSet({ info: "", fehlZiel: "", infoLive: false });
+  }
+  gastLiveAn() {
+    if (this._gastLive) return;
+    this._gastLive = (ev) => {
+      const t = ev && ev.target;
+      if (!this.state.gast || !t || !t.closest || !t.closest('[data-screen-label="Gastbereich"]')) return;
+      if (t.closest('[role="alert"], nav')) return;
+      if (ev.type === "click" && !t.closest("button, label, input, select, [role=button]")) return;
+      window.setTimeout(() => this.gastLivePruefen(t), 120);
+    };
+    document.addEventListener("change", this._gastLive, true);
+    document.addEventListener("click", this._gastLive, true);
   }
   gastZeigeZiel(ziel, versuch, ruhig) {
     const el = document.querySelector('[data-gziel="' + String(ziel).replace(/"/g, "") + '"]');
@@ -8039,12 +8266,43 @@ class Component extends DCLogic {
     const sortiert = this.zpSort(zp);
     const tage = []; sortiert.forEach((p) => { const t = p.tag || ""; let g = tage[tage.length - 1]; if (!g || g.tag !== t) { g = { tag: t, punkte: [] }; tage.push(g); } g.punkte.push(p); });
     const letzter = sortiert[sortiert.length - 1];
+    const erster = sortiert[0];
+    /* Neuer Punkt an fester Stelle: Uhrzeit so vorbelegt, dass er nach dem
+       Sortieren genau dort steht (davor bzw. zwischen zwei Punkten). */
+    const minV = (z) => { const m = /^(\d\d):(\d\d)$/.exec(z || ""); return m ? +m[1] * 60 + +m[2] : null; };
+    const alsZeit = (m) => { const v = Math.max(0, Math.min(1439, m)); return (v < 600 ? "0" : "") + Math.floor(v / 60) + ":" + (v % 60 < 10 ? "0" : "") + (v % 60); };
+    const leer = (tag, von, bis) => ({ i: "z" + uid(), tag: tag, von: von, bis: bis, name: "", ort: "", info: "" });
+    const einfuegen = (vor, nach) => () => {
+      const alle = this.exOf(this.state.draft).offen.zeitplan || [];
+      let von = "", bis = "";
+      if (nach) {
+        const a = vor ? (minV(vor.bis) != null ? minV(vor.bis) : minV(vor.von)) : null;
+        const b = minV(nach.von);
+        if (b != null) { bis = nach.von; von = alsZeit(a != null && a <= b ? a : b - 60); }
+        else if (a != null) von = alsZeit(a);
+      } else if (vor) {
+        const a = minV(vor.bis) != null ? minV(vor.bis) : minV(vor.von);
+        if (a != null) von = alsZeit(minV(vor.bis) != null ? a : a + 60);
+      }
+      const neu = leer((nach || vor || {}).tag || String(d.date || "").slice(0, 10), von, bis);
+      /* In der Liste direkt vor den Folgepunkt stellen: bei gleicher Uhrzeit bleibt die Reihenfolge so erhalten. */
+      const pos = nach ? alle.findIndex((x) => x.i === nach.i) : -1;
+      setzeAlle(pos >= 0 ? alle.slice(0, pos).concat([neu], alle.slice(pos)) : alle.concat([neu]));
+    };
+    const tagVerschieben = (basis, n) => { const t = Date.parse(basis + "T12:00:00"); return t ? new Date(t + n * 86400000).toISOString().slice(0, 10) : ""; };
     return {
       zpLeer: !zp.length,
       zpTage: tage.map((g) => ({ key: "t" + (g.tag || "-"), titel: g.tag ? this.zpTagText(g.tag, true) : tx("zp_ohne_tag"),
-        punkte: g.punkte.map((p) => ({ key: p.i, tag: p.tag || "", von: p.von || "", bis: p.bis || "", name: p.name || "", ort: p.ort || "", info: p.info || "",
+        amTag: einfuegen(g.punkte[g.punkte.length - 1], null),
+        punkte: g.punkte.map((p, k) => ({ key: p.i, tag: p.tag || "", von: p.von || "", bis: p.bis || "", name: p.name || "", ort: p.ort || "", info: p.info || "",
+          einfuegen: einfuegen(g.punkte[k - 1] || null, p), einfuegenText: k ? tx("zp_dazwischen") : tx("zp_davor"),
           onTag: feld(p.i, "tag"), onVon: feld(p.i, "von"), onBis: feld(p.i, "bis"), onName: feld(p.i, "name"), onOrt: feld(p.i, "ort"), onInfo: feld(p.i, "info"),
           weg: () => setzeAlle(zp.filter((x) => x.i !== p.i)) })) })),
+      zpHatPunkte: zp.length > 0,
+      zpNeuTagDavor: () => {
+        const basis = (erster && erster.tag) || String(d.date || "").slice(0, 10);
+        setzeAlle([leer(tagVerschieben(basis, -1), "", "")].concat(zp));
+      },
       zpNeu: () => setzeAlle(zp.concat([{ i: "z" + uid(), tag: (letzter && letzter.tag) || String(d.date || "").slice(0, 10), von: "", bis: "", name: "", ort: "", info: "" }])),
       zpNeuTag: () => {
         const basis = (letzter && letzter.tag) || String(d.date || "").slice(0, 10);
@@ -8107,6 +8365,9 @@ class Component extends DCLogic {
     if (this.gfNorm(c.fragen).length && !this.gfPflicht(c)) out.push({ k: "fragen", l: tx("gf_titel"), g: "☰", d: tx("gf_d") });
     if (c.foto) out.push({ k: "foto", l: tx("gast_fotowand"), g: "◫", d: tx("gast_d_foto") });
     if (c.buch) out.push({ k: "buch", l: tx("gast_buch"), g: "✎", d: tx("gast_d_buch") });
+    if (c.vor) out.push({ k: "vor", l: tx("vor_titel"), g: "✧", d: tx("vor_d") });
+    /* Finanzplaner nur für Angemeldete – ohne Konto ist er gar nicht zu sehen. */
+    if (c.fin && this.me()) out.push({ k: "fin", l: tx("fin_titel"), g: "€", d: tx("fin_d") });
     if (c.sitz) out.push({ k: "sitz", l: tx("gast_sitz"), g: "◎", d: tx("gast_d_sitz") });
     if (c.zp && ((d && d.zeitplan) || []).length) out.push({ k: "zp", l: tx("zp_titel"), g: "◷", d: tx("zp_d") });
     const L0 = (d && d.lage) || {};
@@ -8160,11 +8421,384 @@ class Component extends DCLogic {
     if (!g) return;
     const name = this.gastName();
     const text = String(g.komText || "").trim().slice(0, 800);
-    if (!name) { this.gastSet({ info: tx("gast_name_fehlt") }); return; }
+    if (!name) { this.gastFehler(this.gastNameFehlt(), "name"); return; }
     if (!text) return;
     this.gastSet({ busy: tx("gast_sendet"), info: "" });
     try { await window.ChronikCloud.gastAdd(g.ev, g.tk, "kom", name, text, { zu: fid }, null); this.gastSet({ busy: "", komText: "" }); this.gastLaden(); }
     catch (e) { this.gastSet({ busy: "", info: tx("kom_f_senden") }); }
+  }
+  /* ---- Finanzplaner (Gästeseite, nur mit Konto) ----
+     Eintrag: { titel, betrag (Cent), zahler: [{ n, c }], teil: [{ n, art: "" | "%" | "€", w }] }
+     Anteil: alle gleich, „%“ = so viel Prozent mehr/weniger als die anderen,
+     „€“ = so viel Euro mehr/weniger. Beträge immer in ganzen Cent. */
+  finGeld(c) {
+    try { return new Intl.NumberFormat(window.CHRONIK_LOCALE || "de-DE", { style: "currency", currency: "EUR" }).format((Number(c) || 0) / 100); }
+    catch (e) { return ((Number(c) || 0) / 100).toFixed(2) + " €"; }
+  }
+  finCent(txt) {
+    let t = String(txt == null ? "" : txt).replace(/[\s€]/g, "");
+    if (!t) return null;
+    if (t.indexOf(",") >= 0) t = t.replace(/\./g, "").replace(",", ".");
+    const v = Number(t);
+    return isFinite(v) ? Math.round(v * 100) : null;
+  }
+  finZahl(txt) {
+    const t = String(txt == null ? "" : txt).replace(/\s/g, "").replace(",", ".");
+    if (!t || t === "+" || t === "-") return 0;
+    const v = Number(t);
+    return isFinite(v) ? v : NaN;
+  }
+  /* Ganze Cent verteilen: abrunden, Rest an die größten Nachkommaanteile. */
+  finRunden(roh, summe) {
+    const ab = roh.map((x) => Math.floor(x));
+    let rest = summe - ab.reduce((a, b) => a + b, 0);
+    roh.map((x, k) => ({ k: k, f: x - Math.floor(x) })).sort((a, b) => b.f - a.f || a.k - b.k).forEach((x) => { if (rest > 0) { ab[x.k]++; rest--; } });
+    return ab;
+  }
+  finAnteile(e) {
+    const T = Math.round(Number(e && e.betrag) || 0);
+    const teil = ((e && e.teil) || []).filter((t) => t && t.n);
+    if (!(T > 0)) return { ok: false, err: tx("fin_f_betrag"), ziel: "fin-betrag" };
+    if (!teil.length) return { ok: false, err: tx("fin_f_teil"), ziel: "fin-teil" };
+    let fix = 0, gew = 0;
+    for (const t of teil) {
+      const w = Number(t.w) || 0;
+      if (!isFinite(w)) return { ok: false, err: tx("fin_f_zahl"), ziel: "fin-teil" };
+      if (t.art === "€") { fix += w * 100; gew += 1; } else gew += 1 + (t.art === "%" ? w / 100 : 0);
+    }
+    if (!(gew > 0)) return { ok: false, err: tx("fin_f_anteil"), ziel: "fin-teil" };
+    const x = (T - fix) / gew;
+    const roh = teil.map((t) => { const w = Number(t.w) || 0; return t.art === "€" ? x + w * 100 : x * (1 + (t.art === "%" ? w / 100 : 0)); });
+    if (roh.some((v) => v < -0.0001)) return { ok: false, err: tx("fin_f_anteil"), ziel: "fin-teil" };
+    const c = this.finRunden(roh.map((v) => Math.max(0, v)), T);
+    const anteile = {};
+    teil.forEach((t, k) => { anteile[t.n] = (anteile[t.n] || 0) + c[k]; });
+    const zahlung = {};
+    let gezahlt = 0;
+    ((e && e.zahler) || []).forEach((z) => { if (z && z.n) { zahlung[z.n] = (zahlung[z.n] || 0) + Math.round(Number(z.c) || 0); gezahlt += Math.round(Number(z.c) || 0); } });
+    if (gezahlt !== T) return { ok: false, err: tx("fin_f_zahler_summe"), ziel: "fin-zahler" };
+    return { ok: true, anteile: anteile, zahlung: zahlung };
+  }
+  /* Salden aller Einträge: + bekommt Geld zurück, − muss zahlen. */
+  finSalden(eintraege) {
+    const s = {};
+    (eintraege || []).forEach((r) => {
+      const a = this.finAnteile(r.data || {});
+      if (!a.ok) return;
+      Object.keys(a.zahlung).forEach((n) => { s[n] = (s[n] || 0) + a.zahlung[n]; });
+      Object.keys(a.anteile).forEach((n) => { s[n] = (s[n] || 0) - a.anteile[n]; });
+    });
+    return s;
+  }
+  /* Möglichst wenige Überweisungen: erst Gruppen finden, die sich untereinander
+     ausgleichen (je mehr, desto weniger Überweisungen), dann in jeder Gruppe
+     die größte Schuld an das größte Guthaben. */
+  finAusgleich(salden) {
+    const p = Object.keys(salden).filter((n) => salden[n] !== 0).map((n) => ({ n: n, c: salden[n] }));
+    const gruppen = [];
+    const N = p.length;
+    if (N && N <= 16) {
+      const voll = (1 << N) - 1;
+      const sum = new Array(voll + 1).fill(0), dp = new Array(voll + 1).fill(0);
+      for (let m = 1; m <= voll; m++) {
+        const low = m & -m, i = 31 - Math.clz32(low);
+        sum[m] = sum[m ^ low] + p[i].c;
+        let best = 0;
+        for (let j = 0; j < N; j++) if (m & (1 << j)) best = Math.max(best, dp[m ^ (1 << j)]);
+        dp[m] = best + (sum[m] === 0 ? 1 : 0);
+      }
+      const weg = [];
+      let m = voll;
+      while (m) {
+        const soll = dp[m] - (sum[m] === 0 ? 1 : 0);
+        let j = 0;
+        while (!((m & (1 << j)) && dp[m ^ (1 << j)] === soll)) j++;
+        weg.push(j); m ^= 1 << j;
+      }
+      let cur = 0, g = [];
+      weg.reverse().forEach((j) => { cur |= 1 << j; g.push(p[j]); if (sum[cur] === 0) { gruppen.push(g); g = []; } });
+      if (g.length) gruppen.push(g);
+    } else if (N) gruppen.push(p);
+    const out = [];
+    gruppen.forEach((g) => {
+      const plus = g.filter((x) => x.c > 0).map((x) => ({ n: x.n, c: x.c }));
+      const minus = g.filter((x) => x.c < 0).map((x) => ({ n: x.n, c: -x.c }));
+      while (plus.length && minus.length) {
+        plus.sort((a, b) => b.c - a.c || a.n.localeCompare(b.n)); minus.sort((a, b) => b.c - a.c || a.n.localeCompare(b.n));
+        const a = minus[0], b = plus[0], c = Math.min(a.c, b.c);
+        out.push({ von: a.n, an: b.n, c: c });
+        a.c -= c; b.c -= c;
+        if (!a.c) minus.shift();
+        if (!b.c) plus.shift();
+      }
+    });
+    return out;
+  }
+  finSet(p) { this.gastSet((g) => ({ fin: Object.assign({}, g.fin, typeof p === "function" ? p(g.fin || {}) : p) })); }
+  finFormSet(p) { this.finSet((f) => ({ form: Object.assign({}, f.form, typeof p === "function" ? p(f.form || {}) : p) })); }
+  async finLaden() {
+    const g = this.state.gast;
+    const CC = window.ChronikCloud;
+    if (!g || !CC || !CC.finSicht) return;
+    this.finSet({ laden: true });
+    try { const d = await CC.finSicht(g.ev, g.tk); this.finSet({ laden: false, err: "", d: d || {} }); }
+    catch (e) { this.finSet({ laden: false, err: e && e.code === "D-28" ? tx("fin_f_sql") : tx("fin_f_laden") + " (" + ((e && (e.code || e.message)) || "?") + ")" }); }
+  }
+  finPersonen() {
+    const g = this.state.gast || {};
+    const f = g.fin || {};
+    const d = f.d || {};
+    const ich = String(d.ich || (this.me() || {}).username || "").trim();
+    const m = {};
+    const dazu = (n) => { const t = String(n || "").trim().slice(0, 60); if (t && !m[t.toLowerCase()]) m[t.toLowerCase()] = t; };
+    (d.personen || []).forEach(dazu);
+    (d.eintraege || []).forEach((r) => { const x = r.data || {}; (x.zahler || []).forEach((z) => dazu(z.n)); (x.teil || []).forEach((t) => dazu(t.n)); });
+    (f.extra || []).forEach(dazu);
+    dazu(ich);
+    const ichK = ich.toLowerCase();
+    return Object.keys(m).map((k) => m[k]).sort((a, b) => (a.toLowerCase() === ichK ? -1 : b.toLowerCase() === ichK ? 1 : a.localeCompare(b)));
+  }
+  finNeu() {
+    const d = ((this.state.gast || {}).fin || {}).d || {};
+    const alle = this.finPersonen();
+    const ich = alle.filter((n) => n.toLowerCase() === String(d.ich || "").toLowerCase())[0];
+    this.finFormSet(() => ({ id: "", titel: "", betrag: "", zahler: ich ? [ich] : [], zb: {}, teil: alle.slice(), anp: {}, neuName: "" }));
+  }
+  finBearbeiten(r) {
+    const x = r.data || {};
+    const zb = {};
+    if ((x.zahler || []).length > 1) (x.zahler || []).forEach((z) => { zb[z.n] = String(((Number(z.c) || 0) / 100).toFixed(2)).replace(".", ","); });
+    const anp = {};
+    (x.teil || []).forEach((t) => { if (t.art && Number(t.w)) anp[t.n] = { art: t.art, w: String(t.w).replace(".", ",") }; });
+    this.finFormSet(() => ({ id: r.id, titel: x.titel || "", betrag: String(((Number(x.betrag) || 0) / 100).toFixed(2)).replace(".", ","),
+      zahler: (x.zahler || []).map((z) => z.n), zb: zb, teil: (x.teil || []).map((t) => t.n), anp: anp, neuName: "" }));
+  }
+  /* Formular → Eintrag. Zahlende ohne eigenen Betrag teilen sich den Rest gleich. */
+  finAusForm(fm) {
+    const T = this.finCent(fm.betrag);
+    const z = (fm.zahler || []);
+    let zahler = [];
+    if (T > 0 && z.length) {
+      const fest = {}, offen = [];
+      let summe = 0, kaputt = false;
+      z.forEach((n) => {
+        const c = z.length > 1 ? this.finCent((fm.zb || {})[n]) : null;
+        if (c == null) offen.push(n); else if (c < 0) kaputt = true; else { fest[n] = c; summe += c; }
+      });
+      if (!kaputt && summe <= T) {
+        const rest = offen.length ? this.finRunden(offen.map(() => (T - summe) / offen.length), T - summe) : [];
+        zahler = z.map((n) => ({ n: n, c: n in fest ? fest[n] : rest[offen.indexOf(n)] }));
+      }
+    }
+    const teil = (fm.teil || []).map((n) => {
+      const a = (fm.anp || {})[n] || {};
+      const w = this.finZahl(a.w);
+      return { n: n, art: a.art === "€" || a.art === "%" ? (w ? a.art : "") : "", w: isFinite(w) ? w : NaN };
+    });
+    return { titel: String(fm.titel || "").trim().slice(0, 120), betrag: T || 0, zahler: zahler, teil: teil };
+  }
+  finPruefen(fm) {
+    if (!String(fm.titel || "").trim()) return { err: tx("fin_f_titel"), ziel: "fin-titel" };
+    const T = this.finCent(fm.betrag);
+    if (!(T > 0)) return { err: tx("fin_f_betrag"), ziel: "fin-betrag" };
+    if (!(fm.zahler || []).length) return { err: tx("fin_f_zahler"), ziel: "fin-zahler" };
+    if (!(fm.teil || []).length) return { err: tx("fin_f_teil"), ziel: "fin-teil" };
+    const e = this.finAusForm(fm);
+    if (e.teil.some((t) => !isFinite(t.w))) return { err: tx("fin_f_zahl"), ziel: "fin-teil" };
+    const a = this.finAnteile(e);
+    if (!a.ok) return { err: a.err, ziel: a.ziel };
+    return null;
+  }
+  async finSpeichern() {
+    const g = this.state.gast;
+    const f = (g && g.fin) || {};
+    const fm = f.form;
+    if (!fm) return;
+    const p = this.finPruefen(fm);
+    if (p) { this.gastFehler(p.err, p.ziel); return; }
+    const e = this.finAusForm(fm);
+    this.gastSet({ busy: tx("gast_sendet"), info: "" });
+    try {
+      await window.ChronikCloud.finSetzen(g.ev, g.tk, fm.id || null, e);
+      this.gastSet({ busy: "", info: "" });
+      this.finSet({ form: null });
+      this.finLaden();
+    } catch (x) { this.gastSet({ busy: "", info: x && x.code === "D-32" ? tx("fin_f_zu") : tx("gast_f_senden") }); this.finLaden(); }
+  }
+  async finLoeschen(r) {
+    const g = this.state.gast;
+    if (!g || !window.confirm(tx("fin_weg_frage"))) return;
+    try { await window.ChronikCloud.finWeg(g.ev, g.tk, r.id); } catch (x) { this.gastSet({ info: x && x.code === "D-32" ? tx("fin_f_zu") : tx("gast_weg_f") }); }
+    this.finLaden();
+  }
+  async finAbschliessen(zu) {
+    const g = this.state.gast;
+    if (!g) return;
+    if (zu && !window.confirm(tx("fin_abschluss_frage"))) return;
+    this.gastSet({ busy: tx("gast_sendet"), info: "" });
+    try { await window.ChronikCloud.finAbschluss(g.ev, g.tk, zu); this.gastSet({ busy: "" }); this.finSet({ form: null }); }
+    catch (x) { this.gastSet({ busy: "", info: tx("fin_f_abschluss") }); }
+    this.finLaden();
+  }
+  /* Rechnung als druckbare Seite (Drucken → „Als PDF sichern“). Immer werbefrei. */
+  finRechnung(fuer) {
+    const g = this.state.gast || {};
+    const f = g.fin || {};
+    const d = f.d || {};
+    const ein = (d.eintraege || []).filter((r) => this.finAnteile(r.data || {}).ok);
+    const salden = this.finSalden(ein);
+    const tr = this.finAusgleich(salden);
+    const esc = (t) => String(t == null ? "" : t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const geld = (c) => esc(this.finGeld(c));
+    const ev = (g.d || {}).name || "";
+    const heute = new Intl.DateTimeFormat(window.CHRONIK_LOCALE || "de-DE", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date());
+    const status = d.status || {};
+    let body = "";
+    if (fuer) {
+      let summeAnteil = 0, summeGezahlt = 0;
+      const zeilen = ein.map((r) => {
+        const a = this.finAnteile(r.data);
+        const an = a.anteile[fuer] || 0, ge = a.zahlung[fuer] || 0;
+        if (!an && !ge) return "";
+        summeAnteil += an; summeGezahlt += ge;
+        return "<tr><td>" + esc(r.data.titel) + "</td><td class=r>" + geld(r.data.betrag) + "</td><td class=r>" + (ge ? geld(ge) : "–") + "</td><td class=r>" + (an ? geld(an) : "–") + "</td></tr>";
+      }).join("");
+      const s = salden[fuer] || 0;
+      const meine = tr.filter((t) => t.von === fuer || t.an === fuer);
+      body = "<h2>" + esc(tx("fin_rechnung_fuer")) + " " + esc(fuer) + "</h2>"
+        + "<table><thead><tr><th>" + esc(tx("fin_posten")) + "</th><th class=r>" + esc(tx("fin_gesamt")) + "</th><th class=r>" + esc(tx("fin_bezahlt")) + "</th><th class=r>" + esc(tx("fin_anteil")) + "</th></tr></thead><tbody>" + (zeilen || "<tr><td colspan=4>–</td></tr>") + "</tbody>"
+        + "<tfoot><tr><td>" + esc(tx("fin_summe")) + "</td><td></td><td class=r>" + geld(summeGezahlt) + "</td><td class=r>" + geld(summeAnteil) + "</td></tr></tfoot></table>"
+        + "<p class=saldo>" + esc(fuer + " " + (s > 0 ? tx("fin_bekommt") : s < 0 ? tx("fin_schuldet") : tx("fin_ausgeglichen"))) + (s ? " " + geld(Math.abs(s)) : "") + "</p>"
+        + (meine.length ? "<h3>" + esc(tx("fin_ueberweisungen")) + "</h3><ul>" + meine.map((t) => "<li>" + (t.von === fuer
+          ? esc(tx("fin_du_an").replace("{n}", t.an)) : esc(tx("fin_von_dir").replace("{n}", t.von))) + ": <b>" + geld(t.c) + "</b></li>").join("") + "</ul>" : "");
+    } else {
+      body = "<h2>" + esc(tx("fin_alle_posten")) + "</h2><table><thead><tr><th>" + esc(tx("fin_posten")) + "</th><th>" + esc(tx("fin_bezahlt_von")) + "</th><th>" + esc(tx("fin_beteiligt")) + "</th><th class=r>" + esc(tx("fin_gesamt")) + "</th></tr></thead><tbody>"
+        + ein.map((r) => "<tr><td>" + esc(r.data.titel) + "</td><td>" + esc((r.data.zahler || []).map((z) => z.n).join(", ")) + "</td><td>" + esc((r.data.teil || []).map((t) => t.n).join(", ")) + "</td><td class=r>" + geld(r.data.betrag) + "</td></tr>").join("")
+        + "</tbody><tfoot><tr><td colspan=3>" + esc(tx("fin_summe")) + "</td><td class=r>" + geld(ein.reduce((a, r) => a + (Number(r.data.betrag) || 0), 0)) + "</td></tr></tfoot></table>"
+        + "<h2>" + esc(tx("fin_salden")) + "</h2><table><tbody>" + Object.keys(salden).sort().map((n) => "<tr><td>" + esc(n) + "</td><td class=r>" + (salden[n] > 0 ? "+" : "") + geld(salden[n]) + "</td></tr>").join("") + "</tbody></table>"
+        + "<h2>" + esc(tx("fin_ueberweisungen")) + "</h2>" + (tr.length ? "<ul>" + tr.map((t) => "<li>" + esc(t.von) + " → " + esc(t.an) + ": <b>" + geld(t.c) + "</b></li>").join("") + "</ul>" : "<p>" + esc(tx("fin_nichts_offen")) + "</p>");
+    }
+    const html = "<!doctype html><html lang=\"" + esc(document.documentElement.lang || "de") + "\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>" + esc(tx("fin_rechnung")) + " – " + esc(ev) + "</title>"
+      + "<style>body{font-family:'Source Serif 4',Georgia,serif;color:#201e1d;background:#fff;max-width:760px;margin:0 auto;padding:32px 20px;line-height:1.45}h1{font-size:30px;margin:0 0 4px}h2{font-size:20px;margin:28px 0 8px}h3{font-size:17px;margin:20px 0 6px}"
+      + ".meta{color:#555;font-size:14px}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #ddd;vertical-align:top}th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#555}"
+      + ".r{text-align:right;white-space:nowrap}tfoot td{font-weight:700;border-bottom:0;border-top:2px solid #201e1d}.saldo{font-size:19px;font-weight:700;margin-top:18px}li{margin:4px 0}"
+      + ".knopf{margin-top:28px;padding:10px 20px;border-radius:99px;border:0;background:#0088b0;color:#fff;font:inherit;cursor:pointer}@media print{.knopf{display:none}body{padding:0}}</style></head><body>"
+      + "<h1>" + esc(tx("fin_rechnung")) + "</h1><div class=meta>" + esc(ev) + " · " + esc(heute) + (status.zu ? " · " + esc(tx("fin_abgeschlossen")) : " · " + esc(tx("fin_vorlaeufig"))) + "</div>"
+      + body + "<button class=knopf onclick=\"window.print()\">" + esc(tx("fin_drucken")) + "</button></body></html>";
+    const w = window.open("", "_blank");
+    if (w && w.document) { w.document.open(); w.document.write(html); w.document.close(); return; }
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+    a.download = (tx("fin_rechnung") + " " + (fuer || ev)).replace(/[\\/:*?"<>|]+/g, " ").trim() + ".html";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  finVals() {
+    const g = this.state.gast || {};
+    const f = g.fin || {};
+    if (!f.d && !f.laden && !f.err && !this._finHolt) { this._finHolt = true; window.setTimeout(() => { this._finHolt = false; this.finLaden(); }, 0); }
+    const d = f.d || {};
+    const st = d.status || {};
+    const zu = !!st.zu;
+    const ichK = String(d.ich || "").toLowerCase();
+    const istIch = (n) => !!ichK && String(n || "").toLowerCase() === ichK;
+    const ein = d.eintraege || [];
+    const alle = this.finPersonen();
+    const salden = this.finSalden(ein);
+    const tr = zu ? this.finAusgleich(salden) : [];
+    const chip = (an) => ({ display: "inline-flex", alignItems: "center", gap: "6px", minHeight: "40px", padding: "0 14px", borderRadius: "999px", cursor: "pointer", font: "inherit", fontSize: "15px",
+      border: "1.5px solid " + (an ? "var(--g-accent)" : "color-mix(in srgb, var(--g-ink) 25%, transparent)"), background: an ? "var(--g-accent)" : "transparent", color: an ? "var(--g-on-accent)" : "var(--g-ink)" });
+    const fm = f.form;
+    let formVals = { formAn: false };
+    if (fm && !zu) {
+      const e = this.finAusForm(fm);
+      const a = this.finAnteile(e);
+      const mehrZahler = (fm.zahler || []).length > 1;
+      const um = (feld, n) => () => this.finFormSet((x) => { const l = (x[feld] || []).slice(); const i = l.indexOf(n); if (i >= 0) l.splice(i, 1); else l.push(n); return { [feld]: l }; });
+      formVals = {
+        formAn: true, formTitel: fm.id ? tx("fin_eintrag_aendern") : tx("fin_neuer_eintrag"),
+        titel: fm.titel || "", onTitel: (ev) => this.finFormSet({ titel: ev.target.value }),
+        betrag: fm.betrag || "", onBetrag: (ev) => this.finFormSet({ betrag: ev.target.value }),
+        zahlerChips: alle.map((n) => { const an = (fm.zahler || []).indexOf(n) >= 0; return { key: "z" + n, label: (an ? "✓ " : "") + n, stil: chip(an), klick: um("zahler", n) }; }),
+        mehrZahler: mehrZahler,
+        zahlerFelder: mehrZahler ? (fm.zahler || []).map((n) => {
+          const z = (e.zahler || []).filter((x) => x.n === n)[0];
+          return { key: "zb" + n, name: n, wert: (fm.zb || {})[n] || "", ph: z ? (z.c / 100).toFixed(2).replace(".", ",") : "",
+            onWert: (ev) => { const v = ev.target.value; this.finFormSet((x) => ({ zb: Object.assign({}, x.zb, { [n]: v }) })); } };
+        }) : [],
+        teilChips: alle.map((n) => { const an = (fm.teil || []).indexOf(n) >= 0; return { key: "t" + n, label: (an ? "✓ " : "") + n, stil: chip(an), klick: um("teil", n) }; }),
+        alleTeil: () => this.finFormSet({ teil: alle.slice() }), keineTeil: () => this.finFormSet({ teil: [] }),
+        teilZeilen: (fm.teil || []).map((n) => {
+          const ap = (fm.anp || {})[n] || {};
+          const setA = (p) => this.finFormSet((x) => ({ anp: Object.assign({}, x.anp, { [n]: Object.assign({ art: "%", w: "" }, (x.anp || {})[n], p) }) }));
+          return { key: "a" + n, name: n, anteil: a.ok ? this.finGeld(a.anteile[n] || 0) : "–", art: ap.art || "%", wert: ap.w || "",
+            onArt: (ev) => setA({ art: ev.target.value }), onWert: (ev) => setA({ w: ev.target.value }) };
+        }),
+        hatTeil: (fm.teil || []).length > 0,
+        vorschau: a.ok ? "" : (this.finCent(fm.betrag) > 0 && (fm.teil || []).length ? a.err : ""), hatVorschau: !a.ok && this.finCent(fm.betrag) > 0 && (fm.teil || []).length > 0,
+        neuName: fm.neuName || "", onNeuName: (ev) => this.finFormSet({ neuName: ev.target.value }),
+        neuNameTaste: (ev) => { if (ev && ev.key === "Enter") { ev.preventDefault(); this.finPersonDazu(); } },
+        personDazu: () => this.finPersonDazu(),
+        speichern: () => this.finSpeichern(), abbrechen: () => this.finSet({ form: null })
+      };
+    }
+    return Object.assign({
+      laden: !!f.laden && !f.d, hatErr: !!f.err, err: f.err || "", bereit: !!f.d,
+      zu: zu, offen: !!f.d && !zu, zuText: zu ? tx("fin_zu_von").replace("{n}", st.wer || "?").replace("{d}", st.wann ? fmtDate(String(st.wann).slice(0, 10)) : "") : "",
+      kannOeffnen: zu && (!!d.chef || !!st.meins), oeffnen: () => this.finAbschliessen(false),
+      kannNeu: !!f.d && !zu && !fm, neu: () => this.finNeu(),
+      eintraege: ein.map((r) => {
+        const x = r.data || {};
+        const a = this.finAnteile(x);
+        return { key: r.id, titel: x.titel || "—", betrag: this.finGeld(x.betrag),
+          zeile: tx("fin_bezahlt_von") + " " + (x.zahler || []).map((z) => z.n + ((x.zahler || []).length > 1 ? " (" + this.finGeld(z.c) + ")" : "")).join(", ")
+            + " · " + tx("fin_geteilt_n").replace("{n}", String((x.teil || []).length)),
+          anteile: a.ok ? Object.keys(a.anteile).map((n) => n + " " + this.finGeld(a.anteile[n])).join(" · ") : a.err,
+          von: tx("fin_eingetragen_von") + " " + (r.von || "?") + " · " + fmtDate(String(r.created || "").slice(0, 10)),
+          darf: !zu && (!!r.meins || !!d.chef), aendern: () => this.finBearbeiten(r), weg: () => this.finLoeschen(r) };
+      }),
+      keineEintraege: !!f.d && !ein.length,
+      summe: this.finGeld(ein.reduce((s, r) => s + (Number((r.data || {}).betrag) || 0), 0)),
+      salden: Object.keys(salden).filter((n) => salden[n] !== 0 || istIch(n)).sort((a, b) => salden[b] - salden[a]).map((n) => ({ key: "s" + n, name: n + (istIch(n) ? " (" + tx("fin_du") + ")" : ""),
+        text: salden[n] > 0 ? tx("fin_bekommt") + " " + this.finGeld(salden[n]) : salden[n] < 0 ? tx("fin_schuldet") + " " + this.finGeld(-salden[n]) : tx("fin_ausgeglichen"),
+        stil: { display: "flex", justifyContent: "space-between", gap: "12px", padding: "8px 0", fontWeight: istIch(n) ? 700 : 400, color: salden[n] < 0 ? "var(--g-accent2)" : "inherit" } })),
+      hatSalden: ein.length > 0, saldenTitel: zu ? tx("fin_salden") : tx("fin_zwischenstand"),
+      kannAbschluss: !!f.d && !zu && ein.length > 0 && !fm, abschliessen: () => this.finAbschliessen(true),
+      ueberweisungen: tr.map((t, k) => ({ key: "u" + k, text: t.von + " → " + t.an, betrag: this.finGeld(t.c),
+        stil: { display: "flex", justifyContent: "space-between", gap: "12px", padding: "12px 14px", borderRadius: "14px",
+          background: istIch(t.von) || istIch(t.an) ? "color-mix(in srgb, var(--g-accent) 16%, transparent)" : "var(--g-bg)", fontWeight: istIch(t.von) || istIch(t.an) ? 700 : 400 } })),
+      keineUeberweisungen: zu && !tr.length,
+      meinText: (function (self) {
+        if (!zu || !ichK) return "";
+        const mine = tr.filter((t) => istIch(t.von) || istIch(t.an));
+        if (!mine.length) return tx("fin_du_quitt");
+        return mine.map((t) => istIch(t.von) ? tx("fin_du_an").replace("{n}", t.an) + ": " + self.finGeld(t.c) : tx("fin_von_dir").replace("{n}", t.von) + ": " + self.finGeld(t.c)).join(" · ");
+      })(this),
+      rechnungFuer: f.rFuer || "",
+      rechnungListe: [{ value: "", label: tx("fin_rechnung_alle") }].concat(Object.keys(salden).sort().map((n) => ({ value: n, label: n }))),
+      onRechnungFuer: (ev) => this.finSet({ rFuer: ev.target.value }),
+      rechnung: () => this.finRechnung(f.rFuer || ""),
+      hatRechnung: zu && ein.length > 0
+    }, formVals, { hatMein: zu && !!ichK });
+  }
+  finPersonDazu() {
+    const fm = (((this.state.gast || {}).fin) || {}).form || {};
+    const n = String(fm.neuName || "").trim().slice(0, 60);
+    if (!n) return;
+    const da = this.finPersonen().filter((x) => x.toLowerCase() === n.toLowerCase())[0];
+    const name = da || n;
+    this.finSet((f) => ({ extra: da ? (f.extra || []) : (f.extra || []).concat([n]),
+      form: Object.assign({}, f.form, { neuName: "", teil: (f.form.teil || []).indexOf(name) >= 0 ? f.form.teil : (f.form.teil || []).concat([name]) }) }));
+  }
+  async gastVorSenden() {
+    const g = this.state.gast;
+    if (!g) return;
+    const name = this.gastName();
+    const text = String(g.vorText || "").trim().slice(0, 1500);
+    if (!name) { this.gastFehler(this.gastNameFehlt(), "name"); return; }
+    if (!text) { this.gastFehler(tx("vor_leer_text"), "vor"); return; }
+    this.gastSet({ busy: tx("gast_sendet"), info: "" });
+    try { await window.ChronikCloud.gastAdd(g.ev, g.tk, "vor", name, text, {}, null); this.gastSet({ busy: "", vorText: "", info: "" }); this.gastLaden(); }
+    catch (e) { this.gastSet({ busy: "", info: e && e.code === "D-26" ? tx("vor_f_sql") : tx("gast_f_senden") }); }
   }
   async gastBuchSenden() {
     const g = this.state.gast;
@@ -8174,7 +8808,7 @@ class Component extends DCLogic {
     if (!name) { this.gastSet({ info: tx("gast_name_fehlt") }); return; }
     if (!text) return;
     this.gastSet({ busy: tx("gast_sendet"), info: "" });
-    try { await window.ChronikCloud.gastAdd(g.ev, g.tk, "buch", name, text, {}, null); this.gastSet({ busy: "", text: "", info: tx("gast_danke_buch") }); this.gastLaden(); }
+    try { await window.ChronikCloud.gastAdd(g.ev, g.tk, "buch", name, text, {}, null); this.gastSet({ busy: "", text: "", info: "" }); this.gastLaden(); }
     catch (e) { this.gastSet({ busy: "", info: tx("gast_f_senden") }); }
   }
   async gastFragenSenden() {
@@ -8448,6 +9082,22 @@ class Component extends DCLogic {
       onFotos: (ev) => this.gastFotos(ev),
       buch: eintr.filter((x) => x.kind === "buch").map((x) => ({ key: x.id, name: x.name, text: x.text, wann: fmtDate(String(x.created || "").slice(0, 10)) })),
       keinBuch: !eintr.some((x) => x.kind === "buch"),
+      istVor: g.tab === "vor" && !this.gastSperre(d, "vor"),
+      istFin: g.tab === "fin" && !!ichG && !this.gastSperre(d, "fin"),
+      fin: g.tab === "fin" && ichG ? this.finVals() : {},
+      finNeuLaden: () => this.finLaden(),
+      vor: eintr.filter((x) => x.kind === "vor").map((x) => {
+        const ks = eintr.filter((k) => k.kind === "kom" && k.zu === x.id).sort((a, b) => String(a.created || "").localeCompare(String(b.created || "")));
+        const auf = g.komAuf === x.id;
+        return { key: x.id, name: x.name, text: x.text, wann: fmtDate(String(x.created || "").slice(0, 10)),
+          komLabel: ks.length ? tx("kom_titel") + " (" + ks.length + ")" : tx("vor_reagieren"), komAuf: auf,
+          komUm: () => this.gastSet({ komAuf: auf ? "" : x.id, komText: "" }),
+          kommentare: ks.map((k) => ({ key: k.id, name: k.name, text: k.text, wann: fmtDate(String(k.created || "").slice(0, 10)) })), hatKom: ks.length > 0,
+          komText: auf ? g.komText || "" : "", onKomText: (ev) => this.gastSet({ komText: ev.target.value }),
+          komSenden: () => this.gastKomSenden(x.id) };
+      }),
+      keinVor: !eintr.some((x) => x.kind === "vor"),
+      vorText: g.vorText || "", onVorText: (ev) => this.gastSet({ vorText: ev.target.value }), vorSenden: () => this.gastVorSenden(),
       text: g.text || "", onText: (ev) => this.gastSet({ text: ev.target.value }), buchSenden: () => this.gastBuchSenden(),
       suche: g.suche || "", onSuche: (ev) => { this._spSucheNeu = "gast"; this.gastSet({ suche: ev.target.value }); },
       sp: this.sitzplanVals("gast", c.sitz ? (d.tische || []) : [], { suche: g.suche }),

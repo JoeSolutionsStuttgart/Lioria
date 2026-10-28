@@ -948,6 +948,34 @@
     if (r.error) throw fail(code(r.error));
     if (!r.data || !r.data.length) throw fail("D-30");
   }
+  /* Finanzplaner: nur für Angemeldete mit Gästelink. */
+  function finFehler(r) {
+    var m = String((r.error && r.error.message) || "") + " " + String((r.error && r.error.code) || "");
+    if (/PGRST202|42883|42P01|fin_|schema cache|does not exist/i.test(m) && !/D-\d\d/.test(m)) return fail("D-28");
+    return fail(codeAus(r.error));
+  }
+  async function finSicht(ev, tk) {
+    var c = await client();
+    var r = await c.rpc("fin_view", { p_event: ev, p_token: tk });
+    if (r.error) throw finFehler(r);
+    return r.data || null;
+  }
+  async function finSetzen(ev, tk, id, data) {
+    var c = await client();
+    var r = await c.rpc("fin_setzen", { p_event: ev, p_token: tk, p_id: id || null, p_data: data || {} });
+    if (r.error) throw finFehler(r);
+    return r.data;
+  }
+  async function finWeg(ev, tk, id) {
+    var c = await client();
+    var r = await c.rpc("fin_weg", { p_event: ev, p_token: tk, p_id: id });
+    if (r.error) throw finFehler(r);
+  }
+  async function finAbschluss(ev, tk, zu) {
+    var c = await client();
+    var r = await c.rpc("fin_abschluss", { p_event: ev, p_token: tk, p_zu: !!zu });
+    if (r.error) throw finFehler(r);
+  }
   /* Feedback: senden, eigene Meldungen samt Antworten, Nachtrag. */
   function fbFehler(r) { var m = String((r.error && r.error.message) || ""); var k = /F-\d\d/.exec(m); if (/PGRST202|42883|feedback_/.test(m + " " + (r.error.code || "")) && !k) return fail("F-06"); return fail(k ? k[0] : code(r.error)); }
   async function feedbackSenden(art, text, seite, geraet, email) {
@@ -1001,7 +1029,8 @@
     groups: groups, saveGroup: saveGroup, removeGroup: removeGroup, leaveGroup: leaveGroup, saveLook: saveLook,
     saveNotify: saveNotify, notify: notify, recoveryDone: recoveryDone,
     friends: friends, askFriend: askFriend, answerFriend: answerFriend, unfriend: unfriend,
-    loadEvents: loadEvents, imageUrls: imageUrls, ttKi: ttKi, gastSicht: gastSicht, gastAdd: gastAdd, gastUpload: gastUpload, gastBildUrl: gastBildUrl, gastListe: gastListe, gastWeg: gastWeg, saveEvent: saveEvent, removeEvent: removeEvent,
+    loadEvents: loadEvents, imageUrls: imageUrls, ttKi: ttKi, gastSicht: gastSicht, gastAdd: gastAdd, gastUpload: gastUpload, gastBildUrl: gastBildUrl, gastListe: gastListe, gastWeg: gastWeg,
+    finSicht: finSicht, finSetzen: finSetzen, finWeg: finWeg, finAbschluss: finAbschluss, saveEvent: saveEvent, removeEvent: removeEvent,
     addComment: addComment, removeComment: removeComment, reactComment: reactComment,
     deleteMe: deleteMe, sweepUnconfirmed: sweepUnconfirmed, deleteImages: deleteImages, setPolls: setPolls, moveComments: moveComments, uploadImage: uploadImage, imageUrl: imageUrl, storeCheck: storeCheck, onChange: onChange,
     snapshot: snapshot, budget: budget, guard: guard,
