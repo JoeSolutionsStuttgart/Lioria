@@ -1771,8 +1771,7 @@ window.CHRONIK_SPRACHEN.en = {
     vor_reagieren: "Respond",
     vor_f_sql: "Suggestions are not set up yet (database update 36 missing).",
     fin_titel: "Finances",
-    fin_d: "Split and settle expenses",
-    fin_hinweis: "Enter who paid for what and who shares the cost. At the end the planner works out who pays whom – with as few transfers as possible. Only visible to signed-in users.",
+    fin_hinweis: "Enter who paid for what and who shares the cost. At the end the planner works out who pays whom – with as few transfers as possible. Visible to everyone with an account who can see this event.",
     fin_aktualisieren: "Refresh",
     fin_laedt: "Loading finances …",
     fin_neuer_eintrag: "New expense",
@@ -1835,6 +1834,7 @@ window.CHRONIK_SPRACHEN.en = {
     fin_f_zu: "The statement is already closed. Reopen it first.",
     fin_f_abschluss: "That didn't work. Only whoever closed it or can edit the event may reopen it.",
     fin_f_laden: "Finances could not be loaded.",
-    fin_f_sql: "The finance planner is not set up yet (database update 36 missing)."
+    fin_f_sql: "The finance planner is not set up yet (database update 37 missing).",
+    fin_f_recht: "You can't change this – only your own entries, unless you can edit the event. Is the statement already closed?"
   }
 };

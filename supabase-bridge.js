@@ -948,33 +948,53 @@
     if (r.error) throw fail(code(r.error));
     if (!r.data || !r.data.length) throw fail("D-30");
   }
-  /* Finanzplaner: nur für Angemeldete mit Gästelink. */
+  /* Finanzplaner am Ereignis: wer das Ereignis sieht (mit Konto), sieht dessen Finanzen. */
   function finFehler(r) {
     var m = String((r.error && r.error.message) || "") + " " + String((r.error && r.error.code) || "");
-    if (/PGRST202|42883|42P01|fin_|schema cache|does not exist/i.test(m) && !/D-\d\d/.test(m)) return fail("D-28");
-    return fail(codeAus(r.error));
+    if (/PGRST20[25]|42883|42P01|fin_|schema cache|does not exist/i.test(m) && !/row-level security/i.test(m)) return fail("D-28");
+    if (/row-level security|42501/i.test(m)) return fail("D-30");
+    return fail(code(r.error));
   }
-  async function finSicht(ev, tk) {
+  async function finIch() {
     var c = await client();
-    var r = await c.rpc("fin_view", { p_event: ev, p_token: tk });
-    if (r.error) throw finFehler(r);
-    return r.data || null;
+    var s = await c.auth.getUser();
+    return (s && s.data && s.data.user && s.data.user.id) || "";
   }
-  async function finSetzen(ev, tk, id, data) {
+  async function finSicht(ev) {
     var c = await client();
-    var r = await c.rpc("fin_setzen", { p_event: ev, p_token: tk, p_id: id || null, p_data: data || {} });
+    var ich = await finIch();
+    var r = await c.from("fin_eintraege").select("id,von,von_name,data,created").eq("event_id", ev).order("created", { ascending: true });
     if (r.error) throw finFehler(r);
-    return r.data;
+    var s = await c.from("fin_status").select("zu,wer,wer_id,wann").eq("event_id", ev).maybeSingle();
+    if (s.error) throw finFehler(s);
+    var k = await c.rpc("fin_chef", { p_event: ev });
+    var st = s.data || { zu: false };
+    return {
+      chef: !k.error && !!k.data,
+      status: { zu: !!st.zu, wer: st.wer || "", wann: st.wann || "", meins: !!ich && st.wer_id === ich },
+      eintraege: (r.data || []).map(function (x) { return { id: x.id, von: x.von_name, meins: !!ich && x.von === ich, data: x.data || {}, created: x.created }; })
+    };
   }
-  async function finWeg(ev, tk, id) {
+  async function finSetzen(ev, id, data, name) {
     var c = await client();
-    var r = await c.rpc("fin_weg", { p_event: ev, p_token: tk, p_id: id });
+    var r = id
+      ? await c.from("fin_eintraege").update({ data: data || {} }).eq("id", id).select("id")
+      : await c.from("fin_eintraege").insert({ event_id: ev, von: await finIch(), von_name: String(name || "").slice(0, 60), data: data || {} }).select("id");
     if (r.error) throw finFehler(r);
+    if (!r.data || !r.data.length) throw fail("D-30");
+    return r.data[0].id;
   }
-  async function finAbschluss(ev, tk, zu) {
+  async function finWeg(id) {
     var c = await client();
-    var r = await c.rpc("fin_abschluss", { p_event: ev, p_token: tk, p_zu: !!zu });
+    var r = await c.from("fin_eintraege").delete().eq("id", id).select("id");
     if (r.error) throw finFehler(r);
+    if (!r.data || !r.data.length) throw fail("D-30");
+  }
+  async function finAbschluss(ev, zu, name) {
+    var c = await client();
+    var r = await c.from("fin_status").upsert({ event_id: ev, zu: !!zu, wer: String(name || "").slice(0, 60), wer_id: await finIch(), wann: new Date().toISOString() }, { onConflict: "event_id" }).select("event_id");
+    if (r.error) throw finFehler(r);
+    if (!r.data || !r.data.length) throw fail("D-30");
   }
   /* Feedback: senden, eigene Meldungen samt Antworten, Nachtrag. */
   function fbFehler(r) { var m = String((r.error && r.error.message) || ""); var k = /F-\d\d/.exec(m); if (/PGRST202|42883|feedback_/.test(m + " " + (r.error.code || "")) && !k) return fail("F-06"); return fail(k ? k[0] : code(r.error)); }

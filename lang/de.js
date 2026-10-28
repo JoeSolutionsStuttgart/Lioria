@@ -1771,8 +1771,7 @@ window.CHRONIK_SPRACHEN.de = {
     vor_reagieren: "Darauf reagieren",
     vor_f_sql: "Vorschläge sind noch nicht eingerichtet (Datenbank-Update 36 fehlt).",
     fin_titel: "Finanzen",
-    fin_d: "Ausgaben teilen und abrechnen",
-    fin_hinweis: "Trag ein, wer was bezahlt hat und wer sich beteiligt. Am Ende rechnet der Planer aus, wer wem wie viel überweist – mit möglichst wenigen Überweisungen. Nur für Angemeldete sichtbar.",
+    fin_hinweis: "Trag ein, wer was bezahlt hat und wer sich beteiligt. Am Ende rechnet der Planer aus, wer wem wie viel überweist – mit möglichst wenigen Überweisungen. Sichtbar für alle mit Konto, die dieses Ereignis sehen.",
     fin_aktualisieren: "Aktualisieren",
     fin_laedt: "Lade Finanzen …",
     fin_neuer_eintrag: "Neue Ausgabe",
@@ -1835,6 +1834,7 @@ window.CHRONIK_SPRACHEN.de = {
     fin_f_zu: "Die Abrechnung ist schon abgeschlossen. Erst wieder öffnen.",
     fin_f_abschluss: "Das hat nicht geklappt. Nur wer abgeschlossen hat oder das Ereignis bearbeiten darf, kann wieder öffnen.",
     fin_f_laden: "Finanzen ließen sich nicht laden.",
-    fin_f_sql: "Der Finanzplaner ist noch nicht eingerichtet (Datenbank-Update 36 fehlt)."
+    fin_f_sql: "Der Finanzplaner ist noch nicht eingerichtet (Datenbank-Update 37 fehlt).",
+    fin_f_recht: "Das darfst du nicht ändern – nur eigene Einträge, oder du darfst das Ereignis bearbeiten. Ist die Abrechnung schon abgeschlossen?"
   }
 };
