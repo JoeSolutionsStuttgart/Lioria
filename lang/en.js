@@ -1884,7 +1884,7 @@ window.CHRONIK_SPRACHEN.en = {
     ed_tabs: "Event sections",
     ed_t_grund: "Basics",
     ed_t_inhalt: "Content",
-    ed_t_programm: "Programme",
+    ed_t_programm: "Programme and planning",
     ed_t_gast: "Guest page",
     ed_t_aussehen: "Look",
     ed_t_freigabe: "Permissions",
@@ -1943,6 +1943,8 @@ window.CHRONIK_SPRACHEN.en = {
     pg_bearbeiten: "Edit in the “Programme” tab",
     ga_gaeste_personen: "Show guests as people in the event",
     ga_gaeste_personen_hinweis: "Anyone who enters their name on the guest page (without an account) appears among the event's people, marked “Guest”. Those who decline are not shown.",
-    gast_als_person: "Guest"
+    gast_als_person: "Guest",
+    ed_fin_hinweis: "The “Finances” button at the top of the event opens the finance planner. Show or hide it for this event here.",
+    ed_fin_zeigen: "Show finances button in the event"
   }
 };

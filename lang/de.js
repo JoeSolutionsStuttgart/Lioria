@@ -1884,7 +1884,7 @@ window.CHRONIK_SPRACHEN.de = {
     ed_tabs: "Bereiche des Ereignisses",
     ed_t_grund: "Grunddaten",
     ed_t_inhalt: "Inhalt",
-    ed_t_programm: "Programm",
+    ed_t_programm: "Programm und Planung",
     ed_t_gast: "Gästeseite",
     ed_t_aussehen: "Aussehen",
     ed_t_freigabe: "Rechte",
@@ -1943,6 +1943,8 @@ window.CHRONIK_SPRACHEN.de = {
     pg_bearbeiten: "Im Reiter „Programm“ bearbeiten",
     ga_gaeste_personen: "Gäste als Personen im Ereignis zeigen",
     ga_gaeste_personen_hinweis: "Wer auf der Gästeseite seinen Namen einträgt (ohne Konto), erscheint im Ereignis bei den Personen – mit dem Hinweis „Gast“. Wer absagt, wird nicht gezeigt.",
-    gast_als_person: "Gast"
+    gast_als_person: "Gast",
+    ed_fin_hinweis: "Der Knopf „Finanzen“ oben im Ereignis öffnet den Finanzplaner. Hier blendest du ihn für dieses Ereignis ein oder aus.",
+    ed_fin_zeigen: "Finanzen-Knopf im Ereignis zeigen"
   }
 };

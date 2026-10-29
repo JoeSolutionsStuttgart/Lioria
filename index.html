@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b137"></script>
-<script src="lang/de.js?v=b137"></script>
-<script src="lang/en.js?v=b137"></script>
-<script src="lang/sprache.js?v=b137"></script>
-<script src="./support.js?v=b137"></script>
+<script src="chronik-config.js?v=b138"></script>
+<script src="lang/de.js?v=b138"></script>
+<script src="lang/en.js?v=b138"></script>
+<script src="lang/sprache.js?v=b138"></script>
+<script src="./support.js?v=b138"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b137"></script>
-<script src="xlsx-export.js?v=b137"></script>
-<script src="farbe.js?v=b137"></script>
-<script src="cw-plaetze.js?v=b137"></script>
-<script src="fb-knopf.js?v=b137"></script>
+<script src="supabase-bridge.js?v=b138"></script>
+<script src="xlsx-export.js?v=b138"></script>
+<script src="farbe.js?v=b138"></script>
+<script src="cw-plaetze.js?v=b138"></script>
+<script src="fb-knopf.js?v=b138"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -2613,6 +2613,11 @@
           <div style="font-family: var(--font-heading); font-size: 21px; font-weight: 600;">{{ ed.titel }}</div>
           <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ ed.intro }}</div>
         </div>
+        <sc-if value="{{ ed.hatSub }}" hint-placeholder-val="{{ false }}">
+          <nav role="tablist" aria-label="{{ ed.titel }}" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: var(--space-3);">
+            <sc-for list="{{ ed.subTabs }}" as="sb" hint-placeholder-count="4"><button role="tab" aria-selected="{{ sb.aria }}" onClick="{{ sb.klick }}" style="{{ sb.stil }}">{{ sb.label }}<sc-if value="{{ sb.hatBadge }}" hint-placeholder-val="{{ false }}"><span style="{{ sb.badgeStil }}">{{ sb.badge }}</span></sc-if></button></sc-for>
+          </nav>
+        </sc-if>
         <sc-if value="{{ ed.grund }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="grund" style="display: grid; gap: 0;">
         <div style="{{ lay.rowDate }}">
@@ -2630,13 +2635,8 @@
         </sc-if>
         <sc-if value="{{ ed.inhalt }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="inhalt" style="display: grid; gap: 0;">
-        <button data-sec="infos" onClick="{{ form.sec.infos.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.infos.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.infos }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.infos.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.infos.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="infos"></div>
+        <sc-if value="{{ ed.sub.infos }}" hint-placeholder-val="{{ false }}">
         <div style="display: grid; gap: 6px; padding-bottom: var(--space-3);">
           <button class="btn btn-ghost" style="white-space: nowrap; justify-self: start;" onClick="{{ form.addInfo }}">＋ {{ L.zeile }}</button>
           <sc-for list="{{ form.infos }}" as="r" hint-placeholder-count="2">
@@ -2649,13 +2649,8 @@
         </div>
         </sc-if>
 
-        <button data-sec="personen" onClick="{{ form.sec.personen.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.personen.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.personen }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.personen.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.personen.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="personen"></div>
+        <sc-if value="{{ ed.sub.personen }}" hint-placeholder-val="{{ false }}">
         <div style="display: grid; gap: 6px; padding-bottom: var(--space-3);">
           <div style="font-size: 11.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.ordne_die_person_einem_konto_zu }}</div>
           <datalist id="pk-konten"><sc-for list="{{ form.kontoListe }}" as="kl" hint-placeholder-count="0"><option value="{{ kl.name }}"></option></sc-for></datalist>
@@ -2677,13 +2672,8 @@
 
         </sc-if>
 
-        <button data-sec="bilder" onClick="{{ form.sec.bilder.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.bilder.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.bilder }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.bilder.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.bilder.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="bilder"></div>
+        <sc-if value="{{ ed.sub.bilder }}" hint-placeholder-val="{{ false }}">
         <sc-if value="{{ form.hasCamera }}" hint-placeholder-val="{{ false }}">
           <label class="btn btn-ghost" style="cursor: pointer; white-space: nowrap; display: inline-flex; margin-bottom: var(--space-2);">{{ L.foto_aufnehmen }}<input type="file" accept="image/*" capture="environment" onChange="{{ form.onFiles }}" style="display: none;"></label>
         </sc-if>
@@ -2783,13 +2773,8 @@
         </div>
         </sc-if>
 
-        <button data-sec="alben" onClick="{{ form.sec.alben.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.alben.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.alben }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.alben.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.alben.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="alben"></div>
+        <sc-if value="{{ ed.sub.alben }}" hint-placeholder-val="{{ false }}">
           <div style="font-size: 12px; line-height: 1.5; color: var(--color-neutral-700); padding-bottom: var(--space-2);">{{ L.ein_album_buendelt_bilder_dieses_ereigniss }}</div>
           <div style="display: grid; gap: var(--space-3); padding-bottom: var(--space-3);">
             <sc-for list="{{ form.alb.liste }}" as="a" hint-placeholder-count="0">
@@ -2853,6 +2838,7 @@
         </sc-if>
         <sc-if value="{{ ed.programm }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="programm" style="display: grid; gap: 0;">
+        <sc-if value="{{ ed.sub.timetable }}" hint-placeholder-val="{{ true }}">
         <section data-sec="timetable" style="display: grid; gap: var(--space-3); padding: var(--space-4); margin-bottom: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);">
           <sc-if value="{{ pg.vonGast }}" hint-placeholder-val="{{ false }}">
             <button class="btn btn-secondary" style="justify-self: start; min-height: 40px;" onClick="{{ pg.zurGast }}">‹ {{ L.pg_zurueck_gast }}</button>
@@ -2914,20 +2900,17 @@
             <sc-if value="{{ pg.hatPunkte }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ pg.foto }}">{{ L.pg_detail }}</button></sc-if>
           </div>
         </section>
-        <button data-sec="finanzen" onClick="{{ vo.finUm }}" aria-pressed="{{ vo.finAria }}" style="{{ form.sec.head }}">
-          <span style="display: inline-block; font-size: 12px; width: 12px; color: var(--color-accent-700);">€</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.fin_knopf_zeigen }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="{{ vo.finBadgeStil }}">{{ vo.finBadge }}</span>
-        </button>
+        </sc-if>
+        <sc-if value="{{ ed.sub.finanzen }}" hint-placeholder-val="{{ false }}">
+          <section data-sec="finanzen" style="display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);">
+            <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.fin_titel }}</div>
+            <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ed_fin_hinweis }}</div>
+            <div><button onClick="{{ vo.finUm }}" aria-pressed="{{ vo.finAria }}" style="{{ ed.finStil }}">{{ ed.finLabel }}</button></div>
+          </section>
+        </sc-if>
 
-        <button data-sec="etappen" onClick="{{ form.sec.etappen.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.etappen.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.etappen_route }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.etappen.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.etappen.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="etappen"></div>
+        <sc-if value="{{ ed.sub.etappen }}" hint-placeholder-val="{{ false }}">
           <div style="display: grid; gap: var(--space-3); padding-bottom: var(--space-3);">
             <div style="font-size: 11.5px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.eine_route_aus_stationen_wanderung_staedte }}</div>
             <sc-for list="{{ form.et.liste }}" as="x" hint-placeholder-count="0">
@@ -3003,13 +2986,8 @@
           </div>
         </sc-if>
 
-        <button data-sec="polls" onClick="{{ form.sec.polls.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.polls.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.abstimmungen_ranglisten }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.polls.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.polls.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="polls"></div>
+        <sc-if value="{{ ed.sub.polls }}" hint-placeholder-val="{{ false }}">
           <div style="display: grid; gap: var(--space-3); padding-bottom: var(--space-3);">
             <div style="display: flex; gap: 6px; flex-wrap: wrap;">
               <button class="btn btn-ghost" style="white-space: nowrap;" onClick="{{ form.polls.neueWahl }}">＋ {{ L.abstimmung }}</button>
@@ -3665,13 +3643,8 @@
         </sc-if>
         <sc-if value="{{ ed.aussehen }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="aussehen" style="display: grid; gap: 0;">
-        <button data-sec="deko" onClick="{{ form.sec.deko.toggle }}" style="{{ form.sec.head }}">
-          <span style="{{ form.sec.deko.sign }}">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.design_und_deko }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.sec.deko.badge }}</span>
-        </button>
-        <sc-if value="{{ form.sec.deko.on }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="deko"></div>
+        <sc-if value="{{ ed.immer }}" hint-placeholder-val="{{ false }}">
         <div class="field" style="max-width: 340px; position: relative;"><label>{{ L.design_dieses_ereignisses }}</label>
           <div style="position: relative;">
             <input class="input" type="text" role="combobox" aria-expanded="{{ form.look.auf }}" value="{{ form.look.suche }}" placeholder="{{ form.look.suchePh }}" onChange="{{ form.look.onSuche }}" onFocus="{{ form.look.onFokus }}" onBlur="{{ form.look.onBlur }}" style="font-size: 16px; padding-right: 44px; width: 100%; box-sizing: border-box;">
@@ -3786,13 +3759,8 @@
         <sc-if value="{{ ed.freigabe }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="freigabe" style="display: grid; gap: 0;">
         <sc-if value="{{ form.vis.mine }}" hint-placeholder-val="{{ true }}">
-          <button data-sec="sicht" onClick="{{ form.sec.sicht.toggle }}" style="{{ form.sec.head }}">
-            <span style="{{ form.sec.sicht.sign }}">▸</span>
-            <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.wer_darf_dieses_ereignis_sehen }}</span>
-            <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-            <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ form.vis.count }}</span>
-          </button>
-          <sc-if value="{{ form.sec.sicht.on }}" hint-placeholder-val="{{ false }}">
+          <div data-sec="sicht"></div>
+          <sc-if value="{{ ed.immer }}" hint-placeholder-val="{{ false }}">
           <div class="seg" role="group" style="margin-bottom: var(--space-2);">
             <sc-for list="{{ form.vis.modes }}" as="m" hint-placeholder-count="4">
               <label class="seg-opt"><input type="radio" name="evvis" checked="{{ m.on }}" onChange="{{ m.pick }}" style="position: absolute; opacity: 0; pointer-events: none;">{{ m.label }}</label>
@@ -8560,7 +8528,7 @@ class Component extends DCLogic {
       /* Schneller Weg zwischen Gästeseite und Programm – und wieder zurück. */
       vonGast: st.pgVonGast === true,
       zurGast: () => { this.setState({ edTab: "gast", gaTab: "zp", pgVonGast: false }); window.setTimeout(() => { const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div'); const el = dlg && dlg.querySelector('[data-gatab="zp"]'); if (dlg && el) dlg.scrollTop = Math.max(0, dlg.scrollTop + el.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 140); }, 80); },
-      zumProgramm: () => { this.setState({ edTab: "programm", pgVonGast: true, secOpen: Object.assign({}, st.secOpen) }); window.setTimeout(() => { const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div'); const el = dlg && dlg.querySelector('[data-sec="timetable"]'); if (dlg && el) dlg.scrollTop = Math.max(0, dlg.scrollTop + el.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 140); }, 80); }
+      zumProgramm: () => { this.setState({ edTab: "programm", pgVonGast: true, edSub: Object.assign({}, st.edSub, { programm: "timetable" }) }); window.setTimeout(() => { const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div'); const el = dlg && dlg.querySelector('[data-sec="timetable"]'); if (dlg && el) dlg.scrollTop = Math.max(0, dlg.scrollTop + el.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 140); }, 80); }
     };
   }
   zpEditVals(o, d) {
@@ -8978,6 +8946,29 @@ class Component extends DCLogic {
         badgeStil: { fontSize: "11px", fontWeight: 700, padding: "0 6px", borderRadius: "99px", background: "var(--color-accent-100)", color: "var(--color-accent-700)" } };
     });
     out.immer = true;
+    /* Reiter mit mehreren Themen bekommen Unterreiter; Reiter mit einem Thema zeigen alles direkt. */
+    const subDef = {
+      inhalt: [["infos", tx("infos"), zahl((d.infos || []).filter((x) => x && (String(x.label || "").trim() || String(x.value || "").trim())).length)],
+        ["personen", tx("personen"), zahl((d.people || []).length)], ["bilder", tx("bilder"), zahl((d.images || []).length)], ["alben", tx("alben"), zahl((d.alben || []).length)]],
+      programm: [["timetable", tx("pg_titel"), zahl(((d.timetable || {}).acts || []).length)], ["etappen", tx("etappen_route"), zahl((d.etappen || []).length)],
+        ["polls", tx("ed_s_polls"), zahl((d.polls || []).length)], ["finanzen", tx("fin_titel"), ex.finAus ? tx("fin_aus") : tx("fin_an")]]
+    };
+    const subListe = subDef[akt] || [];
+    const subWahl = (st.edSub || {})[akt];
+    const subAkt = subListe.some((x) => x[0] === subWahl) ? subWahl : (subListe[0] || [])[0];
+    out.hatSub = subListe.length > 1;
+    out.sub = {};
+    ["infos", "personen", "bilder", "alben", "timetable", "etappen", "polls", "finanzen"].forEach((k) => { out.sub[k] = k === subAkt; });
+    out.subTabs = subListe.map((x) => {
+      const an = x[0] === subAkt;
+      return { key: x[0], label: x[1], aria: an ? "true" : "false", hatBadge: !!x[2], badge: x[2],
+        klick: () => this.setState((s0) => ({ edSub: Object.assign({}, s0.edSub, { [akt]: x[0] }) })),
+        stil: { display: "inline-flex", alignItems: "center", gap: "6px", minHeight: "38px", padding: "0 12px", borderRadius: "10px", cursor: "pointer", font: "inherit", fontSize: "13.5px", fontWeight: an ? 700 : 500,
+          border: an ? "2px solid var(--color-accent)" : "1px solid var(--color-divider)", background: an ? "var(--color-accent-100)" : "transparent", color: an ? "var(--color-accent-700)" : "var(--color-text)" },
+        badgeStil: { fontSize: "11px", fontWeight: 700, padding: "0 6px", borderRadius: "99px", background: "var(--color-accent-100)", color: "var(--color-accent-700)" } };
+    });
+    out.finStil = this.voPill(!ex.finAus);
+    out.finLabel = (!ex.finAus ? "✓ " : "") + tx("ed_fin_zeigen");
     out.gpUm = () => this.voSet("offen.gaestePersonen", !o.gaestePersonen);
     out.gpStil = this.voPill(!!o.gaestePersonen);
     out.gpLabel = (o.gaestePersonen ? "✓ " : "") + tx("ga_gaeste_personen");
@@ -9033,7 +9024,9 @@ class Component extends DCLogic {
     const z = t.ziel || {};
     const sec = Object.assign({}, this.state.secOpen || {});
     if (z.sec && z.sec !== "timetable" && z.sec !== "finanzen") sec[z.sec] = true;
-    this.setState({ edSuche: "", edTab: z.tab || "grund", gaTab: z.ga || this.state.gaTab, secOpen: sec }, () => {
+    const edSub = Object.assign({}, this.state.edSub);
+    if (z.sec && z.tab) edSub[z.tab] = z.sec;
+    this.setState({ edSuche: "", edTab: z.tab || "grund", gaTab: z.ga || this.state.gaTab, secOpen: sec, edSub: edSub }, () => {
       window.setTimeout(() => {
         const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div');
         if (!dlg) return;
@@ -12484,7 +12477,9 @@ class Component extends DCLogic {
     if (t.sec) sec[t.sec] = true;
     const tabFuer = { infos: "inhalt", personen: "inhalt", bilder: "inhalt", alben: "inhalt", etappen: "programm", polls: "programm", timetable: "programm", vorort: "gast", deko: "aussehen", sicht: "freigabe" };
     const gaFuer = { countdown: "infos", notfall: "infos", lage: "infos", offen: "link", fotowand: "bereiche", rsvp: "rsvp", fragen: "rsvp", sitz: "sitz", frei: "bereiche", rueck: "rsvp" };
-    this.setState({ lehr: n, secOpen: sec, edTab: tabFuer[t.sec] || "grund", gaTab: gaFuer[t.k] || this.state.gaTab, voKlapp: t.klapp ? Object.assign({}, this.state.voKlapp, { [t.klapp]: true }) : this.state.voKlapp });
+    const edSub = Object.assign({}, this.state.edSub);
+    if (t.sec && tabFuer[t.sec]) edSub[tabFuer[t.sec]] = t.sec;
+    this.setState({ lehr: n, secOpen: sec, edSub: edSub, edTab: tabFuer[t.sec] || "grund", gaTab: gaFuer[t.k] || this.state.gaTab, voKlapp: t.klapp ? Object.assign({}, this.state.voKlapp, { [t.klapp]: true }) : this.state.voKlapp });
     window.setTimeout(() => {
       const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div');
       if (!dlg) return;
@@ -13779,7 +13774,7 @@ class Component extends DCLogic {
 
   newEvent = () => {
     const today = new Date().toISOString().slice(0, 10);
-    this.setState({ bildSel: [], edTab: "grund", gaTab: "link", edSuche: "", secOpen: {}, draft: { id: null, name: "", date: today, end: "", place: "", kicker: "", note: "", infos: [{ label: "", value: "" }], people: [], images: [], deco: { fx: [], pal: "thema", stickers: [] }, vis: "private", who: [], gwho: [], perms: {}, polls: [], etappen: [], etLayout: "gesamt", alben: [], themeId: "", themeSnap: null, themeFein: {}, share: "view", by: (this.me() || {}).id || "", url: "", partial: false }, decoSel: null, pickQ: "", drawer: false, admin: false, secOpen: {} });
+    this.setState({ bildSel: [], edTab: "grund", gaTab: "link", edSuche: "", secOpen: {}, edSub: {}, draft: { id: null, name: "", date: today, end: "", place: "", kicker: "", note: "", infos: [{ label: "", value: "" }], people: [], images: [], deco: { fx: [], pal: "thema", stickers: [] }, vis: "private", who: [], gwho: [], perms: {}, polls: [], etappen: [], etLayout: "gesamt", alben: [], themeId: "", themeSnap: null, themeFein: {}, share: "view", by: (this.me() || {}).id || "", url: "", partial: false }, decoSel: null, pickQ: "", drawer: false, admin: false, secOpen: {} });
   };
 
   editEvent(id) {
@@ -13789,7 +13784,7 @@ class Component extends DCLogic {
     if (lvl < 3) return;
     this.setState({
       decoSel: null, bildSel: [],
-    decoStil: "flach", secOpen: {}, edTab: "grund", gaTab: "link", edSuche: "", pgVonGast: false,
+    decoStil: "flach", secOpen: {}, edTab: "grund", gaTab: "link", edSuche: "", pgVonGast: false, edSub: {},
       draft: {
         id: e.id, name: e.name || "", date: e.date || "", end: e.end || "", place: e.place || "",
         kicker: e.kicker || "", note: e.note || "",
