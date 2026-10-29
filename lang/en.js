@@ -1945,6 +1945,8 @@ window.CHRONIK_SPRACHEN.en = {
     ga_gaeste_personen_hinweis: "Anyone who enters their name on the guest page (without an account) appears among the event's people, marked “Guest”. Those who decline are not shown.",
     gast_als_person: "Guest",
     ed_fin_hinweis: "The “Finances” button at the top of the event opens the finance planner. Show or hide it for this event here.",
-    ed_fin_zeigen: "Show finances button in the event"
+    ed_fin_zeigen: "Show finances button in the event",
+    gast_f_format: "This image format can't be read. Please try a JPG or PNG.",
+    gast_f_upload_aus: "Uploading isn't possible right now – the photo wall is off or full."
   }
 };

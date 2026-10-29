@@ -1945,6 +1945,8 @@ window.CHRONIK_SPRACHEN.de = {
     ga_gaeste_personen_hinweis: "Wer auf der Gästeseite seinen Namen einträgt (ohne Konto), erscheint im Ereignis bei den Personen – mit dem Hinweis „Gast“. Wer absagt, wird nicht gezeigt.",
     gast_als_person: "Gast",
     ed_fin_hinweis: "Der Knopf „Finanzen“ oben im Ereignis öffnet den Finanzplaner. Hier blendest du ihn für dieses Ereignis ein oder aus.",
-    ed_fin_zeigen: "Finanzen-Knopf im Ereignis zeigen"
+    ed_fin_zeigen: "Finanzen-Knopf im Ereignis zeigen",
+    gast_f_format: "Dieses Bildformat lässt sich nicht lesen. Bitte als JPG oder PNG versuchen.",
+    gast_f_upload_aus: "Hochladen ist hier gerade nicht möglich – die Fotowand ist aus oder voll."
   }
 };
