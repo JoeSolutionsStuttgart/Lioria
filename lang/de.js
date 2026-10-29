@@ -11,14 +11,14 @@ window.CHRONIK_SPRACHEN.de = {
     "farbe": "#d6006c",
     "emoji": "💍",
     "titel": "Hochzeit von Lena & Tom",
-    "kurz": "Ein Jahr Planung, ein großer Tag, Erinnerungen für immer – mit Gästeseite, Sitzplan und Fotowand. Ohne Finanzen: Das zahlt das Brautpaar.",
+    "kurz": "Ein Jahr Planung, ein großer Tag, Erinnerungen für immer – mit Gästeseite, Sitzplan und Fotowand.",
     "phasen": [
      {
       "titel": "Ein Jahr vorher",
       "schritte": [
        {
         "titel": "Das Ereignis anlegen",
-        "text": "Lena legt „Hochzeit Lena & Tom“ an: 14. Juni, Gut Rosenhof. Ein festliches Design dazu, sichtbar erst einmal nur für Tom. Finanzen bleiben aus – die braucht hier niemand.",
+        "text": "Lena legt „Hochzeit Lena & Tom“ an: 14. Juni, Gut Rosenhof. Ein festliches Design dazu, sichtbar erst einmal nur für Tom.",
         "wo": "„+ Ereignis“ → Grunddaten. Design und Sichtbarkeit findest du beim Bearbeiten.",
         "lehr": "grund",
         "vorschau": {
@@ -40,10 +40,6 @@ window.CHRONIK_SPRACHEN.de = {
           [
            "Sichtbar für",
            "Tom"
-          ],
-          [
-           "Finanzen",
-           "aus"
           ]
          ]
         }
@@ -62,7 +58,7 @@ window.CHRONIK_SPRACHEN.de = {
        },
        {
         "titel": "Eine Gästeseite für alle",
-        "text": "Statt Excel-Listen und WhatsApp-Chaos gibt es einen Link. Gäste brauchen kein Konto – auf Wunsch schützt ein Passwort die Seite. Lena wählt aus, was die Gäste sehen.",
+        "text": "Statt WhatsApp-Chaos gibt es einen Link. Gäste brauchen kein Konto – auf Wunsch schützt ein Passwort die Seite. Lena wählt aus, was die Gäste sehen.",
         "wo": "Bearbeiten → Gästeseite → Link & Freigabe",
         "lehr": "offen",
         "vorschau": {
@@ -148,24 +144,43 @@ window.CHRONIK_SPRACHEN.de = {
         "wo": "Bearbeiten → Gästeseite → Sitzplan",
         "lehr": "sitz",
         "vorschau": {
-         "kopf": "Sitzplan",
-         "art": "tabelle",
-         "zeilen": [
+         "kopf": "Sitzplan · Festsaal",
+         "art": "sitzplan",
+         "tische": [
           [
-           "Tisch „Rose“",
-           "Brautpaar, Trauzeugen",
-           "8"
+           "Rose",
+           8,
+           8,
+           "Brautpaar, Trauzeugen"
           ],
           [
-           "Tisch „Lavendel“",
-           "Familie Brandt, Oma Gerda",
-           "8"
+           "Lavendel",
+           8,
+           8,
+           "Familie Brandt, Oma Gerda"
           ],
           [
-           "Tisch „Salbei“",
-           "Studienfreunde",
-           "10"
+           "Salbei",
+           10,
+           9,
+           "Studienfreunde"
+          ],
+          [
+           "Mohn",
+           8,
+           7,
+           "Kollegen"
+          ],
+          [
+           "Kamille",
+           6,
+           6,
+           "Kinder"
           ]
+         ],
+         "mein": 1,
+         "fazit": [
+          "Oma Gerda sieht auf der Gästeseite: Tisch „Lavendel“, Platz 3"
          ]
         }
        },
@@ -423,32 +438,132 @@ window.CHRONIK_SPRACHEN.de = {
        },
        {
         "titel": "Finanzen einschalten",
-        "text": "Hier lohnt sich der Finanzplaner: Tickets, Sprit, Pavillon, Großeinkauf. Jeder trägt ein, was er bezahlt hat – aufgeteilt auf alle, nach festen Beträgen oder in Prozent.",
+        "text": "Hier lohnt sich der Finanzplaner: Tickets, Sprit, Pavillon, Großeinkauf. Jeder trägt ein, was er bezahlt hat, und wählt, wer mitzahlt – gleich aufgeteilt, mit festen Beträgen oder in Prozent. Sam isst vegan und zahlt beim Einkauf einen festen Betrag.",
         "wo": "Bearbeiten → Programm und Planung → „Finanzen-Knopf zeigen“. Danach oben rechts im Ereignis auf „Finanzen“.",
         "vorschau": {
-         "kopf": "Finanzen",
-         "art": "tabelle",
-         "zeilen": [
-          [
-           "Mia",
-           "6 Tickets",
-           "894,00 €"
-          ],
-          [
-           "Jonas",
-           "Sprit & Maut",
-           "128,40 €"
-          ],
-          [
-           "Ben",
-           "Pavillon",
-           "89,99 €"
-          ],
-          [
-           "Aylin",
-           "Großeinkauf",
-           "212,35 €"
-          ]
+         "kopf": "Finanzen · vor dem Festival",
+         "art": "finanzen",
+         "eintraege": [
+          {
+           "wer": "Mia",
+           "was": "6 Tickets",
+           "betrag": "894,00 €",
+           "teilung": "Gleich auf 6 aufgeteilt",
+           "anteile": [
+            [
+             "Mia",
+             "149,00 €"
+            ],
+            [
+             "Jonas",
+             "149,00 €"
+            ],
+            [
+             "Aylin",
+             "149,00 €"
+            ],
+            [
+             "Ben",
+             "149,00 €"
+            ],
+            [
+             "Lea",
+             "149,00 €"
+            ],
+            [
+             "Sam",
+             "149,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Jonas",
+           "was": "Sprit & Maut",
+           "betrag": "128,40 €",
+           "teilung": "Gleich auf 4 aufgeteilt",
+           "anteile": [
+            [
+             "Jonas",
+             "32,10 €"
+            ],
+            [
+             "Mia",
+             "32,10 €"
+            ],
+            [
+             "Ben",
+             "32,10 €"
+            ],
+            [
+             "Lea",
+             "32,10 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Ben",
+           "was": "Pavillon",
+           "betrag": "90,00 €",
+           "teilung": "Gleich auf 6 aufgeteilt",
+           "anteile": [
+            [
+             "Mia",
+             "15,00 €"
+            ],
+            [
+             "Jonas",
+             "15,00 €"
+            ],
+            [
+             "Aylin",
+             "15,00 €"
+            ],
+            [
+             "Ben",
+             "15,00 €"
+            ],
+            [
+             "Lea",
+             "15,00 €"
+            ],
+            [
+             "Sam",
+             "15,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Aylin",
+           "was": "Großeinkauf",
+           "betrag": "213,00 €",
+           "teilung": "Feste Beträge, Rest gleich",
+           "anteile": [
+            [
+             "Sam",
+             "18,00 € · fest"
+            ],
+            [
+             "Mia",
+             "39,00 €"
+            ],
+            [
+             "Jonas",
+             "39,00 €"
+            ],
+            [
+             "Aylin",
+             "39,00 €"
+            ],
+            [
+             "Ben",
+             "39,00 €"
+            ],
+            [
+             "Lea",
+             "39,00 €"
+            ]
+           ]
+          }
          ]
         }
        },
@@ -554,23 +669,88 @@ window.CHRONIK_SPRACHEN.de = {
         "wo": "Im Ereignis → „Finanzen“ → Eintrag",
         "vorschau": {
          "kopf": "Finanzen · unterwegs",
-         "art": "tabelle",
-         "zeilen": [
-          [
-           "Sam",
-           "Pizza für alle",
-           "54,00 €"
-          ],
-          [
-           "Lea",
-           "Pfand & Wasser",
-           "23,50 €"
-          ],
-          [
-           "Ben",
-           "Hering & Panzertape",
-           "11,80 €"
-          ]
+         "art": "finanzen",
+         "eintraege": [
+          {
+           "wer": "Sam",
+           "was": "Pizza für alle",
+           "betrag": "54,00 €",
+           "teilung": "Gleich auf 6 aufgeteilt",
+           "anteile": [
+            [
+             "Mia",
+             "9,00 €"
+            ],
+            [
+             "Jonas",
+             "9,00 €"
+            ],
+            [
+             "Aylin",
+             "9,00 €"
+            ],
+            [
+             "Ben",
+             "9,00 €"
+            ],
+            [
+             "Lea",
+             "9,00 €"
+            ],
+            [
+             "Sam",
+             "9,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Lea",
+           "was": "Pfand & Wasser",
+           "betrag": "24,00 €",
+           "teilung": "Gleich auf 6 aufgeteilt",
+           "anteile": [
+            [
+             "Mia",
+             "4,00 €"
+            ],
+            [
+             "Jonas",
+             "4,00 €"
+            ],
+            [
+             "Aylin",
+             "4,00 €"
+            ],
+            [
+             "Ben",
+             "4,00 €"
+            ],
+            [
+             "Lea",
+             "4,00 €"
+            ],
+            [
+             "Sam",
+             "4,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Ben",
+           "was": "Hering & Panzertape",
+           "betrag": "12,00 €",
+           "teilung": "Aufteilung in Prozent",
+           "anteile": [
+            [
+             "Ben",
+             "6,00 € · 50 %"
+            ],
+            [
+             "Jonas",
+             "6,00 € · 50 %"
+            ]
+           ]
+          }
          ]
         }
        }
@@ -585,31 +765,68 @@ window.CHRONIK_SPRACHEN.de = {
         "wo": "Im Ereignis → „Finanzen“ → Abschließen",
         "vorschau": {
          "kopf": "Abrechnung",
-         "art": "tabelle",
-         "zeilen": [
+         "art": "abrechnung",
+         "salden": [
           [
-           "Lea → Mia",
-           "212,17 €"
+           "Mia",
+           "+645,90 €",
+           1.0
           ],
           [
-           "Sam → Mia",
-           "181,67 €"
+           "Jonas",
+           "−125,70 €",
+           -0.19461216906641896
           ],
           [
-           "Ben → Mia",
-           "133,88 €"
+           "Aylin",
+           "−3,00 €",
+           -0.004644681839294009
           ],
           [
-           "Jonas → Mia",
-           "107,27 €"
+           "Ben",
+           "−152,10 €",
+           -0.23548536925220623
           ],
           [
-           "Aylin → Mia",
-           "23,32 €"
+           "Lea",
+           "−224,10 €",
+           -0.3469577333952624
+          ],
+          [
+           "Sam",
+           "−141,00 €",
+           -0.21830004644681839
+          ]
+         ],
+         "ueberweisungen": [
+          [
+           "Lea",
+           "Mia",
+           "224,10 €"
+          ],
+          [
+           "Ben",
+           "Mia",
+           "152,10 €"
+          ],
+          [
+           "Sam",
+           "Mia",
+           "141,00 €"
+          ],
+          [
+           "Jonas",
+           "Mia",
+           "125,70 €"
+          ],
+          [
+           "Aylin",
+           "Mia",
+           "3,00 €"
           ]
          ],
          "fazit": [
-          "Gesamt 1.414,04 € · pro Kopf 235,67 €"
+          "Gesamt 1.415,40 € · 5 Überweisungen"
          ]
         }
        },
@@ -733,32 +950,92 @@ window.CHRONIK_SPRACHEN.de = {
        },
        {
         "titel": "Das Reisebudget",
-        "text": "Die Finanzen sind an: Was einer vorstreckt, wird 50/50 geteilt. Für den Tank-Stopp mit Snacks für Malik allein gibt es einen festen Betrag oder eine Aufteilung in Prozent.",
+        "text": "Die Finanzen sind an: Was einer vorstreckt, wird 50/50 geteilt. Beim Tankstopp mit Snacks für Malik teilen sie 40 zu 60 Prozent.",
         "wo": "Bearbeiten → Programm und Planung → „Finanzen-Knopf zeigen“",
         "vorschau": {
          "kopf": "Finanzen",
-         "art": "tabelle",
-         "zeilen": [
-          [
-           "Lisa",
-           "Flüge",
-           "642,00 €"
-          ],
-          [
-           "Malik",
-           "Mietwagen",
-           "780,00 €"
-          ],
-          [
-           "Lisa",
-           "Hütten",
-           "910,00 €"
-          ],
-          [
-           "Malik",
-           "Fähren & Maut",
-           "236,40 €"
-          ]
+         "art": "finanzen",
+         "eintraege": [
+          {
+           "wer": "Lisa",
+           "was": "Flüge",
+           "betrag": "642,00 €",
+           "teilung": "Gleich auf 2 aufgeteilt",
+           "anteile": [
+            [
+             "Lisa",
+             "321,00 €"
+            ],
+            [
+             "Malik",
+             "321,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Malik",
+           "was": "Mietwagen",
+           "betrag": "780,00 €",
+           "teilung": "Gleich auf 2 aufgeteilt",
+           "anteile": [
+            [
+             "Lisa",
+             "390,00 €"
+            ],
+            [
+             "Malik",
+             "390,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Lisa",
+           "was": "Hütten",
+           "betrag": "910,00 €",
+           "teilung": "Gleich auf 2 aufgeteilt",
+           "anteile": [
+            [
+             "Lisa",
+             "455,00 €"
+            ],
+            [
+             "Malik",
+             "455,00 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Malik",
+           "was": "Fähren & Maut",
+           "betrag": "236,40 €",
+           "teilung": "Gleich auf 2 aufgeteilt",
+           "anteile": [
+            [
+             "Lisa",
+             "118,20 €"
+            ],
+            [
+             "Malik",
+             "118,20 €"
+            ]
+           ]
+          },
+          {
+           "wer": "Malik",
+           "was": "Tankstopp mit Snacks",
+           "betrag": "96,00 €",
+           "teilung": "Aufteilung in Prozent",
+           "anteile": [
+            [
+             "Lisa",
+             "38,40 € · 40 %"
+            ],
+            [
+             "Malik",
+             "57,60 € · 60 %"
+            ]
+           ]
+          }
          ]
         }
        }
@@ -878,15 +1155,28 @@ window.CHRONIK_SPRACHEN.de = {
         "wo": "Im Ereignis → „Finanzen“ → Abschließen",
         "vorschau": {
          "kopf": "Abrechnung",
-         "art": "tabelle",
-         "zeilen": [
+         "art": "abrechnung",
+         "salden": [
           [
-           "Malik → Lisa",
-           "267,80 €"
+           "Lisa",
+           "+229,40 €",
+           1.0
+          ],
+          [
+           "Malik",
+           "−229,40 €",
+           -1.0
+          ]
+         ],
+         "ueberweisungen": [
+          [
+           "Malik",
+           "Lisa",
+           "229,40 €"
           ]
          ],
          "fazit": [
-          "Gesamt 2.568,40 € · je 1.284,20 €"
+          "Gesamt 2.664,40 € · 1 Überweisung"
          ]
         }
        },
@@ -2872,6 +3162,12 @@ window.CHRONIK_SPRACHEN.de = {
     bsp_schritt: "Schritt {a} von {n}",
     bsp_schritte: "Schritte",
     bsp_naechstes: "Nächstes Beispiel",
-    bsp_suche_art: "Beispiel"
+    bsp_suche_art: "Beispiel",
+    bsp_hat_bezahlt: "{n} hat bezahlt",
+    bsp_salden: "Wer bekommt, wer schuldet",
+    bsp_ueberweisungen: "Wer überweist an wen",
+    bsp_zur_hilfe: "Zurück zur Hilfe",
+    bsp_zum_beispiel: "Zurück zum Beispiel",
+    bsp_tanzflaeche: "Tanzfläche"
   }
 };

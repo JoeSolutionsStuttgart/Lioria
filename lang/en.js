@@ -11,14 +11,14 @@ window.CHRONIK_SPRACHEN.en = {
     "farbe": "#d6006c",
     "emoji": "💍",
     "titel": "Lena & Tom's wedding",
-    "kurz": "A year of planning, one big day, memories for life – with a guest page, seating plan and photo wall. No finances: the couple pays.",
+    "kurz": "A year of planning, one big day, memories for life – with a guest page, seating plan and photo wall.",
     "phasen": [
      {
       "titel": "A year before",
       "schritte": [
        {
         "titel": "Create the event",
-        "text": "Lena creates “Lena & Tom's wedding”: 14 June, Rosenhof Estate. A festive design, visible only to Tom for now. Finances stay off – nobody needs them here.",
+        "text": "Lena creates “Lena & Tom's wedding”: 14 June, Rosenhof Estate. A festive design, visible only to Tom for now.",
         "wo": "“+ Event” → Basics. Design and visibility are in the editor.",
         "lehr": "grund",
         "vorschau": {
@@ -40,10 +40,6 @@ window.CHRONIK_SPRACHEN.en = {
           [
            "Visible to",
            "Tom"
-          ],
-          [
-           "Finances",
-           "off"
           ]
          ]
         }
@@ -62,7 +58,7 @@ window.CHRONIK_SPRACHEN.en = {
        },
        {
         "titel": "One guest page for everyone",
-        "text": "No spreadsheets, no group-chat chaos – just one link. Guests don't need an account, and a password can protect the page. Lena chooses what guests see.",
+        "text": "No group-chat chaos – just one link. Guests don't need an account, and a password can protect the page. Lena chooses what guests see.",
         "wo": "Edit → Guest page → Link & sharing",
         "lehr": "offen",
         "vorschau": {
@@ -148,24 +144,43 @@ window.CHRONIK_SPRACHEN.en = {
         "wo": "Edit → Guest page → Seating",
         "lehr": "sitz",
         "vorschau": {
-         "kopf": "Seating plan",
-         "art": "tabelle",
-         "zeilen": [
+         "kopf": "Seating plan · hall",
+         "art": "sitzplan",
+         "tische": [
           [
-           "Table “Rose”",
-           "Couple, best man & maid of honour",
-           "8"
+           "Rose",
+           8,
+           8,
+           "Couple, best man & maid of honour"
           ],
           [
-           "Table “Lavender”",
-           "The Brandts, Grandma Gerda",
-           "8"
+           "Lavender",
+           8,
+           8,
+           "The Brandts, Grandma Gerda"
           ],
           [
-           "Table “Sage”",
-           "University friends",
-           "10"
+           "Sage",
+           10,
+           9,
+           "University friends"
+          ],
+          [
+           "Poppy",
+           8,
+           7,
+           "Colleagues"
+          ],
+          [
+           "Chamomile",
+           6,
+           6,
+           "Kids"
           ]
+         ],
+         "mein": 1,
+         "fazit": [
+          "Grandma Gerda sees on the guest page: table “Lavender”, seat 3"
          ]
         }
        },
@@ -423,32 +438,132 @@ window.CHRONIK_SPRACHEN.en = {
        },
        {
         "titel": "Switch on finances",
-        "text": "This is where the finance planner shines: tickets, fuel, gazebo, the big shop. Everyone enters what they paid – split across all, by fixed amounts or by percent.",
+        "text": "This is where the finance planner shines: tickets, fuel, gazebo, the big shop. Everyone enters what they paid and picks who shares it – split equally, with fixed amounts or by percent. Sam is vegan and pays a fixed amount for the shop.",
         "wo": "Edit → Programme & planning → “Show finances button”. Then “Finances” at the top right of the event.",
         "vorschau": {
-         "kopf": "Finances",
-         "art": "tabelle",
-         "zeilen": [
-          [
-           "Mia",
-           "6 tickets",
-           "€894.00"
-          ],
-          [
-           "Jonas",
-           "Fuel & tolls",
-           "€128.40"
-          ],
-          [
-           "Ben",
-           "Gazebo",
-           "€89.99"
-          ],
-          [
-           "Aylin",
-           "Big shop",
-           "€212.35"
-          ]
+         "kopf": "Finances · before the festival",
+         "art": "finanzen",
+         "eintraege": [
+          {
+           "wer": "Mia",
+           "was": "6 tickets",
+           "betrag": "€894.00",
+           "teilung": "Split equally between 6",
+           "anteile": [
+            [
+             "Mia",
+             "€149.00"
+            ],
+            [
+             "Jonas",
+             "€149.00"
+            ],
+            [
+             "Aylin",
+             "€149.00"
+            ],
+            [
+             "Ben",
+             "€149.00"
+            ],
+            [
+             "Lea",
+             "€149.00"
+            ],
+            [
+             "Sam",
+             "€149.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Jonas",
+           "was": "Fuel & tolls",
+           "betrag": "€128.40",
+           "teilung": "Split equally between 4",
+           "anteile": [
+            [
+             "Jonas",
+             "€32.10"
+            ],
+            [
+             "Mia",
+             "€32.10"
+            ],
+            [
+             "Ben",
+             "€32.10"
+            ],
+            [
+             "Lea",
+             "€32.10"
+            ]
+           ]
+          },
+          {
+           "wer": "Ben",
+           "was": "Gazebo",
+           "betrag": "€90.00",
+           "teilung": "Split equally between 6",
+           "anteile": [
+            [
+             "Mia",
+             "€15.00"
+            ],
+            [
+             "Jonas",
+             "€15.00"
+            ],
+            [
+             "Aylin",
+             "€15.00"
+            ],
+            [
+             "Ben",
+             "€15.00"
+            ],
+            [
+             "Lea",
+             "€15.00"
+            ],
+            [
+             "Sam",
+             "€15.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Aylin",
+           "was": "Big shop",
+           "betrag": "€213.00",
+           "teilung": "Fixed amounts, rest split equally",
+           "anteile": [
+            [
+             "Sam",
+             "€18.00 · fixed"
+            ],
+            [
+             "Mia",
+             "€39.00"
+            ],
+            [
+             "Jonas",
+             "€39.00"
+            ],
+            [
+             "Aylin",
+             "€39.00"
+            ],
+            [
+             "Ben",
+             "€39.00"
+            ],
+            [
+             "Lea",
+             "€39.00"
+            ]
+           ]
+          }
          ]
         }
        },
@@ -554,23 +669,88 @@ window.CHRONIK_SPRACHEN.en = {
         "wo": "In the event → “Finances” → new entry",
         "vorschau": {
          "kopf": "Finances · on the go",
-         "art": "tabelle",
-         "zeilen": [
-          [
-           "Sam",
-           "Pizza for everyone",
-           "€54.00"
-          ],
-          [
-           "Lea",
-           "Deposits & water",
-           "€23.50"
-          ],
-          [
-           "Ben",
-           "Pegs & duct tape",
-           "€11.80"
-          ]
+         "art": "finanzen",
+         "eintraege": [
+          {
+           "wer": "Sam",
+           "was": "Pizza for everyone",
+           "betrag": "€54.00",
+           "teilung": "Split equally between 6",
+           "anteile": [
+            [
+             "Mia",
+             "€9.00"
+            ],
+            [
+             "Jonas",
+             "€9.00"
+            ],
+            [
+             "Aylin",
+             "€9.00"
+            ],
+            [
+             "Ben",
+             "€9.00"
+            ],
+            [
+             "Lea",
+             "€9.00"
+            ],
+            [
+             "Sam",
+             "€9.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Lea",
+           "was": "Deposits & water",
+           "betrag": "€24.00",
+           "teilung": "Split equally between 6",
+           "anteile": [
+            [
+             "Mia",
+             "€4.00"
+            ],
+            [
+             "Jonas",
+             "€4.00"
+            ],
+            [
+             "Aylin",
+             "€4.00"
+            ],
+            [
+             "Ben",
+             "€4.00"
+            ],
+            [
+             "Lea",
+             "€4.00"
+            ],
+            [
+             "Sam",
+             "€4.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Ben",
+           "was": "Pegs & duct tape",
+           "betrag": "€12.00",
+           "teilung": "Split by percent",
+           "anteile": [
+            [
+             "Ben",
+             "€6.00 · 50 %"
+            ],
+            [
+             "Jonas",
+             "€6.00 · 50 %"
+            ]
+           ]
+          }
          ]
         }
        }
@@ -585,31 +765,68 @@ window.CHRONIK_SPRACHEN.en = {
         "wo": "In the event → “Finances” → Close",
         "vorschau": {
          "kopf": "Settlement",
-         "art": "tabelle",
-         "zeilen": [
+         "art": "abrechnung",
+         "salden": [
           [
-           "Lea → Mia",
-           "€212.17"
+           "Mia",
+           "+€645.90",
+           1.0
           ],
           [
-           "Sam → Mia",
-           "€181.67"
+           "Jonas",
+           "−€125.70",
+           -0.19461216906641896
           ],
           [
-           "Ben → Mia",
-           "€133.88"
+           "Aylin",
+           "−€3.00",
+           -0.004644681839294009
           ],
           [
-           "Jonas → Mia",
-           "€107.27"
+           "Ben",
+           "−€152.10",
+           -0.23548536925220623
           ],
           [
-           "Aylin → Mia",
-           "€23.32"
+           "Lea",
+           "−€224.10",
+           -0.3469577333952624
+          ],
+          [
+           "Sam",
+           "−€141.00",
+           -0.21830004644681839
+          ]
+         ],
+         "ueberweisungen": [
+          [
+           "Lea",
+           "Mia",
+           "€224.10"
+          ],
+          [
+           "Ben",
+           "Mia",
+           "€152.10"
+          ],
+          [
+           "Sam",
+           "Mia",
+           "€141.00"
+          ],
+          [
+           "Jonas",
+           "Mia",
+           "€125.70"
+          ],
+          [
+           "Aylin",
+           "Mia",
+           "€3.00"
           ]
          ],
          "fazit": [
-          "Total €1,414.04 · €235.67 each"
+          "Total €1,415.40 · 5 transfers"
          ]
         }
        },
@@ -733,32 +950,92 @@ window.CHRONIK_SPRACHEN.en = {
        },
        {
         "titel": "The travel budget",
-        "text": "Finances are on: whatever one of them pays upfront is split 50/50. For the fuel stop with snacks just for Malik, there's a fixed amount or a split by percent.",
+        "text": "Finances are on: whatever one of them pays upfront is split 50/50. The fuel stop with snacks for Malik is split 40 to 60 percent.",
         "wo": "Edit → Programme & planning → “Show finances button”",
         "vorschau": {
          "kopf": "Finances",
-         "art": "tabelle",
-         "zeilen": [
-          [
-           "Lisa",
-           "Flights",
-           "€642.00"
-          ],
-          [
-           "Malik",
-           "Rental car",
-           "€780.00"
-          ],
-          [
-           "Lisa",
-           "Cabins",
-           "€910.00"
-          ],
-          [
-           "Malik",
-           "Ferries & tolls",
-           "€236.40"
-          ]
+         "art": "finanzen",
+         "eintraege": [
+          {
+           "wer": "Lisa",
+           "was": "Flights",
+           "betrag": "€642.00",
+           "teilung": "Split equally between 2",
+           "anteile": [
+            [
+             "Lisa",
+             "€321.00"
+            ],
+            [
+             "Malik",
+             "€321.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Malik",
+           "was": "Rental car",
+           "betrag": "€780.00",
+           "teilung": "Split equally between 2",
+           "anteile": [
+            [
+             "Lisa",
+             "€390.00"
+            ],
+            [
+             "Malik",
+             "€390.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Lisa",
+           "was": "Cabins",
+           "betrag": "€910.00",
+           "teilung": "Split equally between 2",
+           "anteile": [
+            [
+             "Lisa",
+             "€455.00"
+            ],
+            [
+             "Malik",
+             "€455.00"
+            ]
+           ]
+          },
+          {
+           "wer": "Malik",
+           "was": "Ferries & tolls",
+           "betrag": "€236.40",
+           "teilung": "Split equally between 2",
+           "anteile": [
+            [
+             "Lisa",
+             "€118.20"
+            ],
+            [
+             "Malik",
+             "€118.20"
+            ]
+           ]
+          },
+          {
+           "wer": "Malik",
+           "was": "Fuel stop with snacks",
+           "betrag": "€96.00",
+           "teilung": "Split by percent",
+           "anteile": [
+            [
+             "Lisa",
+             "€38.40 · 40 %"
+            ],
+            [
+             "Malik",
+             "€57.60 · 60 %"
+            ]
+           ]
+          }
          ]
         }
        }
@@ -878,15 +1155,28 @@ window.CHRONIK_SPRACHEN.en = {
         "wo": "In the event → “Finances” → Close",
         "vorschau": {
          "kopf": "Settlement",
-         "art": "tabelle",
-         "zeilen": [
+         "art": "abrechnung",
+         "salden": [
           [
-           "Malik → Lisa",
-           "€267.80"
+           "Lisa",
+           "+€229.40",
+           1.0
+          ],
+          [
+           "Malik",
+           "−€229.40",
+           -1.0
+          ]
+         ],
+         "ueberweisungen": [
+          [
+           "Malik",
+           "Lisa",
+           "€229.40"
           ]
          ],
          "fazit": [
-          "Total €2,568.40 · €1,284.20 each"
+          "Total €2,664.40 · 1 transfer"
          ]
         }
        },
@@ -2872,6 +3162,12 @@ window.CHRONIK_SPRACHEN.en = {
     bsp_schritt: "Step {a} of {n}",
     bsp_schritte: "steps",
     bsp_naechstes: "Next example",
-    bsp_suche_art: "Example"
+    bsp_suche_art: "Example",
+    bsp_hat_bezahlt: "Paid by {n}",
+    bsp_salden: "Who gets, who owes",
+    bsp_ueberweisungen: "Who pays whom",
+    bsp_zur_hilfe: "Back to help",
+    bsp_zum_beispiel: "Back to the example",
+    bsp_tanzflaeche: "Dance floor"
   }
 };
