@@ -460,6 +460,8 @@
   }
 
   /* Mail an eine andere Person. Der Worker verschickt sie;
+     „?v=logo…“ hochzählen, wenn sich das Logo ändert — Mailprogramme
+     merken sich Bilder sonst unter der alten Adresse.
      ohne eingerichteten Mailschlüssel passiert einfach nichts. */
   async function notify(empfaengerId, art, betreff, text) {
     if (!R2) return { ok: false, reason: "kein-worker" };
@@ -469,7 +471,7 @@
       var res = await fetch(R2 + "/notify", {
         method: "POST",
         headers: { Authorization: "Bearer " + tk, "content-type": "application/json" },
-        body: JSON.stringify({ to: empfaengerId, kind: art, subject: betreff, text: text, app: location.origin + location.pathname, name: APPNAME, logo: absolut(((CFG.bilder || {}).icon192) || "icon-192.png") })
+        body: JSON.stringify({ to: empfaengerId, kind: art, subject: betreff, text: text, app: location.origin + location.pathname, name: APPNAME, logo: absolut(((CFG.bilder || {}).icon192) || "icon-192.png") + "?v=logo4" })
       });
       var out = await res.json().catch(function () { return {}; });
       return { ok: !!res.ok && !!out.ok && !out.skipped, reason: out.error || out.skipped || "", detail: out.detail || "", status: res.status };
