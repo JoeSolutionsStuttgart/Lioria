@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b138"></script>
-<script src="lang/de.js?v=b138"></script>
-<script src="lang/en.js?v=b138"></script>
-<script src="lang/sprache.js?v=b138"></script>
-<script src="./support.js?v=b138"></script>
+<script src="chronik-config.js?v=b139"></script>
+<script src="lang/de.js?v=b139"></script>
+<script src="lang/en.js?v=b139"></script>
+<script src="lang/sprache.js?v=b139"></script>
+<script src="./support.js?v=b139"></script>
 </head>
 <body>
 <x-dc>
@@ -18,13 +18,13 @@
 <link rel="icon" type="image/png" href="icon-192.png">
 <meta name="theme-color" content="#f3f2f2">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Chronik">
+<meta name="apple-mobile-web-app-title" content="Lioria">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b138"></script>
-<script src="xlsx-export.js?v=b138"></script>
-<script src="farbe.js?v=b138"></script>
-<script src="cw-plaetze.js?v=b138"></script>
-<script src="fb-knopf.js?v=b138"></script>
+<script src="supabase-bridge.js?v=b139"></script>
+<script src="xlsx-export.js?v=b139"></script>
+<script src="farbe.js?v=b139"></script>
+<script src="cw-plaetze.js?v=b139"></script>
+<script src="fb-knopf.js?v=b139"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -824,6 +824,7 @@
         <button class="btn btn-secondary" style="min-height: 48px; width: 100%; justify-content: flex-start; white-space: nowrap; text-decoration: none; display: flex; align-items: center;" onClick="{{ nav.kontakte }}">{{ contactsLabel }}</button>
         <button class="btn btn-secondary" style="min-height: 48px; width: 100%; justify-content: flex-start; white-space: nowrap; text-decoration: none; display: flex; align-items: center;" onClick="{{ nav.einst }}">⚙ {{ L.einstellungen }}</button>
         <button class="btn btn-secondary" style="min-height: 48px; width: 100%; justify-content: flex-start; white-space: nowrap; text-decoration: none; display: flex; align-items: center;" onClick="{{ nav.hilfe }}">{{ L.hilfe }}</button>
+        <sc-if value="{{ spr.mehr }}" hint-placeholder-val="{{ false }}"><label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 12px; font-size: 15px;"><span aria-hidden="true">🌐</span><span>{{ L.sprache }}</span><select class="input" value="{{ spr.akt }}" onChange="{{ spr.onWahl }}" aria-label="{{ L.sprache }}" style="margin-left: auto; width: auto; min-height: 40px; font-size: 16px;"><sc-for list="{{ spr.liste }}" as="so" hint-placeholder-count="2"><option value="{{ so.key }}">{{ so.name }}</option></sc-for></select></label></sc-if>
         <button class="btn btn-ghost" style="min-height: 48px; width: 100%; justify-content: flex-start; white-space: nowrap; text-decoration: none; display: flex; align-items: center;" onClick="{{ logout }}">{{ L.abmelden }}</button>
       </nav>
     </sc-if>
@@ -834,6 +835,7 @@
         <span>{{ stats.span }}</span>
         <span>{{ stats.shown }} · {{ stats.people }} {{ L.personen }}</span>
         <span style="display: flex; gap: var(--space-2); align-items: baseline;">
+          <sc-if value="{{ spr.mehr }}" hint-placeholder-val="{{ false }}"><label style="display: inline-flex; align-items: baseline; gap: 4px;" title="{{ L.sprache }}"><span aria-hidden="true">🌐</span><select value="{{ spr.akt }}" onChange="{{ spr.onWahl }}" aria-label="{{ L.sprache }}" style="font: inherit; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; background: transparent; border: 0; padding: 0 2px; color: var(--color-text); cursor: pointer;"><sc-for list="{{ spr.liste }}" as="so" hint-placeholder-count="2"><option value="{{ so.key }}">{{ so.name }}</option></sc-for></select></label></sc-if>
           <span style="color: var(--color-accent-700);">{{ me.label }}</span>
           <button onClick="{{ logout }}" style="font: inherit; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; background: none; border: 0; padding: 0; cursor: pointer; color: var(--color-text); text-decoration: underline;">{{ L.abmelden }}</button>
         </span>
@@ -9046,6 +9048,7 @@ class Component extends DCLogic {
     const rows = (this.state.gastDaten || {})[e.id] || [];
     const schon = {};
     (e.people || []).forEach((p) => { schon[String((p && p.name) || "").trim().toLowerCase()] = true; });
+    Object.keys(this.finKontoNamen(e)).forEach((k) => { schon[k] = true; });
     const out = [];
     const dazu = (n) => { const t = String(n || "").trim().slice(0, 60); const k = t.toLowerCase(); if (t && !schon[k]) { schon[k] = true; out.push(t); } };
     const neinVon = {};
@@ -9063,7 +9066,24 @@ class Component extends DCLogic {
   }
   /* Das Finanzfenster gehört zu einem Ereignis (state.fin.evId). */
   finEreignis() { const f = this.state.fin; return f ? (this.state.events || []).filter((x) => x.id === f.evId)[0] || null : null; }
-  finIchName() { return String((this.me() || {}).username || "").trim(); }
+  /* Wie heißt ein Konto in diesem Ereignis? Steht es als Person drin, zählt der Name der Person –
+     sonst gäbe es dieselbe Person zweimal (einmal als Person, einmal als Konto). */
+  finKontoNamen(e) {
+    const m = {};
+    (((e || {}).people) || []).forEach((p) => {
+      if (!p || !p.uid) return;
+      const u = (this.state.users || []).filter((x) => x.id === p.uid)[0];
+      if (u && u.username && p.name) m[String(u.username).trim().toLowerCase()] = String(p.name).trim();
+    });
+    return m;
+  }
+  finAlias(e) { const m = this.finKontoNamen(e); return (n) => m[String(n || "").trim().toLowerCase()] || n; }
+  finIchName() {
+    const me = this.me() || {};
+    const e = this.finEreignis();
+    const p = (((e || {}).people) || []).filter((x) => x && x.uid && x.uid === me.id)[0];
+    return String((p && p.name) || me.username || "").trim();
+  }
   finOeffnen(evId) { this.setState({ fin: { evId: evId, laden: false, err: "", d: null, form: null, extra: [], rFuer: "", info: "" } }, () => this.finLaden()); }
   finZu() { this.setState({ fin: null }); }
   finSet(p) { this.setState((s) => (s.fin ? { fin: Object.assign({}, s.fin, typeof p === "function" ? p(s.fin) : p) } : null)); }
@@ -9078,7 +9098,18 @@ class Component extends DCLogic {
     const CC = window.ChronikCloud;
     if (!f || !CC || !CC.finSicht) return;
     this.finSet({ laden: true });
-    try { const d = await CC.finSicht(f.evId); this.finSet({ laden: false, err: "", d: d || {} }); }
+    try {
+      const d = await CC.finSicht(f.evId) || {};
+      /* Ältere Einträge mit Kontonamen auf den Personennamen umschreiben. */
+      const al = this.finAlias(this.finEreignis());
+      d.eintraege = (d.eintraege || []).map((r) => {
+        const x = Object.assign({}, r.data || {});
+        x.zahler = (x.zahler || []).map((z) => Object.assign({}, z, { n: al(z.n) }));
+        x.teil = (x.teil || []).map((t) => Object.assign({}, t, { n: al(t.n) }));
+        return Object.assign({}, r, { data: x });
+      });
+      this.finSet({ laden: false, err: "", d: d });
+    }
     catch (e) { this.finSet({ laden: false, err: e && e.code === "D-28" ? tx("fin_f_sql") : tx("fin_f_laden") + " (" + ((e && (e.code || e.message)) || "?") + ")" }); }
   }
   /* Zur Auswahl: die Personen des Ereignisses (auch erfundene), wer schon in
@@ -9089,7 +9120,8 @@ class Component extends DCLogic {
     const e = this.finEreignis() || {};
     const ich = this.finIchName();
     const m = {};
-    const dazu = (n) => { const t = String(n || "").trim().slice(0, 60); if (t && !m[t.toLowerCase()]) m[t.toLowerCase()] = t; };
+    const al = this.finAlias(e);
+    const dazu = (n0) => { const t = String(al(n0) || "").trim().slice(0, 60); if (t && !m[t.toLowerCase()]) m[t.toLowerCase()] = t; };
     this.personenMitGaesten(e).forEach((p) => dazu(p && p.name));
     (d.eintraege || []).forEach((r) => { const x = r.data || {}; (x.zahler || []).forEach((z) => dazu(z.n)); (x.teil || []).forEach((t) => dazu(t.n)); });
     (f.extra || []).forEach(dazu);
@@ -11950,7 +11982,12 @@ class Component extends DCLogic {
       themeId: l.themeId ? (DESIGN_ALIAS[l.themeId] || l.themeId) : null,
       override: l.override || {},
       custom: Array.isArray(l.custom) ? l.custom : (this.state.custom || []),
-      meta: Object.assign({}, this.state.meta, fallbackMeta || {}, l.meta || {}),
+      meta: (function () {
+        const m = Object.assign({}, this.state.meta, fallbackMeta || {}, l.meta || {});
+        /* Der frühere Standard-Untertitel ergab neben der Anzahl keinen Sinn – durch den neuen ersetzen. */
+        if (["Ereignisse in Zeit gesetzt", "Events set in time"].indexOf(String(m.subtitle || "").trim()) >= 0) m.subtitle = tx("ereignisse_in_zeit_gesetzt");
+        return m;
+      }).call(this),
       mode: l.mode || "proportional",
       zoom: l.zoom || 1,
       avatar: l.avatar || "",
@@ -18133,8 +18170,8 @@ class Component extends DCLogic {
       wortBild: ((window.CHRONIK_CONFIG || {}).bilder || {}).wortmarke || "",
       wortMitC: !((window.CHRONIK_CONFIG || {}).bilder || {}).wortmarke && /^c/i.test(String(tx("chronik") || "")),
       wortOhneC: !((window.CHRONIK_CONFIG || {}).bilder || {}).wortmarke && !/^c/i.test(String(tx("chronik") || "")),
-      wortRest: String(tx("chronik") || "Chronik").slice(1),
-      wortGanz: String(tx("chronik") || "Chronik"),
+      wortRest: String(tx("chronik") || "Lioria").slice(1),
+      wortGanz: String(tx("chronik") || "Lioria"),
       wortBildStil: { display: "inline-block", height: "1em", width: "5em", maxWidth: "100%", background: "url(" + JSON.stringify(((window.CHRONIK_CONFIG || {}).bilder || {}).wortmarke || "") + ") left center / contain no-repeat" },
       gz: (function (self) {
         if (st.gastZurueck === undefined && !self._gzGelesen) { self._gzGelesen = true; try { const v = JSON.parse(sessionStorage.getItem("chronik-gast-zurueck") || "null"); if (v && v.hash) window.setTimeout(() => self.setState({ gastZurueck: v }), 0); } catch (x) { /* privat */ } }
@@ -19411,7 +19448,8 @@ class Component extends DCLogic {
         const ks = Object.keys(S);
         const akt = window.CHRONIK_SPRACHE || "de";
         const box = { display: "inline-flex", gap: "2px", padding: "3px", borderRadius: "999px", zIndex: 2100, background: "rgba(255,255,255,0.82)", boxShadow: "0 2px 10px rgba(0,0,0,0.12)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)" };
-        return { mehr: ks.length > 1, mehrLogin: ks.length > 1 && !self0.state.gast,
+        const wechsel = (k) => { if (k === akt) return; try { window.localStorage.setItem("chronik.sprache", k); } catch (e) { /* ohne Speicher */ } window.location.reload(); };
+        return { mehr: ks.length > 1, mehrLogin: ks.length > 1 && !self0.state.gast, akt: akt, onWahl: (ev) => wechsel(ev.target.value),
           loginStil: Object.assign({ position: "fixed", top: "12px", right: "12px" }, box),
           gastStil: Object.assign({ position: "fixed", top: "12px", left: "12px" }, box),
           liste: ks.map((k) => ({ key: k, kurz: k.toUpperCase(), name: (S[k] || {}).name || k, aria: k === akt ? "true" : "false",

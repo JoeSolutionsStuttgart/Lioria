@@ -1,6 +1,6 @@
 {
-  "name": "Deine Chronik",
-  "short_name": "Chronik",
+  "name": "Lioria",
+  "short_name": "Lioria",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
