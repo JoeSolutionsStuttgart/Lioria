@@ -443,128 +443,13 @@ window.CHRONIK_SPRACHEN.en = {
         "vorschau": {
          "kopf": "Finances · before the festival",
          "art": "finanzen",
-         "eintraege": [
-          {
-           "wer": "Mia",
-           "was": "6 tickets",
-           "betrag": "€894.00",
-           "teilung": "Split equally between 6",
-           "anteile": [
-            [
-             "Mia",
-             "€149.00"
-            ],
-            [
-             "Jonas",
-             "€149.00"
-            ],
-            [
-             "Aylin",
-             "€149.00"
-            ],
-            [
-             "Ben",
-             "€149.00"
-            ],
-            [
-             "Lea",
-             "€149.00"
-            ],
-            [
-             "Sam",
-             "€149.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Jonas",
-           "was": "Fuel & tolls",
-           "betrag": "€128.40",
-           "teilung": "Split equally between 4",
-           "anteile": [
-            [
-             "Jonas",
-             "€32.10"
-            ],
-            [
-             "Mia",
-             "€32.10"
-            ],
-            [
-             "Ben",
-             "€32.10"
-            ],
-            [
-             "Lea",
-             "€32.10"
-            ]
-           ]
-          },
-          {
-           "wer": "Ben",
-           "was": "Gazebo",
-           "betrag": "€90.00",
-           "teilung": "Split equally between 6",
-           "anteile": [
-            [
-             "Mia",
-             "€15.00"
-            ],
-            [
-             "Jonas",
-             "€15.00"
-            ],
-            [
-             "Aylin",
-             "€15.00"
-            ],
-            [
-             "Ben",
-             "€15.00"
-            ],
-            [
-             "Lea",
-             "€15.00"
-            ],
-            [
-             "Sam",
-             "€15.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Aylin",
-           "was": "Big shop",
-           "betrag": "€213.00",
-           "teilung": "Fixed amounts, rest split equally",
-           "anteile": [
-            [
-             "Sam",
-             "€18.00 · fixed"
-            ],
-            [
-             "Mia",
-             "€39.00"
-            ],
-            [
-             "Jonas",
-             "€39.00"
-            ],
-            [
-             "Aylin",
-             "€39.00"
-            ],
-            [
-             "Ben",
-             "€39.00"
-            ],
-            [
-             "Lea",
-             "€39.00"
-            ]
-           ]
-          }
-         ]
+         "nur": [
+          0,
+          1,
+          2,
+          3
+         ],
+         "bis": 4
         }
        },
        {
@@ -670,88 +555,12 @@ window.CHRONIK_SPRACHEN.en = {
         "vorschau": {
          "kopf": "Finances · on the go",
          "art": "finanzen",
-         "eintraege": [
-          {
-           "wer": "Sam",
-           "was": "Pizza for everyone",
-           "betrag": "€54.00",
-           "teilung": "Split equally between 6",
-           "anteile": [
-            [
-             "Mia",
-             "€9.00"
-            ],
-            [
-             "Jonas",
-             "€9.00"
-            ],
-            [
-             "Aylin",
-             "€9.00"
-            ],
-            [
-             "Ben",
-             "€9.00"
-            ],
-            [
-             "Lea",
-             "€9.00"
-            ],
-            [
-             "Sam",
-             "€9.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Lea",
-           "was": "Deposits & water",
-           "betrag": "€24.00",
-           "teilung": "Split equally between 6",
-           "anteile": [
-            [
-             "Mia",
-             "€4.00"
-            ],
-            [
-             "Jonas",
-             "€4.00"
-            ],
-            [
-             "Aylin",
-             "€4.00"
-            ],
-            [
-             "Ben",
-             "€4.00"
-            ],
-            [
-             "Lea",
-             "€4.00"
-            ],
-            [
-             "Sam",
-             "€4.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Ben",
-           "was": "Pegs & duct tape",
-           "betrag": "€12.00",
-           "teilung": "Split by percent",
-           "anteile": [
-            [
-             "Ben",
-             "€6.00 · 50 %"
-            ],
-            [
-             "Jonas",
-             "€6.00 · 50 %"
-            ]
-           ]
-          }
-         ]
+         "nur": [
+          4,
+          5,
+          6
+         ],
+         "bis": 7
         }
        }
       ]
@@ -764,70 +573,13 @@ window.CHRONIK_SPRACHEN.en = {
         "text": "Close the finances – Lioria works out who pays whom and how much. With as few transfers as possible instead of a mess of small amounts.",
         "wo": "In the event → “Finances” → Close",
         "vorschau": {
-         "kopf": "Settlement",
-         "art": "abrechnung",
-         "salden": [
-          [
-           "Mia",
-           "+€645.90",
-           1.0
-          ],
-          [
-           "Jonas",
-           "−€125.70",
-           -0.19461216906641896
-          ],
-          [
-           "Aylin",
-           "−€3.00",
-           -0.004644681839294009
-          ],
-          [
-           "Ben",
-           "−€152.10",
-           -0.23548536925220623
-          ],
-          [
-           "Lea",
-           "−€224.10",
-           -0.3469577333952624
-          ],
-          [
-           "Sam",
-           "−€141.00",
-           -0.21830004644681839
-          ]
-         ],
-         "ueberweisungen": [
-          [
-           "Lea",
-           "Mia",
-           "€224.10"
-          ],
-          [
-           "Ben",
-           "Mia",
-           "€152.10"
-          ],
-          [
-           "Sam",
-           "Mia",
-           "€141.00"
-          ],
-          [
-           "Jonas",
-           "Mia",
-           "€125.70"
-          ],
-          [
-           "Aylin",
-           "Mia",
-           "€3.00"
-          ]
-         ],
-         "fazit": [
-          "Total €1,415.40 · 5 transfers"
-         ]
+         "kopf": "Finances · closed",
+         "art": "finanzen",
+         "nur": [],
+         "bis": 7,
+         "zu": true,
+         "wer": "Mia",
+         "datum": "Mon, 20 July"
         }
        },
        {
@@ -872,6 +624,272 @@ window.CHRONIK_SPRACHEN.en = {
           ]
          ]
         }
+       }
+      ]
+     }
+    ],
+    "finanzen": [
+     {
+      "titel": "6 tickets",
+      "betrag": 89400,
+      "zahler": [
+       {
+        "n": "Mia",
+        "c": 89400
+       }
+      ],
+      "teil": [
+       {
+        "n": "Mia",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Aylin",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lea",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Sam",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Fuel & tolls",
+      "betrag": 12840,
+      "zahler": [
+       {
+        "n": "Jonas",
+        "c": 12840
+       }
+      ],
+      "teil": [
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mia",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lea",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Gazebo",
+      "betrag": 9000,
+      "zahler": [
+       {
+        "n": "Ben",
+        "c": 9000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Mia",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Aylin",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lea",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Sam",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Big shop",
+      "betrag": 21300,
+      "zahler": [
+       {
+        "n": "Aylin",
+        "c": 21300
+       }
+      ],
+      "teil": [
+       {
+        "n": "Mia",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Aylin",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lea",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Sam",
+        "art": "fest",
+        "w": "18"
+       }
+      ]
+     },
+     {
+      "titel": "Pizza for everyone",
+      "betrag": 5400,
+      "zahler": [
+       {
+        "n": "Sam",
+        "c": 5400
+       }
+      ],
+      "teil": [
+       {
+        "n": "Mia",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Aylin",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lea",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Sam",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Deposits & water",
+      "betrag": 2400,
+      "zahler": [
+       {
+        "n": "Lea",
+        "c": 2400
+       }
+      ],
+      "teil": [
+       {
+        "n": "Mia",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Aylin",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lea",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Sam",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Pegs & duct tape",
+      "betrag": 1200,
+      "zahler": [
+       {
+        "n": "Ben",
+        "c": 1200
+       }
+      ],
+      "teil": [
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Jonas",
+        "art": "%",
+        "w": ""
        }
       ]
      }
@@ -955,88 +973,15 @@ window.CHRONIK_SPRACHEN.en = {
         "vorschau": {
          "kopf": "Finances",
          "art": "finanzen",
-         "eintraege": [
-          {
-           "wer": "Lisa",
-           "was": "Flights",
-           "betrag": "€642.00",
-           "teilung": "Split equally between 2",
-           "anteile": [
-            [
-             "Lisa",
-             "€321.00"
-            ],
-            [
-             "Malik",
-             "€321.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Malik",
-           "was": "Rental car",
-           "betrag": "€780.00",
-           "teilung": "Split equally between 2",
-           "anteile": [
-            [
-             "Lisa",
-             "€390.00"
-            ],
-            [
-             "Malik",
-             "€390.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Lisa",
-           "was": "Cabins",
-           "betrag": "€910.00",
-           "teilung": "Split equally between 2",
-           "anteile": [
-            [
-             "Lisa",
-             "€455.00"
-            ],
-            [
-             "Malik",
-             "€455.00"
-            ]
-           ]
-          },
-          {
-           "wer": "Malik",
-           "was": "Ferries & tolls",
-           "betrag": "€236.40",
-           "teilung": "Split equally between 2",
-           "anteile": [
-            [
-             "Lisa",
-             "€118.20"
-            ],
-            [
-             "Malik",
-             "€118.20"
-            ]
-           ]
-          },
-          {
-           "wer": "Malik",
-           "was": "Fuel stop with snacks",
-           "betrag": "€96.00",
-           "teilung": "Split by percent",
-           "anteile": [
-            [
-             "Lisa",
-             "€38.40 · 40 %"
-            ],
-            [
-             "Malik",
-             "€57.60 · 60 %"
-            ]
-           ]
-          }
-         ]
+         "nur": [
+          0,
+          1,
+          2,
+          3,
+          4
+         ],
+         "bis": 5,
+         "salden": false
         }
        }
       ]
@@ -1154,30 +1099,13 @@ window.CHRONIK_SPRACHEN.en = {
         "text": "Close the finances, one transfer, done. No calculator, no discussion.",
         "wo": "In the event → “Finances” → Close",
         "vorschau": {
-         "kopf": "Settlement",
-         "art": "abrechnung",
-         "salden": [
-          [
-           "Lisa",
-           "+€229.40",
-           1.0
-          ],
-          [
-           "Malik",
-           "−€229.40",
-           -1.0
-          ]
-         ],
-         "ueberweisungen": [
-          [
-           "Malik",
-           "Lisa",
-           "€229.40"
-          ]
-         ],
-         "fazit": [
-          "Total €2,664.40 · 1 transfer"
-         ]
+         "kopf": "Finances · closed",
+         "art": "finanzen",
+         "nur": [],
+         "bis": 5,
+         "zu": true,
+         "wer": "Lisa",
+         "datum": "Sun, 2 August"
         }
        },
        {
@@ -1202,6 +1130,118 @@ window.CHRONIK_SPRACHEN.en = {
           ]
          ]
         }
+       }
+      ]
+     }
+    ],
+    "finanzen": [
+     {
+      "titel": "Flights",
+      "betrag": 64200,
+      "zahler": [
+       {
+        "n": "Lisa",
+        "c": 64200
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Malik",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Rental car",
+      "betrag": 78000,
+      "zahler": [
+       {
+        "n": "Malik",
+        "c": 78000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Malik",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Cabins",
+      "betrag": 91000,
+      "zahler": [
+       {
+        "n": "Lisa",
+        "c": 91000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Malik",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Ferries & tolls",
+      "betrag": 23640,
+      "zahler": [
+       {
+        "n": "Malik",
+        "c": 23640
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Malik",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Fuel stop with snacks",
+      "betrag": 9600,
+      "zahler": [
+       {
+        "n": "Malik",
+        "c": 9600
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": "-20"
+       },
+       {
+        "n": "Malik",
+        "art": "%",
+        "w": "20"
        }
       ]
      }
@@ -3168,6 +3208,7 @@ window.CHRONIK_SPRACHEN.en = {
     bsp_ueberweisungen: "Who pays whom",
     bsp_zur_hilfe: "Back to help",
     bsp_zum_beispiel: "Back to the example",
-    bsp_tanzflaeche: "Dance floor"
+    bsp_tanzflaeche: "Dance floor",
+    fin_fest_kurz: "fixed"
   }
 };
