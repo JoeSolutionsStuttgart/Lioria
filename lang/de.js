@@ -3,6 +3,921 @@ window.CHRONIK_SPRACHEN = window.CHRONIK_SPRACHEN || {};
 window.CHRONIK_SPRACHEN.de = {
   name: "Deutsch",
   locale: "de-DE",
+  /* Beispiele in der Hilfe: je ein erfundenes Ereignis von der Planung bis danach. */
+  beispiele: [
+   {
+    "k": "hochzeit",
+    "icon": "ph-duotone ph-heart",
+    "farbe": "#d6006c",
+    "emoji": "💍",
+    "titel": "Hochzeit von Lena & Tom",
+    "kurz": "Ein Jahr Planung, ein großer Tag, Erinnerungen für immer – mit Gästeseite, Sitzplan und Fotowand. Ohne Finanzen: Das zahlt das Brautpaar.",
+    "phasen": [
+     {
+      "titel": "Ein Jahr vorher",
+      "schritte": [
+       {
+        "titel": "Das Ereignis anlegen",
+        "text": "Lena legt „Hochzeit Lena & Tom“ an: 14. Juni, Gut Rosenhof. Ein festliches Design dazu, sichtbar erst einmal nur für Tom. Finanzen bleiben aus – die braucht hier niemand.",
+        "wo": "„+ Ereignis“ → Grunddaten. Design und Sichtbarkeit findest du beim Bearbeiten.",
+        "lehr": "grund",
+        "vorschau": {
+         "kopf": "Grunddaten",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Name",
+           "Hochzeit Lena & Tom"
+          ],
+          [
+           "Datum",
+           "Sa, 14. Juni"
+          ],
+          [
+           "Ort",
+           "Gut Rosenhof"
+          ],
+          [
+           "Sichtbar für",
+           "Tom"
+          ],
+          [
+           "Finanzen",
+           "aus"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Countdown für die Vorfreude",
+        "text": "Ein Countdown zählt die Tage – im Ereignis und auf der Gästeseite. Wer den Link öffnet, sieht sofort, wie lange es noch dauert.",
+        "wo": "Bearbeiten → Vor Ort → Countdown",
+        "lehr": "countdown",
+        "vorschau": {
+         "kopf": "Countdown",
+         "art": "gross",
+         "wert": "214",
+         "unter": "Tage bis zum Ja-Wort"
+        }
+       },
+       {
+        "titel": "Eine Gästeseite für alle",
+        "text": "Statt Excel-Listen und WhatsApp-Chaos gibt es einen Link. Gäste brauchen kein Konto – auf Wunsch schützt ein Passwort die Seite. Lena wählt aus, was die Gäste sehen.",
+        "wo": "Bearbeiten → Gästeseite → Link & Freigabe",
+        "lehr": "offen",
+        "vorschau": {
+         "kopf": "Gästeseite · Bereiche",
+         "art": "chips",
+         "chips": [
+          "Zu- & Absage",
+          "Programm",
+          "Lageplan",
+          "Sitzplan",
+          "Fotowand",
+          "Gästebuch"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Die letzten Wochen",
+      "schritte": [
+       {
+        "titel": "Zusagen sammeln",
+        "text": "Die Gäste sagen zu oder ab, tragen Begleitung und Essenswunsch ein. Fehlt etwas, erinnert die Seite freundlich daran. Lena exportiert die Liste mit einem Klick als Excel für die Küche.",
+        "wo": "Bearbeiten → Gästeseite → Rückmeldung",
+        "lehr": "rsvp",
+        "vorschau": {
+         "kopf": "Rückmeldungen",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Oma Gerda",
+           "Zusage",
+           "vegetarisch"
+          ],
+          [
+           "Familie Brandt",
+           "Zusage +3",
+           "2× Fleisch, 2× Kind"
+          ],
+          [
+           "Marie",
+           "Zusage +1",
+           "vegan"
+          ],
+          [
+           "Jonas",
+           "Absage",
+           "–"
+          ]
+         ],
+         "fazit": [
+          "62 Zusagen · 7 Absagen · 4 offen"
+         ]
+        }
+       },
+       {
+        "titel": "Fragen an die Gäste",
+        "text": "„Welches Lied bringt dich auf die Tanzfläche?“ und „Kommst du zum Brunch am Sonntag?“ – eigene Abfragen landen direkt bei den Zusagen. Die Liedwünsche bekommt später die Band.",
+        "wo": "Bearbeiten → Gästeseite → Abfragen",
+        "lehr": "fragen",
+        "vorschau": {
+         "kopf": "Abfrage · Brunch am Sonntag?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Ja, gerne",
+           71
+          ],
+          [
+           "Nein",
+           18
+          ],
+          [
+           "Weiß noch nicht",
+           11
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Der Sitzplan",
+        "text": "Tische ziehen, Gäste zuordnen, fertig. Am Tag selbst findet jeder Gast seinen Platz auf der Gästeseite – kein Gedränge vor der Tafel am Eingang.",
+        "wo": "Bearbeiten → Gästeseite → Sitzplan",
+        "lehr": "sitz",
+        "vorschau": {
+         "kopf": "Sitzplan",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Tisch „Rose“",
+           "Brautpaar, Trauzeugen",
+           "8"
+          ],
+          [
+           "Tisch „Lavendel“",
+           "Familie Brandt, Oma Gerda",
+           "8"
+          ],
+          [
+           "Tisch „Salbei“",
+           "Studienfreunde",
+           "10"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Programm & Lageplan",
+        "text": "Der Ablauf des Tages steht im Programm, der Lageplan zeigt Parkplatz, Trauort und Festsaal. Ändert sich etwas, sehen es alle sofort.",
+        "wo": "Bearbeiten → Programm und Planung",
+        "lehr": "timetable",
+        "vorschau": {
+         "kopf": "Programm · 14. Juni",
+         "art": "zeitplan",
+         "zeilen": [
+          [
+           "14:00",
+           "Freie Trauung im Rosengarten"
+          ],
+          [
+           "15:00",
+           "Sektempfang"
+          ],
+          [
+           "16:30",
+           "Gruppenfoto"
+          ],
+          [
+           "18:30",
+           "Abendessen"
+          ],
+          [
+           "21:00",
+           "Eröffnungstanz"
+          ],
+          [
+           "00:00",
+           "Mitternachtssnack"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Der große Tag",
+      "schritte": [
+       {
+        "titel": "Die Fotowand",
+        "text": "Ein QR-Code auf jedem Tisch führt zur Gästeseite. Jeder lädt seine Fotos hoch – aus Blickwinkeln, die kein Fotograf erwischt. Lena und Tom sehen sie am nächsten Morgen direkt im Ereignis.",
+        "wo": "Bearbeiten → Gästeseite → Bereiche → Fotowand",
+        "lehr": "fotowand",
+        "vorschau": {
+         "kopf": "Fotowand",
+         "art": "fotos",
+         "bilder": [
+          [
+           "💍",
+           "Ringtausch · Marie"
+          ],
+          [
+           "🥂",
+           "Sektempfang · Onkel Paul"
+          ],
+          [
+           "💃",
+           "Erster Tanz · Jonas"
+          ],
+          [
+           "🎂",
+           "Die Torte · Oma Gerda"
+          ],
+          [
+           "🌅",
+           "Abendlicht · Lisa"
+          ],
+          [
+           "🎉",
+           "Party · Ben"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Das Gästebuch",
+        "text": "Zwischen Torte und Tanzfläche schreiben die Gäste ins Gästebuch – das, was man sonst nur einmal sagt und dann vergisst.",
+        "wo": "Bearbeiten → Gästeseite → Bereiche → Gästebuch",
+        "lehr": "fotowand",
+        "vorschau": {
+         "kopf": "Gästebuch",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Oma Gerda",
+           "Ich habe seit 1971 nicht mehr so getanzt. Danke, ihr beiden!"
+          ],
+          [
+           "Marie",
+           "Als Tom beim Ja-Wort die Stimme weggeblieben ist – unvergesslich."
+          ],
+          [
+           "Ben",
+           "Beste Hochzeit. Der Mitternachtssnack war Kunst."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Für den Notfall",
+        "text": "Trauzeugin, Location, Taxi: Wichtige Nummern stehen griffbereit auf der Gästeseite – damit niemand das Brautpaar anrufen muss.",
+        "wo": "Bearbeiten → Vor Ort → Notfall",
+        "lehr": "notfall",
+        "vorschau": {
+         "kopf": "Notfall & Infos",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Trauzeugin Anna",
+           "0170 123 45 67"
+          ],
+          [
+           "Gut Rosenhof",
+           "05141 98 76 54"
+          ],
+          [
+           "Taxi Celle",
+           "05141 44 44 4"
+          ],
+          [
+           "WLAN",
+           "Rosenhof-Gast"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Danach",
+      "schritte": [
+       {
+        "titel": "Alles an einem Ort",
+        "text": "Fotograf, Gäste, eigene Handys: Lena sortiert alles in Alben. Jedes Album hat eigene Sichtbarkeit – „Party“ sehen nur die Freunde.",
+        "wo": "Bearbeiten → Bilder → Alben",
+        "lehr": "alben",
+        "vorschau": {
+         "kopf": "Alben",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Trauung",
+           "84 Bilder",
+           "alle Gäste"
+          ],
+          [
+           "Fotograf",
+           "312 Bilder",
+           "Familie"
+          ],
+          [
+           "Party",
+           "126 Bilder",
+           "Freunde"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Die Fotoshow zum Jahrestag",
+        "text": "Ein Jahr später: Fotoshow an, die Liedwünsche der Gäste als Musik – und der ganze Tag läuft noch einmal ab.",
+        "wo": "Im Ereignis → „Fotoshow“",
+        "vorschau": {
+         "kopf": "Fotoshow",
+         "art": "gross",
+         "wert": "522",
+         "unter": "Bilder · 3 Alben · Musik aus den Liedwünschen"
+        }
+       },
+       {
+        "titel": "Ein Kapitel im Zeitstrahl",
+        "text": "Die Hochzeit steht zwischen Verlobung und Flitterwochen. Wer dabei war und ein Konto hat, findet sie auch in seiner eigenen Lioria.",
+        "wo": "Zeitstrahl, Vertikal oder Kalender",
+        "vorschau": {
+         "kopf": "Zeitstrahl",
+         "art": "route",
+         "stopps": [
+          [
+           "Verlobung",
+           "Mai 2025"
+          ],
+          [
+           "Hochzeit",
+           "Juni 2026"
+          ],
+          [
+           "Flitterwochen",
+           "September 2026"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "festival",
+    "icon": "ph-duotone ph-music-notes",
+    "farbe": "#7c4ad8",
+    "emoji": "🎪",
+    "titel": "Sonnenfeld Open Air mit der Crew",
+    "kurz": "Sechs Freunde, vier Tage, ein Zeltplatz: Abstimmungen, Timetable vom Foto, geteilte Kosten – und am Ende eine faire Abrechnung.",
+    "phasen": [
+     {
+      "titel": "Die Crew plant",
+      "schritte": [
+       {
+        "titel": "Ereignis & Crew",
+        "text": "Mia legt „Sonnenfeld Open Air“ von Donnerstag bis Sonntag an und trägt die Crew ein. Wer ein Konto hat, wird verknüpft – und sieht das Festival in seiner eigenen Lioria.",
+        "wo": "Bearbeiten → Personen",
+        "lehr": "personen",
+        "vorschau": {
+         "kopf": "Personen",
+         "art": "chips",
+         "chips": [
+          "Mia",
+          "Jonas",
+          "Aylin",
+          "Ben",
+          "Lea",
+          "Sam"
+         ]
+        }
+       },
+       {
+        "titel": "Abstimmen statt endlos chatten",
+        "text": "Wer fährt? Pavillon oder Tarp? Eine Abstimmung im Ereignis und nach einem Abend steht's fest.",
+        "wo": "Bearbeiten → Abstimmungen",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Abstimmung · Pavillon oder Tarp?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Pavillon (3×6 m)",
+           67
+          ],
+          [
+           "Tarp",
+           17
+          ],
+          [
+           "Egal, Hauptsache Schatten",
+           16
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Finanzen einschalten",
+        "text": "Hier lohnt sich der Finanzplaner: Tickets, Sprit, Pavillon, Großeinkauf. Jeder trägt ein, was er bezahlt hat – aufgeteilt auf alle, nach festen Beträgen oder in Prozent.",
+        "wo": "Bearbeiten → Programm und Planung → „Finanzen-Knopf zeigen“. Danach oben rechts im Ereignis auf „Finanzen“.",
+        "vorschau": {
+         "kopf": "Finanzen",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Mia",
+           "6 Tickets",
+           "894,00 €"
+          ],
+          [
+           "Jonas",
+           "Sprit & Maut",
+           "128,40 €"
+          ],
+          [
+           "Ben",
+           "Pavillon",
+           "89,99 €"
+          ],
+          [
+           "Aylin",
+           "Großeinkauf",
+           "212,35 €"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Timetable vom Foto",
+        "text": "Das Line-up-Plakat abfotografieren – Lioria liest Bühnen und Uhrzeiten aus. Jeder markiert seine Favoriten, Überschneidungen sieht man sofort.",
+        "wo": "Bearbeiten → Programm und Planung → Timetable",
+        "lehr": "timetable",
+        "vorschau": {
+         "kopf": "Timetable · Freitag",
+         "art": "zeitplan",
+         "zeilen": [
+          [
+           "18:30",
+           "Hauptbühne · The Lighthouse"
+          ],
+          [
+           "20:00",
+           "Zeltbühne · Neon Fjord"
+          ],
+          [
+           "21:15",
+           "Hauptbühne · Paper Kites Club"
+          ],
+          [
+           "23:45",
+           "Waldbühne · Lumen (DJ-Set)"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Auf dem Gelände",
+      "schritte": [
+       {
+        "titel": "Lageplan & „Wo sind meine Leute?“",
+        "text": "Der Geländeplan liegt im Ereignis. Wer mag, teilt seinen Standort – freiwillig und höchstens drei Stunden. Nie wieder „Wo seid ihr?“ ohne Netz.",
+        "wo": "Bearbeiten → Vor Ort → Lageplan",
+        "lehr": "lage",
+        "vorschau": {
+         "kopf": "Wo sind meine Leute?",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Mia",
+           "Hauptbühne, vorne links",
+           "vor 4 Min."
+          ],
+          [
+           "Aylin",
+           "Food-Court",
+           "gerade eben"
+          ],
+          [
+           "Ben",
+           "Zeltplatz C4",
+           "vor 12 Min."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Momente festhalten",
+        "text": "Alle laden ihre Bilder ins selbe Ereignis – ein Album pro Tag. Kommentare darunter halten fest, was auf dem Foto nicht zu sehen ist.",
+        "wo": "Bearbeiten → Bilder",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Album · Samstag",
+         "art": "fotos",
+         "bilder": [
+          [
+           "⛺",
+           "Unser Camp"
+          ],
+          [
+           "🎸",
+           "The Lighthouse"
+          ],
+          [
+           "🌧️",
+           "Der Regenguss"
+          ],
+          [
+           "🍕",
+           "Pizza um 3 Uhr"
+          ],
+          [
+           "🌈",
+           "Danach: Regenbogen"
+          ],
+          [
+           "🔥",
+           "Lagerfeuer"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Ausgaben direkt eintragen",
+        "text": "Pfand, Nacht-Pizza, Ersatz-Hering: Wer zahlt, trägt es gleich am Handy ein. Nichts geht verloren, niemand muss Zettel sammeln.",
+        "wo": "Im Ereignis → „Finanzen“ → Eintrag",
+        "vorschau": {
+         "kopf": "Finanzen · unterwegs",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Sam",
+           "Pizza für alle",
+           "54,00 €"
+          ],
+          [
+           "Lea",
+           "Pfand & Wasser",
+           "23,50 €"
+          ],
+          [
+           "Ben",
+           "Hering & Panzertape",
+           "11,80 €"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Zurück zu Hause",
+      "schritte": [
+       {
+        "titel": "Fair abrechnen",
+        "text": "Finanzen abschließen – Lioria rechnet aus, wer wem wie viel überweist. Mit möglichst wenigen Überweisungen statt einem Durcheinander aus Einzelbeträgen.",
+        "wo": "Im Ereignis → „Finanzen“ → Abschließen",
+        "vorschau": {
+         "kopf": "Abrechnung",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Lea → Mia",
+           "212,17 €"
+          ],
+          [
+           "Sam → Mia",
+           "181,67 €"
+          ],
+          [
+           "Ben → Mia",
+           "133,88 €"
+          ],
+          [
+           "Jonas → Mia",
+           "107,27 €"
+          ],
+          [
+           "Aylin → Mia",
+           "23,32 €"
+          ]
+         ],
+         "fazit": [
+          "Gesamt 1.414,04 € · pro Kopf 235,67 €"
+         ]
+        }
+       },
+       {
+        "titel": "Nächstes Jahr wieder?",
+        "text": "Die letzte Abstimmung des Festivals ist schnell entschieden. Die Kommentare unter den Bildern erzählen den Rest.",
+        "wo": "Bearbeiten → Abstimmungen",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Abstimmung · Nächstes Jahr wieder?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Ja, sofort",
+           100
+          ],
+          [
+           "Nein",
+           0
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Die Festival-Jahre",
+        "text": "Im Zeitstrahl reihen sich die Festivals aneinander. Beim Vergleich mit einem Kontakt siehst du auf einen Blick, wo ihr zusammen wart.",
+        "wo": "Kontakte → Person anklicken oder „Zeitstrahlen vergleichen“",
+        "vorschau": {
+         "kopf": "Zeitstrahl · Mia & Ben",
+         "art": "route",
+         "stopps": [
+          [
+           "Sonnenfeld 2024",
+           "zu viert, 3 Tage Regen"
+          ],
+          [
+           "Sonnenfeld 2025",
+           "zu fünft"
+          ],
+          [
+           "Sonnenfeld 2026",
+           "die ganze Crew"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "reise",
+    "icon": "ph-duotone ph-map-trifold",
+    "farbe": "#1f84cf",
+    "emoji": "🗺️",
+    "titel": "Roadtrip Norwegen",
+    "kurz": "Zwölf Tage, fünf Etappen, zwei Menschen: Route auf der Karte, Buchungen griffbereit, Gefühle festgehalten – und ein Jahr später noch alles da.",
+    "phasen": [
+     {
+      "titel": "Route planen",
+      "schritte": [
+       {
+        "titel": "Etappen auf der Karte",
+        "text": "Lisa plant die Route als Etappen: Oslo, Lillehammer, Geiranger, Ålesund, Bergen. Für jede Etappe Ort, Tag und Verkehrsmittel – die Karte zeichnet die Strecke.",
+        "wo": "Bearbeiten → Etappen",
+        "lehr": "etappen",
+        "vorschau": {
+         "kopf": "Etappen",
+         "art": "route",
+         "stopps": [
+          [
+           "Oslo",
+           "Tag 1 · Flug"
+          ],
+          [
+           "Lillehammer",
+           "Tag 3 · Auto"
+          ],
+          [
+           "Geiranger",
+           "Tag 5 · Auto & Fähre"
+          ],
+          [
+           "Ålesund",
+           "Tag 8 · Auto"
+          ],
+          [
+           "Bergen",
+           "Tag 10 · Hurtigruten"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Buchungen griffbereit",
+        "text": "Mietwagen, Fähren, Hütten: Alles steht als Infos im Ereignis – mit Buchungsnummer. Am Fährhafen ohne Netz? Die Lioria hat es trotzdem.",
+        "wo": "Bearbeiten → Infos",
+        "lehr": "infos",
+        "vorschau": {
+         "kopf": "Infos",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Mietwagen",
+           "Oslo Gardermoen · #NX-4471"
+          ],
+          [
+           "Fähre",
+           "Hellesylt–Geiranger · 09:30"
+          ],
+          [
+           "Hütte",
+           "Geiranger Fjordhytte · 3 Nächte"
+          ],
+          [
+           "Hurtigruten",
+           "Ålesund–Bergen · Kabine 412"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Das Reisebudget",
+        "text": "Die Finanzen sind an: Was einer vorstreckt, wird 50/50 geteilt. Für den Tank-Stopp mit Snacks für Malik allein gibt es einen festen Betrag oder eine Aufteilung in Prozent.",
+        "wo": "Bearbeiten → Programm und Planung → „Finanzen-Knopf zeigen“",
+        "vorschau": {
+         "kopf": "Finanzen",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Lisa",
+           "Flüge",
+           "642,00 €"
+          ],
+          [
+           "Malik",
+           "Mietwagen",
+           "780,00 €"
+          ],
+          [
+           "Lisa",
+           "Hütten",
+           "910,00 €"
+          ],
+          [
+           "Malik",
+           "Fähren & Maut",
+           "236,40 €"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Unterwegs",
+      "schritte": [
+       {
+        "titel": "Jeden Abend ein paar Bilder",
+        "text": "Abends in der Hütte kommen die besten Fotos des Tages ins Ereignis – direkt der passenden Etappe zugeordnet. Drehen, zuschneiden, Bildunterschrift, fertig.",
+        "wo": "Bearbeiten → Bilder",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Bilder · Geiranger",
+         "art": "fotos",
+         "bilder": [
+          [
+           "🏔️",
+           "Dalsnibba, 1.476 m"
+          ],
+          [
+           "⛴️",
+           "Fähre im Nebel"
+          ],
+          [
+           "🛖",
+           "Unsere Hütte"
+          ],
+          [
+           "🌊",
+           "Der Fjord"
+          ],
+          [
+           "🧀",
+           "Brunost – ehrlich?"
+          ],
+          [
+           "🌌",
+           "Nachts um 23 Uhr hell"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Gefühle festhalten",
+        "text": "Nicht nur, wo man war – sondern wie es sich angefühlt hat. Ein paar Sätze unter einem Bild sind nach Jahren mehr wert als jedes Foto.",
+        "wo": "Bildunterschriften und Kommentare im Ereignis",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Notizen",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Lisa · Tag 5",
+           "Am Geirangerfjord haben wir eine Stunde lang nichts gesagt."
+          ],
+          [
+           "Malik · Tag 7",
+           "Trollstigen im Regen. Ich habe das Lenkrad nie fester gehalten."
+          ],
+          [
+           "Lisa · Tag 11",
+           "Letzter Abend. Wir wollen nicht nach Hause."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Zuhause darf mitlesen",
+        "text": "Die Familie sieht ein eigenes Album „Für Mama“ – und kommentiert fleißig. Alles andere bleibt bei Lisa und Malik.",
+        "wo": "Bearbeiten → Sichtbarkeit und Alben",
+        "lehr": "sicht",
+        "vorschau": {
+         "kopf": "Sichtbarkeit",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Ereignis",
+           "Lisa & Malik"
+          ],
+          [
+           "Album „Für Mama“",
+           "Familie"
+          ],
+          [
+           "Album „Roadtrip“",
+           "Freunde"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Wieder daheim",
+      "schritte": [
+       {
+        "titel": "Fotoshow nach Etappen",
+        "text": "Die Fotoshow läuft Etappe für Etappe – mit der Playlist aus dem Auto. Der perfekte Abend mit Freunden, die „ein paar Bilder“ sehen wollten.",
+        "wo": "Im Ereignis → „Fotoshow“ → „nach Etappe“",
+        "vorschau": {
+         "kopf": "Fotoshow · nach Etappe",
+         "art": "chips",
+         "chips": [
+          "Oslo · 24",
+          "Lillehammer · 31",
+          "Geiranger · 88",
+          "Ålesund · 40",
+          "Bergen · 52"
+         ]
+        }
+       },
+       {
+        "titel": "Kassensturz",
+        "text": "Finanzen abschließen, eine Überweisung, erledigt. Kein Taschenrechner, keine Diskussion.",
+        "wo": "Im Ereignis → „Finanzen“ → Abschließen",
+        "vorschau": {
+         "kopf": "Abrechnung",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Malik → Lisa",
+           "267,80 €"
+          ]
+         ],
+         "fazit": [
+          "Gesamt 2.568,40 € · je 1.284,20 €"
+         ]
+        }
+       },
+       {
+        "titel": "Ein Jahr später",
+        "text": "„Wie hieß nochmal die Hütte?“ – Infos, Route, Bilder und Notizen sind noch da. Im Zeitstrahl steht Norwegen neben den anderen Reisen.",
+        "wo": "Zeitstrahl, Suche und Filter",
+        "vorschau": {
+         "kopf": "Zeitstrahl · Reisen",
+         "art": "route",
+         "stopps": [
+          [
+           "Lissabon",
+           "Oktober 2024"
+          ],
+          [
+           "Roadtrip Norwegen",
+           "Juli 2026"
+          ],
+          [
+           "Island?",
+           "geplant"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
   texte: {
     chronik: "Lioria",
     wird_geoeffnet: "wird geöffnet",
@@ -1947,6 +2862,16 @@ window.CHRONIK_SPRACHEN.de = {
     ed_fin_hinweis: "Der Knopf „Finanzen“ oben im Ereignis öffnet den Finanzplaner. Hier blendest du ihn für dieses Ereignis ein oder aus.",
     ed_fin_zeigen: "Finanzen-Knopf im Ereignis zeigen",
     gast_f_format: "Dieses Bildformat lässt sich nicht lesen. Bitte als JPG oder PNG versuchen.",
-    gast_f_upload_aus: "Hochladen ist hier gerade nicht möglich – die Fotowand ist aus oder voll."
+    gast_f_upload_aus: "Hochladen ist hier gerade nicht möglich – die Fotowand ist aus oder voll.",
+    bsp_titel: "Beispiele",
+    bsp_wahl_text: "Hochzeit, Festival, Reise – ein erfundenes Ereignis von der Planung bis lange danach",
+    bsp_kicker: "Beispiel",
+    bsp_wo: "So geht's in Lioria",
+    bsp_im_editor: "Im Editor zeigen",
+    bsp_alle: "Alle Beispiele",
+    bsp_schritt: "Schritt {a} von {n}",
+    bsp_schritte: "Schritte",
+    bsp_naechstes: "Nächstes Beispiel",
+    bsp_suche_art: "Beispiel"
   }
 };

@@ -3,6 +3,921 @@ window.CHRONIK_SPRACHEN = window.CHRONIK_SPRACHEN || {};
 window.CHRONIK_SPRACHEN.en = {
   name: "English",
   locale: "en-GB",
+  /* Beispiele in der Hilfe: je ein erfundenes Ereignis von der Planung bis danach. */
+  beispiele: [
+   {
+    "k": "hochzeit",
+    "icon": "ph-duotone ph-heart",
+    "farbe": "#d6006c",
+    "emoji": "💍",
+    "titel": "Lena & Tom's wedding",
+    "kurz": "A year of planning, one big day, memories for life – with a guest page, seating plan and photo wall. No finances: the couple pays.",
+    "phasen": [
+     {
+      "titel": "A year before",
+      "schritte": [
+       {
+        "titel": "Create the event",
+        "text": "Lena creates “Lena & Tom's wedding”: 14 June, Rosenhof Estate. A festive design, visible only to Tom for now. Finances stay off – nobody needs them here.",
+        "wo": "“+ Event” → Basics. Design and visibility are in the editor.",
+        "lehr": "grund",
+        "vorschau": {
+         "kopf": "Basics",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Name",
+           "Lena & Tom's wedding"
+          ],
+          [
+           "Date",
+           "Sat, 14 June"
+          ],
+          [
+           "Place",
+           "Rosenhof Estate"
+          ],
+          [
+           "Visible to",
+           "Tom"
+          ],
+          [
+           "Finances",
+           "off"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "A countdown to look forward to",
+        "text": "A countdown ticks down the days – in the event and on the guest page. Anyone opening the link sees right away how long it is.",
+        "wo": "Edit → On site → Countdown",
+        "lehr": "countdown",
+        "vorschau": {
+         "kopf": "Countdown",
+         "art": "gross",
+         "wert": "214",
+         "unter": "days until “I do”"
+        }
+       },
+       {
+        "titel": "One guest page for everyone",
+        "text": "No spreadsheets, no group-chat chaos – just one link. Guests don't need an account, and a password can protect the page. Lena chooses what guests see.",
+        "wo": "Edit → Guest page → Link & sharing",
+        "lehr": "offen",
+        "vorschau": {
+         "kopf": "Guest page · sections",
+         "art": "chips",
+         "chips": [
+          "RSVP",
+          "Programme",
+          "Site map",
+          "Seating",
+          "Photo wall",
+          "Guest book"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "The final weeks",
+      "schritte": [
+       {
+        "titel": "Collecting RSVPs",
+        "text": "Guests accept or decline, add a plus-one and their meal choice. If something's missing, the page gently reminds them. Lena exports the list to Excel for the kitchen in one click.",
+        "wo": "Edit → Guest page → RSVP",
+        "lehr": "rsvp",
+        "vorschau": {
+         "kopf": "RSVPs",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Grandma Gerda",
+           "Yes",
+           "vegetarian"
+          ],
+          [
+           "The Brandts",
+           "Yes +3",
+           "2× meat, 2× kids"
+          ],
+          [
+           "Marie",
+           "Yes +1",
+           "vegan"
+          ],
+          [
+           "Jonas",
+           "No",
+           "–"
+          ]
+         ],
+         "fazit": [
+          "62 yes · 7 no · 4 pending"
+         ]
+        }
+       },
+       {
+        "titel": "Questions for the guests",
+        "text": "“Which song gets you on the dance floor?” and “Joining the Sunday brunch?” – custom questions arrive together with the RSVPs. The band gets the song wishes later.",
+        "wo": "Edit → Guest page → Questions",
+        "lehr": "fragen",
+        "vorschau": {
+         "kopf": "Question · Sunday brunch?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Yes, gladly",
+           71
+          ],
+          [
+           "No",
+           18
+          ],
+          [
+           "Not sure yet",
+           11
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The seating plan",
+        "text": "Drag tables, assign guests, done. On the day, every guest finds their seat on the guest page – no crowd at the board by the entrance.",
+        "wo": "Edit → Guest page → Seating",
+        "lehr": "sitz",
+        "vorschau": {
+         "kopf": "Seating plan",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Table “Rose”",
+           "Couple, best man & maid of honour",
+           "8"
+          ],
+          [
+           "Table “Lavender”",
+           "The Brandts, Grandma Gerda",
+           "8"
+          ],
+          [
+           "Table “Sage”",
+           "University friends",
+           "10"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Programme & site map",
+        "text": "The day's schedule lives in the programme; the site map shows parking, ceremony and hall. If anything changes, everyone sees it at once.",
+        "wo": "Edit → Programme & planning",
+        "lehr": "timetable",
+        "vorschau": {
+         "kopf": "Programme · 14 June",
+         "art": "zeitplan",
+         "zeilen": [
+          [
+           "14:00",
+           "Ceremony in the rose garden"
+          ],
+          [
+           "15:00",
+           "Champagne reception"
+          ],
+          [
+           "16:30",
+           "Group photo"
+          ],
+          [
+           "18:30",
+           "Dinner"
+          ],
+          [
+           "21:00",
+           "First dance"
+          ],
+          [
+           "00:00",
+           "Midnight snack"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "The big day",
+      "schritte": [
+       {
+        "titel": "The photo wall",
+        "text": "A QR code on every table leads to the guest page. Everyone uploads their photos – angles no photographer catches. Lena and Tom find them in the event the next morning.",
+        "wo": "Edit → Guest page → Sections → Photo wall",
+        "lehr": "fotowand",
+        "vorschau": {
+         "kopf": "Photo wall",
+         "art": "fotos",
+         "bilder": [
+          [
+           "💍",
+           "Rings · Marie"
+          ],
+          [
+           "🥂",
+           "Reception · Uncle Paul"
+          ],
+          [
+           "💃",
+           "First dance · Jonas"
+          ],
+          [
+           "🎂",
+           "The cake · Grandma Gerda"
+          ],
+          [
+           "🌅",
+           "Evening light · Lisa"
+          ],
+          [
+           "🎉",
+           "Party · Ben"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The guest book",
+        "text": "Between cake and dance floor, guests write in the guest book – the things you only say once and then forget.",
+        "wo": "Edit → Guest page → Sections → Guest book",
+        "lehr": "fotowand",
+        "vorschau": {
+         "kopf": "Guest book",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Grandma Gerda",
+           "I haven't danced like that since 1971. Thank you both!"
+          ],
+          [
+           "Marie",
+           "When Tom lost his voice at “I do” – unforgettable."
+          ],
+          [
+           "Ben",
+           "Best wedding ever. The midnight snack was art."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Just in case",
+        "text": "Maid of honour, venue, taxi: important numbers are right there on the guest page – so nobody has to call the couple.",
+        "wo": "Edit → On site → Emergency",
+        "lehr": "notfall",
+        "vorschau": {
+         "kopf": "Emergency & info",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Anna (maid of honour)",
+           "0170 123 45 67"
+          ],
+          [
+           "Rosenhof Estate",
+           "05141 98 76 54"
+          ],
+          [
+           "Taxi",
+           "05141 44 44 4"
+          ],
+          [
+           "Wi-Fi",
+           "Rosenhof-Guest"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Afterwards",
+      "schritte": [
+       {
+        "titel": "Everything in one place",
+        "text": "Photographer, guests, their own phones: Lena sorts it all into albums. Each album has its own visibility – only friends see “Party”.",
+        "wo": "Edit → Pictures → Albums",
+        "lehr": "alben",
+        "vorschau": {
+         "kopf": "Albums",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Ceremony",
+           "84 pictures",
+           "all guests"
+          ],
+          [
+           "Photographer",
+           "312 pictures",
+           "family"
+          ],
+          [
+           "Party",
+           "126 pictures",
+           "friends"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "An anniversary slideshow",
+        "text": "One year later: start the slideshow, play the guests' song wishes – and live the whole day again.",
+        "wo": "In the event → “Slideshow”",
+        "vorschau": {
+         "kopf": "Slideshow",
+         "art": "gross",
+         "wert": "522",
+         "unter": "pictures · 3 albums · music from the song wishes"
+        }
+       },
+       {
+        "titel": "A chapter on the timeline",
+        "text": "The wedding sits between the engagement and the honeymoon. Guests with an account find it in their own Lioria, too.",
+        "wo": "Timeline, vertical or calendar view",
+        "vorschau": {
+         "kopf": "Timeline",
+         "art": "route",
+         "stopps": [
+          [
+           "Engagement",
+           "May 2025"
+          ],
+          [
+           "Wedding",
+           "June 2026"
+          ],
+          [
+           "Honeymoon",
+           "September 2026"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "festival",
+    "icon": "ph-duotone ph-music-notes",
+    "farbe": "#7c4ad8",
+    "emoji": "🎪",
+    "titel": "Sonnenfeld Open Air with the crew",
+    "kurz": "Six friends, four days, one campsite: polls, a timetable from a photo, shared costs – and a fair settlement at the end.",
+    "phasen": [
+     {
+      "titel": "The crew plans",
+      "schritte": [
+       {
+        "titel": "Event & crew",
+        "text": "Mia creates “Sonnenfeld Open Air” from Thursday to Sunday and adds the crew. Anyone with an account gets linked – and sees the festival in their own Lioria.",
+        "wo": "Edit → People",
+        "lehr": "personen",
+        "vorschau": {
+         "kopf": "People",
+         "art": "chips",
+         "chips": [
+          "Mia",
+          "Jonas",
+          "Aylin",
+          "Ben",
+          "Lea",
+          "Sam"
+         ]
+        }
+       },
+       {
+        "titel": "Vote instead of endless chats",
+        "text": "Who drives? Gazebo or tarp? One poll in the event and it's settled in an evening.",
+        "wo": "Edit → Polls",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Poll · Gazebo or tarp?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Gazebo (3×6 m)",
+           67
+          ],
+          [
+           "Tarp",
+           17
+          ],
+          [
+           "Whatever gives shade",
+           16
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Switch on finances",
+        "text": "This is where the finance planner shines: tickets, fuel, gazebo, the big shop. Everyone enters what they paid – split across all, by fixed amounts or by percent.",
+        "wo": "Edit → Programme & planning → “Show finances button”. Then “Finances” at the top right of the event.",
+        "vorschau": {
+         "kopf": "Finances",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Mia",
+           "6 tickets",
+           "€894.00"
+          ],
+          [
+           "Jonas",
+           "Fuel & tolls",
+           "€128.40"
+          ],
+          [
+           "Ben",
+           "Gazebo",
+           "€89.99"
+          ],
+          [
+           "Aylin",
+           "Big shop",
+           "€212.35"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Timetable from a photo",
+        "text": "Snap the line-up poster – Lioria reads stages and times. Everyone marks their favourites, and clashes show up instantly.",
+        "wo": "Edit → Programme & planning → Timetable",
+        "lehr": "timetable",
+        "vorschau": {
+         "kopf": "Timetable · Friday",
+         "art": "zeitplan",
+         "zeilen": [
+          [
+           "18:30",
+           "Main stage · The Lighthouse"
+          ],
+          [
+           "20:00",
+           "Tent stage · Neon Fjord"
+          ],
+          [
+           "21:15",
+           "Main stage · Paper Kites Club"
+          ],
+          [
+           "23:45",
+           "Forest stage · Lumen (DJ set)"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "On the grounds",
+      "schritte": [
+       {
+        "titel": "Site map & “Where are my people?”",
+        "text": "The festival map is in the event. Whoever wants to can share their location – voluntarily and for three hours at most. No more “where are you?” without signal.",
+        "wo": "Edit → On site → Site map",
+        "lehr": "lage",
+        "vorschau": {
+         "kopf": "Where are my people?",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Mia",
+           "Main stage, front left",
+           "4 min ago"
+          ],
+          [
+           "Aylin",
+           "Food court",
+           "just now"
+          ],
+          [
+           "Ben",
+           "Campsite C4",
+           "12 min ago"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Capture the moments",
+        "text": "Everyone uploads to the same event – one album per day. Comments below keep what the photo doesn't show.",
+        "wo": "Edit → Pictures",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Album · Saturday",
+         "art": "fotos",
+         "bilder": [
+          [
+           "⛺",
+           "Our camp"
+          ],
+          [
+           "🎸",
+           "The Lighthouse"
+          ],
+          [
+           "🌧️",
+           "The downpour"
+          ],
+          [
+           "🍕",
+           "Pizza at 3 am"
+          ],
+          [
+           "🌈",
+           "Then: a rainbow"
+          ],
+          [
+           "🔥",
+           "Campfire"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Log expenses on the spot",
+        "text": "Deposits, late-night pizza, spare tent pegs: whoever pays enters it on their phone right away. Nothing gets lost, nobody collects receipts.",
+        "wo": "In the event → “Finances” → new entry",
+        "vorschau": {
+         "kopf": "Finances · on the go",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Sam",
+           "Pizza for everyone",
+           "€54.00"
+          ],
+          [
+           "Lea",
+           "Deposits & water",
+           "€23.50"
+          ],
+          [
+           "Ben",
+           "Pegs & duct tape",
+           "€11.80"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Back home",
+      "schritte": [
+       {
+        "titel": "Settle up fairly",
+        "text": "Close the finances – Lioria works out who pays whom and how much. With as few transfers as possible instead of a mess of small amounts.",
+        "wo": "In the event → “Finances” → Close",
+        "vorschau": {
+         "kopf": "Settlement",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Lea → Mia",
+           "€212.17"
+          ],
+          [
+           "Sam → Mia",
+           "€181.67"
+          ],
+          [
+           "Ben → Mia",
+           "€133.88"
+          ],
+          [
+           "Jonas → Mia",
+           "€107.27"
+          ],
+          [
+           "Aylin → Mia",
+           "€23.32"
+          ]
+         ],
+         "fazit": [
+          "Total €1,414.04 · €235.67 each"
+         ]
+        }
+       },
+       {
+        "titel": "Again next year?",
+        "text": "The festival's last poll is decided quickly. The comments under the pictures tell the rest.",
+        "wo": "Edit → Polls",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Poll · Again next year?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Yes, right away",
+           100
+          ],
+          [
+           "No",
+           0
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The festival years",
+        "text": "On the timeline the festivals line up. Comparing with a contact shows at a glance where you were together.",
+        "wo": "Contacts → click a person, or “Compare timelines”",
+        "vorschau": {
+         "kopf": "Timeline · Mia & Ben",
+         "art": "route",
+         "stopps": [
+          [
+           "Sonnenfeld 2024",
+           "four of us, 3 days of rain"
+          ],
+          [
+           "Sonnenfeld 2025",
+           "five of us"
+          ],
+          [
+           "Sonnenfeld 2026",
+           "the whole crew"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "reise",
+    "icon": "ph-duotone ph-map-trifold",
+    "farbe": "#1f84cf",
+    "emoji": "🗺️",
+    "titel": "Road trip Norway",
+    "kurz": "Twelve days, five stages, two people: the route on a map, bookings at hand, feelings captured – and still all there a year later.",
+    "phasen": [
+     {
+      "titel": "Plan the route",
+      "schritte": [
+       {
+        "titel": "Stages on the map",
+        "text": "Lisa plans the route as stages: Oslo, Lillehammer, Geiranger, Ålesund, Bergen. Place, day and transport for each – the map draws the way.",
+        "wo": "Edit → Stages",
+        "lehr": "etappen",
+        "vorschau": {
+         "kopf": "Stages",
+         "art": "route",
+         "stopps": [
+          [
+           "Oslo",
+           "Day 1 · flight"
+          ],
+          [
+           "Lillehammer",
+           "Day 3 · car"
+          ],
+          [
+           "Geiranger",
+           "Day 5 · car & ferry"
+          ],
+          [
+           "Ålesund",
+           "Day 8 · car"
+          ],
+          [
+           "Bergen",
+           "Day 10 · coastal ship"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Bookings at hand",
+        "text": "Rental car, ferries, cabins: everything is stored as info in the event – with booking numbers. No signal at the ferry port? Lioria still has it.",
+        "wo": "Edit → Info",
+        "lehr": "infos",
+        "vorschau": {
+         "kopf": "Info",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Rental car",
+           "Oslo Gardermoen · #NX-4471"
+          ],
+          [
+           "Ferry",
+           "Hellesylt–Geiranger · 09:30"
+          ],
+          [
+           "Cabin",
+           "Geiranger Fjordhytte · 3 nights"
+          ],
+          [
+           "Coastal ship",
+           "Ålesund–Bergen · cabin 412"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The travel budget",
+        "text": "Finances are on: whatever one of them pays upfront is split 50/50. For the fuel stop with snacks just for Malik, there's a fixed amount or a split by percent.",
+        "wo": "Edit → Programme & planning → “Show finances button”",
+        "vorschau": {
+         "kopf": "Finances",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Lisa",
+           "Flights",
+           "€642.00"
+          ],
+          [
+           "Malik",
+           "Rental car",
+           "€780.00"
+          ],
+          [
+           "Lisa",
+           "Cabins",
+           "€910.00"
+          ],
+          [
+           "Malik",
+           "Ferries & tolls",
+           "€236.40"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "On the road",
+      "schritte": [
+       {
+        "titel": "A few pictures every evening",
+        "text": "In the cabin at night, the best shots of the day go into the event – right into the matching stage. Rotate, crop, caption, done.",
+        "wo": "Edit → Pictures",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Pictures · Geiranger",
+         "art": "fotos",
+         "bilder": [
+          [
+           "🏔️",
+           "Dalsnibba, 1,476 m"
+          ],
+          [
+           "⛴️",
+           "Ferry in the fog"
+          ],
+          [
+           "🛖",
+           "Our cabin"
+          ],
+          [
+           "🌊",
+           "The fjord"
+          ],
+          [
+           "🧀",
+           "Brown cheese – really?"
+          ],
+          [
+           "🌌",
+           "Still light at 11 pm"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Capture the feelings",
+        "text": "Not just where you were – but how it felt. A few lines under a picture are worth more than any photo years later.",
+        "wo": "Captions and comments in the event",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Notes",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Lisa · day 5",
+           "At the Geirangerfjord we didn't say a word for an hour."
+          ],
+          [
+           "Malik · day 7",
+           "Trollstigen in the rain. I've never gripped a steering wheel harder."
+          ],
+          [
+           "Lisa · day 11",
+           "Last evening. We don't want to go home."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Home can follow along",
+        "text": "The family sees its own album “For Mum” – and comments a lot. Everything else stays with Lisa and Malik.",
+        "wo": "Edit → Visibility and albums",
+        "lehr": "sicht",
+        "vorschau": {
+         "kopf": "Visibility",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Event",
+           "Lisa & Malik"
+          ],
+          [
+           "Album “For Mum”",
+           "Family"
+          ],
+          [
+           "Album “Road trip”",
+           "Friends"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Back home",
+      "schritte": [
+       {
+        "titel": "Slideshow by stage",
+        "text": "The slideshow plays stage by stage – with the playlist from the car. The perfect evening for friends who wanted to see “a few pictures”.",
+        "wo": "In the event → “Slideshow” → “by stage”",
+        "vorschau": {
+         "kopf": "Slideshow · by stage",
+         "art": "chips",
+         "chips": [
+          "Oslo · 24",
+          "Lillehammer · 31",
+          "Geiranger · 88",
+          "Ålesund · 40",
+          "Bergen · 52"
+         ]
+        }
+       },
+       {
+        "titel": "Settling up",
+        "text": "Close the finances, one transfer, done. No calculator, no discussion.",
+        "wo": "In the event → “Finances” → Close",
+        "vorschau": {
+         "kopf": "Settlement",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Malik → Lisa",
+           "€267.80"
+          ]
+         ],
+         "fazit": [
+          "Total €2,568.40 · €1,284.20 each"
+         ]
+        }
+       },
+       {
+        "titel": "One year later",
+        "text": "“What was that cabin called again?” – info, route, pictures and notes are all still there. On the timeline, Norway sits next to the other trips.",
+        "wo": "Timeline, search and filters",
+        "vorschau": {
+         "kopf": "Timeline · trips",
+         "art": "route",
+         "stopps": [
+          [
+           "Lisbon",
+           "October 2024"
+          ],
+          [
+           "Road trip Norway",
+           "July 2026"
+          ],
+          [
+           "Iceland?",
+           "planned"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
   texte: {
     chronik: "Lioria",
     wird_geoeffnet: "opening",
@@ -1947,6 +2862,16 @@ window.CHRONIK_SPRACHEN.en = {
     ed_fin_hinweis: "The “Finances” button at the top of the event opens the finance planner. Show or hide it for this event here.",
     ed_fin_zeigen: "Show finances button in the event",
     gast_f_format: "This image format can't be read. Please try a JPG or PNG.",
-    gast_f_upload_aus: "Uploading isn't possible right now – the photo wall is off or full."
+    gast_f_upload_aus: "Uploading isn't possible right now – the photo wall is off or full.",
+    bsp_titel: "Examples",
+    bsp_wahl_text: "Wedding, festival, trip – a made-up event from planning to long after",
+    bsp_kicker: "Example",
+    bsp_wo: "How to do it in Lioria",
+    bsp_im_editor: "Show in the editor",
+    bsp_alle: "All examples",
+    bsp_schritt: "Step {a} of {n}",
+    bsp_schritte: "steps",
+    bsp_naechstes: "Next example",
+    bsp_suche_art: "Example"
   }
 };
