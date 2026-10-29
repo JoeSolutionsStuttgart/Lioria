@@ -17,7 +17,8 @@
   var NAME = String(C.appName || "Chronik").trim() || "Chronik";
   var MEHR = String(C.appNamePlural || (NAME === "Chronik" ? "Chroniken" : NAME)).trim();
   if (NAME !== "Chronik" || MEHR !== "Chroniken") {
-    Object.keys(T).forEach(function (k) { if (typeof T[k] === "string") T[k] = T[k].replace(/Chroniken/g, MEHR).replace(/Chronik/g, NAME); });
+    /* Auch in anderen Sprachen (z. B. englisch „Chronicle“) steht dann der eigene Name. */
+    Object.keys(T).forEach(function (k) { if (typeof T[k] === "string") T[k] = T[k].replace(/Chroniken/g, MEHR).replace(/Chronik/g, NAME).replace(/Chronicles/g, MEHR).replace(/Chronicle/g, NAME); });
   }
   window.CHRONIK_NAME = NAME;
   var B = C.bilder || {};

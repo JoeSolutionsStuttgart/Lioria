@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b135"></script>
-<script src="lang/de.js?v=b135"></script>
-<script src="lang/en.js?v=b135"></script>
-<script src="lang/sprache.js?v=b135"></script>
-<script src="./support.js?v=b135"></script>
+<script src="chronik-config.js?v=b136"></script>
+<script src="lang/de.js?v=b136"></script>
+<script src="lang/en.js?v=b136"></script>
+<script src="lang/sprache.js?v=b136"></script>
+<script src="./support.js?v=b136"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chronik">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b135"></script>
-<script src="xlsx-export.js?v=b135"></script>
-<script src="farbe.js?v=b135"></script>
-<script src="cw-plaetze.js?v=b135"></script>
-<script src="fb-knopf.js?v=b135"></script>
+<script src="supabase-bridge.js?v=b136"></script>
+<script src="xlsx-export.js?v=b136"></script>
+<script src="farbe.js?v=b136"></script>
+<script src="cw-plaetze.js?v=b136"></script>
+<script src="fb-knopf.js?v=b136"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -108,6 +108,7 @@
 
   <sc-if value="{{ gv.an }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Gastbereich" style="{{ gv.rootStil }}">
+      <sc-if value="{{ spr.mehr }}" hint-placeholder-val="{{ false }}"><div role="group" aria-label="{{ L.sprache }}" style="{{ spr.gastStil }}"><sc-for list="{{ spr.liste }}" as="sl" hint-placeholder-count="2"><button onClick="{{ sl.klick }}" aria-pressed="{{ sl.aria }}" title="{{ sl.name }}" style="{{ sl.stil }}">{{ sl.kurz }}</button></sc-for></div></sc-if>
       <div aria-hidden="true" style="{{ gv.fxStil }}"></div>
       <div aria-hidden="true" style="{{ gv.ornStil }}"></div>
       {{ gv.feierFx }}
@@ -602,6 +603,7 @@
 <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
   <div data-noprint="" data-screen-label="Anmeldung" style="{{ lay.loginWrap }}">
     {{ loginFx }}
+    <sc-if value="{{ spr.mehrLogin }}" hint-placeholder-val="{{ false }}"><div role="group" aria-label="{{ L.sprache }}" style="{{ spr.loginStil }}"><sc-for list="{{ spr.liste }}" as="sl" hint-placeholder-count="2"><button onClick="{{ sl.klick }}" aria-pressed="{{ sl.aria }}" title="{{ sl.name }}" style="{{ sl.stil }}">{{ sl.kurz }}</button></sc-for></div></sc-if>
     <sc-if value="{{ lay.loginKlein }}" hint-placeholder-val="{{ false }}">
     <div data-bewegt="" style="order: 0; min-width: 0; position: relative; z-index: 1;">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
@@ -2851,12 +2853,67 @@
         </sc-if>
         <sc-if value="{{ ed.programm }}" hint-placeholder-val="{{ false }}">
           <div data-edtab="programm" style="display: grid; gap: 0;">
-        <button data-sec="timetable" onClick="{{ ttFormOeffnen }}" style="{{ form.sec.head }}">
-          <span style="display: inline-block; font-size: 10px; width: 12px; color: var(--color-accent-700);">▸</span>
-          <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ ttFormKnopf }}</span>
-          <span style="flex: 1; height: 1px; background: var(--color-divider);"></span>
-          <span style="font-size: 11px; color: var(--color-neutral-700); white-space: nowrap;">{{ ttFormBadge }}</span>
-        </button>
+        <section data-sec="timetable" style="display: grid; gap: var(--space-3); padding: var(--space-4); margin-bottom: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);">
+          <sc-if value="{{ pg.vonGast }}" hint-placeholder-val="{{ false }}">
+            <button class="btn btn-secondary" style="justify-self: start; min-height: 40px;" onClick="{{ pg.zurGast }}">‹ {{ L.pg_zurueck_gast }}</button>
+          </sc-if>
+          <div style="display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;">
+            <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.pg_titel }}</div>
+            <span style="font-size: 12.5px; color: var(--color-neutral-700);">{{ pg.anzahl }}</span>
+          </div>
+          <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.pg_intro }}</div>
+          <div style="display: grid; gap: 6px;">
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.pg_erstellen }}</span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="btn btn-primary" style="min-height: 42px;" onClick="{{ pg.neu }}">＋ {{ L.pg_manuell }}</button>
+              <button class="btn btn-secondary" style="min-height: 42px;" onClick="{{ pg.foto }}">📷 {{ L.pg_foto }}</button>
+            </div>
+          </div>
+          <div style="display: grid; gap: 6px;">
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.pg_eingabe }}</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;"><button onClick="{{ pg.artKurz }}" style="{{ pg.kurzStil }}">{{ pg.kurzLabel }}</button><button onClick="{{ pg.artLang }}" style="{{ pg.langStil }}">{{ pg.langLabel }}</button></div>
+            <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ pg.artHinweis }}</div>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;"><button onClick="{{ pg.gastUm }}" style="{{ pg.gastStil }}">{{ pg.gastLabel }}</button><span style="font-size: 12.5px; color: var(--color-neutral-700);">{{ L.pg_gast_hinweis }}</span></div>
+          <sc-for list="{{ pg.tage }}" as="pt" hint-placeholder-count="0">
+            <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
+              <sc-if value="{{ pg.lang }}" hint-placeholder-val="{{ false }}">
+                <sc-if value="{{ pt.echt }}" hint-placeholder-val="{{ true }}">
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: end;">
+                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_tag }}<input class="input" type="date" value="{{ pt.datum }}" onChange="{{ pt.onDatum }}" style="font-size: 16px; min-width: 0;"></label>
+                    <label style="flex: 1 1 160px; display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.pg_tag_name }}<input class="input" value="{{ pt.label }}" onChange="{{ pt.onLabel }}" style="font-size: 16px; min-width: 0;"></label>
+                  </div>
+                </sc-if>
+              </sc-if>
+              <sc-if value="{{ pg.kurz }}" hint-placeholder-val="{{ true }}">
+                <sc-if value="{{ pg.mehrTage }}" hint-placeholder-val="{{ false }}"><div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 700;">{{ pt.titel }}</div></sc-if>
+              </sc-if>
+              <sc-for list="{{ pt.punkte }}" as="pp" hint-placeholder-count="0">
+                <button class="btn btn-ghost" onClick="{{ pp.einfuegen }}" style="justify-self: start; min-height: 30px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ pp.einfuegenText }}</button>
+                <div style="display: grid; gap: 6px; padding: var(--space-2) 0; border-top: 1px solid var(--color-divider);">
+                  <div style="display: grid; grid-template-columns: minmax(80px, 110px) minmax(80px, 110px) minmax(0, 1fr) 44px; gap: 6px; align-items: end;">
+                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_von }}<input class="input" type="time" value="{{ pp.von }}" onChange="{{ pp.onVon }}" style="font-size: 16px; min-width: 0;"></label>
+                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_bis }}<input class="input" type="time" value="{{ pp.bis }}" onChange="{{ pp.onBis }}" style="font-size: 16px; min-width: 0;"></label>
+                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.pg_ort_buehne }}<input class="input" value="{{ pp.buehne }}" onChange="{{ pp.onBuehne }}" placeholder="{{ L.pg_ort_ph }}" style="font-size: 16px; min-width: 0;"></label>
+                    <button class="btn btn-ghost btn-icon" onClick="{{ pp.weg }}" aria-label="{{ L.loeschen }}" title="{{ L.loeschen }}" style="width: 44px; height: 44px;"><i class="ph-duotone ph-trash"></i></button>
+                  </div>
+                  <input class="input" value="{{ pp.name }}" onChange="{{ pp.onName }}" placeholder="{{ L.zp_name_ph }}" style="font-size: 16px; font-weight: 600;">
+                  <sc-if value="{{ pg.lang }}" hint-placeholder-val="{{ false }}">
+                    <textarea class="input" rows="2" value="{{ pp.info }}" onChange="{{ pp.onInfo }}" placeholder="{{ L.zp_info_ph }}" style="font-size: 16px;"></textarea>
+                  </sc-if>
+                  <sc-if value="{{ pp.extras }}" hint-placeholder-val="{{ false }}"><div style="font-size: 12px; color: var(--color-accent-700);">{{ pp.extras }}</div></sc-if>
+                </div>
+              </sc-for>
+              <button class="btn btn-ghost" onClick="{{ pt.amTag }}" style="justify-self: start; min-height: 30px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ L.zp_am_tag }}</button>
+            </div>
+          </sc-for>
+          <sc-if value="{{ pg.leer }}" hint-placeholder-val="{{ false }}"><div style="font-size: 14px; font-style: italic; color: var(--color-neutral-700);">{{ L.pg_leer }}</div></sc-if>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ pg.tagNeu }}">＋ {{ L.zp_neu_tag }}</button>
+            <sc-if value="{{ pg.hatPunkte }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ pg.tagDavor }}">＋ {{ L.zp_tag_davor }}</button></sc-if>
+            <sc-if value="{{ pg.hatPunkte }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ pg.foto }}">{{ L.pg_detail }}</button></sc-if>
+          </div>
+        </section>
         <button data-sec="finanzen" onClick="{{ vo.finUm }}" aria-pressed="{{ vo.finAria }}" style="{{ form.sec.head }}">
           <span style="display: inline-block; font-size: 12px; width: 12px; color: var(--color-accent-700);">€</span>
           <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.fin_knopf_zeigen }}</span>
@@ -3096,6 +3153,10 @@
                 <div style="font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1.2;">{{ L.ga_k_bereiche }}</div>
                 <div style="font-size: 13px; line-height: 1.5; color: var(--color-neutral-700);">{{ L.ga_ki_bereiche }}</div>
               </div>
+              <div style="display: grid; gap: 6px; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
+                <div><button onClick="{{ ed.gpUm }}" style="{{ ed.gpStil }}">{{ ed.gpLabel }}</button></div>
+                <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.ga_gaeste_personen_hinweis }}</div>
+              </div>
                   <div style="display: grid; gap: var(--space-2);">
                     <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
                   <div style="display: flex; gap: 6px; flex-wrap: wrap;">
@@ -3252,37 +3313,11 @@
               <sc-if value="{{ ed.zpAus }}" hint-placeholder-val="{{ false }}">
                 <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-accent-100); color: var(--color-accent-700); font-size: 14px;"><span style="flex: 1 1 220px;">{{ L.ga_aus_hinweis }}</span><button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ ed.zpEin }}">{{ L.ga_einschalten }}</button></div>
               </sc-if>
-                  <sc-if value="{{ vo.gaZp }}" hint-placeholder-val="{{ false }}">
-                  <div style="display: grid; gap: var(--space-2);">
-                    <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.zp_hinweis }}</div>
-                    <sc-for list="{{ vo.zpTage }}" as="zt" hint-placeholder-count="0">
-                      <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
-                        <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 700;">{{ zt.titel }}</div>
-                        <sc-for list="{{ zt.punkte }}" as="zp" hint-placeholder-count="0">
-                          <button class="btn btn-ghost" onClick="{{ zp.einfuegen }}" style="justify-self: start; min-height: 32px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ zp.einfuegenText }}</button>
-                          <div style="display: grid; gap: 6px; padding: var(--space-2) 0; border-top: 1px solid var(--color-divider);">
-                            <div style="display: grid; grid-template-columns: minmax(130px, 1.4fr) minmax(88px, 1fr) minmax(88px, 1fr) 44px; gap: 6px; align-items: end;">
-                              <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_tag }}<input class="input" type="date" value="{{ zp.tag }}" onChange="{{ zp.onTag }}" style="font-size: 16px; min-width: 0;"></label>
-                              <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_von }}<input class="input" type="time" value="{{ zp.von }}" onChange="{{ zp.onVon }}" style="font-size: 16px; min-width: 0;"></label>
-                              <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_bis }}<input class="input" type="time" value="{{ zp.bis }}" onChange="{{ zp.onBis }}" style="font-size: 16px; min-width: 0;"></label>
-                              <button class="btn btn-ghost btn-icon" onClick="{{ zp.weg }}" aria-label="{{ L.loeschen }}" title="{{ L.loeschen }}" style="width: 44px; height: 44px;"><i class="ph-duotone ph-trash"></i></button>
-                            </div>
-                            <input class="input" value="{{ zp.name }}" onChange="{{ zp.onName }}" placeholder="{{ L.zp_name_ph }}" style="font-size: 16px; font-weight: 600;">
-                            <input class="input" value="{{ zp.ort }}" onChange="{{ zp.onOrt }}" placeholder="{{ L.zp_ort_ph }}" style="font-size: 16px;">
-                            <textarea class="input" rows="2" value="{{ zp.info }}" onChange="{{ zp.onInfo }}" placeholder="{{ L.zp_info_ph }}" style="font-size: 16px;"></textarea>
-                          </div>
-                        </sc-for>
-                        <button class="btn btn-ghost" onClick="{{ zt.amTag }}" style="justify-self: start; min-height: 32px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ L.zp_am_tag }}</button>
-                      </div>
-                    </sc-for>
-                    <sc-if value="{{ vo.zpLeer }}" hint-placeholder-val="{{ false }}"><div style="font-size: 14px; font-style: italic; color: var(--color-neutral-700);">{{ L.zp_leer }}</div></sc-if>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                      <button class="btn btn-secondary" style="min-height: 40px;" onClick="{{ vo.zpNeu }}">＋ {{ L.zp_neu }}</button>
-                      <button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ vo.zpNeuTag }}">＋ {{ L.zp_neu_tag }}</button>
-                      <sc-if value="{{ vo.zpHatPunkte }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" style="min-height: 40px;" onClick="{{ vo.zpNeuTagDavor }}">＋ {{ L.zp_tag_davor }}</button></sc-if>
-                    </div>
-                  </div>
-                  </sc-if>
+              <div style="display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-bg);">
+                <div style="font-size: 14px;">{{ L.pg_im_programm }} <strong>{{ pg.anzahl }}</strong></div>
+                <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.zp_hinweis }}</div>
+                <button class="btn btn-primary" style="justify-self: start; min-height: 42px;" onClick="{{ pg.zumProgramm }}">{{ L.pg_bearbeiten }} ›</button>
+              </div>
             </section>
           </sc-if>
           <sc-if value="{{ ed.ga.sitz }}" hint-placeholder-val="{{ false }}">
@@ -6614,7 +6649,7 @@ class Component extends DCLogic {
         key: tg.id, label: tg.label || tx("tt_tag"),
         acts: liste.map((a) => {
           const gem = meine.indexOf(a.id) >= 0;
-          const extra = [a.buehne,
+          const extra = [a.buehne, String(a.info || "").trim(),
             (a.bilder || []).length ? plural(a.bilder.length, tx("bild"), tx("bilder")) : "",
             (a.alben || []).length ? plural(a.alben.length, tx("tt_album"), tx("tt_alben")) : "",
             (a.personen || []).join(", ")].filter(Boolean).join(" · ");
@@ -8328,6 +8363,7 @@ class Component extends DCLogic {
       this._gastAm = Date.now();
       this.gastSet({ pwNoetig: false });
       this.gastSet((x) => ({ laden: false, err: "", d: d, tab: x.tab || "" }));
+      window.setTimeout(() => { const g1 = this.state.gast; if (g1 && g1.name) this.gastBesuch(g1.name); }, 0);
     } catch (e) {
       this.gastSet({ laden: false, err: e && e.code === "D-28" ? tx("gast_f_sql") : tx("gast_f_link") + " (" + ((e && (e.code || e.message)) || "?") + ")" });
     }
@@ -8426,6 +8462,105 @@ class Component extends DCLogic {
     const t = Date.parse(String(tag || "") + "T12:00:00");
     if (!t) return tag || "";
     return new Intl.DateTimeFormat(window.CHRONIK_LOCALE || "de-DE", lang ? { weekday: "long", day: "numeric", month: "long", year: "numeric" } : { weekday: "short", day: "2-digit", month: "2-digit" }).format(new Date(t));
+  }
+  /* ---- Programm (Timetable und Zeitplan in einem) ----
+     Gespeichert wird alles im Timetable des Ereignisses: tage [{ id, label, datum }],
+     acts [{ id, tag, von, bis, name, buehne, info, … }]. Die Gästeseite bekommt beim
+     Speichern daraus ihren Zeitplan (extras.offen.zeitplan). */
+  progZuZeitplan(tt) {
+    const t = tt || {};
+    const tage = t.tage || [];
+    return this.ttSortiert((t.acts || []).filter((a) => a && String(a.name || "").trim()))
+      .map((a) => ({ i: a.id, tag: ((tage.filter((g) => g.id === a.tag)[0]) || {}).datum || "", von: a.von || "", bis: a.bis || "", name: String(a.name || "").slice(0, 120), ort: a.buehne || "", info: a.info || "" }))
+      .sort((a, b) => String(a.tag).localeCompare(String(b.tag)));
+  }
+  progAusZeitplan(zp) {
+    const tage = [], acts = [];
+    (zp || []).forEach((p) => {
+      if (!p) return;
+      let tg = tage.filter((g) => g.datum === (p.tag || ""))[0];
+      if (!tg) { tg = { id: this.ttNid(), label: p.tag ? this.zpTagText(p.tag) : tx("tt_leer_tag"), datum: p.tag || "" }; tage.push(tg); }
+      acts.push({ id: p.i || this.ttNid(), tag: tg.id, von: p.von || "", bis: p.bis || "", name: p.name || "", buehne: p.ort || "", info: p.info || "", mark: false, bilder: [], alben: [], personen: [] });
+    });
+    return acts.length ? { tage: tage.sort((a, b) => String(a.datum).localeCompare(String(b.datum))), acts: acts } : null;
+  }
+  /* Beim Speichern: Zeitplan der Gästeseite aus dem Programm ableiten. */
+  progSync(ex, tt) {
+    if (!ex || !ex.offen) return ex;
+    return Object.assign({}, ex, { offen: Object.assign({}, ex.offen, { zeitplan: this.progZuZeitplan(tt) }) });
+  }
+  progVals() {
+    const st = this.state;
+    const d = st.draft;
+    if (!d) return {};
+    const ex = this.exOf(d), o = ex.offen || {};
+    const lang = ex.programmArt === "lang";
+    const tt = d.timetable || { tage: [], acts: [] };
+    const tage0 = (tt.tage || []).slice().sort((a, b) => String(a.datum || "").localeCompare(String(b.datum || "")));
+    const setze = (fn) => this.setState((s) => {
+      const alt = (s.draft && s.draft.timetable) || { tage: [], acts: [] };
+      const neu = fn({ tage: (alt.tage || []).slice(), acts: (alt.acts || []).slice() });
+      const tageNutz = neu.tage.filter((g) => neu.acts.some((a) => a.tag === g.id) || g.leerOk);
+      return { draft: Object.assign({}, s.draft, { timetable: neu.acts.length || tageNutz.length ? { tage: tageNutz, acts: neu.acts } : null }) };
+    });
+    const feld = (id, k) => (ev) => { const v = ev.target.value; setze((t) => ({ tage: t.tage, acts: t.acts.map((a) => (a.id === id ? Object.assign({}, a, { [k]: v }) : a)) })); };
+    const minV = (z) => { const m = /^(\d\d):(\d\d)$/.exec(z || ""); return m ? +m[1] * 60 + +m[2] : null; };
+    const alsZeit = (m) => { const v = Math.max(0, Math.min(1439, m)); return (v < 600 ? "0" : "") + Math.floor(v / 60) + ":" + (v % 60 < 10 ? "0" : "") + (v % 60); };
+    const neuerAct = (tagId, von, bis) => ({ id: this.ttNid(), tag: tagId, von: von || "", bis: bis || "", name: "", buehne: "", info: "", mark: false, bilder: [], alben: [], personen: [] });
+    /* Neuer Punkt davor/dazwischen/am Ende: Uhrzeit so vorbelegt, dass er dort einsortiert wird. */
+    const einfuegen = (tagId, vor, nach) => () => setze((t) => {
+      let von = "", bis = "";
+      if (nach) {
+        const a = vor ? (minV(vor.bis) != null ? minV(vor.bis) : minV(vor.von)) : null;
+        const b = minV(nach.von);
+        if (b != null) { bis = nach.von; von = alsZeit(a != null && a <= b ? a : b - 60); } else if (a != null) von = alsZeit(a);
+      } else if (vor) {
+        const a = minV(vor.bis) != null ? minV(vor.bis) : minV(vor.von);
+        if (a != null) von = alsZeit(minV(vor.bis) != null ? a : a + 60);
+      }
+      const neu = neuerAct(tagId, von, bis);
+      const pos = nach ? t.acts.findIndex((x) => x.id === nach.id) : -1;
+      return { tage: t.tage, acts: pos >= 0 ? t.acts.slice(0, pos).concat([neu], t.acts.slice(pos)) : t.acts.concat([neu]) };
+    });
+    const plusTag = (n) => (basis) => { const t0 = Date.parse(String(basis || "") + "T12:00:00"); return t0 ? new Date(t0 + n * 86400000).toISOString().slice(0, 10) : ""; };
+    const tagNeu = (davor) => () => setze((t) => {
+      const ts = t.tage.slice().sort((a, b) => String(a.datum || "").localeCompare(String(b.datum || "")));
+      const ref = davor ? ts[0] : ts[ts.length - 1];
+      const datum = ref && ref.datum ? plusTag(davor ? -1 : 1)(ref.datum) : (ts.length ? "" : String(d.date || "").slice(0, 10));
+      const tg = { id: this.ttNid(), label: datum ? this.zpTagText(datum) : tx("tt_tag") + " " + (ts.length + 1), datum: datum };
+      return { tage: davor ? [tg].concat(t.tage) : t.tage.concat([tg]), acts: t.acts.concat([neuerAct(tg.id)]) };
+    });
+    const ersterTag = () => tage0[0] || null;
+    const gruppen = tage0.map((g) => ({ g: g, acts: this.ttSortiert((tt.acts || []).filter((a) => a.tag === g.id)) })).filter((x) => x.acts.length);
+    const ohneTag = this.ttSortiert((tt.acts || []).filter((a) => !tage0.some((g) => g.id === a.tag)));
+    if (ohneTag.length) gruppen.push({ g: { id: "", label: tx("zp_ohne_tag"), datum: "" }, acts: ohneTag });
+    const pill = (an) => this.voPill(an);
+    const n = (tt.acts || []).length;
+    return {
+      lang: lang, kurz: !lang, leer: !n, anzahl: n ? plural(n, tx("pg_punkt"), tx("pg_punkte")) : tx("pg_keine"),
+      artKurz: () => this.voSet("programmArt", "kurz"), artLang: () => this.voSet("programmArt", "lang"),
+      kurzStil: pill(!lang), langStil: pill(lang), kurzLabel: (!lang ? "✓ " : "") + tx("pg_kurz"), langLabel: (lang ? "✓ " : "") + tx("pg_lang"),
+      artHinweis: lang ? tx("pg_lang_hinweis") : tx("pg_kurz_hinweis"),
+      gastAn: !!o.zp, gastStil: pill(!!o.zp), gastLabel: (o.zp ? "✓ " : "") + tx("pg_gast_zeigen"), gastUm: () => this.voSet("offen.zp", !o.zp),
+      foto: (ev) => { if (ev && ev.preventDefault) ev.preventDefault(); this.ttOeffnen(null, true); },
+      neu: () => { const g = ersterTag(); if (g) einfuegen(gruppen.length ? gruppen[gruppen.length - 1].g.id : g.id, gruppen.length ? gruppen[gruppen.length - 1].acts.slice(-1)[0] : null, null)(); else tagNeu(false)(); },
+      tagNeu: tagNeu(false), tagDavor: tagNeu(true), hatPunkte: n > 0, mehrTage: gruppen.length > 1,
+      tage: gruppen.map((x) => ({
+        key: x.g.id || "ohne", titel: x.g.datum ? this.zpTagText(x.g.datum, true) : (x.g.label || ""), label: x.g.label || "", datum: x.g.datum || "", echt: !!x.g.id,
+        onDatum: (ev) => { const v = ev.target.value; setze((t) => ({ acts: t.acts, tage: t.tage.map((g) => (g.id === x.g.id ? Object.assign({}, g, { datum: v, label: v ? this.zpTagText(v) : g.label }) : g)) })); },
+        onLabel: (ev) => { const v = ev.target.value; setze((t) => ({ acts: t.acts, tage: t.tage.map((g) => (g.id === x.g.id ? Object.assign({}, g, { label: v }) : g)) })); },
+        amTag: einfuegen(x.g.id, x.acts[x.acts.length - 1], null),
+        punkte: x.acts.map((a, k) => ({ key: a.id, von: a.von || "", bis: a.bis || "", name: a.name || "", buehne: a.buehne || "", info: a.info || "",
+          einfuegen: einfuegen(x.g.id, x.acts[k - 1] || null, a), einfuegenText: k ? tx("zp_dazwischen") : tx("zp_davor"),
+          onVon: feld(a.id, "von"), onBis: feld(a.id, "bis"), onName: feld(a.id, "name"), onBuehne: feld(a.id, "buehne"), onInfo: feld(a.id, "info"),
+          extras: (a.bilder || []).length + (a.alben || []).length + (a.personen || []).length > 0 ? tx("pg_zuordnung") : "",
+          weg: () => setze((t) => ({ tage: t.tage, acts: t.acts.filter((y) => y.id !== a.id) })) }))
+      })),
+      /* Schneller Weg zwischen Gästeseite und Programm – und wieder zurück. */
+      vonGast: st.pgVonGast === true,
+      zurGast: () => { this.setState({ edTab: "gast", gaTab: "zp", pgVonGast: false }); window.setTimeout(() => { const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div'); const el = dlg && dlg.querySelector('[data-gatab="zp"]'); if (dlg && el) dlg.scrollTop = Math.max(0, dlg.scrollTop + el.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 140); }, 80); },
+      zumProgramm: () => { this.setState({ edTab: "programm", pgVonGast: true, secOpen: Object.assign({}, st.secOpen) }); window.setTimeout(() => { const dlg = document.querySelector('[data-screen-label="Ereignis bearbeiten"] > div'); const el = dlg && dlg.querySelector('[data-sec="timetable"]'); if (dlg && el) dlg.scrollTop = Math.max(0, dlg.scrollTop + el.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 140); }, 80); }
+    };
   }
   zpEditVals(o, d) {
     const zp = o.zeitplan || [];
@@ -8547,6 +8682,17 @@ class Component extends DCLogic {
     if (!n) return;
     this.gastSet({ name: n, nameEntwurf: null, nameEdit: false, info: "" });
     try { localStorage.setItem("chronik-gast-name", n); } catch (x) { /* privat */ }
+    this.gastBesuch(n);
+  }
+  /* Ist es eingeschaltet, erscheinen Gäste als Personen im Ereignis: einmal je Name vermerken. */
+  gastBesuch(n) {
+    const g = this.state.gast || {};
+    const c = ((g.d || {}).cfg) || {};
+    const CC = window.ChronikCloud;
+    if (!c.gaestePersonen || !n || !CC || !CC.gastAdd || this.me()) return;
+    const k = "chronik-gast-besuch-" + g.ev + "-" + n.toLowerCase();
+    try { if (localStorage.getItem(k)) return; } catch (x) { /* privat */ }
+    CC.gastAdd(g.ev, g.tk, "besuch", n, "", {}, null).then(() => { try { localStorage.setItem(k, "1"); } catch (x) { /* privat */ } }).catch(() => {});
   }
   gastName() {
     const ich = this.me();
@@ -8831,6 +8977,9 @@ class Component extends DCLogic {
         badgeStil: { fontSize: "11px", fontWeight: 700, padding: "0 6px", borderRadius: "99px", background: "var(--color-accent-100)", color: "var(--color-accent-700)" } };
     });
     out.immer = true;
+    out.gpUm = () => this.voSet("offen.gaestePersonen", !o.gaestePersonen);
+    out.gpStil = this.voPill(!!o.gaestePersonen);
+    out.gpLabel = (o.gaestePersonen ? "✓ " : "") + tx("ga_gaeste_personen");
     out.rsvpAus = !o.rsvp; out.rsvpEin = () => this.voSet("offen.rsvp", true);
     out.zpAus = !o.zp; out.zpEin = () => this.voSet("offen.zp", true);
     out.sitzAus = !o.sitz; out.sitzEin = () => this.voSet("offen.sitz", true);
@@ -8859,7 +9008,7 @@ class Component extends DCLogic {
       e(tx("personen"), R("inhalt"), { tab: "inhalt", sec: "personen" }, "personen leute gäste teilnehmer erfunden"),
       e(tx("bilder"), R("inhalt"), { tab: "inhalt", sec: "bilder" }, "bilder fotos hochladen kamera"),
       e(tx("alben"), R("inhalt"), { tab: "inhalt", sec: "alben" }, "alben album gruppen bilder"),
-      e(tx("tt_titel"), R("programm"), { tab: "programm", sec: "timetable" }, "timetable acts bühne lineup programm"),
+      e(tx("pg_titel"), R("programm"), { tab: "programm", sec: "timetable" }, "timetable zeitplan ablauf acts bühne lineup programm foto uhrzeit"),
       e(tx("fin_knopf_zeigen"), R("programm"), { tab: "programm", sec: "finanzen" }, "finanzen geld kosten abrechnung ausgaben"),
       e(tx("etappen_route"), R("programm"), { tab: "programm", sec: "etappen" }, "etappen route reise stationen karte"),
       e(tx("ed_s_polls"), R("programm"), { tab: "programm", sec: "polls" }, "abstimmung umfrage rangliste voting"),
@@ -8867,7 +9016,7 @@ class Component extends DCLogic {
       e(G("bereiche"), R("gast"), { tab: "gast", ga: "bereiche" }, "fotowand gästebuch vorschläge bereiche freigeben sichtbar ab wann"),
       e(G("look"), R("gast"), { tab: "gast", ga: "look" }, "aussehen gästeseite design titelbild begrüßung gruß"),
       e(G("rsvp"), R("gast"), { tab: "gast", ga: "rsvp" }, "zusage absage rsvp essen essenswunsch abfragen fragen pflicht"),
-      e(G("zp"), R("gast"), { tab: "gast", ga: "zp" }, "zeitplan ablauf uhrzeit programmpunkte"),
+      e(G("zp"), R("gast"), { tab: "gast", ga: "zp" }, "zeitplan gästeseite anzeigen"),
       e(G("sitz"), R("gast"), { tab: "gast", ga: "sitz" }, "sitzplan tische plätze sitzordnung"),
       e(G("infos"), R("gast"), { tab: "gast", ga: "infos" }, "countdown notfall kontakt telefon lageplan karte anfahrt parken"),
       e(tx("ed_s_deko"), R("aussehen"), { tab: "aussehen", sec: "deko" }, "design deko sticker farben aussehen thema")
@@ -8895,6 +9044,29 @@ class Component extends DCLogic {
       }, 90);
     });
   }
+  /* Gäste ohne Konto, die sich auf der Gästeseite eingetragen haben – nur wenn im
+     Gästebereich eingeschaltet. Absagen zählen nicht. */
+  gaesteVon(e) {
+    const o = (this.exOf(e).offen) || {};
+    if (!o.gaestePersonen || !e) return [];
+    const rows = (this.state.gastDaten || {})[e.id] || [];
+    const schon = {};
+    (e.people || []).forEach((p) => { schon[String((p && p.name) || "").trim().toLowerCase()] = true; });
+    const out = [];
+    const dazu = (n) => { const t = String(n || "").trim().slice(0, 60); const k = t.toLowerCase(); if (t && !schon[k]) { schon[k] = true; out.push(t); } };
+    const neinVon = {};
+    rows.filter((r) => r.kind === "rsvp" && (r.data || {}).kommt === "nein").forEach((r) => { neinVon[String(r.name || "").trim().toLowerCase()] = true; });
+    rows.slice().reverse().forEach((r) => {
+      if (neinVon[String(r.name || "").trim().toLowerCase()]) return;
+      if (["besuch", "rsvp", "buch", "foto", "vor", "kom"].indexOf(r.kind) < 0) return;
+      dazu(r.name);
+      if (r.kind === "rsvp") ((r.data || {}).plusListe || []).forEach((pl) => dazu(pl && pl.name));
+    });
+    return out;
+  }
+  personenMitGaesten(e) {
+    return (e.people || []).concat(this.gaesteVon(e).map((n) => ({ name: n, role: tx("gast_als_person"), uid: "", gast: true })));
+  }
   /* Das Finanzfenster gehört zu einem Ereignis (state.fin.evId). */
   finEreignis() { const f = this.state.fin; return f ? (this.state.events || []).filter((x) => x.id === f.evId)[0] || null : null; }
   finIchName() { return String((this.me() || {}).username || "").trim(); }
@@ -8916,7 +9088,7 @@ class Component extends DCLogic {
     catch (e) { this.finSet({ laden: false, err: e && e.code === "D-28" ? tx("fin_f_sql") : tx("fin_f_laden") + " (" + ((e && (e.code || e.message)) || "?") + ")" }); }
   }
   /* Zur Auswahl: die Personen des Ereignisses (auch erfundene), wer schon in
-     Einträgen vorkommt, neu Ergänzte und man selbst. */
+     Einträgen vorkommt und neu Ergänzte. */
   finPersonen() {
     const f = this.state.fin || {};
     const d = f.d || {};
@@ -8924,10 +9096,10 @@ class Component extends DCLogic {
     const ich = this.finIchName();
     const m = {};
     const dazu = (n) => { const t = String(n || "").trim().slice(0, 60); if (t && !m[t.toLowerCase()]) m[t.toLowerCase()] = t; };
-    (e.people || []).forEach((p) => dazu(p && p.name));
+    this.personenMitGaesten(e).forEach((p) => dazu(p && p.name));
     (d.eintraege || []).forEach((r) => { const x = r.data || {}; (x.zahler || []).forEach((z) => dazu(z.n)); (x.teil || []).forEach((t) => dazu(t.n)); });
     (f.extra || []).forEach(dazu);
-    dazu(ich);
+    /* Nur Personen des Ereignisses – das eigene Konto kommt nicht automatisch dazu. */
     const ichK = ich.toLowerCase();
     return Object.keys(m).map((k) => m[k]).sort((a, b) => (a.toLowerCase() === ichK ? -1 : b.toLowerCase() === ichK ? 1 : a.localeCompare(b)));
   }
@@ -10913,7 +11085,7 @@ class Component extends DCLogic {
     }
     const e = (this.state.events || []).filter((x) => x.id === s.evId)[0];
     if (!e) { this.setState({ tt: null }); return; }
-    const evNeu = Object.assign({}, e, { timetable: timetable });
+    const evNeu = Object.assign({}, e, { timetable: timetable, extras: this.progSync(e.extras, timetable) });
     this.setState({ tt: null, events: this.state.events.map((x) => (x.id === e.id ? evNeu : x)) }, () => this.persist());
     if (this.state.cloud && window.ChronikCloud && window.ChronikCloud.saveEvent) {
       window.ChronikCloud.saveEvent(Object.assign({}, evNeu, { resolvedWho: this.resolveWho(evNeu.who, evNeu.gwho) })).catch((err) => this.handleCloudError(err));
@@ -13616,7 +13788,7 @@ class Component extends DCLogic {
     if (lvl < 3) return;
     this.setState({
       decoSel: null, bildSel: [],
-    decoStil: "flach", secOpen: {}, edTab: "grund", gaTab: "link", edSuche: "",
+    decoStil: "flach", secOpen: {}, edTab: "grund", gaTab: "link", edSuche: "", pgVonGast: false,
       draft: {
         id: e.id, name: e.name || "", date: e.date || "", end: e.end || "", place: e.place || "",
         kicker: e.kicker || "", note: e.note || "",
@@ -13630,7 +13802,7 @@ class Component extends DCLogic {
         },
         by: e.by || "", vis: (e.vis === "selected" ? "people" : e.vis) || "private", who: (e.who || []).slice(), gwho: (e.gwho || []).slice(), perms: Object.assign({}, e.perms || {}), polls: (e.polls || []).map((p) => Object.assign({}, p)), share: e.share || "view",
         etappen: (e.etappen || []).map((x) => Object.assign({}, x)),
-        timetable: e.timetable || null,
+        timetable: (e.timetable && (e.timetable.acts || []).length) ? e.timetable : (this.progAusZeitplan(((this.exOf(e).offen) || {}).zeitplan) || e.timetable || null),
         extras: JSON.parse(JSON.stringify(e.extras || {})),
         alben: (e.alben || []).map((x) => Object.assign({}, x)),
         themeId: e.themeId || "",
@@ -13675,7 +13847,7 @@ class Component extends DCLogic {
       perms: Object.assign({}, (old && old.perms) || {}, d.perms || {}),
       polls: (d.polls || (old && old.polls) || []).map((p) => Object.assign({}, p)),
       timetable: d.timetable !== undefined ? d.timetable : ((old && old.timetable) || null),
-      extras: this.gastLookFest(d.extras !== undefined ? d.extras : ((old && old.extras) || null), d),
+      extras: this.progSync(this.gastLookFest(d.extras !== undefined ? d.extras : ((old && old.extras) || null), d), d.timetable !== undefined ? d.timetable : ((old && old.timetable) || null)),
       etappen: (d.etappen || (old && old.etappen) || []).map((x) => Object.assign({}, x)),
       alben: (d.alben || (old && old.alben) || []).map((x) => Object.assign({}, x)),
       themeId: d.themeId != null ? d.themeId : ((old && old.themeId) || ""),
@@ -16317,14 +16489,14 @@ class Component extends DCLogic {
           .map((x, k) => ({ key: "w" + k, label: wegName(x.weg) }))
           .filter((x, k, arr) => arr.findIndex((y) => y.label === x.label) === k),
         routeLabel: plural((e.etappen || []).length, tx("etappe"), tx("etappen")),
-        hasInfos: (e.infos || []).length > 0, hasPeople: (e.people || []).length > 0, hasImages: nImg > 0,
+        hasInfos: (e.infos || []).length > 0, hasPeople: this.personenMitGaesten(e).length > 0, hasImages: nImg > 0,
         /* Am Beispiel des Leitfadens gibt es nichts zu bearbeiten oder
            zu löschen — sonst könnte es versehentlich echt angelegt werden. */
         canEdit: lvl >= 3, canFull: lvl >= 4,
         editLabel: lvl >= 4 ? tx("bearbeiten") : tx("inhalte_pflegen"),
         rights: lvl >= 4 ? "" : lvl >= 3 ? tx("teilrechte") : lvl >= 2 ? tx("kommentieren_erlaubt") : tx("nur_ansehen"),
         infos: (e.infos || []).map((r, j) => ({ key: "i" + j, label: r.label, value: r.value })),
-        people: (e.people || []).map((r, j) => ({ key: "p" + j, name: r.name, role: r.role || "", photo: r.photo || "", noPhoto: !r.photo,
+        people: this.personenMitGaesten(e).map((r, j) => ({ key: "p" + j, name: r.name, role: r.role || "", photo: r.photo || "", noPhoto: !r.photo,
           ...(function (self) {
             /* Info-Karte beim Darüberfahren – nur bei Personen mit Konto und ohne Blockade. */
             const pi = r.uid ? self.personInfo(r.uid) : { darf: false };
@@ -19236,6 +19408,21 @@ class Component extends DCLogic {
       ...this.ttFormVals(),
       ...this.voFormVals(),
       ed: this.edVals(),
+      pg: this.progVals(),
+      /* Sprachwahl auch vor dem Anmelden und auf der Gästeseite. */
+      spr: (function (self0) {
+        const S = window.CHRONIK_SPRACHEN || {};
+        const ks = Object.keys(S);
+        const akt = window.CHRONIK_SPRACHE || "de";
+        const box = { display: "inline-flex", gap: "2px", padding: "3px", borderRadius: "999px", zIndex: 2100, background: "rgba(255,255,255,0.82)", boxShadow: "0 2px 10px rgba(0,0,0,0.12)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)" };
+        return { mehr: ks.length > 1, mehrLogin: ks.length > 1 && !self0.state.gast,
+          loginStil: Object.assign({ position: "fixed", top: "12px", right: "12px" }, box),
+          gastStil: Object.assign({ position: "fixed", top: "12px", left: "12px" }, box),
+          liste: ks.map((k) => ({ key: k, kurz: k.toUpperCase(), name: (S[k] || {}).name || k, aria: k === akt ? "true" : "false",
+            stil: { minWidth: "40px", minHeight: "34px", padding: "0 10px", border: 0, borderRadius: "999px", cursor: "pointer", font: "600 13px/1 system-ui, sans-serif", letterSpacing: "0.04em",
+              background: k === akt ? "#201e1d" : "transparent", color: k === akt ? "#ffffff" : "#201e1d" },
+            klick: () => { if (k === akt) return; try { window.localStorage.setItem("chronik.sprache", k); } catch (e) { /* ohne Speicher */ } window.location.reload(); } })) };
+      })(this),
       gv: this.gastVals(),
       _bedarf: (function (self) {
         /* Welche Bilddateien jetzt gebraucht werden: die der gezeichneten
