@@ -3209,6 +3209,12 @@ window.CHRONIK_SPRACHEN.en = {
     bsp_zur_hilfe: "Back to help",
     bsp_zum_beispiel: "Back to the example",
     bsp_tanzflaeche: "Dance floor",
-    fin_fest_kurz: "fixed"
+    fin_fest_kurz: "fixed",
+    fin_lokal: "not uploaded yet",
+    fin_offline: "Offline – you're seeing the last saved state. New entries are stored on this device and uploaded as soon as you're back online.",
+    fin_warte_n: "{n} change(s) waiting to upload.",
+    fin_aktualisiert: "Updating …",
+    fin_jetzt_senden: "Upload now",
+    fin_sync_abgelehnt: "{n} change(s) weren't accepted – no permission, or the finances have been closed in the meantime."
   }
 };

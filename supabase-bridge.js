@@ -979,6 +979,12 @@
   }
   async function finSetzen(ev, id, data, name) {
     var c = await client();
+    /* Offline angelegte Einträge tragen eine eigene Kennung (lid). Kam ein
+       früherer Versuch doch an, wird nicht noch einmal angelegt. */
+    if (!id && data && data.lid) {
+      var schon = await c.from("fin_eintraege").select("id").eq("event_id", ev).eq("data->>lid", String(data.lid)).limit(1);
+      if (!schon.error && schon.data && schon.data.length) return schon.data[0].id;
+    }
     var r = id
       ? await c.from("fin_eintraege").update({ data: data || {} }).eq("id", id).select("id")
       : await c.from("fin_eintraege").insert({ event_id: ev, von: await finIch(), von_name: String(name || "").slice(0, 60), data: data || {} }).select("id");

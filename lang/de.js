@@ -3209,6 +3209,12 @@ window.CHRONIK_SPRACHEN.de = {
     bsp_zur_hilfe: "Zurück zur Hilfe",
     bsp_zum_beispiel: "Zurück zum Beispiel",
     bsp_tanzflaeche: "Tanzfläche",
-    fin_fest_kurz: "fest"
+    fin_fest_kurz: "fest",
+    fin_lokal: "noch nicht hochgeladen",
+    fin_offline: "Offline – du siehst den letzten Stand. Neue Buchungen werden auf dem Gerät gespeichert und hochgeladen, sobald wieder Internet da ist.",
+    fin_warte_n: "{n} Änderung(en) warten auf das Hochladen.",
+    fin_aktualisiert: "Wird aktualisiert …",
+    fin_jetzt_senden: "Jetzt hochladen",
+    fin_sync_abgelehnt: "{n} Änderung(en) wurden nicht übernommen – keine Berechtigung oder die Finanzen wurden inzwischen abgeschlossen."
   }
 };
