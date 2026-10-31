@@ -3,6 +3,380 @@ window.CHRONIK_SPRACHEN = window.CHRONIK_SPRACHEN || {};
 window.CHRONIK_SPRACHEN.en = {
   name: "English",
   locale: "en-GB",
+  /* Ereignis-Assistent: Vorlagen je Art (Bausteine, Programm, Abfragen, Infos). */
+  assistent: [
+   {
+    "k": "hochzeit",
+    "emoji": "💍",
+    "farbe": "#d6006c",
+    "titel": "Wedding",
+    "kurz": "Guest page with RSVP and meal choice, seating plan, programme, photo wall and guest book.",
+    "feld": {
+     "label": "Who is getting married?",
+     "ph": "e.g. Lena & Tom"
+    },
+    "name": "{x}'s wedding",
+    "nameOhne": "Our wedding",
+    "kicker": "Wedding",
+    "vorlauf": 180,
+    "dauer": 0,
+    "bausteine": [
+     "countdown",
+     "gaeste",
+     "essen",
+     "fragen",
+     "sitz",
+     "programm",
+     "fotowand",
+     "buch",
+     "infos"
+    ],
+    "programm": [
+     [
+      0,
+      "14:00",
+      "Ceremony"
+     ],
+     [
+      0,
+      "15:00",
+      "Champagne reception"
+     ],
+     [
+      0,
+      "16:30",
+      "Group photo"
+     ],
+     [
+      0,
+      "18:30",
+      "Dinner"
+     ],
+     [
+      0,
+      "21:00",
+      "First dance"
+     ],
+     [
+      0,
+      "00:00",
+      "Midnight snack"
+     ]
+    ],
+    "fragen": [
+     {
+      "frage": "Which song gets you on the dance floor?",
+      "form": "offen"
+     },
+     {
+      "frage": "Joining the brunch the next morning?",
+      "antworten": "Yes, No",
+      "form": "auswahl"
+     }
+    ],
+    "essen": "Meat, Vegetarian, Vegan, Kids' meal",
+    "infos": [
+     [
+      "Dress code",
+      "formal"
+     ],
+     [
+      "Parking",
+      ""
+     ],
+     [
+      "Accommodation",
+      ""
+     ]
+    ]
+   },
+   {
+    "k": "geburtstag",
+    "emoji": "🎂",
+    "farbe": "#13a77c",
+    "titel": "Birthday & party",
+    "kurz": "Agree on a date, guest page with a bring list, gift ideas, a shared gift – as a surprise if you like.",
+    "feld": {
+     "label": "Whose birthday is it?",
+     "ph": "e.g. Jonas"
+    },
+    "name": "{x}'s birthday",
+    "nameOhne": "Birthday party",
+    "kicker": "Birthday",
+    "vorlauf": 30,
+    "dauer": 0,
+    "ueberraschung": true,
+    "bausteine": [
+     "gaeste",
+     "fragen",
+     "programm",
+     "fotowand",
+     "buch",
+     "vor",
+     "finanzen",
+     "abstimmung"
+    ],
+    "programm": [
+     [
+      0,
+      "18:00",
+      "Arrival & drinks"
+     ],
+     [
+      0,
+      "19:00",
+      "Buffet"
+     ],
+     [
+      0,
+      "20:30",
+      "Speeches & surprise"
+     ],
+     [
+      0,
+      "21:00",
+      "Party"
+     ]
+    ],
+    "fragen": [
+     {
+      "frage": "What are you bringing to the buffet?",
+      "antworten": "Salad, Dessert, Bread & dips, Drinks",
+      "form": "erweiterbar"
+     },
+     {
+      "frage": "Are you joining the quiz?",
+      "form": "spiel"
+     }
+    ],
+    "poll": {
+     "art": "vote",
+     "frage": "Which date works for you?",
+     "termine": [
+      0,
+      7
+     ]
+    },
+    "infos": [
+     [
+      "Gift",
+      "We're giving a joint gift – see finances"
+     ]
+    ]
+   },
+   {
+    "k": "reise",
+    "emoji": "🗺️",
+    "farbe": "#1f84cf",
+    "titel": "Trip",
+    "kurz": "Stages on a map, bookings as info, a shared budget and a poll for the free day.",
+    "feld": {
+     "label": "Where are you going?",
+     "ph": "e.g. Norway"
+    },
+    "stationen": {
+     "label": "Stops (separated by commas)",
+     "ph": "e.g. Oslo, Geiranger, Bergen"
+    },
+    "name": "Trip to {x}",
+    "nameOhne": "Our trip",
+    "kicker": "Trip",
+    "vorlauf": 60,
+    "dauer": 11,
+    "bausteine": [
+     "etappen",
+     "infos",
+     "finanzen",
+     "abstimmung",
+     "countdown"
+    ],
+    "poll": {
+     "art": "vote",
+     "frage": "What do we do on the free day?",
+     "opts": [
+      "Hiking",
+      "Explore the city",
+      "Nothing at all"
+     ]
+    },
+    "infos": [
+     [
+      "Getting there",
+      ""
+     ],
+     [
+      "Accommodation",
+      ""
+     ],
+     [
+      "Rental car",
+      ""
+     ],
+     [
+      "Booking number",
+      ""
+     ]
+    ]
+   },
+   {
+    "k": "festival",
+    "emoji": "🎪",
+    "farbe": "#7c4ad8",
+    "titel": "Festival & concert",
+    "kurz": "Crew, timetable, bring list, shared costs and emergency info for the grounds.",
+    "feld": {
+     "label": "Which festival?",
+     "ph": "e.g. Sonnenfeld Open Air"
+    },
+    "name": "{x}",
+    "nameOhne": "Festival",
+    "kicker": "Festival",
+    "vorlauf": 90,
+    "dauer": 3,
+    "bausteine": [
+     "countdown",
+     "programm",
+     "finanzen",
+     "abstimmung",
+     "notfall",
+     "infos"
+    ],
+    "programm": [
+     [
+      0,
+      "15:00",
+      "Arrival & set up tents"
+     ],
+     [
+      0,
+      "19:00",
+      "First bands"
+     ],
+     [
+      1,
+      "12:00",
+      "Breakfast at the camp"
+     ],
+     [
+      -1,
+      "11:00",
+      "Pack up & head home"
+     ]
+    ],
+    "poll": {
+     "art": "liste",
+     "frage": "Who brings what?"
+    },
+    "notfall": {
+     "art": "",
+     "nummer": "112",
+     "treff": "At the tent"
+    },
+    "infos": [
+     [
+      "Tickets",
+      ""
+     ],
+     [
+      "Campsite",
+      ""
+     ],
+     [
+      "Meeting point",
+      ""
+     ]
+    ]
+   },
+   {
+    "k": "fest",
+    "emoji": "🏡",
+    "farbe": "#e07b16",
+    "titel": "Club & company party",
+    "kurz": "Guest page with helper shifts, tournament teams, programme, photo wall and first-aid info.",
+    "feld": {
+     "label": "Club or company",
+     "ph": "e.g. TSV Grünwald"
+    },
+    "name": "{x} summer party",
+    "nameOhne": "Summer party",
+    "kicker": "Party",
+    "vorlauf": 60,
+    "dauer": 0,
+    "bausteine": [
+     "countdown",
+     "gaeste",
+     "fragen",
+     "programm",
+     "fotowand",
+     "abstimmung",
+     "notfall",
+     "infos"
+    ],
+    "programm": [
+     [
+      0,
+      "11:00",
+      "Opening"
+     ],
+     [
+      0,
+      "12:00",
+      "Lunch"
+     ],
+     [
+      0,
+      "13:30",
+      "Tournament & kids' games"
+     ],
+     [
+      0,
+      "15:00",
+      "Coffee & cake"
+     ],
+     [
+      0,
+      "17:00",
+      "Prize giving"
+     ],
+     [
+      0,
+      "18:00",
+      "Wind-down"
+     ]
+    ],
+    "fragen": [
+     {
+      "frage": "Which shift can you help with?",
+      "antworten": "Set-up, Grill, Cake stand, Till, Clean-up",
+      "form": "auswahl",
+      "mehr": true
+     },
+     {
+      "frage": "Are you playing in the tournament?",
+      "form": "spiel"
+     }
+    ],
+    "poll": {
+     "art": "liste",
+     "frage": "Who's baking a cake?"
+    },
+    "notfall": {
+     "art": "",
+     "nummer": "112",
+     "ort": "First-aid tent at the entrance"
+    },
+    "infos": [
+     [
+      "Contact person",
+      ""
+     ],
+     [
+      "Parking",
+      ""
+     ]
+    ]
+   }
+  ],
   /* Beispiele in der Hilfe: je ein erfundenes Ereignis von der Planung bis danach. */
   beispiele: [
    {
@@ -1242,6 +1616,870 @@ window.CHRONIK_SPRACHEN.en = {
         "n": "Malik",
         "art": "%",
         "w": "20"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "tagebuch",
+    "icon": "",
+    "farbe": "#e07b16",
+    "emoji": "📔",
+    "titel": "Nora's diary – a year in moments",
+    "kurz": "No big party, just many small days: short entries with mood, photos and decorations – and at the end a review of the year that feels like a book.",
+    "phasen": [
+     {
+      "titel": "Getting started",
+      "schritte": [
+       {
+        "titel": "An entry in 30 seconds",
+        "text": "Nora creates an entry: title, date, one sentence as a note. She picks the category “Diary”, visible only to herself. That's all it takes.",
+        "wo": "“+ Event” → Basics: category, note and visibility",
+        "lehr": "grund",
+        "vorschau": {
+         "kopf": "Basics",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Title",
+           "First snow"
+          ],
+          [
+           "Date",
+           "Tue, 3 December"
+          ],
+          [
+           "Category",
+           "Diary"
+          ],
+          [
+           "Visible to",
+           "only me"
+          ],
+          [
+           "Note",
+           "The city suddenly went quiet."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Mood as info",
+        "text": "Info fields are free pairs of label and value. Nora uses them as a little mood tracker – later she can search for “☀️” or a song.",
+        "wo": "Edit → Content → Info",
+        "lehr": "infos",
+        "vorschau": {
+         "kopf": "Info",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Mood",
+           "☀️ light"
+          ],
+          [
+           "Weather",
+           "−2 °C, snow"
+          ],
+          [
+           "Song of the day",
+           "Bon Iver – Holocene"
+          ],
+          [
+           "Steps",
+           "11,240"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Every day its own look",
+        "text": "A design per entry, stickers dragged right onto the preview, a colour palette of its own: in winter the diary looks different than in summer – the seasonal designs help.",
+        "wo": "Edit → Look: design, colours and stickers",
+        "lehr": "deko",
+        "vorschau": {
+         "kopf": "Look",
+         "art": "chips",
+         "chips": [
+          "Design “Winter”",
+          "Sticker ★",
+          "Sticker ❄",
+          "Palette: cool",
+          "Effect: snowfall"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Every day",
+      "schritte": [
+       {
+        "titel": "Photos with feeling",
+        "text": "One or two photos a day are enough. Rotate, flip, crop and add a caption. Under “Single pictures” Nora later sees all photos of the year at a glance.",
+        "wo": "Edit → Pictures · menu “Single pictures”",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Pictures",
+         "art": "fotos",
+         "bilder": [
+          [
+           "❄️",
+           "First snow"
+          ],
+          [
+           "☕",
+           "Café at the market"
+          ],
+          [
+           "📚",
+           "New book"
+          ],
+          [
+           "🎨",
+           "Painting class, week 3"
+          ],
+          [
+           "🌷",
+           "Spring on the balcony"
+          ],
+          [
+           "🚲",
+           "Bike fixed!"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Who was I with?",
+        "text": "Nora adds people in her diary too – just as a memory. She shares selected entries with Lea so the two of them can look back together.",
+        "wo": "Edit → People and Rights → Visibility",
+        "lehr": "personen",
+        "vorschau": {
+         "kopf": "People & visibility",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Lea",
+           "was there",
+           "sees this entry"
+          ],
+          [
+           "Grandma",
+           "on the phone",
+           "–"
+          ],
+          [
+           "Visibility",
+           "",
+           "selected contacts"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Looking back",
+      "schritte": [
+       {
+        "titel": "Calendar and vertical",
+        "text": "In the calendar every day with an entry lights up. The vertical view reads like a diary from top to bottom – and the timeline shows the whole year on one line.",
+        "wo": "Above the timeline: Timeline · Vertical · Calendar",
+        "vorschau": {
+         "kopf": "Views",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Calendar",
+           "days with entries highlighted"
+          ],
+          [
+           "Vertical",
+           "like a book, entry by entry"
+          ],
+          [
+           "Timeline",
+           "the year on one line"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Search and filter",
+        "text": "Type “snow” in the search – all winter days appear. The filter narrows by category, person, place and period: only diary, only with Lea, only summer.",
+        "wo": "Menu “Filter” and the search field",
+        "vorschau": {
+         "kopf": "Filter · Diary & Lea",
+         "art": "route",
+         "stopps": [
+          [
+           "Movie night",
+           "14 February"
+          ],
+          [
+           "Flea market",
+           "6 May"
+          ],
+          [
+           "Swimming lake",
+           "21 July"
+          ],
+          [
+           "Pumpkin soup",
+           "2 October"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The year in review",
+        "text": "On New Year's Eve: filter to the year, start the slideshow, add music. 365 small days become a film.",
+        "wo": "Menu “Slideshow” – shows the pictures of your current selection",
+        "vorschau": {
+         "kopf": "Slideshow",
+         "art": "gross",
+         "wert": "412",
+         "unter": "pictures from 187 entries"
+        }
+       },
+       {
+        "titel": "How was I actually doing?",
+        "text": "A year's notes side by side tell more than any photo. That's what the diary is for.",
+        "wo": "Notes and info in the entries",
+        "lehr": "grund",
+        "vorschau": {
+         "kopf": "Notes",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "January",
+           "New year, old desk. But new plans."
+          ],
+          [
+           "June",
+           "Barefoot all day. That's what summer should be."
+          ],
+          [
+           "November",
+           "Tired but grateful. Lea brought soup."
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "party",
+    "icon": "",
+    "farbe": "#13a77c",
+    "emoji": "🎂",
+    "titel": "Jonas turns 40 – the surprise party",
+    "kurz": "Plan secretly with co-planners, agree on a date, pay for the gift together – and a guest page that only reveals more at the right time.",
+    "phasen": [
+     {
+      "titel": "Secret planning",
+      "schritte": [
+       {
+        "titel": "Create it secretly, plan it together",
+        "text": "Sarah creates the party – visible only to Tim and Jonas's sister Lisa. Tim may edit too. Jonas sees nothing, not even in his own Lioria.",
+        "wo": "Edit → Rights: visibility and co-editing",
+        "lehr": "sicht",
+        "vorschau": {
+         "kopf": "Rights",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Visible to",
+           "Tim, Lisa"
+          ],
+          [
+           "Can edit",
+           "Tim"
+          ],
+          [
+           "Jonas",
+           "sees nothing"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Finding the date",
+        "text": "A poll in the event with three dates – only for those in the know. Whoever votes sees their tick.",
+        "wo": "Edit → Content → Polls → Poll",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Poll · Which Saturday?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "14 March",
+           25
+          ],
+          [
+           "21 March",
+           63
+          ],
+          [
+           "28 March",
+           12
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Collecting gift ideas",
+        "text": "The guest page has a suggestions page: everyone suggests a gift, the others comment and show what they like.",
+        "wo": "Edit → Guest page → Sections → Suggestions",
+        "lehr": "offen",
+        "vorschau": {
+         "kopf": "Suggestions",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Hot-air balloon ride",
+           "Lisa",
+           "6 comments"
+          ],
+          [
+           "Record player",
+           "Ben",
+           "3 comments"
+          ],
+          [
+           "Cooking class for two",
+           "Mara",
+           "1 comment"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Giving together",
+        "text": "Sarah pays for the balloon ride, Tim for the decorations – both are shared by all six. For the cake, Lisa as his sister pays a fixed share and the rest is split. After closing, Sarah creates an invoice for everyone to pass on.",
+        "wo": "Edit → Programme & planning → “Show finances button” · after closing: “Create invoice”",
+        "vorschau": {
+         "kopf": "Finances · gift",
+         "art": "finanzen",
+         "nur": [
+          0,
+          1,
+          2
+         ],
+         "bis": 3
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Inviting",
+      "schritte": [
+       {
+        "titel": "A guest page with a password",
+        "text": "The link goes out by message, protected by a password. Guests accept and say what they're bringing to the buffet – their own ideas are welcome. Everyone who accepts appears in the event under People.",
+        "wo": "Edit → Guest page → Guest link (password) and RSVP & questions",
+        "lehr": "rsvp",
+        "vorschau": {
+         "kopf": "Question · What are you bringing?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Salad",
+           40
+          ],
+          [
+           "Dessert",
+           25
+          ],
+          [
+           "Bread & dips",
+           20
+          ],
+          [
+           "Own idea",
+           15
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Only at the right time",
+        "text": "Programme and RSVP are visible right away. Photo wall and guest book only open when the party starts – so nothing gives the surprise away.",
+        "wo": "Edit → Guest page → Sections & release → “from a time”",
+        "lehr": "frei",
+        "vorschau": {
+         "kopf": "Release",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "RSVP & programme",
+           "right away"
+          ],
+          [
+           "Suggestions",
+           "right away"
+          ],
+          [
+           "Photo wall",
+           "from Sat 20:00"
+          ],
+          [
+           "Guest book",
+           "from Sat 20:00"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "The party",
+      "schritte": [
+       {
+        "titel": "Who knows Jonas best?",
+        "text": "A question as a game: “Are you joining the quiz?” With one click Lioria draws teams from everyone who said yes. Latecomers are flagged as new right away.",
+        "wo": "Edit → Guest page → Questions → type “Game” · in the event: “Draw teams”",
+        "lehr": "fragen",
+        "vorschau": {
+         "kopf": "Game · quiz teams",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Team 1",
+           "Ben, Mara, Ole, Lisa"
+          ],
+          [
+           "Team 2",
+           "Tim, Paula, Kemal, Jana"
+          ],
+          [
+           "Team 3",
+           "Sarah, Finn, Ida, Rico"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Now Jonas may see it all",
+        "text": "After the party Sarah adds Jonas to the visibility. Photos, guest book and suggestions are his now – and the party is in his Lioria.",
+        "wo": "Edit → Rights → Visibility",
+        "lehr": "sicht",
+        "vorschau": {
+         "kopf": "Guest book",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Ben",
+           "Your face when you walked in – priceless."
+          ],
+          [
+           "Lisa",
+           "40 and not a bit quieter. Love you, little brother!"
+          ],
+          [
+           "Mara",
+           "Next time I'm planning – and you won't notice again."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The album with a soundtrack",
+        "text": "An album “Party” gets the link to the evening's playlist. When Jonas starts the album's slideshow, the music from that night plays.",
+        "wo": "Edit → Pictures → Albums → music link",
+        "lehr": "alben",
+        "vorschau": {
+         "kopf": "Album · Party",
+         "art": "gross",
+         "wert": "♫",
+         "unter": "186 pictures · playlist “Jonas 40”"
+        }
+       }
+      ]
+     }
+    ],
+    "finanzen": [
+     {
+      "titel": "Hot-air balloon ride",
+      "betrag": 48000,
+      "zahler": [
+       {
+        "n": "Sarah",
+        "c": 48000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Sarah",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Tim",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mara",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ole",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Decorations & balloons",
+      "betrag": 9000,
+      "zahler": [
+       {
+        "n": "Tim",
+        "c": 9000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Sarah",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Tim",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mara",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ole",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Cake",
+      "betrag": 6000,
+      "zahler": [
+       {
+        "n": "Lisa",
+        "c": 6000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "fest",
+        "w": "30"
+       },
+       {
+        "n": "Sarah",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Tim",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mara",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ole",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "weihnachten",
+    "icon": "",
+    "farbe": "#c2410c",
+    "emoji": "🎄",
+    "titel": "Christmas at Grandma Ilse's",
+    "kurz": "Twelve people, one house, three days: an Advent countdown, Secret Santa by lot, a bring list and a programme – and Christmas over the years side by side.",
+    "phasen": [
+     {
+      "titel": "Advent",
+      "schritte": [
+       {
+        "titel": "The countdown",
+        "text": "From the first Sunday of Advent the countdown ticks down in the event and on the guest page. The kids check it every day.",
+        "wo": "Edit → On site → Countdown (with time)",
+        "lehr": "countdown",
+        "vorschau": {
+         "kopf": "Countdown",
+         "art": "gross",
+         "wert": "24",
+         "unter": "days until Christmas Eve, 17:00"
+        }
+       },
+       {
+        "titel": "Secret Santa by lot",
+        "text": "A question as a game: “Are you joining Secret Santa?” From the answers Lioria draws a chain – everyone gives to exactly one person, nobody to themselves. Latecomers are shown.",
+        "wo": "Edit → Guest page → Questions → type “Game” · in the event: “Draw a chain”",
+        "lehr": "fragen",
+        "vorschau": {
+         "kopf": "Game · Secret Santa",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Grandma Ilse",
+           "→ Paul"
+          ],
+          [
+           "Paul",
+           "→ Mum"
+          ],
+          [
+           "Mum",
+           "→ Felix"
+          ],
+          [
+           "Felix",
+           "→ Aunt Gabi"
+          ],
+          [
+           "Aunt Gabi",
+           "→ Grandma Ilse"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Who brings what?",
+        "text": "A sign-up list: everyone enters what they're bringing. Good ideas get a +1 – so there won't be three potato salads.",
+        "wo": "Edit → Content → Polls → Sign-up list",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Sign-up list",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Red cabbage",
+           "Grandma Ilse",
+           "+5"
+          ],
+          [
+           "Potato salad",
+           "Mum",
+           "+3"
+          ],
+          [
+           "Dessert",
+           "Paul",
+           "+2"
+          ],
+          [
+           "Drinks",
+           "Felix",
+           "+1"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Arrival and beds",
+        "text": "Train times and pick-ups are stored as info in the event. The site map is a photo of the floor plan with pins: who sleeps where?",
+        "wo": "Edit → Content → Info · On site → Site map",
+        "lehr": "lage",
+        "vorschau": {
+         "kopf": "Site map · beds",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Guest room",
+           "Mum & Dad"
+          ],
+          [
+           "Living room",
+           "Paul (sofa)"
+          ],
+          [
+           "Attic",
+           "Felix & kids"
+          ],
+          [
+           "Pick-up",
+           "station, 23 Dec at 16:12"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Christmas Eve",
+      "schritte": [
+       {
+        "titel": "The evening's programme",
+        "text": "Church, presents, dinner, quiz: the programme is in the event and on the guest page – short or detailed, as you like.",
+        "wo": "Edit → Programme & planning → Programme",
+        "lehr": "timetable",
+        "vorschau": {
+         "kopf": "Programme · 24 December",
+         "art": "zeitplan",
+         "zeilen": [
+          [
+           "15:30",
+           "Church"
+          ],
+          [
+           "17:00",
+           "Presents"
+          ],
+          [
+           "19:00",
+           "Dinner"
+          ],
+          [
+           "21:00",
+           "Family quiz"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "What do we eat next year?",
+        "text": "A ranking: everyone puts the suggestions in their own order. Once created it's fixed – people can only react.",
+        "wo": "Edit → Content → Polls → Ranking",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Ranking · Christmas dinner 2027",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Duck with red cabbage",
+           48
+          ],
+          [
+           "Raclette",
+           31
+          ],
+          [
+           "Fondue",
+           21
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Photos from every phone",
+        "text": "The whole family uploads to the same event. Comments below keep who laughed when.",
+        "wo": "Edit → Pictures",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Pictures",
+         "art": "fotos",
+         "bilder": [
+          [
+           "🎄",
+           "The tree"
+          ],
+          [
+           "🎁",
+           "Presents"
+          ],
+          [
+           "🦆",
+           "Grandma's duck"
+          ],
+          [
+           "🧩",
+           "The quiz"
+          ],
+          [
+           "⛄",
+           "Snowman on the 25th"
+          ],
+          [
+           "🕯️",
+           "Late at night"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Between the years",
+      "schritte": [
+       {
+        "titel": "Christmas over the years",
+        "text": "Filter by the category “Christmas” – and all the years line up. Comparing with Paul shows which Christmases you spent together.",
+        "wo": "Filter by category · Contacts → “Compare timelines”",
+        "vorschau": {
+         "kopf": "Timeline · Christmas",
+         "art": "route",
+         "stopps": [
+          [
+           "2023",
+           "at Mum's, 9 people"
+          ],
+          [
+           "2024",
+           "at Grandma Ilse's, snow!"
+          ],
+          [
+           "2025",
+           "holiday house by the sea"
+          ],
+          [
+           "2026",
+           "Grandma Ilse's again"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "The family film",
+        "text": "Between Christmas and New Year the slideshow of all Christmases runs on the TV – sorted by album, with music.",
+        "wo": "Menu “Slideshow” · in the event “by album”",
+        "vorschau": {
+         "kopf": "Slideshow",
+         "art": "gross",
+         "wert": "4",
+         "unter": "Christmases · 640 pictures"
+        }
        }
       ]
      }
@@ -3215,6 +4453,54 @@ window.CHRONIK_SPRACHEN.en = {
     fin_warte_n: "{n} change(s) waiting to upload.",
     fin_aktualisiert: "Updating …",
     fin_jetzt_senden: "Upload now",
-    fin_sync_abgelehnt: "{n} change(s) weren't accepted – no permission, or the finances have been closed in the meantime."
+    fin_sync_abgelehnt: "{n} change(s) weren't accepted – no permission, or the finances have been closed in the meantime.",
+    as_knopf: "Assistant",
+    as_titel: "Event assistant",
+    as_hilfe_text: "Three steps to a fully prepared event – wedding, birthday, trip, festival or party.",
+    as_t0: "What are you planning?",
+    as_t0_text: "Pick a type – the assistant prepares everything that fits. You can change anything later.",
+    as_t1: "The basics",
+    as_t2: "What do you need?",
+    as_t2_text: "What fits your event is preselected. Tap to switch a building block on or off.",
+    as_datum: "Date",
+    as_ende: "Until",
+    as_ort: "Place",
+    as_ort_ph: "e.g. Rosenhof Estate, Celle",
+    as_ueber: "It's a surprise",
+    as_ueber_text: "The event stays private; photo wall and guest book only open when the party starts.",
+    as_ueber_notiz: "Surprise – please don't tell!",
+    as_wird: "Will be created as: “{n}”",
+    as_leer_ok: "You can leave anything empty and fill it in later.",
+    as_zahl: "{n} building blocks selected",
+    as_editor: "Review in the editor first",
+    as_anlegen: "Create",
+    as_b_countdown: "Countdown",
+    as_bt_countdown: "Counts down the days – in the event and on the guest page.",
+    as_b_gaeste: "Guest page with RSVP",
+    as_bt_gaeste: "One link for all guests, no account needed. Guests accept or decline and appear under People.",
+    as_b_essen: "Meal choice",
+    as_bt_essen: "Guests pick their meal when accepting – for plus-ones too.",
+    as_b_fragen: "Questions",
+    as_bt_fragen: "Ready-made questions for guests – also as a game for drawing teams.",
+    as_b_sitz: "Seating plan",
+    as_bt_sitz: "Add tables, assign guests – everyone finds their seat on the guest page.",
+    as_b_programm: "Programme",
+    as_bt_programm: "A schedule with times as a template – on the guest page too.",
+    as_b_fotowand: "Photo wall",
+    as_bt_fotowand: "Guests upload their photos; you see them right in the event.",
+    as_b_buch: "Guest book",
+    as_bt_buch: "Wishes and memories from your guests.",
+    as_b_vor: "Suggestions",
+    as_bt_vor: "Guests suggest things – like gift ideas – and comment.",
+    as_b_finanzen: "Finances",
+    as_bt_finanzen: "Who paid what? At the end Lioria works out who pays whom.",
+    as_b_abstimmung: "Poll",
+    as_bt_abstimmung: "A matching poll or sign-up list, already set up.",
+    as_b_notfall: "Emergency info",
+    as_bt_notfall: "Emergency number and meeting point at hand – in the event and on the guest page.",
+    as_b_infos: "Info",
+    as_bt_infos: "Prepared fields for the essentials – just fill them in.",
+    as_b_etappen: "Stages",
+    as_bt_etappen: "Your stops become stages, spread over the travel days."
   }
 };

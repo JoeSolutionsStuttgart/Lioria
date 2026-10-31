@@ -3,6 +3,380 @@ window.CHRONIK_SPRACHEN = window.CHRONIK_SPRACHEN || {};
 window.CHRONIK_SPRACHEN.de = {
   name: "Deutsch",
   locale: "de-DE",
+  /* Ereignis-Assistent: Vorlagen je Art (Bausteine, Programm, Abfragen, Infos). */
+  assistent: [
+   {
+    "k": "hochzeit",
+    "emoji": "💍",
+    "farbe": "#d6006c",
+    "titel": "Hochzeit",
+    "kurz": "Gästeseite mit Zusage und Essenswunsch, Sitzplan, Programm, Fotowand und Gästebuch.",
+    "feld": {
+     "label": "Wer heiratet?",
+     "ph": "z. B. Lena & Tom"
+    },
+    "name": "Hochzeit von {x}",
+    "nameOhne": "Unsere Hochzeit",
+    "kicker": "Hochzeit",
+    "vorlauf": 180,
+    "dauer": 0,
+    "bausteine": [
+     "countdown",
+     "gaeste",
+     "essen",
+     "fragen",
+     "sitz",
+     "programm",
+     "fotowand",
+     "buch",
+     "infos"
+    ],
+    "programm": [
+     [
+      0,
+      "14:00",
+      "Freie Trauung"
+     ],
+     [
+      0,
+      "15:00",
+      "Sektempfang"
+     ],
+     [
+      0,
+      "16:30",
+      "Gruppenfoto"
+     ],
+     [
+      0,
+      "18:30",
+      "Abendessen"
+     ],
+     [
+      0,
+      "21:00",
+      "Eröffnungstanz"
+     ],
+     [
+      0,
+      "00:00",
+      "Mitternachtssnack"
+     ]
+    ],
+    "fragen": [
+     {
+      "frage": "Welches Lied bringt dich auf die Tanzfläche?",
+      "form": "offen"
+     },
+     {
+      "frage": "Kommst du zum Brunch am nächsten Morgen?",
+      "antworten": "Ja, Nein",
+      "form": "auswahl"
+     }
+    ],
+    "essen": "Fleisch, Vegetarisch, Vegan, Kinderteller",
+    "infos": [
+     [
+      "Dresscode",
+      "festlich"
+     ],
+     [
+      "Parken",
+      ""
+     ],
+     [
+      "Übernachtung",
+      ""
+     ]
+    ]
+   },
+   {
+    "k": "geburtstag",
+    "emoji": "🎂",
+    "farbe": "#13a77c",
+    "titel": "Geburtstag & Party",
+    "kurz": "Termin abstimmen, Gästeseite mit Mitbringliste, Geschenkideen, gemeinsam schenken – auf Wunsch als Überraschung.",
+    "feld": {
+     "label": "Wer hat Geburtstag?",
+     "ph": "z. B. Jonas"
+    },
+    "name": "{x}s Geburtstag",
+    "nameOhne": "Geburtstagsparty",
+    "kicker": "Geburtstag",
+    "vorlauf": 30,
+    "dauer": 0,
+    "ueberraschung": true,
+    "bausteine": [
+     "gaeste",
+     "fragen",
+     "programm",
+     "fotowand",
+     "buch",
+     "vor",
+     "finanzen",
+     "abstimmung"
+    ],
+    "programm": [
+     [
+      0,
+      "18:00",
+      "Ankommen & Aperitif"
+     ],
+     [
+      0,
+      "19:00",
+      "Buffet"
+     ],
+     [
+      0,
+      "20:30",
+      "Reden & Überraschung"
+     ],
+     [
+      0,
+      "21:00",
+      "Party"
+     ]
+    ],
+    "fragen": [
+     {
+      "frage": "Was bringst du zum Buffet mit?",
+      "antworten": "Salat, Nachtisch, Brot & Dips, Getränke",
+      "form": "erweiterbar"
+     },
+     {
+      "frage": "Machst du beim Quiz mit?",
+      "form": "spiel"
+     }
+    ],
+    "poll": {
+     "art": "vote",
+     "frage": "Welcher Termin passt dir?",
+     "termine": [
+      0,
+      7
+     ]
+    },
+    "infos": [
+     [
+      "Geschenk",
+      "Wir schenken gemeinsam – siehe Finanzen"
+     ]
+    ]
+   },
+   {
+    "k": "reise",
+    "emoji": "🗺️",
+    "farbe": "#1f84cf",
+    "titel": "Reise",
+    "kurz": "Etappen auf der Karte, Buchungen als Infos, gemeinsames Budget und eine Abstimmung für den freien Tag.",
+    "feld": {
+     "label": "Wohin geht es?",
+     "ph": "z. B. Norwegen"
+    },
+    "stationen": {
+     "label": "Stationen (mit Komma getrennt)",
+     "ph": "z. B. Oslo, Geiranger, Bergen"
+    },
+    "name": "Reise nach {x}",
+    "nameOhne": "Unsere Reise",
+    "kicker": "Reise",
+    "vorlauf": 60,
+    "dauer": 11,
+    "bausteine": [
+     "etappen",
+     "infos",
+     "finanzen",
+     "abstimmung",
+     "countdown"
+    ],
+    "poll": {
+     "art": "vote",
+     "frage": "Was machen wir am freien Tag?",
+     "opts": [
+      "Wandern",
+      "Stadt erkunden",
+      "Einfach nichts"
+     ]
+    },
+    "infos": [
+     [
+      "Anreise",
+      ""
+     ],
+     [
+      "Unterkunft",
+      ""
+     ],
+     [
+      "Mietwagen",
+      ""
+     ],
+     [
+      "Buchungsnummer",
+      ""
+     ]
+    ]
+   },
+   {
+    "k": "festival",
+    "emoji": "🎪",
+    "farbe": "#7c4ad8",
+    "titel": "Festival & Konzert",
+    "kurz": "Crew, Timetable, Mitbringliste, geteilte Kosten und Notfallinfos für das Gelände.",
+    "feld": {
+     "label": "Welches Festival?",
+     "ph": "z. B. Sonnenfeld Open Air"
+    },
+    "name": "{x}",
+    "nameOhne": "Festival",
+    "kicker": "Festival",
+    "vorlauf": 90,
+    "dauer": 3,
+    "bausteine": [
+     "countdown",
+     "programm",
+     "finanzen",
+     "abstimmung",
+     "notfall",
+     "infos"
+    ],
+    "programm": [
+     [
+      0,
+      "15:00",
+      "Anreise & Zeltaufbau"
+     ],
+     [
+      0,
+      "19:00",
+      "Erste Bands"
+     ],
+     [
+      1,
+      "12:00",
+      "Frühstück am Camp"
+     ],
+     [
+      -1,
+      "11:00",
+      "Abbau & Heimfahrt"
+     ]
+    ],
+    "poll": {
+     "art": "liste",
+     "frage": "Wer bringt was mit?"
+    },
+    "notfall": {
+     "art": "",
+     "nummer": "112",
+     "treff": "Am Zelt"
+    },
+    "infos": [
+     [
+      "Tickets",
+      ""
+     ],
+     [
+      "Zeltplatz",
+      ""
+     ],
+     [
+      "Treffpunkt",
+      ""
+     ]
+    ]
+   },
+   {
+    "k": "fest",
+    "emoji": "🏡",
+    "farbe": "#e07b16",
+    "titel": "Vereins- & Firmenfest",
+    "kurz": "Gästeseite mit Helferschichten, Turnier-Teams, Programm, Fotowand und Erste-Hilfe-Infos.",
+    "feld": {
+     "label": "Verein oder Firma",
+     "ph": "z. B. TSV Grünwald"
+    },
+    "name": "Sommerfest {x}",
+    "nameOhne": "Sommerfest",
+    "kicker": "Fest",
+    "vorlauf": 60,
+    "dauer": 0,
+    "bausteine": [
+     "countdown",
+     "gaeste",
+     "fragen",
+     "programm",
+     "fotowand",
+     "abstimmung",
+     "notfall",
+     "infos"
+    ],
+    "programm": [
+     [
+      0,
+      "11:00",
+      "Eröffnung"
+     ],
+     [
+      0,
+      "12:00",
+      "Mittagessen"
+     ],
+     [
+      0,
+      "13:30",
+      "Turnier & Kinderspiele"
+     ],
+     [
+      0,
+      "15:00",
+      "Kaffee & Kuchen"
+     ],
+     [
+      0,
+      "17:00",
+      "Siegerehrung"
+     ],
+     [
+      0,
+      "18:00",
+      "Ausklang"
+     ]
+    ],
+    "fragen": [
+     {
+      "frage": "Bei welcher Schicht hilfst du?",
+      "antworten": "Aufbau, Grill, Kuchenstand, Kasse, Abbau",
+      "form": "auswahl",
+      "mehr": true
+     },
+     {
+      "frage": "Spielst du beim Turnier mit?",
+      "form": "spiel"
+     }
+    ],
+    "poll": {
+     "art": "liste",
+     "frage": "Wer backt einen Kuchen?"
+    },
+    "notfall": {
+     "art": "",
+     "nummer": "112",
+     "ort": "Sanitätszelt am Eingang"
+    },
+    "infos": [
+     [
+      "Ansprechpartner",
+      ""
+     ],
+     [
+      "Parken",
+      ""
+     ]
+    ]
+   }
+  ],
   /* Beispiele in der Hilfe: je ein erfundenes Ereignis von der Planung bis danach. */
   beispiele: [
    {
@@ -1242,6 +1616,870 @@ window.CHRONIK_SPRACHEN.de = {
         "n": "Malik",
         "art": "%",
         "w": "20"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "tagebuch",
+    "icon": "",
+    "farbe": "#e07b16",
+    "emoji": "📔",
+    "titel": "Noras Tagebuch – ein Jahr in Momenten",
+    "kurz": "Keine große Feier, sondern viele kleine Tage: kurze Einträge mit Stimmung, Fotos und Deko – und am Ende ein Jahresrückblick, der sich wie ein Buch anfühlt.",
+    "phasen": [
+     {
+      "titel": "Anfangen",
+      "schritte": [
+       {
+        "titel": "Ein Eintrag in 30 Sekunden",
+        "text": "Nora legt einen Eintrag an: Titel, Datum, ein Satz als Notiz. Als Kategorie wählt sie „Tagebuch“, sichtbar nur für sie selbst. Mehr braucht es nicht.",
+        "wo": "„+ Ereignis“ → Grunddaten: Kategorie, Notiz und Sichtbarkeit",
+        "lehr": "grund",
+        "vorschau": {
+         "kopf": "Grunddaten",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Titel",
+           "Erster Schnee"
+          ],
+          [
+           "Datum",
+           "Di, 3. Dezember"
+          ],
+          [
+           "Kategorie",
+           "Tagebuch"
+          ],
+          [
+           "Sichtbar für",
+           "nur mich"
+          ],
+          [
+           "Notiz",
+           "Die Stadt war plötzlich ganz leise."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Die Stimmung als Info",
+        "text": "Infos sind freie Paare aus Bezeichnung und Wert. Nora nutzt sie als kleines Stimmungsbarometer – so lässt sich später nach „☀️“ oder einem Lied suchen.",
+        "wo": "Bearbeiten → Inhalt → Infos",
+        "lehr": "infos",
+        "vorschau": {
+         "kopf": "Infos",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Stimmung",
+           "☀️ leicht"
+          ],
+          [
+           "Wetter",
+           "−2 °C, Schnee"
+          ],
+          [
+           "Song des Tages",
+           "Bon Iver – Holocene"
+          ],
+          [
+           "Schritte",
+           "11.240"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Jedem Tag sein Gesicht",
+        "text": "Ein Design pro Eintrag, Sticker direkt auf die Vorschau gezogen, eine eigene Farbpalette: Im Winter wirkt das Tagebuch anders als im Sommer – die Jahreszeiten-Designs helfen dabei.",
+        "wo": "Bearbeiten → Aussehen: Design, Farben und Sticker",
+        "lehr": "deko",
+        "vorschau": {
+         "kopf": "Aussehen",
+         "art": "chips",
+         "chips": [
+          "Design „Winter“",
+          "Sticker ★",
+          "Sticker ❄",
+          "Palette: kühl",
+          "Effekt: Schneefall"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Jeden Tag",
+      "schritte": [
+       {
+        "titel": "Fotos mit Gefühl",
+        "text": "Ein, zwei Fotos pro Tag reichen. Drehen, spiegeln, zuschneiden und eine Bildunterschrift dazu. Unter „Einzelne Bilder“ sieht Nora später alle Fotos des Jahres auf einen Blick.",
+        "wo": "Bearbeiten → Bilder · im Menü „Einzelne Bilder“",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Bilder",
+         "art": "fotos",
+         "bilder": [
+          [
+           "❄️",
+           "Erster Schnee"
+          ],
+          [
+           "☕",
+           "Café am Markt"
+          ],
+          [
+           "📚",
+           "Neues Buch"
+          ],
+          [
+           "🎨",
+           "Malkurs, Woche 3"
+          ],
+          [
+           "🌷",
+           "Frühling auf dem Balkon"
+          ],
+          [
+           "🚲",
+           "Fahrrad repariert!"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Mit wem war ich da?",
+        "text": "Personen trägt Nora auch im Tagebuch ein – nur als Erinnerung. Einzelne Einträge gibt sie gezielt für Lea frei, damit die beiden gemeinsam zurückschauen können.",
+        "wo": "Bearbeiten → Personen und Rechte → Sichtbarkeit",
+        "lehr": "personen",
+        "vorschau": {
+         "kopf": "Personen & Sichtbarkeit",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Lea",
+           "war dabei",
+           "sieht diesen Eintrag"
+          ],
+          [
+           "Oma",
+           "am Telefon",
+           "–"
+          ],
+          [
+           "Sichtbarkeit",
+           "",
+           "ausgewählte Kontakte"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Zurückblicken",
+      "schritte": [
+       {
+        "titel": "Kalender und Vertikal",
+        "text": "Im Kalender leuchtet jeder Tag mit Eintrag. Die vertikale Ansicht liest sich wie ein Tagebuch von oben nach unten – und der Zeitstrahl zeigt das ganze Jahr auf einer Linie.",
+        "wo": "Oben über dem Zeitstrahl: Zeitstrahl · Vertikal · Kalender",
+        "vorschau": {
+         "kopf": "Ansichten",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Kalender",
+           "Tage mit Eintrag farbig"
+          ],
+          [
+           "Vertikal",
+           "wie ein Buch, Eintrag für Eintrag"
+          ],
+          [
+           "Zeitstrahl",
+           "das Jahr auf einer Linie"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Suchen und filtern",
+        "text": "„Schnee“ in die Suche – alle Wintertage erscheinen. Der Filter grenzt nach Kategorie, Person, Ort und Zeitraum ein: nur Tagebuch, nur mit Lea, nur der Sommer.",
+        "wo": "Menü „Filter“ und Suchfeld",
+        "vorschau": {
+         "kopf": "Filter · Tagebuch & Lea",
+         "art": "route",
+         "stopps": [
+          [
+           "Kinoabend",
+           "14. Februar"
+          ],
+          [
+           "Flohmarkt",
+           "6. Mai"
+          ],
+          [
+           "Badesee",
+           "21. Juli"
+          ],
+          [
+           "Kürbissuppe",
+           "2. Oktober"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Der Jahresrückblick",
+        "text": "An Silvester: Filter auf das Jahr, Fotoshow an, Musik dazu. Aus 365 kleinen Tagen wird ein Film.",
+        "wo": "Menü „Fotoshow“ – zeigt die Bilder deiner aktuellen Auswahl",
+        "vorschau": {
+         "kopf": "Fotoshow",
+         "art": "gross",
+         "wert": "412",
+         "unter": "Bilder aus 187 Einträgen"
+        }
+       },
+       {
+        "titel": "Wie ging es mir eigentlich?",
+        "text": "Die Notizen eines Jahres nebeneinander erzählen mehr als jedes Foto. Genau dafür ist das Tagebuch da.",
+        "wo": "Notizen und Infos in den Einträgen",
+        "lehr": "grund",
+        "vorschau": {
+         "kopf": "Notizen",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Januar",
+           "Neues Jahr, alter Schreibtisch. Aber neue Pläne."
+          ],
+          [
+           "Juni",
+           "Den ganzen Tag barfuß. So soll Sommer sein."
+          ],
+          [
+           "November",
+           "Müde, aber dankbar. Lea hat Suppe vorbeigebracht."
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "party",
+    "icon": "",
+    "farbe": "#13a77c",
+    "emoji": "🎂",
+    "titel": "Jonas wird 40 – die Überraschungsparty",
+    "kurz": "Heimlich planen mit Mitplanern, Termin abstimmen, Geschenk gemeinsam bezahlen – und eine Gästeseite, die erst zur richtigen Zeit mehr verrät.",
+    "phasen": [
+     {
+      "titel": "Heimlich planen",
+      "schritte": [
+       {
+        "titel": "Geheim anlegen, gemeinsam planen",
+        "text": "Sarah legt die Party an – sichtbar nur für Tim und Jonas’ Schwester Lisa. Tim darf mitbearbeiten. Jonas selbst sieht nichts, auch nicht in seiner eigenen Lioria.",
+        "wo": "Bearbeiten → Rechte: Sichtbarkeit und Mitbearbeiten",
+        "lehr": "sicht",
+        "vorschau": {
+         "kopf": "Rechte",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Sichtbar für",
+           "Tim, Lisa"
+          ],
+          [
+           "Mitbearbeiten",
+           "Tim"
+          ],
+          [
+           "Jonas",
+           "sieht nichts"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Den Termin finden",
+        "text": "Eine Umfrage im Ereignis mit drei Terminen – nur für die Mitwisser. Wer abstimmt, sieht seinen Haken.",
+        "wo": "Bearbeiten → Inhalt → Abstimmungen → Umfrage",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Umfrage · Welcher Samstag?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "14. März",
+           25
+          ],
+          [
+           "21. März",
+           63
+          ],
+          [
+           "28. März",
+           12
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Geschenkideen sammeln",
+        "text": "Auf der Gästeseite gibt es die Vorschläge-Seite: Jeder schlägt ein Geschenk vor, die anderen kommentieren und zeigen, was ihnen gefällt.",
+        "wo": "Bearbeiten → Gästeseite → Bereiche → Vorschläge",
+        "lehr": "offen",
+        "vorschau": {
+         "kopf": "Vorschläge",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Heißluftballonfahrt",
+           "Lisa",
+           "6 Kommentare"
+          ],
+          [
+           "Plattenspieler",
+           "Ben",
+           "3 Kommentare"
+          ],
+          [
+           "Kochkurs für zwei",
+           "Mara",
+           "1 Kommentar"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Gemeinsam schenken",
+        "text": "Sarah bezahlt die Ballonfahrt, Tim die Deko – beides teilen sich alle sechs. Bei der Torte zahlt Lisa als Schwester einen festen Anteil, der Rest wird geteilt. Nach dem Abschließen erstellt Sarah für jeden eine Rechnung zum Weiterschicken.",
+        "wo": "Bearbeiten → Programm und Planung → „Finanzen-Knopf zeigen“ · nach dem Abschließen: „Rechnung erstellen“",
+        "vorschau": {
+         "kopf": "Finanzen · Geschenk",
+         "art": "finanzen",
+         "nur": [
+          0,
+          1,
+          2
+         ],
+         "bis": 3
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Einladen",
+      "schritte": [
+       {
+        "titel": "Gästeseite mit Passwort",
+        "text": "Der Link geht per Nachricht raus, geschützt mit einem Passwort. Gäste sagen zu und tragen ein, was sie zum Buffet mitbringen – eigene Ideen sind erlaubt. Wer zusagt, erscheint im Ereignis bei den Personen.",
+        "wo": "Bearbeiten → Gästeseite → Gästelink (Passwort) und Zu-/Absagen & Abfragen",
+        "lehr": "rsvp",
+        "vorschau": {
+         "kopf": "Abfrage · Was bringst du mit?",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Salat",
+           40
+          ],
+          [
+           "Nachtisch",
+           25
+          ],
+          [
+           "Brot & Dips",
+           20
+          ],
+          [
+           "Eigene Idee",
+           15
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Erst zur richtigen Zeit",
+        "text": "Programm und Zusage sind sofort sichtbar. Fotowand und Gästebuch öffnen sich erst, wenn die Party beginnt – damit vorher nichts die Überraschung verrät.",
+        "wo": "Bearbeiten → Gästeseite → Bereiche & Freigaben → „ab Uhrzeit“",
+        "lehr": "frei",
+        "vorschau": {
+         "kopf": "Freigaben",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Zusage & Programm",
+           "sofort"
+          ],
+          [
+           "Vorschläge",
+           "sofort"
+          ],
+          [
+           "Fotowand",
+           "ab Sa 20:00"
+          ],
+          [
+           "Gästebuch",
+           "ab Sa 20:00"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Die Party",
+      "schritte": [
+       {
+        "titel": "Wer kennt Jonas am besten?",
+        "text": "Eine Abfrage als Spiel: „Machst du beim Quiz mit?“ Mit einem Klick lost Lioria Teams aus allen, die Ja gesagt haben. Kommt jemand dazu, sieht man ihn sofort als neu.",
+        "wo": "Bearbeiten → Gästeseite → Abfragen → Form „Spiel“ · im Ereignis: „Teams auslosen“",
+        "lehr": "fragen",
+        "vorschau": {
+         "kopf": "Spiel · Quiz-Teams",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Team 1",
+           "Ben, Mara, Ole, Lisa"
+          ],
+          [
+           "Team 2",
+           "Tim, Paula, Kemal, Jana"
+          ],
+          [
+           "Team 3",
+           "Sarah, Finn, Ida, Rico"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Jonas darf jetzt alles sehen",
+        "text": "Nach der Party nimmt Sarah Jonas in die Sichtbarkeit auf. Fotos, Gästebuch und Vorschläge sind jetzt seine – und die Party steht in seiner Lioria.",
+        "wo": "Bearbeiten → Rechte → Sichtbarkeit",
+        "lehr": "sicht",
+        "vorschau": {
+         "kopf": "Gästebuch",
+         "art": "zitate",
+         "zeilen": [
+          [
+           "Ben",
+           "Dein Gesicht beim Reinkommen – unbezahlbar."
+          ],
+          [
+           "Lisa",
+           "40 und kein bisschen leiser. Alles Liebe, kleiner Bruder!"
+          ],
+          [
+           "Mara",
+           "Nächstes Mal plane ich – und du merkst wieder nichts."
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Das Album mit Soundtrack",
+        "text": "Ein Album „Party“ bekommt den Link zur Playlist des Abends. Startet Jonas die Fotoshow des Albums, läuft die Musik von damals.",
+        "wo": "Bearbeiten → Bilder → Alben → Musik-Link",
+        "lehr": "alben",
+        "vorschau": {
+         "kopf": "Album · Party",
+         "art": "gross",
+         "wert": "♫",
+         "unter": "186 Bilder · Playlist „Jonas 40“"
+        }
+       }
+      ]
+     }
+    ],
+    "finanzen": [
+     {
+      "titel": "Heißluftballonfahrt",
+      "betrag": 48000,
+      "zahler": [
+       {
+        "n": "Sarah",
+        "c": 48000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Sarah",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Tim",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mara",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ole",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Deko & Luftballons",
+      "betrag": 9000,
+      "zahler": [
+       {
+        "n": "Tim",
+        "c": 9000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Sarah",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Tim",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Lisa",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mara",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ole",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     },
+     {
+      "titel": "Torte",
+      "betrag": 6000,
+      "zahler": [
+       {
+        "n": "Lisa",
+        "c": 6000
+       }
+      ],
+      "teil": [
+       {
+        "n": "Lisa",
+        "art": "fest",
+        "w": "30"
+       },
+       {
+        "n": "Sarah",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Tim",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ben",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Mara",
+        "art": "%",
+        "w": ""
+       },
+       {
+        "n": "Ole",
+        "art": "%",
+        "w": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "weihnachten",
+    "icon": "",
+    "farbe": "#c2410c",
+    "emoji": "🎄",
+    "titel": "Weihnachten bei Oma Ilse",
+    "kurz": "Zwölf Leute, ein Haus, drei Tage: Advents-Countdown, Wichteln per Los, Mitbringliste und ein Programm – und Weihnachten über die Jahre im Vergleich.",
+    "phasen": [
+     {
+      "titel": "Advent",
+      "schritte": [
+       {
+        "titel": "Der Countdown",
+        "text": "Ab dem ersten Advent zählt der Countdown im Ereignis und auf der Gästeseite herunter. Auch die Kinder schauen jeden Tag nach.",
+        "wo": "Bearbeiten → Vor Ort → Countdown (mit Uhrzeit)",
+        "lehr": "countdown",
+        "vorschau": {
+         "kopf": "Countdown",
+         "art": "gross",
+         "wert": "24",
+         "unter": "Tage bis Heiligabend, 17:00"
+        }
+       },
+       {
+        "titel": "Wichteln per Los",
+        "text": "Eine Abfrage als Spiel: „Machst du beim Wichteln mit?“ Daraus lost Lioria eine Kette – jeder beschenkt genau einen, niemand sich selbst. Neu Hinzugekommene werden angezeigt.",
+        "wo": "Bearbeiten → Gästeseite → Abfragen → Form „Spiel“ · im Ereignis: „Kette auslosen“",
+        "lehr": "fragen",
+        "vorschau": {
+         "kopf": "Spiel · Wichteln",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Oma Ilse",
+           "→ Paul"
+          ],
+          [
+           "Paul",
+           "→ Mama"
+          ],
+          [
+           "Mama",
+           "→ Felix"
+          ],
+          [
+           "Felix",
+           "→ Tante Gabi"
+          ],
+          [
+           "Tante Gabi",
+           "→ Oma Ilse"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Wer bringt was mit?",
+        "text": "Eine Eintragsliste: Jeder trägt selbst ein, was er mitbringt. Gute Ideen bekommen ein +1 – so gibt es nicht dreimal Kartoffelsalat.",
+        "wo": "Bearbeiten → Inhalt → Abstimmungen → Eintragsliste",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Eintragsliste",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Rotkohl",
+           "Oma Ilse",
+           "+5"
+          ],
+          [
+           "Kartoffelsalat",
+           "Mama",
+           "+3"
+          ],
+          [
+           "Nachtisch",
+           "Paul",
+           "+2"
+          ],
+          [
+           "Getränke",
+           "Felix",
+           "+1"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Anreise und Schlafplätze",
+        "text": "Zugzeiten und Abholung stehen als Infos im Ereignis. Der Lageplan ist ein Foto vom Grundriss mit Punkten: Wer schläft wo?",
+        "wo": "Bearbeiten → Inhalt → Infos · Vor Ort → Lageplan",
+        "lehr": "lage",
+        "vorschau": {
+         "kopf": "Lageplan · Schlafplätze",
+         "art": "tabelle",
+         "zeilen": [
+          [
+           "Gästezimmer",
+           "Mama & Papa"
+          ],
+          [
+           "Wohnzimmer",
+           "Paul (Sofa)"
+          ],
+          [
+           "Dachboden",
+           "Felix & Kinder"
+          ],
+          [
+           "Abholung",
+           "Bahnhof, 23.12. um 16:12"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Heiligabend",
+      "schritte": [
+       {
+        "titel": "Das Programm des Abends",
+        "text": "Kirche, Bescherung, Essen, Quiz: Das Programm steht im Ereignis und auf der Gästeseite – kurz oder ausführlich, ganz wie man mag.",
+        "wo": "Bearbeiten → Programm und Planung → Programm",
+        "lehr": "timetable",
+        "vorschau": {
+         "kopf": "Programm · 24. Dezember",
+         "art": "zeitplan",
+         "zeilen": [
+          [
+           "15:30",
+           "Kirche"
+          ],
+          [
+           "17:00",
+           "Bescherung"
+          ],
+          [
+           "19:00",
+           "Essen"
+          ],
+          [
+           "21:00",
+           "Familienquiz"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Was essen wir nächstes Jahr?",
+        "text": "Eine Rangliste: Jeder bringt die Vorschläge in seine Reihenfolge. Nach dem Anlegen steht sie fest – man kann nur noch reagieren.",
+        "wo": "Bearbeiten → Inhalt → Abstimmungen → Rangliste",
+        "lehr": "polls",
+        "vorschau": {
+         "kopf": "Rangliste · Weihnachtsessen 2027",
+         "art": "umfrage",
+         "optionen": [
+          [
+           "Ente mit Rotkohl",
+           48
+          ],
+          [
+           "Raclette",
+           31
+          ],
+          [
+           "Fondue",
+           21
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Fotos aus allen Handys",
+        "text": "Alle aus der Familie laden ihre Bilder ins selbe Ereignis. Kommentare darunter halten fest, wer wann gelacht hat.",
+        "wo": "Bearbeiten → Bilder",
+        "lehr": "bilder",
+        "vorschau": {
+         "kopf": "Bilder",
+         "art": "fotos",
+         "bilder": [
+          [
+           "🎄",
+           "Der Baum"
+          ],
+          [
+           "🎁",
+           "Bescherung"
+          ],
+          [
+           "🦆",
+           "Omas Ente"
+          ],
+          [
+           "🧩",
+           "Das Quiz"
+          ],
+          [
+           "⛄",
+           "Schneemann am 25."
+          ],
+          [
+           "🕯️",
+           "Spät am Abend"
+          ]
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titel": "Zwischen den Jahren",
+      "schritte": [
+       {
+        "titel": "Weihnachten über die Jahre",
+        "text": "Filter auf die Kategorie „Weihnachten“ – und alle Jahre stehen nebeneinander. Wer mit Paul vergleicht, sieht, welche Weihnachten sie zusammen verbracht haben.",
+        "wo": "Filter nach Kategorie · Kontakte → „Zeitstrahlen vergleichen“",
+        "vorschau": {
+         "kopf": "Zeitstrahl · Weihnachten",
+         "art": "route",
+         "stopps": [
+          [
+           "2023",
+           "bei Mama, 9 Personen"
+          ],
+          [
+           "2024",
+           "bei Oma Ilse, Schnee!"
+          ],
+          [
+           "2025",
+           "Ferienhaus an der See"
+          ],
+          [
+           "2026",
+           "wieder bei Oma Ilse"
+          ]
+         ]
+        }
+       },
+       {
+        "titel": "Der Film für die Familie",
+        "text": "Zwischen den Jahren läuft die Fotoshow aller Weihnachten am Fernseher – nach Album geordnet, mit Musik.",
+        "wo": "Menü „Fotoshow“ · im Ereignis „nach Album“",
+        "vorschau": {
+         "kopf": "Fotoshow",
+         "art": "gross",
+         "wert": "4",
+         "unter": "Weihnachten · 640 Bilder"
+        }
        }
       ]
      }
@@ -3215,6 +4453,54 @@ window.CHRONIK_SPRACHEN.de = {
     fin_warte_n: "{n} Änderung(en) warten auf das Hochladen.",
     fin_aktualisiert: "Wird aktualisiert …",
     fin_jetzt_senden: "Jetzt hochladen",
-    fin_sync_abgelehnt: "{n} Änderung(en) wurden nicht übernommen – keine Berechtigung oder die Finanzen wurden inzwischen abgeschlossen."
+    fin_sync_abgelehnt: "{n} Änderung(en) wurden nicht übernommen – keine Berechtigung oder die Finanzen wurden inzwischen abgeschlossen.",
+    as_knopf: "Assistent",
+    as_titel: "Ereignis-Assistent",
+    as_hilfe_text: "In drei Schritten zum fertig vorbereiteten Ereignis – Hochzeit, Geburtstag, Reise, Festival oder Fest.",
+    as_t0: "Was planst du?",
+    as_t0_text: "Wähle eine Art – der Assistent bereitet alles Passende vor. Du kannst später jederzeit etwas ändern.",
+    as_t1: "Die Eckdaten",
+    as_t2: "Was brauchst du?",
+    as_t2_text: "Vorausgewählt ist, was zu deinem Ereignis passt. Antippen schaltet einen Baustein an oder aus.",
+    as_datum: "Datum",
+    as_ende: "Bis",
+    as_ort: "Ort",
+    as_ort_ph: "z. B. Gut Rosenhof, Celle",
+    as_ueber: "Es ist eine Überraschung",
+    as_ueber_text: "Das Ereignis bleibt privat, Fotowand und Gästebuch öffnen sich erst zu Beginn der Feier.",
+    as_ueber_notiz: "Überraschung – bitte nicht verraten!",
+    as_wird: "Wird angelegt als: „{n}“",
+    as_leer_ok: "Alles kannst du auch leer lassen und später ergänzen.",
+    as_zahl: "{n} Bausteine ausgewählt",
+    as_editor: "Erst im Editor ansehen",
+    as_anlegen: "Anlegen",
+    as_b_countdown: "Countdown",
+    as_bt_countdown: "Zählt die Tage bis zum Beginn – im Ereignis und auf der Gästeseite.",
+    as_b_gaeste: "Gästeseite mit Zusagen",
+    as_bt_gaeste: "Ein Link für alle Gäste, ohne Konto. Gäste sagen zu oder ab und erscheinen bei den Personen.",
+    as_b_essen: "Essenswunsch",
+    as_bt_essen: "Gäste wählen bei der Zusage ihr Essen – auch für Begleitungen.",
+    as_b_fragen: "Abfragen",
+    as_bt_fragen: "Passende Fragen an die Gäste, schon vorbereitet – auch als Spiel zum Auslosen von Teams.",
+    as_b_sitz: "Sitzplan",
+    as_bt_sitz: "Tische anlegen, Gäste zuordnen – jeder findet seinen Platz auf der Gästeseite.",
+    as_b_programm: "Programm",
+    as_bt_programm: "Ein Ablauf mit Uhrzeiten als Vorlage – auch auf der Gästeseite.",
+    as_b_fotowand: "Fotowand",
+    as_bt_fotowand: "Gäste laden ihre Fotos hoch, du siehst sie direkt im Ereignis.",
+    as_b_buch: "Gästebuch",
+    as_bt_buch: "Wünsche und Erinnerungen der Gäste.",
+    as_b_vor: "Vorschläge",
+    as_bt_vor: "Gäste schlagen etwas vor – etwa Geschenkideen – und kommentieren.",
+    as_b_finanzen: "Finanzen",
+    as_bt_finanzen: "Wer hat was bezahlt? Am Ende rechnet Lioria aus, wer wem wie viel überweist.",
+    as_b_abstimmung: "Abstimmung",
+    as_bt_abstimmung: "Eine passende Abstimmung oder Eintragsliste, schon angelegt.",
+    as_b_notfall: "Notfall-Infos",
+    as_bt_notfall: "Notruf und Treffpunkt griffbereit – im Ereignis und auf der Gästeseite.",
+    as_b_infos: "Infos",
+    as_bt_infos: "Vorbereitete Felder für das Wichtigste – du füllst nur noch aus.",
+    as_b_etappen: "Etappen",
+    as_bt_etappen: "Aus deinen Stationen werden Etappen, über die Reisetage verteilt."
   }
 };
