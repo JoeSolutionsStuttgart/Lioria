@@ -1004,6 +1004,32 @@
     if (r.error) throw finFehler(r);
     if (!r.data || !r.data.length) throw fail("D-30");
   }
+  /* Geheime Auslosung (Update 40): Ersteller schreibt/liest, Gast fragt mit Name + Passwort. */
+  function spielFehler(r) {
+    var m = String((r.error && r.error.message) || "") + " " + String((r.error && r.error.code) || "");
+    if (/PGRST20[25]|42883|spiel_|schema cache|does not exist/i.test(m)) return fail("D-40");
+    if (/D-30/.test(m)) return fail("D-30");
+    if (/D-26/.test(m)) return fail("D-26");
+    return fail(code(r.error));
+  }
+  async function spielGeheimSetzen(ev, frage, rows) {
+    var c = await client();
+    var r = await c.rpc("spiel_geheim_setzen", { p_event: ev, p_frage: frage, p_rows: rows || [] });
+    if (r.error) throw spielFehler(r);
+    return r.data;
+  }
+  async function spielGeheimLesen(ev, frage) {
+    var c = await client();
+    var r = await c.rpc("spiel_geheim_lesen", { p_event: ev, p_frage: frage });
+    if (r.error) throw spielFehler(r);
+    return r.data || [];
+  }
+  async function spielMeins(ev, tk, frage, name, pw) {
+    var c = await client();
+    var r = await c.rpc("spiel_meins", { p_event: ev, p_token: tk, p_frage: frage, p_name: name, p_pw: pw });
+    if (r.error) throw spielFehler(r);
+    return r.data || {};
+  }
   /* Blockaden: eigene Liste auf dem Server ablegen; abfragen, wer mich blockiert. */
   async function blockSetzen(ids) {
     var c = await client();
@@ -1071,7 +1097,7 @@
     friends: friends, askFriend: askFriend, answerFriend: answerFriend, unfriend: unfriend,
     loadEvents: loadEvents, imageUrls: imageUrls, ttKi: ttKi, gastSicht: gastSicht, gastAdd: gastAdd, gastUpload: gastUpload, gastBildUrl: gastBildUrl, gastListe: gastListe, gastWeg: gastWeg,
     blockSetzen: blockSetzen, blockiertMich: blockiertMich,
-    finSicht: finSicht, finSetzen: finSetzen, finWeg: finWeg, finAbschluss: finAbschluss, saveEvent: saveEvent, removeEvent: removeEvent,
+    spielGeheimSetzen: spielGeheimSetzen, spielGeheimLesen: spielGeheimLesen, spielMeins: spielMeins, finSicht: finSicht, finSetzen: finSetzen, finWeg: finWeg, finAbschluss: finAbschluss, saveEvent: saveEvent, removeEvent: removeEvent,
     addComment: addComment, removeComment: removeComment, reactComment: reactComment,
     deleteMe: deleteMe, sweepUnconfirmed: sweepUnconfirmed, deleteImages: deleteImages, setPolls: setPolls, moveComments: moveComments, uploadImage: uploadImage, imageUrl: imageUrl, storeCheck: storeCheck, onChange: onChange,
     snapshot: snapshot, budget: budget, guard: guard,

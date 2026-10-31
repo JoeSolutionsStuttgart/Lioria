@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b155"></script>
-<script src="lang/de.js?v=b155"></script>
-<script src="lang/en.js?v=b155"></script>
-<script src="lang/sprache.js?v=b155"></script>
-<script src="./support.js?v=b155"></script>
+<script src="chronik-config.js?v=b156"></script>
+<script src="lang/de.js?v=b156"></script>
+<script src="lang/en.js?v=b156"></script>
+<script src="lang/sprache.js?v=b156"></script>
+<script src="./support.js?v=b156"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Lioria">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b155"></script>
-<script src="xlsx-export.js?v=b155"></script>
-<script src="farbe.js?v=b155"></script>
-<script src="cw-plaetze.js?v=b155"></script>
-<script src="fb-knopf.js?v=b155"></script>
+<script src="supabase-bridge.js?v=b156"></script>
+<script src="xlsx-export.js?v=b156"></script>
+<script src="farbe.js?v=b156"></script>
+<script src="cw-plaetze.js?v=b156"></script>
+<script src="fb-knopf.js?v=b156"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -506,6 +506,31 @@
             </section>
           </sc-if>
 
+          <sc-if value="{{ gv.zeigGeheim }}" hint-placeholder-val="{{ false }}">
+            <section style="display: grid; gap: 14px; padding: clamp(18px, 4vw, 28px); border-radius: calc(var(--g-radius) + 6px); background: var(--g-card-bg, var(--g-card)); box-shadow: var(--g-shadow); border: var(--g-rand, 0);">
+              <h2 style="margin: 0; font-family: var(--g-head); font-weight: var(--g-hw); font-size: clamp(22px, 4.5vw, 28px); line-height: 1.15; text-transform: var(--g-ht);">🔒 {{ L.gf_geheim_titel }}</h2>
+              <sc-if value="{{ gv.hatGeheimNeu }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; gap: 8px; padding: 14px 16px; border-radius: 14px; background: #fff4d6; color: #3b2a00; border: 2px dashed #e0a800;">
+                  <strong style="font-size: 16px;">{{ L.gf_geheim_pw_neu }}</strong>
+                  <sc-for list="{{ gv.geheimNeu }}" as="gn" hint-placeholder-count="0"><div style="display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 15px;"><span style="min-width: 0; overflow-wrap: anywhere;">{{ gn.name }} · <span style="opacity: 0.75;">{{ gn.frage }}</span></span><strong style="font-size: 20px; letter-spacing: 0.08em; font-family: ui-monospace, monospace;">{{ gn.pw }}</strong></div></sc-for>
+                  <span style="font-size: 13px; line-height: 1.45;">{{ L.gf_geheim_pw_neu_h }}</span>
+                </div>
+              </sc-if>
+              <p style="margin: 0; font-size: 15px; line-height: 1.5;">{{ L.gf_geheim_erkl }}</p>
+              <sc-for list="{{ gv.geheimFragen }}" as="gg" hint-placeholder-count="0">
+                <div style="display: grid; gap: 10px; padding: 14px; border-radius: 14px; background: var(--g-bg); border: 1px solid color-mix(in srgb, var(--g-ink) 14%, transparent);">
+                  <strong style="font-size: 16px; overflow-wrap: anywhere;">{{ gg.frage }}</strong>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <input value="{{ gg.name }}" onChange="{{ gg.onName }}" placeholder="{{ L.gast_dein_name }}" aria-label="{{ L.gast_dein_name }}" maxlength="60" style="flex: 1 1 160px; min-width: 0; box-sizing: border-box; min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1.5px solid color-mix(in srgb, var(--g-ink) 30%, transparent); background: var(--g-card); color: var(--g-ink); font: inherit; font-size: 16px;">
+                    <input value="{{ gg.pw }}" onChange="{{ gg.onPw }}" placeholder="{{ L.gf_geheim_pw }}" aria-label="{{ L.gf_geheim_pw }}" autocapitalize="characters" maxlength="40" style="flex: 1 1 140px; min-width: 0; box-sizing: border-box; min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1.5px solid color-mix(in srgb, var(--g-ink) 30%, transparent); background: var(--g-card); color: var(--g-ink); font: inherit; font-size: 16px; letter-spacing: 0.06em;">
+                    <button onClick="{{ gg.zeigen }}" style="min-height: 48px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--g-accent); color: var(--g-on-accent); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;">{{ L.gf_geheim_zeigen }}</button>
+                  </div>
+                  <sc-if value="{{ gg.hatRes }}" hint-placeholder-val="{{ false }}"><div role="status" style="{{ gg.resStil }}">{{ gg.res }}</div></sc-if>
+                </div>
+              </sc-for>
+            </section>
+          </sc-if>
+
           <sc-if value="{{ gv.istZp }}" hint-placeholder-val="{{ false }}">
             <section style="display: grid; gap: 22px; padding: clamp(18px, 4vw, 28px); border-radius: calc(var(--g-radius) + 6px); background: var(--g-card-bg, var(--g-card)); box-shadow: var(--g-shadow); border: var(--g-rand, 0);">
               <h2 style="margin: 0; font-family: var(--g-head); font-weight: var(--g-hw); font-size: clamp(24px, 5vw, 32px); line-height: 1.1; text-transform: var(--g-ht);">{{ L.zp_titel }}</h2>
@@ -607,7 +632,7 @@
     <sc-if value="{{ lay.loginKlein }}" hint-placeholder-val="{{ false }}">
     <div data-bewegt="" style="order: 0; min-width: 0; position: relative; z-index: 1;">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
-      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b155" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
+      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b156" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
       <div style="height: 4px; border-radius: 4px; background: linear-gradient(90deg, #7c4ad8, #3d63d9 40%, #1f84cf 65%, #13a77c); margin-top: var(--space-5);"></div>
       <div style="display: flex; justify-content: space-between; gap: var(--space-4); padding: 7px 0; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;">
         <span>{{ L.ereignisse_bilder_menschen }}</span>
@@ -620,7 +645,7 @@
     <div data-bewegt="" style="{{ lay.loginPitch }}">
       <sc-if value="{{ lay.loginGross }}" hint-placeholder-val="{{ true }}">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
-      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b155" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
+      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b156" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
       <div style="height: 4px; border-radius: 4px; background: linear-gradient(90deg, #7c4ad8, #3d63d9 40%, #1f84cf 65%, #13a77c); margin-top: var(--space-5);"></div>
       <div style="display: flex; justify-content: space-between; gap: var(--space-4); padding: 7px 0; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;">
         <span>{{ L.ereignisse_bilder_menschen }}</span>
@@ -1851,12 +1876,15 @@
                                     <div style="display: grid; gap: 10px; padding: 12px; border-radius: var(--t-radius, 2px); background: color-mix(in srgb, var(--t-accent, #0088b0) 9%, var(--t-card, #eae9e9)); border: 1px solid color-mix(in srgb, var(--t-accent, #0088b0) 35%, transparent);">
                                       <div style="display: grid; gap: 2px;"><span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--t-accent, #0088b0); font-weight: 700;">{{ L.gf_spiel_titel }}</span><strong style="font-size: 15px; overflow-wrap: anywhere;">{{ sg.frage }}</strong><span style="font-size: 13px; opacity: 0.8;">{{ sg.zahl }}</span></div>
                                       <sc-if value="{{ sg.hatTeilnehmer }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13.5px; line-height: 1.45; overflow-wrap: anywhere;">{{ sg.namen }}</div></sc-if>
+                                      <sc-if value="{{ sg.istGeheim }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13px; line-height: 1.45; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--t-accent2, #d6006c) 9%, transparent);">🔒 {{ sg.geheimText }}</div></sc-if>
+                                      <sc-if value="{{ sg.darfLosen }}" hint-placeholder-val="{{ true }}">
                                       <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
                                         <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px;">{{ L.gf_teamgroesse }}<input inputmode="numeric" value="{{ sg.groesse }}" onChange="{{ sg.onGroesse }}" onClick="{{ sg.stop }}" style="width: 64px; font: inherit; font-size: 16px; text-align: center; padding: 6px; border-radius: 8px; border: 1px solid var(--t-border, rgba(32, 30, 29, 0.2)); background: var(--t-card, #fff); color: inherit;"></label>
                                         <button onClick="{{ sg.teams }}" style="{{ sg.knopf }}">{{ L.gf_teams_losen }}</button>
                                         <button onClick="{{ sg.kette }}" style="{{ sg.knopf2 }}">{{ L.gf_kette_losen }}</button>
                                         <sc-if value="{{ sg.hatErgebnis }}" hint-placeholder-val="{{ false }}"><button onClick="{{ sg.weg }}" style="{{ sg.knopf3 }}">{{ L.gf_spiel_weg }}</button></sc-if>
                                       </div>
+                                      </sc-if>
                                       <sc-if value="{{ sg.hatNeu }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13px; font-weight: 600; color: var(--t-accent2, #d6006c);">{{ sg.neuText }}</div></sc-if>
                                       <sc-for list="{{ sg.teamListe }}" as="tm" hint-placeholder-count="0"><div style="display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; font-size: 14px; line-height: 1.4;"><strong style="white-space: nowrap;">{{ tm.titel }}</strong><span style="overflow-wrap: anywhere;">{{ tm.namen }}</span></div></sc-for>
                                       <sc-if value="{{ sg.hatKette }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: 4px; font-size: 14px; line-height: 1.4;"><span style="font-size: 12px; opacity: 0.75;">{{ L.gf_kette_titel }}</span><sc-for list="{{ sg.ketteListe }}" as="kt" hint-placeholder-count="0"><div style="overflow-wrap: anywhere;"><strong>{{ kt.von }}</strong> → {{ kt.an }}</div></sc-for></div></sc-if>
@@ -2317,9 +2345,15 @@
           <div style="font-size: 11.5px; color: var(--color-neutral-700); line-height: 1.45;">{{ L.den_titel_kannst_du_auch_oben }}</div>
         </div>
 
+        <button onClick="{{ jahr.um }}" style="{{ jahr.stil }}">
+          <span aria-hidden="true" style="font-size: 24px;">🗓</span>
+          <span style="display: grid; gap: 2px; text-align: left; min-width: 0;"><span style="font-size: 15px; font-weight: 700;">{{ jahr.titel }}</span><span style="font-size: 12.5px; line-height: 1.45; opacity: 0.85;">{{ jahr.text }}</span></span>
+        </button>
         <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-700); margin-bottom: var(--space-2);">{{ L.vorlagen }} · {{ presetCount }}</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
           <sc-for list="{{ presets }}" as="p" hint-placeholder-count="12">
+            <div style="position: relative; display: grid;">
+            <sc-if value="{{ p.eigen }}" hint-placeholder-val="{{ false }}"><button onClick="{{ p.weg }}" title="{{ L.design_loeschen }}" aria-label="{{ L.design_loeschen }}" style="position: absolute; top: 4px; right: 4px; z-index: 2; width: 26px; height: 26px; border-radius: 99px; border: 0; cursor: pointer; font: inherit; font-size: 13px; background: rgba(0, 0, 0, 0.55); color: #ffffff;">✕</button></sc-if>
             <button onClick="{{ p.select }}" style="{{ p.chip }}">
               <div style="display: flex; align-items: center; gap: 6px;">
                 <span style="{{ p.line }}"></span>
@@ -2329,6 +2363,7 @@
               <div style="{{ p.nameStyle }}">{{ p.name }}</div>
               <div style="font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6;">{{ p.kicker }}</div>
             </button>
+            </div>
           </sc-for>
         </div>
 
@@ -3266,6 +3301,7 @@
                         <div style="display: flex; gap: 8px; align-items: center;"><input class="input" value="{{ gq.frage }}" onChange="{{ gq.onFrage }}" placeholder="{{ L.gf_frage_ph }}" style="flex: 1 1 200px; min-width: 0; font-size: 16px;"><button class="btn btn-ghost btn-icon" title="{{ L.entfernen }}" aria-label="{{ L.entfernen }}" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ gq.weg }}">✕</button></div>
                         <div style="display: flex; gap: 6px; flex-wrap: wrap;"><sc-for list="{{ gq.formChips }}" as="qf" hint-placeholder-count="0"><button onClick="{{ qf.klick }}" style="{{ qf.stil }}">{{ qf.label }}</button></sc-for></div>
                         <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ gq.formHinweis }}</div>
+                        <sc-if value="{{ gq.istSpielQ }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: 4px;"><button onClick="{{ gq.geheimUm }}" style="{{ gq.geheimStil }}">{{ gq.geheimLabel }}</button><span style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.gf_geheim_h }}</span></div></sc-if>
                         <sc-if value="{{ gq.hatFruehere }}" hint-placeholder-val="{{ false }}">
                           <label style="display: grid; gap: 4px;"><span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-700);">{{ L.gf_wenn_titel }}</span>
                             <select class="input" value="{{ gq.wennWert }}" onChange="{{ gq.onWenn }}" style="font-size: 16px;">
@@ -6305,7 +6341,7 @@ class Component extends DCLogic {
   state = {
     meta: { title: tx("deine_chronik"), subtitle: tx("ereignisse_in_zeit_gesetzt"), kicker: tx("zeitstrahl") },
     events: DEMO,
-    themeId: null,
+    themeId: null, themeAuto: false,
     custom: [],
     override: {},
     mode: "proportional",
@@ -7842,8 +7878,11 @@ class Component extends DCLogic {
   }
   /* Spiele: Teilnehmende aus den Spiel-Abfragen, dann Teams oder eine Kette auslosen.
      Das Ergebnis liegt am Ereignis (extras.spiele) und bleibt, bis man neu lost. */
-  spielVals(e, f, antwListen) {
+  spielVals(e, f, antwListen, rsvpRows) {
     const st = this.state;
+    const me = this.me() || {};
+    const geheim = !!f.geheim;
+    const ersteller = (e.by || "") === me.id;
     const namen = Array.from(new Set([].concat.apply([], antwListen).filter((x) => String(x || "")[0] === "✓").map((x) => String(x).slice(2).trim()).filter(Boolean)));
     const ev0 = (st.events || []).filter((x) => x.id === e.id)[0] || e;
     const sv = (((ev0.extras || {}).spiele || {})[f.i]) || {};
@@ -7852,8 +7891,13 @@ class Component extends DCLogic {
     const mischen = (a) => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t0 = b[i]; b[i] = b[j]; b[j] = t0; } return b; };
     const stop = (ev) => { if (ev && ev.stopPropagation) ev.stopPropagation(); };
     const speichern = (patch) => (ev) => { stop(ev); this.spielSpeichern(e.id, f.i, patch === null ? null : Object.assign({}, sv, patch, { groesse: groesse, am: Date.now() })); };
-    const teams = Array.isArray(sv.teams) ? sv.teams : [];
-    const kette = Array.isArray(sv.kette) ? sv.kette : [];
+    /* Geheim: das Ergebnis liegt nicht im Ereignis, sondern nur beim Ersteller (Update 40). */
+    const gk = e.id + ":" + f.i;
+    const gz = geheim && ersteller ? ((st.spielGeheim || {})[gk]) : null;
+    if (geheim && ersteller && sv.geheim && gz === undefined && !(this._sgLaden || {})[gk]) this.spielGeheimLaden(e.id, f.i);
+    const gRows = Array.isArray(gz) ? gz : [];
+    const teams = geheim ? (sv.art === "teams" ? (function () { const m = {}; gRows.forEach((r) => { const z = r.ziel || {}; (m[z.nr] = m[z.nr] || []).push(z.ich || r.name); }); return Object.keys(m).sort((a, b) => a - b).map((k) => m[k]); })() : []) : (Array.isArray(sv.teams) ? sv.teams : []);
+    const kette = geheim ? (sv.art === "kette" ? (function () { const an = {}; gRows.forEach((r) => { an[(r.ziel || {}).ich || r.name] = (r.ziel || {}).an; }); const st0 = Object.keys(an)[0]; const out = []; let x = st0; while (x && out.indexOf(x) < 0 && out.length < 400) { out.push(x); x = an[x]; } return out; })() : []) : (Array.isArray(sv.kette) ? sv.kette : []);
     const eingeteilt = {}; teams.forEach((t0) => t0.forEach((n) => { eingeteilt[n] = true; })); kette.forEach((n) => { eingeteilt[n] = true; });
     const neu = (teams.length || kette.length) ? namen.filter((n) => !eingeteilt[n]) : [];
     const knopf = (an) => ({ minHeight: "40px", padding: "0 14px", borderRadius: "99px", cursor: "pointer", font: "inherit", fontSize: "13.5px", fontWeight: 600,
@@ -7866,19 +7910,47 @@ class Component extends DCLogic {
       onGroesse: (ev) => { const v = String(ev.target.value).replace(/\D/g, "").slice(0, 3); this.setState((s) => ({ spielGr: Object.assign({}, s.spielGr, { [gKey]: v }) })); },
       stop: stop,
       knopf: knopf(true), knopf2: knopf(false), knopf3: Object.assign(knopf(false), { borderColor: "transparent", opacity: 1 }),
-      teams: namen.length >= 2 ? (ev) => {
+      teams: namen.length >= 2 && (!geheim || ersteller) ? (ev) => {
         const m = mischen(namen); const anzahl = Math.max(1, Math.ceil(m.length / groesse)); const out = Array.from({ length: anzahl }, () => []);
         m.forEach((n, k) => out[k % anzahl].push(n));
+        if (geheim) { stop(ev); this.spielGeheimLosen(e, f, "teams", out, rsvpRows, groesse); return; }
         speichern({ teams: out, kette: [] })(ev);
       } : stop,
-      kette: namen.length >= 2 ? (ev) => speichern({ kette: mischen(namen), teams: [] })(ev) : stop,
-      weg: speichern(null),
-      hatErgebnis: teams.length > 0 || kette.length > 0,
+      kette: namen.length >= 2 && (!geheim || ersteller) ? (ev) => { if (geheim) { stop(ev); this.spielGeheimLosen(e, f, "kette", mischen(namen), rsvpRows, groesse); return; } speichern({ kette: mischen(namen), teams: [] })(ev); } : stop,
+      weg: geheim ? (ev) => { stop(ev); this.spielGeheimLosen(e, f, "weg", [], rsvpRows, groesse); } : speichern(null),
+      hatErgebnis: teams.length > 0 || kette.length > 0 || (geheim && !!sv.geheim),
+      istGeheim: geheim, darfLosen: !geheim || ersteller,
+      geheimText: !geheim ? "" : ersteller ? (sv.geheim ? tx("gf_geheim_ersteller") + (sv.ohnePw ? " " + tx("gf_geheim_ohne_pw").replace("{namen}", sv.ohnePw) : "") : tx("gf_geheim_noch")) : (sv.geheim ? tx("gf_geheim_andere") : tx("gf_geheim_noch_andere")),
       teamListe: teams.map((t0, k) => ({ key: "t" + k, titel: tx("gf_team_n").replace("{n}", String(k + 1)) + " (" + t0.length + ")", namen: t0.join(", ") })),
       hatKette: kette.length > 1,
       ketteListe: kette.map((n, k) => ({ key: "k" + k, von: n, an: kette[(k + 1) % kette.length] })),
       hatNeu: neu.length > 0, neuText: tx("gf_spiel_neu").replace("{n}", String(neu.length)).replace("{namen}", neu.join(", "))
     };
+  }
+  /* Geheime Auslosung: nur der Ersteller schreibt und liest das Ergebnis.
+     Jede Person bekommt ihre Zuteilung mit ihrer Passwort-Prüfsumme aus der Rückmeldung. */
+  async spielGeheimLaden(evId, fid) {
+    const CC = window.ChronikCloud; const gk = evId + ":" + fid;
+    if (!CC || !CC.spielGeheimLesen) return;
+    this._sgLaden = Object.assign({}, this._sgLaden, { [gk]: true });
+    try { const rows = await CC.spielGeheimLesen(evId, fid); this.setState((s) => ({ spielGeheim: Object.assign({}, s.spielGeheim, { [gk]: rows || [] }) })); }
+    catch (e) { this.setState((s) => ({ spielGeheim: Object.assign({}, s.spielGeheim, { [gk]: [] }) })); }
+  }
+  async spielGeheimLosen(e, f, art, ergebnis, rsvpRows, groesse) {
+    const CC = window.ChronikCloud;
+    if (!CC || !CC.spielGeheimSetzen) return;
+    const key = (n) => String(n || "").trim().toLowerCase();
+    const hash = {};
+    (rsvpRows || []).slice().sort((a, b) => String(a.created || "").localeCompare(String(b.created || ""))).forEach((r) => { const h = (((r.data || {}).geheim || {})[f.i]) || {}; Object.keys(h).forEach((k) => { hash[k] = h[k]; }); });
+    const rows = [];
+    if (art === "teams") ergebnis.forEach((t0, k) => t0.forEach((n) => rows.push({ name: n, pw: hash[key(n)] || "", ziel: { art: "team", ich: n, nr: k + 1, mit: t0.filter((x) => x !== n) } })));
+    if (art === "kette") ergebnis.forEach((n, k) => rows.push({ name: n, pw: hash[key(n)] || "", ziel: { art: "kette", ich: n, an: ergebnis[(k + 1) % ergebnis.length] } }));
+    try {
+      await CC.spielGeheimSetzen(e.id, f.i, rows);
+      const ohne = rows.filter((r) => !r.pw).map((r) => r.name);
+      this.spielSpeichern(e.id, f.i, art === "weg" ? null : { geheim: true, art: art, groesse: groesse, am: Date.now(), anzahl: rows.length, ohnePw: ohne.join(", ") });
+      this.setState((s) => ({ spielGeheim: Object.assign({}, s.spielGeheim, { [e.id + ":" + f.i]: rows.map((r) => ({ name: key(r.name), ziel: r.ziel, pw: !!r.pw })) }) }));
+    } catch (x) { window.alert(x && x.code === "D-40" ? tx("gf_geheim_sql") : tx("gf_geheim_f")); }
   }
   /* „Gäste als Personen“ direkt im Ereignis umschalten – ohne Editor. */
   gpEreignisUm(e0) {
@@ -8076,7 +8148,7 @@ class Component extends DCLogic {
         chips: [["", tx("rf_alle")]].concat((f.form === "offen" || f.form === "spiel" ? [] : Array.from(new Set(f.opts.concat(f.form === "erweiterbar" || (f.form === "rang" && f.rangEigen) ? [].concat.apply([], rsvp.map((r) => antwVon(r, f.i))) : [])))).map((x) => [x, x + " · " + (f.form === "rang" ? rsvp.reduce((s0, r) => { const p = antwVon(r, f.i).indexOf(x); return s0 + (p >= 0 ? f.plaetze - p : 0); }, 0) + " " + tx("gf_pkt") : rsvp.filter((r) => antwVon(r, f.i).indexOf(x) >= 0).length)])).concat(f.form === "offen" || f.form === "spiel" ? [["+", tx("rf_beantwortet")]] : []).concat([["-", tx("rf_keine_antw")]]).map((x) => ({
           key: "q" + x[0], label: x[1], stil: rChip(((rf.q || {})[f.i] || "") === x[0]),
           klick: (ev) => { ev.stopPropagation(); setRf({ q: Object.assign({}, rf.q, { [f.i]: x[0] }) }); } })) })),
-      rSpiele: fragen.filter((f) => f.form === "spiel").map((f) => this.spielVals(e, f, rsvp.filter((r) => ((r.data || {}).kommt || "") !== "nein").map((r) => antwVon(r, f.i)))),
+      rSpiele: fragen.filter((f) => f.form === "spiel").map((f) => { const ok = rsvp.filter((r) => ((r.data || {}).kommt || "") !== "nein"); return this.spielVals(e, f, ok.map((r) => antwVon(r, f.i)), ok); }),
       rSortChips: [["", tx("rf_eingang")], ["name", tx("rf_name")]].concat(fragen.map((f) => ["q:" + f.i, f.frage.length > 36 ? f.frage.slice(0, 34) + " …" : f.frage])).map((x) => ({
         key: "s" + x[0], label: x[1], stil: rChip(sq === x[0]), klick: (ev) => { ev.stopPropagation(); setRf({ sort: x[0] }); } })),
       rSuche: rf.suche, rOnSuche: (ev) => setRf({ suche: ev.target.value }),
@@ -8311,6 +8383,8 @@ class Component extends DCLogic {
           abhStil: { fontSize: "13px", fontWeight: 600, color: ton[2] },
           formChips: [["auswahl", tx("gf_form_auswahl")], ["erweiterbar", tx("gf_form_erweiterbar")], ["offen", tx("gf_form_offen")], ["spiel", tx("gf_form_spiel")], ["rang", tx("gf_form_rang")]].map((x) => ({ key: x[0], label: (form === x[0] ? "✓ " : "") + x[1], stil: this.voPill(form === x[0]), klick: () => setQ({ form: x[0] }) })),
           formHinweis: tx("gf_form_h_" + form),
+          istSpielQ: form === "spiel",
+          geheimStil: this.voPill(!!q.geheim), geheimLabel: (q.geheim ? "✓ " : "") + "🔒 " + tx("gf_geheim"), geheimUm: () => setQ({ geheim: !q.geheim }),
           /* Nur zeigen, wenn eine frühere Abfrage so (oder nicht so) beantwortet wurde. */
           wennWert: String(q.wenn || ""),
           onWenn: (ev) => setQ({ wenn: ev.target.value }),
@@ -8663,6 +8737,7 @@ class Component extends DCLogic {
       form: (q && (q.form === "offen" || q.form === "erweiterbar" || q.form === "spiel" || q.form === "rang")) ? q.form : "auswahl",
       plaetze: Math.max(1, Math.min(20, parseInt(q && q.plaetze, 10) || 3)),
       rangEigen: !!(q && q.rangEigen),
+      geheim: !!(q && q.geheim) && q.form === "spiel",
       /* Abhängigkeit: "qid|Antwort" = nur zeigen, wenn …; "!qid|Antwort" = nur, wenn nicht … */
       wenn: (function () { const w = String((q && q.wenn) || ""); const m = /^(!?)([^|]{1,20})\|(.{1,80})$/.exec(w); return m ? { nicht: !!m[1], q: m[2], a: m[3] } : null; })()
     })).filter((q) => q.frage && (q.opts.length || q.form === "offen" || q.form === "spiel" || (q.form === "rang" && q.rangEigen)));
@@ -9871,6 +9946,58 @@ class Component extends DCLogic {
     try { await window.ChronikCloud.gastAdd(g.ev, g.tk, "buch", name, text, {}, null); this.gastSet({ busy: "", text: "", info: "" }); this.gastLaden(); }
     catch (e) { this.gastSet({ busy: "", info: tx("gast_f_senden") }); }
   }
+  /* Geheime Spiele: jede teilnehmende Person bekommt ein einfaches Passwort. Auf dem
+     Server liegt nur sha256(Ereignis|name|PASSWORT); das Passwort selbst bleibt beim Gast. */
+  async sha256Hex(t) {
+    const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+    return Array.prototype.map.call(new Uint8Array(b), (x) => x.toString(16).padStart(2, "0")).join("");
+  }
+  gastPwSpeicher(ev, neu) {
+    const k = "lioria.spielpw." + ev;
+    try { if (neu) localStorage.setItem(k, JSON.stringify(neu)); return JSON.parse(localStorage.getItem(k) || "{}") || {}; } catch (e) { return neu || {}; }
+  }
+  async gastGeheimPw(antw) {
+    const g = this.state.gast;
+    const fragen = this.gfNorm((((g || {}).d || {}).cfg || {}).fragen).filter((f) => f.geheim);
+    if (!g || !fragen.length) return null;
+    const W = ["PANDA", "KOALA", "TIGER", "ZEBRA", "OTTER", "KIWI", "MANGO", "LOTUS", "OPAL", "JADE", "NOVA", "PIXEL", "ROBIN", "LAMA", "DELTA", "OLIVE", "COMET", "LUNA", "SOLAR", "AMBER"];
+    const speicher = this.gastPwSpeicher(g.ev);
+    const geheim = {}, liste = [];
+    for (const f of fragen) {
+      for (const x of (antw[f.i] || [])) {
+        const s0 = String(x || "");
+        if (s0[0] !== "✓") continue;
+        const name = s0.slice(2).trim(), key = name.toLowerCase();
+        if (!name) continue;
+        const alt = ((speicher[f.i] || {})[key] || {}).pw;
+        const pw = alt || (W[Math.floor(Math.random() * W.length)] + "-" + String(10 + Math.floor(Math.random() * 90)));
+        speicher[f.i] = Object.assign({}, speicher[f.i], { [key]: { name: name, pw: pw } });
+        geheim[f.i] = Object.assign({}, geheim[f.i], { [key]: await this.sha256Hex(g.ev + "|" + key + "|" + pw.toUpperCase()) });
+        liste.push({ key: f.i + key, frage: f.frage, name: name, pw: pw });
+      }
+    }
+    return liste.length ? { geheim: geheim, liste: liste, speicher: speicher } : null;
+  }
+  async gastGeheimZeigen(fid) {
+    const g = this.state.gast;
+    const CC = window.ChronikCloud;
+    if (!g || !CC || !CC.spielMeins) return;
+    const z = (g.gz || {})[fid] || {};
+    const name = String(z.name != null ? z.name : (this.gastName() || "")).trim();
+    /* Auf diesem Gerät gemerktes Passwort, wenn nichts eingegeben wurde. */
+    const pw = String(z.pw != null && z.pw !== "" ? z.pw : ((this.gastPwSpeicher(g.ev)[fid] || {})[name.toLowerCase()] || {}).pw || "").trim();
+    const setz = (p) => this.gastSet((x) => ({ gz: Object.assign({}, x.gz, { [fid]: Object.assign({}, (x.gz || {})[fid], p) }) }));
+    if (!name || !pw) { setz({ res: tx("gf_geheim_fehlt") }); return; }
+    setz({ busy: true, res: "" });
+    try {
+      const r = await CC.spielMeins(g.ev, g.tk, fid, name, pw);
+      const zi = r.ziel || {};
+      const res = r.status === "offen" ? tx("gf_geheim_offen") : r.status !== "ok" ? tx("gf_geheim_falsch")
+        : zi.art === "kette" ? tx("gf_geheim_kette").replace("{n}", zi.an || "?")
+        : tx("gf_geheim_team").replace("{nr}", String(zi.nr || "?")) + ((zi.mit || []).length ? " " + tx("gf_geheim_mit").replace("{namen}", (zi.mit || []).join(", ")) : "");
+      setz({ busy: false, res: res, ok: r.status === "ok" });
+    } catch (e) { setz({ busy: false, res: e && e.code === "D-40" ? tx("gf_geheim_sql") : tx("gast_f_senden") }); }
+  }
   async gastFragenSenden() {
     const g = this.state.gast;
     if (!g) return;
@@ -9882,9 +10009,11 @@ class Component extends DCLogic {
     if (!Object.keys(antw).length) { const f0 = this.gfSichtbar(this.gfNorm(((g.d || {}).cfg || {}).fragen), r.antw)[0]; this.gastFehler(tx("gf_keine_wahl"), f0 ? "f-" + f0.i : "", { fs: 0 }); return; }
     this.gastSet({ busy: tx("gast_sendet"), info: "" });
     try {
-      await window.ChronikCloud.gastAdd(g.ev, g.tk, "rsvp", name, "", { kommt: "", antw: antw, plus: 0, plusListe: [], plusNamen: "", essen: "" }, null);
+      const gh = await this.gastGeheimPw(antw);
+      await window.ChronikCloud.gastAdd(g.ev, g.tk, "rsvp", name, "", Object.assign({ kommt: "", antw: antw, plus: 0, plusListe: [], plusNamen: "", essen: "" }, gh ? { geheim: gh.geheim } : {}), null);
       try { localStorage.setItem("chronik-gast-fragen-" + g.ev, "1"); } catch (x) { /* privat */ }
-      this.gastSet({ busy: "", fragenFertig: true, info: "" });
+      if (gh) this.gastPwSpeicher(g.ev, gh.speicher);
+      this.gastSet({ busy: "", fragenFertig: true, info: "", geheimNeu: gh ? gh.liste : [] });
     } catch (e) {
       if (e && e.code === "D-29") { const f0 = this.gfSichtbar(this.gfNorm(((g.d || {}).cfg || {}).fragen), r.antw)[0]; this.gastFehler(tx("gf_voll"), f0 ? "f-" + f0.i : ""); this.gastLaden(); return; }
       this.gastSet({ busy: "", info: tx("gast_f_senden") });
@@ -9924,11 +10053,14 @@ class Component extends DCLogic {
     const liste = (r.plusListe || []).slice(0, n).map((p) => ({ name: String((p || {}).name || "").slice(0, 60), essen: String((p || {}).essen || "").slice(0, 60) }));
     while (liste.length < n) liste.push({ name: "", essen: "" });
     const data = { kommt: mit ? (ja ? "ja" : "nein") : "", antw: antw, plus: n, plusListe: liste, plusNamen: liste.map((p) => p.name).filter(Boolean).join(", "), essen: ja ? String(r.essen || "").slice(0, 80) : "" };
+    const gh = ja ? await this.gastGeheimPw(antw) : null;
+    if (gh) data.geheim = gh.geheim;
     this.gastSet({ busy: tx("gast_sendet"), info: "" });
     try {
       await window.ChronikCloud.gastAdd(g.ev, g.tk, "rsvp", name, String(r.notiz || "").slice(0, 800), data, null);
       try { localStorage.setItem("chronik-gast-rsvp-" + g.ev, "1"); } catch (x) { /* privat */ }
-      this.gastSet({ busy: "", rsvpFertig: true, info: "" });
+      if (gh) this.gastPwSpeicher(g.ev, gh.speicher);
+      this.gastSet({ busy: "", rsvpFertig: true, info: "", geheimNeu: gh ? gh.liste : [] });
     } catch (e) {
       if (e && e.code === "D-29") { const f0 = this.gfSichtbar(this.gfNorm(((g.d || {}).cfg || {}).fragen), r.antw)[0]; this.gastFehler(tx("gf_voll"), f0 ? "f-" + f0.i : ""); this.gastLaden(); return; }
       this.gastSet({ busy: "", info: tx("gast_f_senden") });
@@ -10165,6 +10297,20 @@ class Component extends DCLogic {
       kommtJa: ja && !!c.rsvp,
       mitRsvp: !!c.rsvp, rsvpTitel: tx("gast_rsvp"),
       istFragen: g.tab === "fragen", fragenFertig: !!g.fragenFertig, fragenOffen: !g.fragenFertig,
+      ...(() => {
+        const gf = this.gfNorm((((d || {}).cfg) || {}).fragen).filter((f) => f.geheim);
+        const sp = gf.length ? this.gastPwSpeicher(g.ev) : {};
+        const neu = g.geheimNeu || [];
+        return { zeigGeheim: (g.tab === "rsvp" || g.tab === "fragen") && gf.length > 0, hatGeheimNeu: neu.length > 0,
+          geheimNeu: neu.map((x) => ({ key: x.key, name: x.name, pw: x.pw, frage: x.frage })),
+          geheimFragen: gf.map((f) => { const z = (g.gz || {})[f.i] || {}; const nm = z.name != null ? z.name : (this.gastName() || "");
+            const merk = ((sp[f.i] || {})[String(nm).trim().toLowerCase()] || {}).pw || "";
+            return { key: f.i, frage: f.frage, name: nm, pw: z.pw != null ? z.pw : merk, res: z.res || "", hatRes: !!z.res, busy: !!z.busy,
+              resStil: { padding: "14px 16px", borderRadius: "14px", fontSize: "18px", fontWeight: 700, lineHeight: 1.4, background: z.ok ? "color-mix(in srgb, #13a77c 16%, var(--g-card))" : "color-mix(in srgb, var(--g-ink) 7%, transparent)", color: "var(--g-ink)" },
+              onName: (ev) => { const v = ev.target.value.slice(0, 60); this.gastSet((x) => ({ gz: Object.assign({}, x.gz, { [f.i]: Object.assign({}, (x.gz || {})[f.i], { name: v, res: "" }) }) })); },
+              onPw: (ev) => { const v = ev.target.value.slice(0, 40); this.gastSet((x) => ({ gz: Object.assign({}, x.gz, { [f.i]: Object.assign({}, (x.gz || {})[f.i], { pw: v, res: "" }) }) })); },
+              zeigen: () => this.gastGeheimZeigen(f.i) }; }) };
+      })(),
       fragenNeu: () => this.gastSet({ fragenFertig: false }), fragenSenden: () => this.gastFragenSenden(),
       fragen: this.gfSichtbar(this.gfNorm(c.fragen), r.antw).map((f) => {
         const sel0 = ((r.antw || {})[f.i]) || [];
@@ -11073,7 +11219,7 @@ class Component extends DCLogic {
     if (!by || by === me.id) return this.theme();
     const u = (this.state.users || []).filter((x) => x.id === by)[0];
     const l = (u && u.look) || {};
-    const base = PRESETS.concat(Array.isArray(l.custom) ? l.custom : []).filter((x) => x.id === (l.themeId || "zeitung"))[0];
+    const base = PRESETS.concat(Array.isArray(l.custom) ? l.custom : []).filter((x) => x.id === (l.themeAuto ? this.jahresDesign() : (l.themeId || "zeitung")))[0];
     return base ? Object.assign({}, base, l.override || {}) : null;
   }
   gastLookAus(id, d) {
@@ -12445,7 +12591,7 @@ class Component extends DCLogic {
 
   lookOf() {
     return {
-      themeId: this.state.themeId, override: this.state.override, custom: this.state.custom,
+      themeId: this.state.themeId, themeAuto: !!this.state.themeAuto, override: this.state.override, custom: this.state.custom,
       meta: this.state.meta, mode: this.state.mode, zoom: this.state.zoom,
       avatar: this.state.avatar || "",
       ttMarks: this.state.ttMarks || {},
@@ -12460,6 +12606,7 @@ class Component extends DCLogic {
     const l = look || {};
     this.setState({
       themeId: l.themeId ? (DESIGN_ALIAS[l.themeId] || l.themeId) : null,
+      themeAuto: !!l.themeAuto,
       override: l.override || {},
       custom: Array.isArray(l.custom) ? l.custom : (this.state.custom || []),
       meta: (function () {
@@ -14081,10 +14228,37 @@ class Component extends DCLogic {
   designId(id) { return DESIGN_ALIAS[id] || id; }
 
   theme() {
-    const id = this.state.themeId || this.props.startTheme || "zeitung";
+    const auto = !!this.state.themeAuto;
+    const id = auto ? this.jahresDesign() : (this.state.themeId || this.props.startTheme || "zeitung");
     const all = this.allThemes();
     const base = all.filter((t) => t.id === id)[0] || all[0];
-    return Object.assign({}, base, this.state.override);
+    return auto ? Object.assign({}, base) : Object.assign({}, base, this.state.override);
+  }
+  /* Ostersonntag (Gauß/Meeus) und chinesisches Neujahr (Tabelle) für das Jahres-Design. */
+  osterSonntag(j) {
+    const a = j % 19, b = Math.floor(j / 100), c = j % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+    const h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const mon = Math.floor((h + l - 7 * m + 114) / 31), tag = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, mon - 1, tag);
+  }
+  /* Design des Jahres: Festtage zuerst, sonst die Jahreszeit. */
+  jahresDesign(datum) {
+    const d = datum ? new Date(datum) : new Date();
+    const j = d.getFullYear(), m = d.getMonth() + 1, t = d.getDate();
+    const heute = new Date(j, m - 1, t);
+    const tage = (x) => Math.round((heute - x) / 864e5);
+    if ((m === 12 && t >= 30) || (m === 1 && t <= 1)) return "silvester";
+    if (m === 12) return "weihnachten";
+    const os = tage(this.osterSonntag(j));
+    if (os >= -7 && os <= 1) return "ostern";
+    const MOND = { 2025: "01-29", 2026: "02-17", 2027: "02-06", 2028: "01-26", 2029: "02-13", 2030: "02-03", 2031: "01-23", 2032: "02-11", 2033: "01-31", 2034: "02-19", 2035: "02-08", 2036: "01-28", 2037: "02-15", 2038: "02-04", 2039: "01-24", 2040: "02-12" };
+    if (MOND[j]) { const mn = tage(new Date(j + "-" + MOND[j] + "T00:00:00")); if (mn >= -3 && mn <= 7) return "mondneujahr"; }
+    if (m === 10 && t >= 24) return "halloween";
+    const md = m * 100 + t;
+    if (md >= 320 && md < 621) return "fruehling";
+    if (md >= 621 && md < 923) return "sommer";
+    if (md >= 923) return "herbst";
+    return "winter";
   }
 
   /* Alle --t-*-Werte eines Designs als Stilobjekt. Auf der Wurzel gilt
@@ -15903,7 +16077,7 @@ class Component extends DCLogic {
     };
   }
 
-  selectTheme(id) { this.setState({ themeId: id, override: {} }); }
+  selectTheme(id) { this.setState({ themeId: id, themeAuto: false, override: {} }); }
 
   saveTheme = () => {
     const name = (this.state.newName || "").trim() || tx("eigenes_design");
@@ -15911,10 +16085,13 @@ class Component extends DCLogic {
     this.setState({ custom: (this.state.custom || []).concat([t]), themeId: t.id, override: {}, newName: "" });
   };
 
-  deleteTheme = () => {
-    const id = this.theme().id;
-    this.setState({ custom: (this.state.custom || []).filter((t) => t.id !== id), themeId: null, override: {} });
-  };
+  deleteTheme = () => this.designLoeschen(this.theme().id);
+  /* Eigenes Design löschen. Ereignisse, die es nutzen, behalten ihre Kopie (themeSnap). */
+  designLoeschen(id) {
+    const t = (this.state.custom || []).filter((x) => x.id === id)[0];
+    if (!t || !window.confirm(tx("design_weg_frage").replace("{n}", t.name || ""))) return;
+    this.setState((s) => ({ custom: (s.custom || []).filter((x) => x.id !== id), themeId: s.themeId === id ? null : s.themeId, override: s.themeId === id ? {} : s.override }));
+  }
 
   resetTheme = () => this.setState({ override: {} });
 
@@ -17943,7 +18120,8 @@ class Component extends DCLogic {
         line: { width: "22px", height: Math.min(4, p.lineWidth) + "px", background: p.line || p.ink, display: "block" },
         dotA: { width: "9px", height: "9px", background: p.accent, borderRadius: mk.r, display: "block" },
         dotB: { width: "9px", height: "9px", background: p.accent2, borderRadius: mk.r, display: "block" },
-        select: () => this.selectTheme(p.id)
+        select: () => this.selectTheme(p.id),
+        eigen: (this.state.custom || []).some((x) => x.id === p.id), weg: (ev) => { if (ev && ev.stopPropagation) ev.stopPropagation(); this.designLoeschen(p.id); }
       };
     });
 
@@ -20383,7 +20561,15 @@ class Component extends DCLogic {
       })(this),
       themeName: t.name, themeState: Object.keys(st.override).length ? tx("geaendert_noch_nicht_gespeichert") : (t.kicker || tx("vorlage")),
       presets: presets, presetCount: presets.length, groups: groups,
-      canDelete: /^c/.test(String(t.id)),
+      jahr: (function (self) {
+        const an = !!st.themeAuto;
+        const jetzt = self.allThemes().filter((x) => x.id === self.jahresDesign())[0] || {};
+        return { titel: (an ? "✓ " : "") + tx("jahr_design"), text: tx("jahr_design_text").replace("{n}", jetzt.name || ""),
+          um: () => self.setState({ themeAuto: !an, override: {} }),
+          stil: { display: "flex", gap: "12px", alignItems: "center", width: "100%", padding: "12px 14px", marginBottom: "var(--space-4)", borderRadius: "var(--radius-md)", cursor: "pointer", font: "inherit", boxSizing: "border-box",
+            border: an ? "2px solid var(--color-accent)" : "1px solid var(--color-divider)", background: an ? "var(--color-accent-100)" : "var(--color-bg)", color: "var(--color-text)" } };
+      })(this),
+      canDelete: (st.custom || []).some((x) => x.id === t.id),
       deleteTheme: this.deleteTheme, resetTheme: this.resetTheme, saveTheme: this.saveTheme,
       newName: st.newName, setNewName: (ev) => this.setState({ newName: ev.target.value }),
       newEvent: this.newEvent, editing: !!d0, form: form,
