@@ -4601,6 +4601,12 @@ window.CHRONIK_SPRACHEN.de = {
     jahr_jetzt: "Jetzt: {n}",
     jahr_welche: "Diese Designs wechseln sich ab:",
     design_suchen: "Design suchen …",
-    design_nichts: "Kein Design gefunden."
+    design_nichts: "Kein Design gefunden.",
+    rf_suche_label: "Suche",
+    rf_gruppe_rueck: "Rückmeldung",
+    rf_gruppe_fragen: "Antworten auf Fragen",
+    rf_reihenfolge: "Reihenfolge",
+    rf_reset: "Filter zurücksetzen",
+    rf_aktiv: "{n} aktiv"
   }
 };

@@ -4601,6 +4601,12 @@ window.CHRONIK_SPRACHEN.en = {
     jahr_jetzt: "Now: {n}",
     jahr_welche: "These designs take turns:",
     design_suchen: "Search designs …",
-    design_nichts: "No design found."
+    design_nichts: "No design found.",
+    rf_suche_label: "Search",
+    rf_gruppe_rueck: "Response",
+    rf_gruppe_fragen: "Answers to questions",
+    rf_reihenfolge: "Order",
+    rf_reset: "Reset filters",
+    rf_aktiv: "{n} active"
   }
 };
