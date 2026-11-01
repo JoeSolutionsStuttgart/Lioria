@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b158"></script>
-<script src="lang/de.js?v=b158"></script>
-<script src="lang/en.js?v=b158"></script>
-<script src="lang/sprache.js?v=b158"></script>
-<script src="./support.js?v=b158"></script>
+<script src="chronik-config.js?v=b159"></script>
+<script src="lang/de.js?v=b159"></script>
+<script src="lang/en.js?v=b159"></script>
+<script src="lang/sprache.js?v=b159"></script>
+<script src="./support.js?v=b159"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Lioria">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b158"></script>
-<script src="xlsx-export.js?v=b158"></script>
-<script src="farbe.js?v=b158"></script>
-<script src="cw-plaetze.js?v=b158"></script>
-<script src="fb-knopf.js?v=b158"></script>
+<script src="supabase-bridge.js?v=b159"></script>
+<script src="xlsx-export.js?v=b159"></script>
+<script src="farbe.js?v=b159"></script>
+<script src="cw-plaetze.js?v=b159"></script>
+<script src="fb-knopf.js?v=b159"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -507,7 +507,7 @@
           </sc-if>
 
           <sc-if value="{{ gv.zeigGeheim }}" hint-placeholder-val="{{ false }}">
-            <section style="display: grid; gap: 14px; padding: clamp(18px, 4vw, 28px); border-radius: calc(var(--g-radius) + 6px); background: var(--g-card-bg, var(--g-card)); box-shadow: var(--g-shadow); border: var(--g-rand, 0);">
+            <section data-gziel="spiel" style="display: grid; gap: 14px; padding: clamp(18px, 4vw, 28px); border-radius: calc(var(--g-radius) + 6px); background: var(--g-card-bg, var(--g-card)); box-shadow: var(--g-shadow); border: var(--g-rand, 0);">
               <h2 style="margin: 0; font-family: var(--g-head); font-weight: var(--g-hw); font-size: clamp(22px, 4.5vw, 28px); line-height: 1.15; text-transform: var(--g-ht);">🔒 {{ L.gf_geheim_titel }}</h2>
               <sc-if value="{{ gv.hatGeheimNeu }}" hint-placeholder-val="{{ false }}">
                 <div style="display: grid; gap: 8px; padding: 14px 16px; border-radius: 14px; background: #fff4d6; color: #3b2a00; border: 2px dashed #e0a800;">
@@ -632,7 +632,7 @@
     <sc-if value="{{ lay.loginKlein }}" hint-placeholder-val="{{ false }}">
     <div data-bewegt="" style="order: 0; min-width: 0; position: relative; z-index: 1;">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
-      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b158" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
+      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b159" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
       <div style="height: 4px; border-radius: 4px; background: linear-gradient(90deg, #7c4ad8, #3d63d9 40%, #1f84cf 65%, #13a77c); margin-top: var(--space-5);"></div>
       <div style="display: flex; justify-content: space-between; gap: var(--space-4); padding: 7px 0; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;">
         <span>{{ L.ereignisse_bilder_menschen }}</span>
@@ -645,7 +645,7 @@
     <div data-bewegt="" style="{{ lay.loginPitch }}">
       <sc-if value="{{ lay.loginGross }}" hint-placeholder-val="{{ true }}">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
-      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b158" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
+      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b159" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
       <div style="height: 4px; border-radius: 4px; background: linear-gradient(90deg, #7c4ad8, #3d63d9 40%, #1f84cf 65%, #13a77c); margin-top: var(--space-5);"></div>
       <div style="display: flex; justify-content: space-between; gap: var(--space-4); padding: 7px 0; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;">
         <span>{{ L.ereignisse_bilder_menschen }}</span>
@@ -2766,6 +2766,10 @@
             </div>
           </sc-for>
           <button class="btn btn-ghost" style="white-space: nowrap; justify-self: start;" onClick="{{ form.addPerson }}">＋ {{ L.person }}</button>
+          <div style="display: grid; gap: 4px; padding: 10px 12px; border-radius: var(--radius-md); background: var(--color-surface, var(--color-neutral-100)); margin-top: 4px;">
+            <div><button onClick="{{ ed.gpUm }}" style="{{ ed.gpStil }}">{{ ed.gpLabel }}</button></div>
+            <span style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.ga_gaeste_personen_hinweis }}</span>
+          </div>
         </div>
 
         </sc-if>
@@ -3349,7 +3353,7 @@
                     <sc-for list="{{ vo.gFragen }}" as="gq" hint-placeholder-count="0">
                       <div style="{{ gq.block }}">
                         <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;"><sc-if value="{{ gq.istAbh }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="{{ gq.abhStil }}">↳</span></sc-if><span style="{{ gq.nrStil }}">{{ gq.nummer }}</span><sc-if value="{{ gq.istAbh }}" hint-placeholder-val="{{ false }}"><span style="{{ gq.abhStil }}">{{ gq.abhText }}</span></sc-if></div>
-                        <div style="display: flex; gap: 8px; align-items: center;"><input class="input" value="{{ gq.frage }}" onChange="{{ gq.onFrage }}" placeholder="{{ L.gf_frage_ph }}" style="flex: 1 1 200px; min-width: 0; font-size: 16px;"><button class="btn btn-ghost btn-icon" title="{{ L.entfernen }}" aria-label="{{ L.entfernen }}" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ gq.weg }}">✕</button></div>
+                        <div style="display: flex; gap: 8px; align-items: center;"><textarea class="input" rows="{{ gq.frageZeilen }}" value="{{ gq.frage }}" onChange="{{ gq.onFrage }}" placeholder="{{ L.gf_frage_ph }}" style="flex: 1 1 200px; min-width: 0; font-size: 16px; resize: none; overflow: hidden; field-sizing: content; min-height: 44px; line-height: 1.4;"></textarea><button class="btn btn-ghost btn-icon" title="{{ L.entfernen }}" aria-label="{{ L.entfernen }}" style="min-height: 40px; color: var(--color-accent-2-700);" onClick="{{ gq.weg }}">✕</button></div>
                         <div style="display: flex; gap: 6px; flex-wrap: wrap;"><sc-for list="{{ gq.formChips }}" as="qf" hint-placeholder-count="0"><button onClick="{{ qf.klick }}" style="{{ qf.stil }}">{{ qf.label }}</button></sc-for></div>
                         <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ gq.formHinweis }}</div>
                         <sc-if value="{{ gq.istSpielQ }}" hint-placeholder-val="{{ false }}"><div style="display: grid; gap: 4px;"><button onClick="{{ gq.geheimUm }}" style="{{ gq.geheimStil }}">{{ gq.geheimLabel }}</button><span style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.gf_geheim_h }}</span></div></sc-if>
@@ -3361,7 +3365,11 @@
                           </label>
                         </sc-if>
                         <sc-if value="{{ gq.nichtOffen }}" hint-placeholder-val="{{ true }}">
-                        <textarea class="input" rows="3" value="{{ gq.antworten }}" onChange="{{ gq.onAntworten }}" placeholder="{{ L.gf_antw_ph }}" style="font-size: 16px;"></textarea>
+                        <div style="display: grid; gap: 6px;">
+                          <span style="font-size: 12.5px; font-weight: 600; color: var(--color-neutral-700);">{{ L.gf_antworten }}</span>
+                          <sc-for list="{{ gq.antwFelder }}" as="af" hint-placeholder-count="2"><div style="display: flex; gap: 6px; align-items: center;"><span style="flex: 0 0 22px; font-size: 12.5px; font-weight: 700; text-align: right; color: var(--color-neutral-700);">{{ af.nr }}</span><input class="input" value="{{ af.wert }}" onChange="{{ af.onWert }}" placeholder="{{ af.ph }}" maxlength="80" style="flex: 1; min-width: 0; font-size: 16px;"><button class="btn btn-ghost btn-icon" title="{{ L.entfernen }}" aria-label="{{ L.entfernen }}" style="min-height: 40px;" onClick="{{ af.weg }}">✕</button></div></sc-for>
+                          <button class="btn btn-ghost" style="justify-self: start; min-height: 36px;" onClick="{{ gq.antwNeu }}">＋ {{ L.gf_antwort_neu }}</button>
+                        </div>
                         </sc-if>
                         <sc-if value="{{ gq.hatOpts }}" hint-placeholder-val="{{ false }}">
                           <div style="display: grid; gap: 6px; padding: 4px 0 2px;">
@@ -4299,9 +4307,9 @@
         <sc-for list="{{ ass.fragen }}" as="fq" hint-placeholder-count="0">
           <div style="display: grid; gap: 10px; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--color-divider); background: var(--color-bg);">
             <div style="display: flex; gap: 8px; align-items: center;"><strong style="font-size: 13px; color: #5a2fb8;">{{ L.as_frage }} {{ fq.nr }}</strong><span style="flex: 1;"></span><button class="btn btn-ghost" style="min-height: 34px; padding: 0 8px; color: var(--color-accent-2-700);" onClick="{{ fq.weg }}">{{ L.entfernen }}</button></div>
-            <input class="input" value="{{ fq.frage }}" onChange="{{ fq.onFrage }}" placeholder="{{ L.as_frage_ph }}" maxlength="200" style="font-size: 16px;">
+            <textarea class="input" rows="{{ fq.zeilen }}" value="{{ fq.frage }}" onChange="{{ fq.onFrage }}" placeholder="{{ L.as_frage_ph }}" maxlength="200" style="font-size: 16px; resize: none; overflow: hidden; field-sizing: content; min-height: 44px; line-height: 1.4;"></textarea>
             <label style="display: grid; gap: 4px;"><span style="font-size: 13px; font-weight: 600;">{{ L.as_form }}</span><select class="input" value="{{ fq.form }}" onChange="{{ fq.onForm }}" style="font-size: 16px;"><sc-for list="{{ fq.formen }}" as="fo" hint-placeholder-count="4"><option value="{{ fo.value }}">{{ fo.label }}</option></sc-for></select><span style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ fq.formHinweis }}</span></label>
-            <sc-if value="{{ fq.mitAntworten }}" hint-placeholder-val="{{ true }}"><label style="display: grid; gap: 4px;"><span style="font-size: 13px; font-weight: 600;">{{ L.as_antworten }}</span><input class="input" value="{{ fq.antworten }}" onChange="{{ fq.onAntworten }}" placeholder="{{ L.as_antworten_ph }}" maxlength="400" style="font-size: 16px;"></label><button onClick="{{ fq.mehrUm }}" style="{{ fq.mehrStil }}">{{ fq.mehrLabel }}</button></sc-if>
+            <sc-if value="{{ fq.mitAntworten }}" hint-placeholder-val="{{ true }}"><div style="display: grid; gap: 6px;"><span style="font-size: 13px; font-weight: 600;">{{ L.as_antworten }}</span><sc-for list="{{ fq.antwFelder }}" as="af" hint-placeholder-count="2"><div style="display: flex; gap: 6px; align-items: center;"><span style="flex: 0 0 22px; font-size: 12.5px; font-weight: 700; text-align: right; color: var(--color-neutral-700);">{{ af.nr }}</span><input class="input" value="{{ af.wert }}" onChange="{{ af.onWert }}" placeholder="{{ af.ph }}" maxlength="80" style="flex: 1; min-width: 0; font-size: 16px;"><button class="btn btn-ghost btn-icon" aria-label="{{ L.entfernen }}" style="min-height: 40px;" onClick="{{ af.weg }}">✕</button></div></sc-for><button class="btn btn-ghost" style="justify-self: start; min-height: 36px;" onClick="{{ fq.antwNeu }}">＋ {{ L.gf_antwort_neu }}</button></div><button onClick="{{ fq.mehrUm }}" style="{{ fq.mehrStil }}">{{ fq.mehrLabel }}</button></sc-if>
           </div>
         </sc-for>
         <button class="btn btn-secondary" style="justify-self: start; min-height: 42px;" onClick="{{ ass.frageNeu }}">＋ {{ L.as_frage_neu }}</button>
@@ -5779,6 +5787,8 @@ const fmtDate = function (s) {
   return new Intl.DateTimeFormat((window.CHRONIK_LOCALE || "de-DE"), { day: "2-digit", month: "short", year: "numeric" }).format(new Date(dp(s)));
 };
 const uid = function () { return Math.random().toString(36).slice(2, 9); };
+/* Antworten einer Frage: neu eine pro Zeile (Kommas im Text erlaubt), ältere als Komma-Liste. */
+const antwListe = function (t) { const x = String(t || ""); return /\n/.test(x) ? x.split(/\n/) : x.split(/[,;]/); };
 /* Bauzeichen: bei jeder Änderung hochzählen. Steht unten rechts auf der
    Seite, damit sich erkennen lässt, welcher Stand wirklich geladen ist —
    ein alter Zwischenspeicher verrät sich damit sofort. */
@@ -8450,7 +8460,7 @@ class Component extends DCLogic {
       gaEssenHinweis: o.essenPflicht !== false ? tx("ga_essen_h_pflicht") : tx("ga_essen_h_frei"),
       gFragen: (o.fragen || []).map((q, k) => {
         const setQ = (p) => this.voSet("offen.fragen", (o.fragen || []).map((x, j) => (j === k ? Object.assign({}, x, p) : x)));
-        const optsQ = Array.from(new Set(String(q.antworten || "").split(/\n|,|;/).map((s) => s.trim().slice(0, 80)).filter(Boolean))).slice(0, 20);
+        const optsQ = Array.from(new Set(antwListe(q.antworten).map((s) => s.trim().slice(0, 80)).filter(Boolean))).slice(0, 20);
         const mx = (q.max && typeof q.max === "object") ? q.max : {};
         const form = q.form === "offen" || q.form === "erweiterbar" || q.form === "spiel" || q.form === "rang" ? q.form : "auswahl";
         const ohneOpts = form === "offen" || form === "spiel";
@@ -8485,7 +8495,7 @@ class Component extends DCLogic {
           onWenn: (ev) => setQ({ wenn: ev.target.value }),
           hatWenn: !!q.wenn,
           wennListe: [{ key: "-", value: "", label: tx("gf_wenn_immer") }].concat([].concat.apply([], (o.fragen || []).slice(0, k).filter((p) => p && p.form !== "offen" && p.form !== "spiel" && String(p.frage || "").trim()).map((p) => {
-            const op = Array.from(new Set(String(p.antworten || "").split(/\n|,|;/).map((s) => s.trim().slice(0, 80)).filter(Boolean))).slice(0, 20);
+            const op = Array.from(new Set(antwListe(p.antworten).map((s) => s.trim().slice(0, 80)).filter(Boolean))).slice(0, 20);
             const kurz = String(p.frage).trim().slice(0, 40) + (String(p.frage).trim().length > 40 ? " …" : "");
             return [].concat.apply([], op.map((x) => [
               { key: p.i + "=" + x, value: p.i + "|" + x, label: tx("gf_wenn_ja").replace("{f}", kurz).replace("{a}", x) },
@@ -8503,7 +8513,15 @@ class Component extends DCLogic {
           rangEigenUm: () => setQ({ rangEigen: !q.rangEigen }),
           maxListe: optsQ.map((x, j) => ({ key: "m" + j, label: x, wert: mx[x] ? String(mx[x]) : "",
             onWert: (ev) => { const n = Math.max(0, Math.min(9999, parseInt(String(ev.target.value).replace(/\D/g, ""), 10) || 0)); const neu = {}; optsQ.forEach((y) => { if (y !== x && mx[y]) neu[y] = mx[y]; }); if (n) neu[x] = n; setQ({ max: neu }); } })),
-          onFrage: (ev) => setQ({ frage: ev.target.value }), onAntworten: (ev) => setQ({ antworten: ev.target.value }),
+          onFrage: (ev) => setQ({ frage: String(ev.target.value).replace(/\n/g, " ") }), onAntworten: (ev) => setQ({ antworten: ev.target.value }),
+          /* Eine Antwort pro Feld; leere Felder bleiben beim Tippen stehen. */
+          antwFelder: (() => { const roh = /\n/.test(String(q.antworten || "")) || !String(q.antworten || "").trim() ? String(q.antworten || "").split("\n") : antwListe(q.antworten).map((x) => x.trim());
+            const l = roh.length ? roh : [""]; const setze = (neu) => setQ({ antworten: neu.join("\n") + (neu.length === 1 && /[,;]/.test(neu[0]) ? "\n" : "") });
+            return l.map((w, j) => ({ key: "a" + j, nr: String(j + 1) + ".", wert: w, ph: tx("gf_antwort_n").replace("{n}", String(j + 1)),
+              onWert: (ev) => { const n = l.slice(); n[j] = String(ev.target.value).replace(/\n/g, " "); setze(n); },
+              weg: () => { const n = l.filter((x, i) => i !== j); setze(n.length ? n : [""]); } })); })(),
+          antwNeu: () => { const t = String(q.antworten || ""); const l = /\n/.test(t) || !t.trim() ? t.split("\n") : antwListe(t).map((x) => x.trim()); setQ({ antworten: l.concat([""]).join("\n") }); },
+          frageZeilen: String(Math.max(1, Math.min(6, Math.ceil(String(q.frage || "").length / 46)))),
           artChips: [[false, tx("gf_eine")], [true, tx("gf_mehr")]].map((x) => ({ key: x[0] ? "m" : "e", label: (!!q.mehr === x[0] ? "✓ " : "") + x[1], stil: this.voPill(!!q.mehr === x[0]), klick: () => setQ({ mehr: x[0] }) })),
           weg: () => this.voSet("offen.fragen", (o.fragen || []).filter((x, j) => j !== k)) };
       }),
@@ -8826,7 +8844,7 @@ class Component extends DCLogic {
   gfNorm(list) {
     return (Array.isArray(list) ? list : []).slice(0, 12).map((q, k) => ({
       i: String((q && q.i) || "q" + k).slice(0, 20), frage: String((q && q.frage) || "").trim().slice(0, 200), mehr: !!(q && q.mehr),
-      opts: Array.from(new Set(String((q && q.antworten) || "").split(/\n|,|;/).map((s) => s.trim().slice(0, 80)).filter(Boolean))).slice(0, 20),
+      opts: Array.from(new Set(antwListe(q && q.antworten).map((s) => s.trim().slice(0, 80)).filter(Boolean))).slice(0, 20),
       max: (q && q.max && typeof q.max === "object") ? q.max : {},
       /* auswahl = feste Antworten · erweiterbar = Gäste dürfen eigene ergänzen · offen = freie Antwort */
       form: (q && (q.form === "offen" || q.form === "erweiterbar" || q.form === "spiel" || q.form === "rang")) ? q.form : "auswahl",
@@ -9121,6 +9139,7 @@ class Component extends DCLogic {
     const out = [];
     if (c.rsvp) out.push({ k: "rsvp", l: tx("gast_rsvp"), g: "✓", d: tx("gast_d_rsvp") });
     if (this.gfNorm(c.fragen).length && !this.gfPflicht(c)) out.push({ k: "fragen", l: tx("gf_titel"), g: "☰", d: tx("gf_d") });
+    if (this.gfNorm(c.fragen).some((f) => f.geheim)) out.push({ k: "spiel", l: tx("gf_spiel_tab"), g: "🎲", d: tx("gf_spiel_tab_d") });
     if (c.foto) out.push({ k: "foto", l: tx("gast_fotowand"), g: "◫", d: tx("gast_d_foto") });
     if (c.buch) out.push({ k: "buch", l: tx("gast_buch"), g: "✎", d: tx("gast_d_buch") });
     if (c.vor) out.push({ k: "vor", l: tx("vor_titel"), g: "✧", d: tx("vor_d") });
@@ -9129,7 +9148,7 @@ class Component extends DCLogic {
     const L0 = (d && d.lage) || {};
     if ((L0.punkte || []).length || L0.bild || L0.karte || String(L0.adresse || "").trim()) out.push({ k: "lage", l: tx("lp_titel"), g: "⌖", d: tx("gast_d_lage") });
     /* Noch nicht freigegebene Bereiche sehen Gäste gar nicht. */
-    return out.filter((t) => t.k === "rsvp" || t.k === "fragen" || !this.gastSperre(d, t.k));
+    return out.filter((t) => t.k === "rsvp" || t.k === "fragen" || t.k === "spiel" || !this.gastSperre(d, t.k));
   }
   gastNameFest() {
     const g = this.state.gast || {};
@@ -10073,6 +10092,11 @@ class Component extends DCLogic {
     }
     return liste.length ? { geheim: geheim, liste: liste, speicher: speicher } : null;
   }
+  /* Nach dem Absenden mit Spiel-Teilnahme direkt auf den Spiel-Reiter – dort steht das Passwort. */
+  gastZumSpiel() {
+    this.gastSet({ tab: "spiel", info: "" });
+    window.setTimeout(() => this.gastZeigeZiel("spiel", 0, true), 60);
+  }
   async gastGeheimZeigen(fid) {
     const g = this.state.gast;
     const CC = window.ChronikCloud;
@@ -10109,6 +10133,7 @@ class Component extends DCLogic {
       try { localStorage.setItem("chronik-gast-fragen-" + g.ev, "1"); } catch (x) { /* privat */ }
       if (gh) this.gastPwSpeicher(g.ev, gh.speicher);
       this.gastSet({ busy: "", fragenFertig: true, info: "", geheimNeu: gh ? gh.liste : [] });
+      if (gh) this.gastZumSpiel();
     } catch (e) {
       if (e && e.code === "D-29") { const f0 = this.gfSichtbar(this.gfNorm(((g.d || {}).cfg || {}).fragen), r.antw)[0]; this.gastFehler(tx("gf_voll"), f0 ? "f-" + f0.i : ""); this.gastLaden(); return; }
       this.gastSet({ busy: "", info: tx("gast_f_senden") });
@@ -10156,6 +10181,7 @@ class Component extends DCLogic {
       try { localStorage.setItem("chronik-gast-rsvp-" + g.ev, "1"); } catch (x) { /* privat */ }
       if (gh) this.gastPwSpeicher(g.ev, gh.speicher);
       this.gastSet({ busy: "", rsvpFertig: true, info: "", geheimNeu: gh ? gh.liste : [] });
+      if (gh) this.gastZumSpiel();
     } catch (e) {
       if (e && e.code === "D-29") { const f0 = this.gfSichtbar(this.gfNorm(((g.d || {}).cfg || {}).fragen), r.antw)[0]; this.gastFehler(tx("gf_voll"), f0 ? "f-" + f0.i : ""); this.gastLaden(); return; }
       this.gastSet({ busy: "", info: tx("gast_f_senden") });
@@ -10396,7 +10422,7 @@ class Component extends DCLogic {
         const gf = this.gfNorm((((d || {}).cfg) || {}).fragen).filter((f) => f.geheim);
         const sp = gf.length ? this.gastPwSpeicher(g.ev) : {};
         const neu = g.geheimNeu || [];
-        return { zeigGeheim: (g.tab === "rsvp" || g.tab === "fragen") && gf.length > 0, hatGeheimNeu: neu.length > 0,
+        return { zeigGeheim: g.tab === "spiel" && gf.length > 0, hatGeheimNeu: neu.length > 0,
           geheimNeu: neu.map((x) => ({ key: x.key, name: x.name, pw: x.pw, frage: x.frage })),
           geheimFragen: gf.map((f) => { const z = (g.gz || {})[f.i] || {}; const nm = z.name != null ? z.name : (this.gastName() || "");
             const merk = ((sp[f.i] || {})[String(nm).trim().toLowerCase()] || {}).pw || "";
@@ -13461,8 +13487,13 @@ class Component extends DCLogic {
       gpStil: pill(a.gp !== false), gpLabel: (a.gp !== false ? "✓ " : "") + tx("as_gp"), gpUm: () => this.assSet({ gp: a.gp === false }),
       /* Fragen an die Gäste */
       fragenAn: !!b.fragen, fragenSchalter: schalter("fragen"),
-      fragen: (a.fragen || []).map((q, j) => ({ key: "f" + j, nr: String(j + 1), frage: q.frage || "", antworten: q.antworten || "", form: q.form || "auswahl",
+      fragen: (a.fragen || []).map((q, j) => ({ key: "f" + j, nr: String(j + 1), frage: q.frage || "", antworten: q.antworten || "", form: q.form || "auswahl", zeilen: String(Math.max(1, Math.min(6, Math.ceil(String(q.frage || "").length / 60)))),
         mitAntworten: (q.form || "auswahl") === "auswahl" || q.form === "erweiterbar",
+        antwFelder: (() => { const t = String(q.antworten || ""); const l0 = /\n/.test(t) || !t.trim() ? t.split("\n") : antwListe(t).map((x) => x.trim()); const l = l0.length ? l0 : [""];
+          const setze = (n) => liste("fragen", j, { antworten: n.join("\n") + (n.length === 1 && /[,;]/.test(n[0]) ? "\n" : "") });
+          return l.map((w, i) => ({ key: "a" + i, nr: String(i + 1) + ".", wert: w, ph: tx("gf_antwort_n").replace("{n}", String(i + 1)),
+            onWert: (ev) => { const n = l.slice(); n[i] = String(ev.target.value).replace(/\n/g, " "); setze(n); }, weg: () => { const n = l.filter((x, k) => k !== i); setze(n.length ? n : [""]); } })); })(),
+        antwNeu: () => { const t = String(q.antworten || ""); const l = /\n/.test(t) || !t.trim() ? t.split("\n") : antwListe(t).map((x) => x.trim()); liste("fragen", j, { antworten: l.concat([""]).join("\n") }); },
         onFrage: (ev) => liste("fragen", j, { frage: ev.target.value }), onAntworten: (ev) => liste("fragen", j, { antworten: ev.target.value }),
         onForm: (ev) => liste("fragen", j, { form: ev.target.value }),
         mehrStil: pill(!!q.mehr), mehrLabel: (q.mehr ? "✓ " : "") + tx("as_mehr"), mehrUm: () => liste("fragen", j, { mehr: !q.mehr }),

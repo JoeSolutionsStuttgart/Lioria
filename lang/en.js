@@ -4607,6 +4607,11 @@ window.CHRONIK_SPRACHEN.en = {
     rf_gruppe_fragen: "Answers to questions",
     rf_reihenfolge: "Order",
     rf_reset: "Reset filters",
-    rf_aktiv: "{n} active"
+    rf_aktiv: "{n} active",
+    gf_spiel_tab: "Game",
+    gf_spiel_tab_d: "Your secret assignment – with name and password",
+    gf_antworten: "Answers",
+    gf_antwort_neu: "Add an answer",
+    gf_antwort_n: "Answer {n}"
   }
 };

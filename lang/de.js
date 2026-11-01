@@ -4607,6 +4607,11 @@ window.CHRONIK_SPRACHEN.de = {
     rf_gruppe_fragen: "Antworten auf Fragen",
     rf_reihenfolge: "Reihenfolge",
     rf_reset: "Filter zurücksetzen",
-    rf_aktiv: "{n} aktiv"
+    rf_aktiv: "{n} aktiv",
+    gf_spiel_tab: "Spiel",
+    gf_spiel_tab_d: "Deine geheime Zuteilung – mit Name und Passwort",
+    gf_antworten: "Antworten",
+    gf_antwort_neu: "Antwort hinzufügen",
+    gf_antwort_n: "Antwort {n}"
   }
 };
