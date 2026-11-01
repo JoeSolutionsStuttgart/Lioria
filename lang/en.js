@@ -4567,7 +4567,7 @@ window.CHRONIK_SPRACHEN.en = {
     gp_zusage: "Accepted",
     gp_absage: "Declined",
     gp_begleitung: "Plus-one of {n}",
-    jahr_design: "Design follows the year",
+    jahr_design: "Designs that change through the year",
     jahr_design_text: "Spring, summer, autumn, winter – plus the matching design at Christmas, New Year's Eve, Easter, Lunar New Year and Halloween. Right now: {n}.",
     design_loeschen: "Delete custom design",
     design_weg_frage: "Delete the custom design “{n}”? Events using it keep their look.",
@@ -4582,7 +4582,7 @@ window.CHRONIK_SPRACHEN.en = {
     gf_geheim_f: "The secret draw couldn't be saved.",
     gf_geheim_fehlt: "Please enter name and password.",
     gf_geheim_offen: "Not drawn yet – check back later.",
-    gf_geheim_falsch: "Name or password don't match.",
+    gf_geheim_falsch: "Name or password don't match. Did you register again after the draw? Then ask for a new draw.",
     gf_geheim_kette: "🎁 You're giving to: {n}",
     gf_geheim_team: "👥 You're in team {nr}.",
     gf_geheim_mit: "In your team: {namen}",
@@ -4591,6 +4591,16 @@ window.CHRONIK_SPRACHEN.en = {
     gf_geheim_pw_neu_h: "Use it to see your assignment here after the draw. It's already filled in on this device.",
     gf_geheim_erkl: "After the draw: enter name and password – you'll only see your own assignment.",
     gf_geheim_pw: "Password, e.g. PANDA-42",
-    gf_geheim_zeigen: "Show my assignment"
+    gf_geheim_zeigen: "Show my assignment",
+    gf_geheim_spaet: "⚠ Re-registered after the draw (new password): {namen}. Please draw again so all passwords match.",
+    gk_link: "Guest link & settings",
+    gk_filter: "Filter & sort",
+    gk_essen: "Meals per person",
+    gk_zusagen: "{n} yes",
+    gk_absagen: "{n} no",
+    jahr_jetzt: "Now: {n}",
+    jahr_welche: "These designs take turns:",
+    design_suchen: "Search designs …",
+    design_nichts: "No design found."
   }
 };

@@ -4567,7 +4567,7 @@ window.CHRONIK_SPRACHEN.de = {
     gp_zusage: "Zusage",
     gp_absage: "Absage",
     gp_begleitung: "Begleitung von {n}",
-    jahr_design: "Design passt sich dem Jahr an",
+    jahr_design: "Über das Jahr wechselnde Designs",
     jahr_design_text: "Frühling, Sommer, Herbst, Winter – und an Weihnachten, Silvester, Ostern, zum chinesischen Neujahr und an Halloween das passende Fest-Design. Gerade: {n}.",
     design_loeschen: "Eigenes Design löschen",
     design_weg_frage: "Das eigene Design „{n}“ löschen? Ereignisse, die es nutzen, behalten ihr Aussehen.",
@@ -4582,7 +4582,7 @@ window.CHRONIK_SPRACHEN.de = {
     gf_geheim_f: "Die geheime Auslosung konnte nicht gespeichert werden.",
     gf_geheim_fehlt: "Bitte Name und Passwort eingeben.",
     gf_geheim_offen: "Noch nicht ausgelost – schau später noch einmal vorbei.",
-    gf_geheim_falsch: "Name oder Passwort stimmen nicht.",
+    gf_geheim_falsch: "Name oder Passwort stimmen nicht. Hast du dich nach der Auslosung neu angemeldet? Dann frag nach einer neuen Auslosung.",
     gf_geheim_kette: "🎁 Du beschenkst: {n}",
     gf_geheim_team: "👥 Du bist in Team {nr}.",
     gf_geheim_mit: "Mit dir im Team: {namen}",
@@ -4591,6 +4591,16 @@ window.CHRONIK_SPRACHEN.de = {
     gf_geheim_pw_neu_h: "Damit siehst du nach der Auslosung hier deine Zuteilung. Auf diesem Gerät ist es schon eingetragen.",
     gf_geheim_erkl: "Nach der Auslosung: Name und Passwort eingeben – du siehst nur deine eigene Zuteilung.",
     gf_geheim_pw: "Passwort, z. B. PANDA-42",
-    gf_geheim_zeigen: "Meine Zuteilung zeigen"
+    gf_geheim_zeigen: "Meine Zuteilung zeigen",
+    gf_geheim_spaet: "⚠ Nach der Auslosung neu angemeldet (neues Passwort): {namen}. Bitte neu auslosen, damit alle Passwörter passen.",
+    gk_link: "Gästelink & Einstellungen",
+    gk_filter: "Filtern & sortieren",
+    gk_essen: "Essen je Person",
+    gk_zusagen: "{n} Zusagen",
+    gk_absagen: "{n} Absagen",
+    jahr_jetzt: "Jetzt: {n}",
+    jahr_welche: "Diese Designs wechseln sich ab:",
+    design_suchen: "Design suchen …",
+    design_nichts: "Kein Design gefunden."
   }
 };
