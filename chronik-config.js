@@ -1,6 +1,6 @@
 window.CHRONIK_CONFIG = {
     werbung: {
-    stufe: 1,
+    stufe: 4,
     anbieter: "eigen",
     adsenseClient: "",                 // z. B. "ca-pub-1234567890123456"
     adsensePlaetze: { zeitstrahl: "", einstellungen: "", anmeldung: "", kontakte: "", "unten-fest": "" },
