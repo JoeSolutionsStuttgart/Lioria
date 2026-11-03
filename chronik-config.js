@@ -1,8 +1,8 @@
 window.CHRONIK_CONFIG = {
   
   /* --- 0. Name und Bilder der Anwendung -------------------*/
-  appName: "Lioria",
-  appNamePlural: "Lioria",
+  appName: "Loria",
+  appNamePlural: "Loria",
   bilder: {
     wortmarke: "",
     icon192: "icon-192.png",
