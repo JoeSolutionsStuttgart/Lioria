@@ -4612,6 +4612,27 @@ window.CHRONIK_SPRACHEN.en = {
     gf_spiel_tab_d: "Your secret assignment – with name and password",
     gf_antworten: "Answers",
     gf_antwort_neu: "Add an answer",
-    gf_antwort_n: "Answer {n}"
+    gf_antwort_n: "Answer {n}",
+    pg_wird_uebernommen: "Applied as soon as you leave the field (or press Enter).",
+    vl_titel: "Use an existing event as a template",
+    vl_text: "Copy programme, guest page, info and more – dates move with the new date.",
+    vl_suchen: "Search events …",
+    vl_nehmen: "Use as template",
+    vl_nichts: "No matching event found.",
+    vl_aus: "Template: “{n}” from {d}",
+    vl_versatz: "Programme, stages and release times move by {n} days.",
+    vl_was: "What should be copied?",
+    vl_nicht: "Pictures, guest responses, guest book, finance entries and poll results are not copied.",
+    vl_programm: "Programme",
+    vl_gaeste: "Guest page (new link)",
+    vl_infos: "Info",
+    vl_personen: "People",
+    vl_abstimmungen: "Polls",
+    vl_etappen: "Stages",
+    vl_finanzen: "Finances button",
+    vl_design: "Design & decoration",
+    vl_rechte: "Visibility & rights",
+    vl_knopf: "As template",
+    vl_knopf_h: "Create a new event using this one as a template"
   }
 };

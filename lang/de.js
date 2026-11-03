@@ -4612,6 +4612,27 @@ window.CHRONIK_SPRACHEN.de = {
     gf_spiel_tab_d: "Deine geheime Zuteilung – mit Name und Passwort",
     gf_antworten: "Antworten",
     gf_antwort_neu: "Antwort hinzufügen",
-    gf_antwort_n: "Antwort {n}"
+    gf_antwort_n: "Antwort {n}",
+    pg_wird_uebernommen: "Wird übernommen, sobald du das Feld verlässt (oder Enter drückst).",
+    vl_titel: "Bestehendes Ereignis als Vorlage",
+    vl_text: "Programm, Gästeseite, Infos und mehr übernehmen – Termine wandern mit dem neuen Datum mit.",
+    vl_suchen: "Ereignis suchen …",
+    vl_nehmen: "Als Vorlage",
+    vl_nichts: "Kein passendes Ereignis gefunden.",
+    vl_aus: "Vorlage: „{n}“ vom {d}",
+    vl_versatz: "Programm, Etappen und Freigaben verschieben sich um {n} Tage.",
+    vl_was: "Was soll übernommen werden?",
+    vl_nicht: "Nicht übernommen werden Bilder, Rückmeldungen der Gäste, Gästebuch, Finanz-Einträge und Abstimmungsergebnisse.",
+    vl_programm: "Programm",
+    vl_gaeste: "Gästeseite (neuer Link)",
+    vl_infos: "Infos",
+    vl_personen: "Personen",
+    vl_abstimmungen: "Abstimmungen",
+    vl_etappen: "Etappen",
+    vl_finanzen: "Finanzen-Knopf",
+    vl_design: "Design & Deko",
+    vl_rechte: "Sichtbarkeit & Rechte",
+    vl_knopf: "Als Vorlage",
+    vl_knopf_h: "Neues Ereignis mit diesem als Vorlage anlegen"
   }
 };

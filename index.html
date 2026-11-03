@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="chronik-config.js?v=b160"></script>
-<script src="lang/de.js?v=b160"></script>
-<script src="lang/en.js?v=b160"></script>
-<script src="lang/sprache.js?v=b160"></script>
-<script src="./support.js?v=b160"></script>
+<script src="chronik-config.js?v=b161"></script>
+<script src="lang/de.js?v=b161"></script>
+<script src="lang/en.js?v=b161"></script>
+<script src="lang/sprache.js?v=b161"></script>
+<script src="./support.js?v=b161"></script>
 </head>
 <body>
 <x-dc>
@@ -20,11 +20,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Lioria">
 <link rel="stylesheet" href="broadsheet.css">
-<script src="supabase-bridge.js?v=b160"></script>
-<script src="xlsx-export.js?v=b160"></script>
-<script src="farbe.js?v=b160"></script>
-<script src="cw-plaetze.js?v=b160"></script>
-<script src="fb-knopf.js?v=b160"></script>
+<script src="supabase-bridge.js?v=b161"></script>
+<script src="xlsx-export.js?v=b161"></script>
+<script src="farbe.js?v=b161"></script>
+<script src="cw-plaetze.js?v=b161"></script>
+<script src="fb-knopf.js?v=b161"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Amiri:wght@400;700&display=swap">
@@ -632,7 +632,7 @@
     <sc-if value="{{ lay.loginKlein }}" hint-placeholder-val="{{ false }}">
     <div data-bewegt="" style="order: 0; min-width: 0; position: relative; z-index: 1;">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
-      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b160" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
+      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b161" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
       <div style="height: 4px; border-radius: 4px; background: linear-gradient(90deg, #7c4ad8, #3d63d9 40%, #1f84cf 65%, #13a77c); margin-top: var(--space-5);"></div>
       <div style="display: flex; justify-content: space-between; gap: var(--space-4); padding: 7px 0; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;">
         <span>{{ L.ereignisse_bilder_menschen }}</span>
@@ -645,7 +645,7 @@
     <div data-bewegt="" style="{{ lay.loginPitch }}">
       <sc-if value="{{ lay.loginGross }}" hint-placeholder-val="{{ true }}">
       <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">{{ L.was_ihr_erlebt_habt_in_einer }}</div>
-      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b160" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
+      <h1 aria-label="{{ L.chronik }}" style="{{ lay.loginTitle }}"><sc-if value="{{ wortMitC }}" hint-placeholder-val="{{ true }}"><svg viewBox="96 80 310 352" aria-hidden="true" style="{{ lay.loginC }}"><defs><linearGradient id="wmC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c4ad8"></stop><stop offset="0.42" stop-color="#3d63d9"></stop><stop offset="0.62" stop-color="#1f84cf"></stop><stop offset="0.82" stop-color="#10a0a8"></stop><stop offset="1" stop-color="#13a77c"></stop></linearGradient><linearGradient id="wmS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"></stop><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#0a0a28" stop-opacity="0.22"></stop></linearGradient><radialGradient id="wmP" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.7" stop-color="#f1f1f8"></stop><stop offset="1" stop-color="#d4d4e2"></stop></radialGradient><radialGradient id="wmK" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#a77bf0"></stop><stop offset="1" stop-color="#5d38c4"></stop></radialGradient></defs><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmC)" stroke-width="46" stroke-linecap="round"></path><path d="M 368.4 145.8 A 147 147 0 1 0 368.4 364.2" fill="none" stroke="url(#wmS)" stroke-width="46" stroke-linecap="round"></path><path d="M 148.8 325 A 140 140 0 0 1 240.9 118.1" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="7" stroke-linecap="round"></path><circle cx="160.8" cy="156.6" r="10.5" fill="url(#wmP)"></circle><circle cx="152.6" cy="343.5" r="10.5" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="33" fill="url(#wmP)"></circle><circle cx="368.4" cy="145.8" r="27" fill="none" stroke="#7446d6" stroke-width="8"></circle><circle cx="368.4" cy="145.8" r="14" fill="url(#wmK)"></circle></svg><span style="{{ lay.loginWort }}">{{ wortRest }}</span></sc-if><sc-if value="{{ wortOhneC }}" hint-placeholder-val="{{ false }}"><img src="logo.svg?v=b161" alt="" aria-hidden="true" style="{{ lay.loginLogo }}"><span style="{{ lay.loginWort }}">{{ wortGanz }}</span></sc-if><sc-if value="{{ wortBild }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ L.chronik }}" style="{{ wortBildStil }}"></span></sc-if></h1>
       <div style="height: 4px; border-radius: 4px; background: linear-gradient(90deg, #7c4ad8, #3d63d9 40%, #1f84cf 65%, #13a77c); margin-top: var(--space-5);"></div>
       <div style="display: flex; justify-content: space-between; gap: var(--space-4); padding: 7px 0; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;">
         <span>{{ L.ereignisse_bilder_menschen }}</span>
@@ -2314,6 +2314,9 @@
                         <sc-if value="{{ c.canEdit }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.edit }}" title="{{ L.ereignis_bearbeiten }}" style="cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; line-height: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; min-height: 36px; border: 2px solid var(--t-accent, #0088b0); border-radius: 999px; background: color-mix(in srgb, var(--t-accent, #0088b0) 14%, var(--t-card, #eae9e9)); color: var(--t-ink, #201e1d);" style-hover="background: var(--t-accent, #0088b0); color: var(--t-on-accent, #fff);"><span aria-hidden="true">✎</span>{{ c.editLabel }}</button>
                         </sc-if>
+                        <sc-if value="{{ c.canEdit }}" hint-placeholder-val="{{ true }}">
+                          <button onClick="{{ c.alsVorlage }}" title="{{ L.vl_knopf_h }}" style="cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; line-height: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; min-height: 36px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, #7c4ad8 45%, transparent); background: transparent; color: #5a2fb8;">📋 {{ L.vl_knopf }}</button>
+                        </sc-if>
                         <sc-if value="{{ c.canFull }}" hint-placeholder-val="{{ true }}">
                           <button onClick="{{ c.remove }}" style="cursor: pointer; font: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border: 1px solid transparent; border-radius: var(--t-radius, 2px); background: transparent; color: color-mix(in srgb, var(--t-accent2, #d6006c) 90%, var(--t-ink, #201e1d));" style-hover="background: color-mix(in srgb, var(--t-accent2, #d6006c) 12%, transparent);">{{ L.loeschen }}</button>
                         </sc-if>
@@ -2978,13 +2981,15 @@
               </sc-if>
               <sc-for list="{{ pt.punkte }}" as="pp" hint-placeholder-count="0">
                 <button class="btn btn-ghost" onClick="{{ pp.einfuegen }}" style="justify-self: start; min-height: 30px; padding: 0 10px; font-size: 13px; color: var(--color-accent-700);">＋ {{ pp.einfuegenText }}</button>
-                <div style="display: grid; gap: 6px; padding: var(--space-2) 0; border-top: 1px solid var(--color-divider);">
-                  <div style="display: grid; grid-template-columns: minmax(80px, 110px) minmax(80px, 110px) minmax(0, 1fr) 44px; gap: 6px; align-items: end;">
-                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_von }}<input class="input" type="time" value="{{ pp.von }}" onChange="{{ pp.onVon }}" style="font-size: 16px; min-width: 0;"></label>
-                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_bis }}<input class="input" type="time" value="{{ pp.bis }}" onChange="{{ pp.onBis }}" style="font-size: 16px; min-width: 0;"></label>
-                    <label style="display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.pg_ort_buehne }}<input class="input" value="{{ pp.buehne }}" onChange="{{ pp.onBuehne }}" placeholder="{{ L.pg_ort_ph }}" style="font-size: 16px; min-width: 0;"></label>
+                <div data-pgpunkt="{{ pp.id }}" style="{{ pp.offenStil }}">
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: end;">
+                    <label style="flex: 1 1 140px; max-width: 170px; display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_tag }}<input class="input" type="date" value="{{ pp.datum }}" onChange="{{ pp.merkeDatum }}" onBlur="{{ pp.fertig }}" onKeyDown="{{ pp.taste }}" style="font-size: 16px; min-width: 0;"></label>
+                    <label style="flex: 1 1 96px; max-width: 120px; display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_von }}<input class="input" type="time" value="{{ pp.von }}" onChange="{{ pp.merkeVon }}" onBlur="{{ pp.fertig }}" onKeyDown="{{ pp.taste }}" style="font-size: 16px; min-width: 0;"></label>
+                    <label style="flex: 1 1 96px; max-width: 120px; display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.zp_bis }}<input class="input" type="time" value="{{ pp.bis }}" onChange="{{ pp.merkeBis }}" onBlur="{{ pp.fertig }}" onKeyDown="{{ pp.taste }}" style="font-size: 16px; min-width: 0;"></label>
+                    <label style="flex: 3 1 160px; display: grid; gap: 2px; font-size: 12px; color: var(--color-neutral-700);">{{ L.pg_ort_buehne }}<input class="input" value="{{ pp.buehne }}" onChange="{{ pp.onBuehne }}" placeholder="{{ L.pg_ort_ph }}" style="font-size: 16px; min-width: 0;"></label>
                     <button class="btn btn-ghost btn-icon" onClick="{{ pp.weg }}" aria-label="{{ L.loeschen }}" title="{{ L.loeschen }}" style="width: 44px; height: 44px;"><i class="ph-duotone ph-trash"></i></button>
                   </div>
+                  <sc-if value="{{ pp.offen }}" hint-placeholder-val="{{ false }}"><div style="font-size: 12px; color: var(--color-accent-700);">{{ L.pg_wird_uebernommen }}</div></sc-if>
                   <input class="input" value="{{ pp.name }}" onChange="{{ pp.onName }}" placeholder="{{ L.zp_name_ph }}" style="font-size: 16px; font-weight: 600;">
                   <sc-if value="{{ pg.lang }}" hint-placeholder-val="{{ false }}">
                     <textarea class="input" rows="2" value="{{ pp.info }}" onChange="{{ pp.onInfo }}" placeholder="{{ L.zp_info_ph }}" style="font-size: 16px;"></textarea>
@@ -4265,6 +4270,16 @@
             <button onClick="{{ ar.klick }}" style="{{ ar.stil }}" style-hover="filter: brightness(0.97);"><span aria-hidden="true" style="{{ ar.iconStil }}">{{ ar.emoji }}</span><span style="display: grid; gap: 3px; min-width: 0;"><span style="font-size: 17px; font-weight: 700;">{{ ar.titel }}</span><span style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ ar.kurz }}</span></span></button>
           </sc-for>
         </div>
+        <sc-if value="{{ ass.hatEigene }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; gap: 10px; padding: 14px; border-radius: var(--radius-lg); border: 2px dashed color-mix(in srgb, #7c4ad8 40%, var(--color-divider));">
+            <div style="display: grid; gap: 2px;"><div style="font-size: 15.5px; font-weight: 700;">📋 {{ L.vl_titel }}</div><div style="font-size: 13px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.vl_text }}</div></div>
+            <input class="input" type="search" value="{{ ass.vq }}" onChange="{{ ass.onVq }}" placeholder="{{ L.vl_suchen }}" aria-label="{{ L.vl_suchen }}" style="font-size: 16px;">
+            <div style="display: grid; gap: 6px;">
+              <sc-for list="{{ ass.vorlagen }}" as="vl" hint-placeholder-count="3"><button onClick="{{ vl.klick }}" style="display: flex; gap: 10px; align-items: center; width: 100%; text-align: left; padding: 10px 12px; border-radius: var(--radius-md); border: 1px solid var(--color-divider); background: var(--color-bg); cursor: pointer; font: inherit; color: var(--color-text);" style-hover="background: var(--color-accent-100);"><span style="display: grid; gap: 1px; flex: 1; min-width: 0;"><strong style="font-size: 15px; overflow-wrap: anywhere;">{{ vl.name }}</strong><span style="font-size: 12.5px; color: var(--color-neutral-700);">{{ vl.zeile }}</span></span><span style="font-size: 13px; font-weight: 700; color: #5a2fb8; white-space: nowrap;">{{ L.vl_nehmen }} →</span></button></sc-for>
+              <sc-if value="{{ ass.keineVorlage }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13px; font-style: italic; color: var(--color-neutral-700);">{{ L.vl_nichts }}</div></sc-if>
+            </div>
+          </div>
+        </sc-if>
       </sc-if>
 
       <sc-if value="{{ ass.istEck }}" hint-placeholder-val="{{ false }}">
@@ -4286,6 +4301,18 @@
             <button class="btn btn-ghost" style="justify-self: start; min-height: 36px; padding: 0 6px; color: #5a2fb8;" onClick="{{ ass.zumLang }}">🛠 {{ L.as_zum_lang }} →</button>
           </div>
         </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ ass.istVorlage }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size: 14px; color: var(--color-neutral-700);">{{ ass.vZeile }}</div>
+        <div style="display: grid; gap: 14px; max-width: 560px;">
+          <label style="display: grid; gap: 4px;"><span style="font-size: 13px; font-weight: 600;">{{ L.as_z_name }}</span><input class="input" value="{{ ass.x }}" onChange="{{ ass.onX }}" maxlength="120" style="font-size: 16px;"></label>
+          <label style="display: grid; gap: 4px;"><span style="font-size: 13px; font-weight: 600;">{{ L.as_datum }}</span><input class="input" type="date" value="{{ ass.datum }}" onChange="{{ ass.onDatum }}" style="font-size: 16px;"></label>
+          <sc-if value="{{ ass.vVersatz }}" hint-placeholder-val="{{ false }}"><div style="font-size: 12.5px; color: var(--color-neutral-700);">{{ ass.vVersatz }}</div></sc-if>
+          <label style="display: grid; gap: 4px;"><span style="font-size: 13px; font-weight: 600;">{{ L.as_ort }}</span><input class="input" value="{{ ass.ort }}" onChange="{{ ass.onOrt }}" maxlength="120" style="font-size: 16px;"></label>
+        </div>
+        <div style="display: grid; gap: 8px;"><div style="font-size: 13px; font-weight: 600;">{{ L.vl_was }}</div><div style="display: flex; gap: 8px; flex-wrap: wrap;"><sc-for list="{{ ass.vTeile }}" as="vt" hint-placeholder-count="4"><button onClick="{{ vt.klick }}" style="{{ vt.stil }}">{{ vt.label }}</button></sc-for></div>
+          <div style="font-size: 12.5px; line-height: 1.45; color: var(--color-neutral-700);">{{ L.vl_nicht }}</div></div>
       </sc-if>
 
       <sc-if value="{{ ass.istGaeste }}" hint-placeholder-val="{{ false }}">
@@ -9009,6 +9036,27 @@ class Component extends DCLogic {
     if (ohneTag.length) gruppen.push({ g: { id: "", label: tx("zp_ohne_tag"), datum: "" }, acts: ohneTag });
     const pill = (an) => this.voPill(an);
     const n = (tt.acts || []).length;
+    /* Datum und Uhrzeiten erst beim Verlassen des Feldes übernehmen – vorher nur merken,
+       damit nichts umsortiert wird, während man noch tippt. Danach den Punkt im Bild halten. */
+    const pend = st.pgPend || {};
+    const merke = (id, k) => (ev) => { const v = ev.target.value; this.setState((s0) => ({ pgPend: Object.assign({}, s0.pgPend, { [id]: Object.assign({}, (s0.pgPend || {})[id], { [k]: v }) }) })); };
+    const uebernimm = (id) => () => {
+      const p0 = (this.state.pgPend || {})[id];
+      if (!p0) return;
+      setze((t) => {
+        let tage = t.tage.slice();
+        let tagId = null;
+        if (p0.datum != null && p0.datum !== "") {
+          let g = tage.filter((x) => x.datum === p0.datum)[0];
+          if (!g) { g = { id: this.ttNid(), label: this.zpTagText(p0.datum), datum: p0.datum }; tage = tage.concat([g]); }
+          tagId = g.id;
+        }
+        return { tage: tage, acts: t.acts.map((a) => (a.id === id ? Object.assign({}, a, p0.von != null ? { von: p0.von } : {}, p0.bis != null ? { bis: p0.bis } : {}, tagId ? { tag: tagId } : {}) : a)) };
+      });
+      this.setState((s0) => { const n0 = Object.assign({}, s0.pgPend); delete n0[id]; return { pgPend: n0 }; });
+      window.setTimeout(() => { const el = document.querySelector('[data-pgpunkt="' + id + '"]'); if (el) { try { el.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) { el.scrollIntoView(); } } }, 60);
+    };
+    const taste = (ev) => { if (ev && ev.key === "Enter" && ev.target && ev.target.blur) { ev.preventDefault(); ev.target.blur(); } };
     return {
       lang: lang, kurz: !lang, leer: !n, anzahl: n ? plural(n, tx("pg_punkt"), tx("pg_punkte")) : tx("pg_keine"),
       artKurz: () => this.voSet("programmArt", "kurz"), artLang: () => this.voSet("programmArt", "lang"),
@@ -9023,7 +9071,12 @@ class Component extends DCLogic {
         onDatum: (ev) => { const v = ev.target.value; setze((t) => ({ acts: t.acts, tage: t.tage.map((g) => (g.id === x.g.id ? Object.assign({}, g, { datum: v, label: v ? this.zpTagText(v) : g.label }) : g)) })); },
         onLabel: (ev) => { const v = ev.target.value; setze((t) => ({ acts: t.acts, tage: t.tage.map((g) => (g.id === x.g.id ? Object.assign({}, g, { label: v }) : g)) })); },
         amTag: einfuegen(x.g.id, x.acts[x.acts.length - 1], null),
-        punkte: x.acts.map((a, k) => ({ key: a.id, von: a.von || "", bis: a.bis || "", name: a.name || "", buehne: a.buehne || "", info: a.info || "",
+        punkte: x.acts.map((a, k) => ({ key: a.id, id: a.id, name: a.name || "", buehne: a.buehne || "", info: a.info || "",
+          von: (pend[a.id] || {}).von != null ? pend[a.id].von : (a.von || ""), bis: (pend[a.id] || {}).bis != null ? pend[a.id].bis : (a.bis || ""),
+          datum: (pend[a.id] || {}).datum != null ? pend[a.id].datum : (x.g.datum || ""),
+          merkeVon: merke(a.id, "von"), merkeBis: merke(a.id, "bis"), merkeDatum: merke(a.id, "datum"), fertig: uebernimm(a.id), taste: taste,
+          offen: !!pend[a.id], offenStil: { display: "grid", gap: "6px", padding: "var(--space-2)", margin: "0 calc(-1 * var(--space-2))", borderTop: "1px solid var(--color-divider)", borderRadius: "8px",
+            background: pend[a.id] ? "color-mix(in srgb, var(--color-accent) 8%, transparent)" : "transparent", outline: pend[a.id] ? "2px dashed color-mix(in srgb, var(--color-accent) 45%, transparent)" : "none" },
           einfuegen: einfuegen(x.g.id, x.acts[k - 1] || null, a), einfuegenText: k ? tx("zp_dazwischen") : tx("zp_davor"),
           onVon: feld(a.id, "von"), onBis: feld(a.id, "bis"), onName: feld(a.id, "name"), onBuehne: feld(a.id, "buehne"), onInfo: feld(a.id, "info"),
           extras: (a.bilder || []).length + (a.alben || []).length + (a.personen || []).length > 0 ? tx("pg_zuordnung") : "",
@@ -13335,7 +13388,69 @@ class Component extends DCLogic {
       notfall: Object.assign({ art: "", nummer: "112", treff: "", ort: "" }, v.notfall || {}),
       modus: a.modus || "kurz" }));
   }
+  /* Bestehendes Ereignis als Vorlage: Inhalte übernehmen, Termine um den Abstand zum neuen Datum verschieben. */
+  vorlageAuf = async (evId) => {
+    const e = (this.state.events || []).filter((x) => x.id === evId)[0];
+    if (!e) return;
+    const CC = window.ChronikCloud;
+    if (this.state.cloud && CC && CC.guard) { const g = await CC.guard("row"); if (!g.ok) return this.noteLimit(g.block); }
+    const heute = new Date().toISOString().slice(0, 10);
+    /* Vorschlag: gleiches Datum im nächsten passenden Jahr, sonst in 30 Tagen. */
+    let datum = this.assTag(heute, 30);
+    if (e.date) { const d0 = new Date(e.date + "T12:00:00"); while (d0.toISOString().slice(0, 10) <= heute) d0.setFullYear(d0.getFullYear() + 1); datum = d0.toISOString().slice(0, 10); }
+    const ex = this.exOf(e);
+    const hat = { infos: (e.infos || []).some((r) => r.label || r.value), personen: (e.people || []).length > 0, programm: !!(e.timetable && (e.timetable.acts || []).length), gaeste: !!(ex.offen && ex.offen.an),
+      abstimmungen: (e.polls || []).length > 0, etappen: (e.etappen || []).length > 0, finanzen: this.finAn(ex), design: !!(e.themeId || ((e.deco || {}).stickers || []).length), rechte: e.vis && e.vis !== "private" };
+    const uebernehmen = {}; Object.keys(hat).forEach((k) => { if (hat[k]) uebernehmen[k] = true; });
+    /* „Sommerfest 2026“ → „Sommerfest 2027“, wenn das neue Datum in einem anderen Jahr liegt. */
+    const jAlt = String(e.date || "").slice(0, 4), jNeu = datum.slice(0, 4);
+    const name = jAlt && jAlt !== jNeu ? String(e.name || "").replace(new RegExp("\\b" + jAlt + "\\b", "g"), jNeu) : (e.name || "");
+    this.setState({ ass: { s: 1, modus: "vorlage", vorlage: e.id, x: name, datum: datum, ort: e.place || "", hat: hat, ueb: uebernehmen },
+      tourWahl: false, menuOffen: false, drawer: false, bsp: null, openId: null });
+  };
+  vorlageEntwurf(a) {
+    const e = (this.state.events || []).filter((x) => x.id === a.vorlage)[0];
+    if (!e) return null;
+    const u = a.ueb || {};
+    const datum = a.datum || e.date || new Date().toISOString().slice(0, 10);
+    const versatz = e.date ? Math.round((new Date(datum + "T12:00:00") - new Date(e.date + "T12:00:00")) / 864e5) : 0;
+    const schieb = (iso) => (iso && /^\d{4}-\d\d-\d\d/.test(iso) ? this.assTag(String(iso).slice(0, 10), versatz) + String(iso).slice(10) : iso || "");
+    const kopie = (x) => JSON.parse(JSON.stringify(x || null));
+    const ex = kopie(this.exOf(e)) || {};
+    delete ex.spiele;
+    ex.finAn = !!u.finanzen; delete ex.finAus;
+    if (u.gaeste && ex.offen) {
+      const o = ex.offen;
+      o.token = this.neuesToken(); delete o.zeitplan; delete o.freiMs;
+      if (o.frei) Object.keys(o.frei).forEach((k) => { if (o.frei[k] && o.frei[k].zeit) o.frei[k].zeit = schieb(o.frei[k].zeit); });
+      if (o.anAb && o.anAb.zeit) o.anAb.zeit = schieb(o.anAb.zeit);
+      if (Array.isArray(o.tische)) o.tische = o.tische.map((t) => Object.assign({}, t, { gaeste: "" }));
+    } else delete ex.offen;
+    let timetable = null;
+    if (u.programm && e.timetable) {
+      const neuId = {};
+      const tage = (e.timetable.tage || []).map((g) => { const id = this.ttNid(); neuId[g.id] = id; const dt = schieb(g.datum); return Object.assign({}, g, { id: id, datum: dt, label: dt ? this.zpTagText(dt) : g.label }); });
+      timetable = { tage: tage, acts: (e.timetable.acts || []).map((x) => Object.assign({}, x, { id: this.ttNid(), tag: neuId[x.tag] || x.tag, mark: false, bilder: [], alben: [], personen: [] })) };
+    }
+    const polls = u.abstimmungen ? (e.polls || []).map((pl) => Object.assign(kopie(pl), { id: "p" + uid(), stimmen: {}, rangliste: {}, echo: {},
+      opts: (pl.opts || []).map((o) => ({ i: "o" + uid(), label: pl.art === "liste" ? "" : o.label, von: "" })) })) : [];
+    const me = this.me() || {};
+    return {
+      id: null, name: String(a.x || "").trim() || e.name || "", date: datum, end: e.end ? schieb(e.end) : "", place: String(a.ort || "").trim(),
+      kicker: e.kicker || "", note: e.note || "",
+      infos: u.infos ? kopie(e.infos || []) : [{ label: "", value: "" }],
+      people: u.personen ? kopie(e.people || []) : [], images: [], alben: [],
+      deco: u.design ? kopie(e.deco || { fx: [], pal: "thema", stickers: [] }) : { fx: [], pal: "thema", stickers: [] },
+      themeId: u.design ? (e.themeId || "") : "", themeSnap: u.design ? (e.themeSnap || null) : null, themeFein: u.design ? kopie(e.themeFein || {}) : {},
+      vis: u.rechte ? (e.vis === "selected" ? "people" : e.vis) || "private" : "private", who: u.rechte ? (e.who || []).slice() : [], gwho: u.rechte ? (e.gwho || []).slice() : [],
+      perms: u.rechte ? kopie(e.perms || {}) : {}, share: u.rechte ? (e.share || "view") : "view",
+      polls: polls, etappen: u.etappen ? (e.etappen || []).map((x) => Object.assign({}, x, { i: "e" + uid(), tag: schieb(x.tag) })) : [],
+      etLayout: e.etLayout === "split" ? "split" : "gesamt", timetable: timetable, extras: ex,
+      by: me.id || "", url: "", partial: false
+    };
+  }
   assSchritte(a) {
+    if ((a || {}).modus === "vorlage") return ["art", "vorlage"];
     if ((a || {}).modus !== "lang") return ["art", "eck"];
     const b = (a || {}).b || {};
     return ["art", "eck", "gaeste"].concat(b.gaeste ? ["fragen"] : []).concat(["programm", "planung", "fertig"]);
@@ -13412,7 +13527,8 @@ class Component extends DCLogic {
     };
   }
   assFertig(direkt) {
-    const d = this.assEntwurf();
+    const a0 = this.state.ass || {};
+    const d = a0.modus === "vorlage" ? this.vorlageEntwurf(a0) : this.assEntwurf();
     if (!d) return;
     this.setState({ ass: null, bildSel: [], edTab: "grund", gaTab: "link", edSuche: "", secOpen: {}, edSub: {}, draft: d, decoSel: null, pickQ: "", drawer: false, admin: false },
       () => { if (direkt) this.saveEvent(); });
@@ -13437,7 +13553,7 @@ class Component extends DCLogic {
     const setA = (k) => (ev) => { const w = ev.target.value; this.assSet((x) => { const p = { [k]: w }; if (k === "datum" && v && v.dauer && (!x.ende || x.ende <= w)) p.ende = this.assTag(w, v.dauer); return p; }); };
     const umB = (k) => () => this.assSet((x) => ({ b: Object.assign({}, x.b, { [k]: !(x.b || {})[k] }) }));
     const liste = (feld, j, p) => this.assSet((x) => ({ [feld]: (x[feld] || []).map((r, i) => (i === j ? Object.assign({}, r, p) : r)) }));
-    const titelVon = { art: tx("as_t0"), eck: tx("as_t1"), gaeste: tx("as_tg"), fragen: tx("as_tf"), programm: tx("as_tp"), planung: tx("as_tpl"), fertig: tx("as_tz") };
+    const titelVon = { vorlage: tx("vl_titel"), art: tx("as_t0"), eck: tx("as_t1"), gaeste: tx("as_tg"), fragen: tx("as_tf"), programm: tx("as_tp"), planung: tx("as_tpl"), fertig: tx("as_tz") };
     const B = ["countdown", "gaeste", "essen", "fragen", "sitz", "programm", "fotowand", "buch", "vor", "finanzen", "abstimmung", "notfall", "infos", "etappen"];
     const moeglich = (k) => !v ? false : k === "etappen" ? !!v.stationen : true;
     const aktiv = B.filter((k) => moeglich(k) && b[k] && (["essen", "fragen", "sitz", "fotowand", "buch", "vor"].indexOf(k) < 0 || b.gaeste));
@@ -13450,6 +13566,26 @@ class Component extends DCLogic {
     const P = a.poll || {};
     return {
       an: true, lang: lang, kurz: !lang,
+      istVorlage: wo === "vorlage",
+      ...(() => {
+        /* Vorlagen-Auswahl auf der ersten Seite und die Einstellungen im Schritt „Vorlage“. */
+        const me = this.me() || {};
+        const q = String(a.vq || "").trim().toLowerCase();
+        const eigene = (st.events || []).filter((e) => e && e.id !== DEMO_ID && !e.lose && (e.by === me.id || this.levelFor(e) >= 3));
+        const treffer = eigene.filter((e) => !q || (String(e.name || "") + " " + String(e.kicker || "") + " " + String(e.place || "")).toLowerCase().indexOf(q) >= 0)
+          .sort((x, y) => String(y.date || "").localeCompare(String(x.date || ""))).slice(0, q ? 12 : 6);
+        const vq = a.vq || "";
+        const ve = a.vorlage ? (st.events || []).filter((e) => e.id === a.vorlage)[0] : null;
+        const hat = a.hat || {}, ueb = a.ueb || {};
+        const TEILE = ["programm", "gaeste", "infos", "personen", "abstimmungen", "etappen", "finanzen", "design", "rechte"];
+        return { hatEigene: eigene.length > 0, vq: vq, onVq: (ev) => { const v = ev.target.value; this.assSet({ vq: v }); },
+          vorlagen: treffer.map((e) => ({ key: e.id, name: e.name || tx("ohne_titel"), zeile: [fmtDate(e.date), e.place, e.kicker].filter(Boolean).join(" · "), klick: () => this.vorlageAuf(e.id) })),
+          keineVorlage: !!q && !treffer.length,
+          vName: ve ? ve.name : "", vZeile: ve ? tx("vl_aus").replace("{n}", ve.name || "").replace("{d}", fmtDate(ve.date)) : "",
+          vTeile: TEILE.filter((k) => hat[k]).map((k) => { const an = !!ueb[k]; return { key: k, label: (an ? "✓ " : "") + tx("vl_" + k), stil: pill(an),
+            klick: () => this.assSet((x) => ({ ueb: Object.assign({}, x.ueb, { [k]: !an }) })) }; }),
+          vVersatz: ve && ve.date && a.datum && a.datum !== ve.date ? tx("vl_versatz").replace("{n}", String(Math.round((new Date(a.datum + "T12:00:00") - new Date(ve.date + "T12:00:00")) / 864e5))) : "" };
+      })(),
       istArt: wo === "art", istEck: wo === "eck", istGaeste: wo === "gaeste", istFragen: wo === "fragen", istProgramm: wo === "programm", istPlanung: wo === "planung", istFertig: wo === "fertig",
       zu: () => this.setState({ ass: null }),
       zurueck: geh(s0 - 1), weiter: geh(s0 + 1), letzter: s0 === schritte.length - 1, nichtLetzter: s0 > 0 && s0 < schritte.length - 1, ersterArt: s0 === 0,
@@ -18054,6 +18190,7 @@ class Component extends DCLogic {
         hatAlbenShow: (e.alben || []).length > 0,
         hatEtappenShow: (e.etappen || []).length > 0,
         edit: (ev) => { ev.stopPropagation(); this.editEvent(e.id); },
+        alsVorlage: (ev) => { if (ev && ev.stopPropagation) ev.stopPropagation(); this.vorlageAuf(e.id); },
         remove: (ev) => { ev.stopPropagation(); this.removeFragen(e.id); }
       };
     });
