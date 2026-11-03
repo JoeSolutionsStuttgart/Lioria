@@ -1,4 +1,17 @@
 window.CHRONIK_CONFIG = {
+    werbung: {
+    stufe: 1,
+    anbieter: "eigen",
+    adsenseClient: "",                 // z. B. "ca-pub-1234567890123456"
+    adsensePlaetze: { zeitstrahl: "", einstellungen: "", anmeldung: "", kontakte: "", "unten-fest": "" },
+    eigeneBanner: [
+      // { bild: "werbung/fotobuch.jpg", link: "https://…", text: "Fotobuch bestellen", plaetze: ["zeitstrahl"] }
+    ],
+    plaetze: {},
+    zustimmungFragen: true,
+    kennzeichnung: "Anzeige"
+  },
+
   
   /* --- 0. Name und Bilder der Anwendung -------------------*/
   appName: "Loria",
