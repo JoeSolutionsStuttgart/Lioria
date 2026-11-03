@@ -3550,7 +3550,7 @@ window.CHRONIK_SPRACHEN.en = {
     gast_frei_ab: "from",
     gast_noch_zu: "Just a little longer –",
     ga_frei_titel: "When is what visible?",
-    ga_frei_hinweis: "RSVPs are always open right away.",
+    ga_frei_hinweis: "Every section can open right away, after the countdown or from a set time – RSVP, questions and game included. Until then guests see “from …”.",
     ga_frei_sofort: "Right away",
     ga_frei_nach_cd: "After the countdown ends",
     ga_frei_ab_zeit: "From a set time …",
@@ -4633,6 +4633,9 @@ window.CHRONIK_SPRACHEN.en = {
     vl_design: "Design & decoration",
     vl_rechte: "Visibility & rights",
     vl_knopf: "As template",
-    vl_knopf_h: "Create a new event using this one as a template"
+    vl_knopf_h: "Create a new event using this one as a template",
+    gast_kommt_fehlt: "Please choose first: are you coming or not?",
+    ga_begl_zeigen: "Ask about plus-ones",
+    ga_notiz_zeigen: "Message to the hosts"
   }
 };

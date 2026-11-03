@@ -3550,7 +3550,7 @@ window.CHRONIK_SPRACHEN.de = {
     gast_frei_ab: "ab",
     gast_noch_zu: "Noch etwas Geduld –",
     ga_frei_titel: "Wann ist was sichtbar?",
-    ga_frei_hinweis: "Die Zu- und Absagen sind immer sofort offen.",
+    ga_frei_hinweis: "Jeder Bereich kann sofort, nach dem Countdown oder ab einer Uhrzeit sichtbar werden – auch Zu- & Absagen, Abfragen und Spiel. Bis dahin sehen Gäste „ab …“.",
     ga_frei_sofort: "Sofort",
     ga_frei_nach_cd: "Nach Ablauf des Countdowns",
     ga_frei_ab_zeit: "Ab einem Zeitpunkt …",
@@ -4633,6 +4633,9 @@ window.CHRONIK_SPRACHEN.de = {
     vl_design: "Design & Deko",
     vl_rechte: "Sichtbarkeit & Rechte",
     vl_knopf: "Als Vorlage",
-    vl_knopf_h: "Neues Ereignis mit diesem als Vorlage anlegen"
+    vl_knopf_h: "Neues Ereignis mit diesem als Vorlage anlegen",
+    gast_kommt_fehlt: "Bitte wähle zuerst: Bist du dabei oder nicht?",
+    ga_begl_zeigen: "Begleitpersonen abfragen",
+    ga_notiz_zeigen: "Nachricht an die Gastgeber"
   }
 };
