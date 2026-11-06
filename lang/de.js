@@ -4599,7 +4599,7 @@ window.CHRONIK_SPRACHEN.de = {
     gk_zusagen: "{n} Zusagen",
     gk_absagen: "{n} Absagen",
     jahr_jetzt: "Jetzt: {n}",
-    jahr_welche: "Diese Designs wechseln sich ab:",
+    jahr_welche: "Diese Designs kommen für bis zu zwei Wochen dran:",
     design_suchen: "Design suchen …",
     design_nichts: "Kein Design gefunden.",
     rf_suche_label: "Suche",
@@ -4636,6 +4636,15 @@ window.CHRONIK_SPRACHEN.de = {
     vl_knopf_h: "Neues Ereignis mit diesem als Vorlage anlegen",
     gast_kommt_fehlt: "Bitte wähle zuerst: Bist du dabei oder nicht?",
     ga_begl_zeigen: "Begleitpersonen abfragen",
-    ga_notiz_zeigen: "Nachricht an die Gastgeber"
+    ga_notiz_zeigen: "Nachricht an die Gastgeber",
+    tag_1: "Tag",
+    tage_n: "Tage",
+    jahr_standard: "An allen anderen Tagen: {n} – das ist dein Standard-Design. Tippe unten auf eine Vorlage, um es zu ändern.",
+    jahr_eigene: "Eigene Einträge",
+    jahr_start: "Ab",
+    jahr_dauer: "Dauer",
+    jahr_dazu: "Hinzufügen",
+    jahr_ab: "ab {d}",
+    jahr_eigene_h: "Jedes Jahr wieder, 1 bis 14 Tage – z. B. dein eigenes Design am Hochzeitstag. Eigene Einträge haben Vorrang."
   }
 };

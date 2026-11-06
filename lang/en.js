@@ -4599,7 +4599,7 @@ window.CHRONIK_SPRACHEN.en = {
     gk_zusagen: "{n} yes",
     gk_absagen: "{n} no",
     jahr_jetzt: "Now: {n}",
-    jahr_welche: "These designs take turns:",
+    jahr_welche: "These designs appear for up to two weeks:",
     design_suchen: "Search designs …",
     design_nichts: "No design found.",
     rf_suche_label: "Search",
@@ -4636,6 +4636,15 @@ window.CHRONIK_SPRACHEN.en = {
     vl_knopf_h: "Create a new event using this one as a template",
     gast_kommt_fehlt: "Please choose first: are you coming or not?",
     ga_begl_zeigen: "Ask about plus-ones",
-    ga_notiz_zeigen: "Message to the hosts"
+    ga_notiz_zeigen: "Message to the hosts",
+    tag_1: "day",
+    tage_n: "days",
+    jahr_standard: "On all other days: {n} – your standard design. Tap a template below to change it.",
+    jahr_eigene: "Your own entries",
+    jahr_start: "From",
+    jahr_dauer: "Length",
+    jahr_dazu: "Add",
+    jahr_ab: "from {d}",
+    jahr_eigene_h: "Every year again, 1 to 14 days – e.g. your own design on your anniversary. Your entries take priority."
   }
 };
